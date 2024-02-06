@@ -20,8 +20,7 @@ use App\Http\Controllers\Admin\FinanceController;
 
 use App\Http\Controllers\Admin\PatientController;
 use App\Http\Controllers\Admin\PharmacyController;
-
-
+use App\Http\Controllers\ReceptionistController;
 
 // Route::group(['prefix'=>'admin','middleware'=>['admin:admin']],function(){
 //  Route::get('/login', [AdminController::class, 'loginForm']);
@@ -41,20 +40,22 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
-Route::middleware(['auth:sanctum,admin', 'verified'])->get('/admin/dashboard', function () {
-    return view('admin.dashboard');
-})->name('dashboard');
+
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/doctor',[PatientController::class,'index']);
-Route::get('docDetail/{doctor}',[PatientController::class,'docDetail'])->name('docDetail');
-Route::get('/blogList',[PatientController::class,'blogList'])->name('blogList');
-Route::get('/blogDetail',[PatientController::class,'blogDetail'])->name('blogDetail');
 
-Route::group(['prefix'=>'admin','middleware'=>['admin:admin']],function(){
-    Route::get('/login', [AdminController::class, 'loginForm']);
-    Route::post('/login', [AdminController::class, 'store'])->name('admin.login');
+Route::get('admin/login', [AdminController::class, 'loginForm']);
+Route::post('admin/login', [AdminController::class, 'store'])->name('admin.login');
+Route::get('receptionist/login', [ReceptionistController::class, 'loginForm']);
+Route::post('receptionist/login', [ReceptionistController::class, 'store'])->name('receptionist.login');
+// Route::middleware(['auth:sanctum,admin', 'verified'])->get('/admin/dashboard', function () {
+//     return view('admin.dashboard');
+// })->name('dashboard');
+
+Route::group(['prefix'=>'admin','middleware'=>['auth:sanctum,admin', 'verified']],function(){
+    
+    
     Route::prefix('doctor')->group(function () {
         Route::get('/list',[DoctorController::class,'index'])->name('doctor.list');
         Route::get('/add',[DoctorController::class,'add']);
@@ -99,15 +100,19 @@ Route::group(['prefix'=>'admin','middleware'=>['admin:admin']],function(){
         Route::post('/update/{patient}',[PatientController::class,'update'])->name('patient.update');
     });
    
-    Route::prefix('dashboard')->group(function () {
+    
         Route::get('/dashboard',function () {
             return view('admin.dashboard');
         })->name('dashboard');
-    });
+    
    
    
 
 });
+Route::middleware(['auth:sanctum,receptionist', 'verified'])->get('/receptionist/dashboard', function () {
+    return view('rec.dashboard');
+})->name('dashboard');
+
 Route::get('/pp',function () {
     return view('receptionist.pharmacy');
 });

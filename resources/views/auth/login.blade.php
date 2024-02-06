@@ -1,5 +1,5 @@
 {{-- @livewireStyles --}}
-<a href="/blogList" wire:navigate>Go</a>
+{{-- <a href="/blogList" wire:navigate>Go</a> --}}
 <x-guest-layout>
     <x-authentication-card>
         <x-slot name="logo">
@@ -13,19 +13,31 @@
                 {{ session('status') }}
             </div>
         @endif
-
+<form action="{{route('logout')}}" method="post">
+@csrf
+<button>Logout</button></form>
         <form method="POST" action="{{ isset($guard) ? url($guard.'/login') :  route('login') }}">
             @csrf
-
+            
             <div>
                 <x-label for="email" value="{{ __('Email') }}" />
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')"  autofocus autocomplete="username" />
+                <p>@error('email')
+                    <span class="text-red-600">{{ $message }}</span>
+                    @enderror
+                </p>
             </div>
 
             <div class="mt-4">
                 <x-label for="password" value="{{ __('Password') }}" />
                 <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
+                <p>@error('password')
+                    <span class="text-red-600">{{ $message }}</span>
+                    @enderror
+                </p>
             </div>
+
+
 
             <div class="block mt-4">
                 <label for="remember_me" class="flex items-center">

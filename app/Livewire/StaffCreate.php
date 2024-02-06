@@ -2,8 +2,10 @@
 
 namespace App\Livewire;
 
+use App\Models\Admin;
 use App\Models\Staff;
 use Livewire\Component;
+use App\Models\Receptionist;
 use Livewire\WithFileUploads;
 use Livewire\Attributes\Validate;
 use Illuminate\Support\Facades\Hash;
@@ -79,6 +81,28 @@ class StaffCreate extends Component
                 
             ]
         );
+        if($this->role == 'admin'){
+            Admin::create(
+                [
+                    'name' => $this->name,
+                    'email' => $this->email,
+                    'password' =>'EverCareAdmin',
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ]
+                );
+        }
+        if($this->role =='receptionist'){
+            Receptionist::create(
+                [
+                    'name' => $this->name,
+                    'email' => $this->email,
+                    'password' =>'EverCareStaff',
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ]
+                );
+        }
         session()->flash('status', 'Staff successfully added.');
         $this->image='';
 

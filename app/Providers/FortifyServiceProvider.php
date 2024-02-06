@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ReceptionistController;
+
 use App\Actions\Fortify\AttemptToAuthenticate; // add new line
 use App\Actions\Fortify\RedirectIfTwoFactorAuthenticatable;
 // use Laravel\Fortify\Actions\RedirectIfTwoFactorAuthenticatable;
@@ -11,6 +13,7 @@ use App\Actions\Fortify\CreateNewUser;
 use App\Actions\Fortify\ResetUserPassword;
 use App\Actions\Fortify\UpdateUserPassword;
 use App\Actions\Fortify\UpdateUserProfileInformation;
+use App\Models\Receptionist;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
@@ -25,10 +28,30 @@ class FortifyServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->when([AdminController::class,AttemptToAuthenticate::class,RedirectIfTwoFactorAuthenticatable::class])
+        // $this->app->when([AdminController::class,AttemptToAuthenticate::class,RedirectIfTwoFactorAuthenticatable::class])
+        // ->needs(StatefulGuard::class)
+        // ->give(function (){
+        //     return Auth::guard('admin');
+        // });
+        // // $this->app->when([ReceptionistController::class,AttemptToAuthenticate::class,RedirectIfTwoFactorAuthenticatable::class])
+        // // ->needs(StatefulGuard::class)
+        // // ->give(function (){
+        // //     return Auth::guard('receptionist');
+        // // });
+        $this->app->when([
+            AdminController::class,
+            ReceptionistController::class, // Add StaffController to the list
+            AttemptToAuthenticate::class,
+            RedirectIfTwoFactorAuthenticatable::class
+        ])
         ->needs(StatefulGuard::class)
-        ->give(function (){
-            return Auth::guard('admin');
+        ->give(function () {
+            // Check the current route or other conditions to determine which guard to use
+            if (request()->is('receptionist/*')) {
+                return Auth::guard('receptionist');
+            } else {
+                return Auth::guard('admin');
+            }
         });
     }
 
