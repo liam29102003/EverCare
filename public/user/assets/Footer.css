@@ -1,0 +1,160 @@
+body{
+    margin:0;
+    padding:0;
+}
+
+/* This is Article Css */
+.articleHeader{
+    text-align: center;
+    margin:30px;
+}
+
+.cardContainer{
+    width:100%;
+    flex-wrap:wrap;
+}
+
+.articleCard{
+    width:30%;
+    height:450px;
+    margin:10px;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.12);
+}
+.defaultColor{
+    background-color:#16d4ad77;
+}
+.articleImage{
+    height:100%;
+    transition: all 0.7s;
+}
+.articleImageDiv{
+    height:60%;
+    overflow: hidden;
+}
+a{
+    text-decoration: none;
+    color:inherit;
+}
+.articleTitle{
+    height:70%;
+    overflow: hidden;
+}
+.articleContent{
+    height:30%;
+}
+.pTitle{
+    top:0;
+    left:0;
+    background-color:#16d4ad77;
+    padding:10px 20px;
+    color:white;
+}
+.learnMore:hover{
+    background-color:#16d4edaa;
+}
+.articleImage:hover{
+        scale:1.2;
+}
+.hr{
+    width:150px;
+    height:3px;
+    background-color: #16d4ed;
+    margin-top:5px;
+}
+.viewAll{
+    padding:10px 30px;
+    background-color: #16d4ed;
+    display: inline;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* This is Article Css */
+.footerContainer{
+    background-color: red;
+    flex-wrap: wrap;
+    padding: 20px;
+    background-color: #16d4ad77;
+    color: white;
+}
+
+.footerSection{
+    width: 30%;
+}
+
+.footerInfo{
+    color:gray;
+    margin:20px;
+}
+.makeApp{
+    padding:10px 20px;
+    background-color: #16d4ed;
+}
+.contactInfo{
+    margin: 5px;
+    color:gray;
+    text-decoration: underline;
+}
+
+.icon{
+    font-size: 30px;
+    margin:0px 20px;
+    color:gray;
+}
+.icon:hover{
+    color:black;
+    scale:1.1;
+}
+.contactInfo:hover{
+    color:black;
+    font-weight: bold;
+}
+
+/* Review */
+.reviewContainer{
+    width:100%;
+
+}
+
+.reviewCard{
+    padding:20px;
+    /* max-width: 400px; */
+    background-color: #16d4ad77;
+    /* border:2px solid; */
+    border-radius:30px;
+}
+.reviewImg{
+    width:40px;
+    height:40px;
+    border-radius: 50%;
+}
+.reviewText{
+    border-radius: 5px;
+    background-color: #16d4ad77;
+}
+
+/* .goCenter{
+    margin-left:300px;
+} */
+@media(max-width:968px){
+    .goCenter{
+        margin-left:0px;
+    }
+    
+}
+
+
+
+@media(max-width:678px){
+    .articleCard{
+        width:80%;
+
+    }
+    .footerSection{
+        width: 100%;
+        margin:20px
+    }
+    .footerTitle{
+        text-decoration: underline;
+    }
+}

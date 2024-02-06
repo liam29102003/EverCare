@@ -1,0 +1,266 @@
+/* lka */
+body {
+  background-color: white;
+  /* font-family:'IBM Plex Sans', sans-serif; */
+
+}
+
+h1 {
+  color: maroon;
+  margin-left: 40px;
+}
+.service-card{
+	height:auto; 
+	border-radius: 25% 10%; 
+	/* overflow:hidden; */
+  
+}
+.service-layout{
+  margin:auto ;
+  width: 53vh;
+  height: auto;
+  transition: all 0.7s ease-in-out;
+
+}
+.about .img{
+  width: fit-content;
+  margin: auto;
+  
+  /* background-color: #5FE2D3; */
+  border-radius: 25% 10%;
+
+
+}
+.about img{
+  transform: rotate(7deg);
+  transition: all 0.7s ease-in-out;
+
+  /* border: 2px solid grey; */
+  border-radius: 25% 10%;
+}
+.service-layout:hover{
+  scale: 1.1;
+}
+.about img:hover{
+  transform: rotate(0deg);
+
+}
+.about{
+  background-color: #16d4ad77;
+  background-position: center;
+  background-size: cover;
+  color: gray;
+  
+}
+.numbers .card{
+  border-radius: 10% / 50%;
+  color: #16d4ad77;
+  transition: all 0.5s ease-in-out;
+
+}
+.numbers .card:hover{
+  scale: 1.1;
+
+}
+
+
+.patients, .doctors, .staff{
+  animation: increaseNumber 3s ease-in-out forwards ;
+}
+@keyframes increaseNumber {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }}
+  /* ********************************************************* */
+  /* lymo */
+  .hero{
+    /* background: url('{{asset("")}}'),rgba(0,0,0,0.5); */
+    z-index:1;
+    background-repeat:no-repeat;
+    background-size:cover;
+    margin:0;
+    padding:0;
+    width: 100%; /* Ensures the container takes full width */
+    height: 100vh; 
+    border-bottom: 1px solid;
+    margin-bottom: 30px;
+}
+.design{
+  position:sticky;
+  top:0;
+  z-index:5;
+}
+.scrollMenu{
+  font-weight: bold;
+  font-size: 17px;
+}
+i{
+  color: #16d4ad77;
+}
+
+.logo{
+    cursor: pointer;
+    width: 160px;
+    height: 57px;
+    margin-right: auto;
+    margin-top: 2px;
+    display: flex;
+}
+
+@media(max-width: 800px){
+    .sidebar{
+        background-color:white;
+    }
+}
+
+
+
+.navbar{
+    margin-top:0;
+    padding-top:0;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2px;
+    background-color: white;
+    position: sticky;
+    top:0;
+    transition: all 1s;
+}
+.btnn{
+   
+    padding: 5px 15px;
+    background-color: #16d4ad77;
+    border-radius: 50px;
+    cursor:pointer;
+    transition: all 0.3s ease 0s;
+    margin-top: 0;
+    font-family: "Roboto";
+    font-weight: 600;
+    font-size: 16px;
+    margin-left: 7px;
+    margin-right:7px;
+    border: 1px solid #16d4ed;
+    
+    
+    
+
+}
+
+.btn-dg{
+    margin-left: 1px;
+}
+.nav-title{
+    margin:0;
+}
+
+.btnn:hover{
+
+    background-color:white;
+    color:#16d4ed;
+}
+
+ul{
+    padding:0;
+}
+
+.nav-item{
+    
+    display: inline-block;
+     padding: 0px 20px ;
+     background-color: transparent;
+     margin-top: 7px;
+     
+     margin-right:10px;
+     padding-right:50px;
+    margin-right: 50px;
+    padding-right: 10px;
+    justify-content:center;
+    align-items:center;
+     transition: all 0.3s ease 0s;
+ }
+
+.nav-link{
+    display: flex;
+    background-color: transparent;
+    margin-top: 3px;
+   margin-left: 20px;
+    /*margin-right: 1px;*/
+    padding-right: 10px;
+    justify-content:flex-end;
+    align-items:center;
+
+    transition: all 0.3s ease 0s;
+}
+
+.nav-link:hover{
+    border-radius:20px;
+    border:3px;
+    background-color:lightblue;
+    justify-content:flex-end;
+    align-items:center;
+    display:flex;
+}
+
+
+
+.container1{
+
+    margin-top:200px;
+}
+
+.btn2{
+    
+    font-weight: 100;
+    padding: 7px 25px;
+    background-color: #16d4ad77;
+    border-radius: 50px;
+    cursor:pointer;
+    transition: all 0.3s ease 0s;
+    margin-left:auto;
+    border: 0px solid;
+    color: white;
+
+}
+
+.btn2:hover{
+
+    background-color:#75BFEC;
+    border:none;
+}
+
+li,a,button {
+font-family: "Roboto";
+    font-weight: 600;
+    font-size: 16px;
+}
+
+
+h2{
+    font-family:"Roboto";
+    font-weight: 900;
+    font-size:60px;
+    margin-left:auto;
+    color: #75BFEC;
+
+
+}
+
+.p1{
+    font-size: 19px;
+    font-family:"Roboto";
+    margin-left: auto;
+    
+
+}
+
+.ptext{
+    font-size:23px;
+    font-family:"Roboto";
+    margin-left: auto;
+}
+
