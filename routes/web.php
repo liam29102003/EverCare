@@ -29,7 +29,19 @@ use App\Http\Controllers\ReceptionistController;
 
 
 
-
+Route::get('/', function () {
+    return view('welcome');
+})->name('home');
+Route::get('/login',function(){
+    return view('login');
+})->name('login_page');
+Route::get('/new/appointment',[AppointmentController::class,'newAppointment'])->name('new#appointment');
+Route::get('/doctor/list',[DoctorController::class,'doctorListPage'])->name('doctor#list');
+Route::get('/doctor/detailPage',[DoctorController::class,'doctorDetailPage'])->name('doctor#detailPage');
+Route::get('admin/login', [AdminController::class, 'loginForm']);
+Route::post('admin/login', [AdminController::class, 'store'])->name('admin.login');
+Route::get('receptionist/login', [ReceptionistController::class, 'loginForm']);
+Route::post('receptionist/login', [ReceptionistController::class, 'store'])->name('receptionist.login');
 
 Route::middleware([
     'auth:sanctum',
@@ -40,15 +52,6 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('admin/login', [AdminController::class, 'loginForm']);
-Route::post('admin/login', [AdminController::class, 'store'])->name('admin.login');
-Route::get('receptionist/login', [ReceptionistController::class, 'loginForm']);
-Route::post('receptionist/login', [ReceptionistController::class, 'store'])->name('receptionist.login');
 // Route::middleware(['auth:sanctum,admin', 'verified'])->get('/admin/dashboard', function () {
 //     return view('admin.dashboard');
 // })->name('dashboard');
