@@ -29,12 +29,14 @@
                      
                        
                         <div class="row mb-3">
-                            <label class="col-sm-3 col-form-label" for="basic-default-name"><i
+                            <div class="col-md-10 offset-md-1">
+
+                            <label class=" col-form-label" for="basic-default-name"><i
                                     class="fa-solid fa-signature me-2"></i>Name :</label>
 
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" id="basic-default-name" name='name'
-                                    wire:model='name' placeholder="John Doe" />
+                            <div class="">
+                                <input type="text" class="form-control shadow-sm" id="basic-default-name" name='name'
+                                    wire:model='name' placeholder="John Doe" style="border: 0"/>
                                 <small class="text-danger">
                                     @error('name')
                                         {{ $message }}
@@ -42,15 +44,18 @@
                                 </small>
 
                         </div>
+                            </div>
 
                         </div>
                         <div class="row mb-3">
-                            <label class="col-sm-3 col-form-label" for="basic-default-name"><i
+                            <div class="col-md-10 offset-md-1">
+
+                            <label class=" col-form-label" for="basic-default-name"><i
                                     class="fa-solid fa-signature me-2"></i>Amount :</label>
 
-                            <div class="col-sm-9">
-                                <input type="number" class="form-control" id="basic-default-name" name='price'
-                                    wire:model='amount' placeholder="1*****MMK" />
+                            <div class="">
+                                <input type="number" class="form-control shadow-sm" id="basic-default-name" name='price'
+                                    wire:model='amount' placeholder="1*****MMK" style="border: 0"/>
                                 <small class="text-danger">
                                     @error('amount')
                                         {{ $message }}
@@ -58,16 +63,21 @@
                                 </small>
 
                             </div>
+                            </div>
                         </div>
-                        <div class="row justify-content-end">
-                            <div class="col-sm-9 ">
-                                <button type="submit" class="btn btn-primary  d-flex align-items-center"
-                                    style="background:#9d926a; color:#fffdd2; border-color:#9d926a !important ">
+                        <div class="row">
+                            <div class="col-md-10 offset-md-1 d-flex justify-content-between">
+
+                                <button type="submit" class="btn btn-primary border-0 d-flex align-items-center"
+                                style="background:#9d926a; color:#fffdd2; border-color:#9d926a !important ">
                                     <div>Send</div>
 
                                     <div class="spinner-border ms-2" wire:loading wire:target='' role="status">
                                         <span class="visually-hidden">Loading...</span>
                                     </div>
+                                </button>
+                                <button type="reset" class="btn btn-primary border-0 d-flex align-items-center" style="background:#9d926a; color:#fffdd2; border-color:#9d926a !important ">
+                                    Clear
                                 </button>
                             </div>
                         </div>

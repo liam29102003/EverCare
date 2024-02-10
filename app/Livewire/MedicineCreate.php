@@ -61,7 +61,7 @@ class MedicineCreate extends Component
         session()->flash('status', 'Doctor successfully added.');
 
         $this->reset();
-        return $this->redirect('/pharmacy/medicine/list',navigate:true);
+        return $this->redirect('/admin/pharmacy/list',navigate:true);
     }
     public function render()
     {

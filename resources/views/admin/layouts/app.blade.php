@@ -64,42 +64,43 @@
     <script src="{{ asset('admin/assets/js/config.js') }}" data-navigate-track></script>
     <link rel="stylesheet" href="{{ asset('admin/assets/css/custom.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-      @yield('styles')
+    
+    @yield('styles')
 <script>
-        // JavaScript control for the dropdown
-        document.addEventListener('livewire:navigated', function() {
-            var dropdownButton = document.getElementById('hello');
-            var dropdownMenu = document.querySelector('.dropdown-menu1');
-            console.log('Hello')
+    // JavaScript control for the dropdown
+    document.addEventListener('livewire:navigated', function() {
+        var dropdownButton = document.getElementById('hello');
+        var dropdownMenu = document.querySelector('.dropdown-menu1');
+        console.log('Hello')
 
-            dropdownButton.addEventListener('click', function() {
-                // Toggle the 'show' class to display/hide the dropdown menu
-                dropdownMenu.classList.toggle('d-none');
-            });
-
-            // Close the dropdown when clicking outside of it
-            document.addEventListener('click', function(event) {
-                if (!dropdownButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
-                    dropdownMenu.classList.add('d-none');
-                }
-            });
-            var dropdownButton1 = document.getElementById('hello1');
-            var dropdownMenu2 = document.querySelector('.dropdown-menu2');
-            console.log('Hello')
-
-            dropdownButton1.addEventListener('click', function() {
-                // Toggle the 'show' class to display/hide the dropdown menu
-                dropdownMenu2.classList.toggle('d-none');
-            });
-
-            // Close the dropdown when clicking outside of it
-            document.addEventListener('click', function(event) {
-                if (!dropdownButton1.contains(event.target) && !dropdownMenu2.contains(event.target)) {
-                    dropdownMenu2.classList.add('d-none');
-                }
-            });
+        dropdownButton.addEventListener('click', function() {
+            // Toggle the 'show' class to display/hide the dropdown menu
+            dropdownMenu.classList.toggle('d-none');
         });
-    </script>
+
+        // Close the dropdown when clicking outside of it
+        document.addEventListener('click', function(event) {
+            if (!dropdownButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                dropdownMenu.classList.add('d-none');
+            }
+        });
+        var dropdownButton1 = document.getElementById('hello1');
+        var dropdownMenu2 = document.querySelector('.dropdown-menu2');
+        console.log('Hello')
+
+        dropdownButton1.addEventListener('click', function() {
+            // Toggle the 'show' class to display/hide the dropdown menu
+            dropdownMenu2.classList.toggle('d-none');
+        });
+
+        // Close the dropdown when clicking outside of it
+        document.addEventListener('click', function(event) {
+            if (!dropdownButton1.contains(event.target) && !dropdownMenu2.contains(event.target)) {
+                dropdownMenu2.classList.add('d-none');
+            }
+        });
+    });
+</script>
   <style>
     .select{
       background-color:#FFFDD1 !important;
@@ -185,8 +186,10 @@
   
             <ul class="menu-inner py-1 text-center" style="margin: auto">
               <!-- Dashboard -->
+              @if(request()->segment(1) === 'admin')
+            
               <li class="menu-item  " >
-                <a href="{{route('dashboard')}}" class="menu-link  mb-0 {{request()->segment(2) === 'dashboard' ? 'select' : '' }}" style="      color: #9d926a ;
+                <a href="{{ route('dashboard') }}" class="menu-link  mb-0 {{ request()->segment(2) === 'dashboard' ? 'select' : '' }}" style="      color: #9d926a ;
                 border-bottom: 3px solid #9d926aa;">
                     <i class="fa-solid fa-user-tie me-3 fs-5"></i>
                     <div data-i18n="Analytics">Dashboard</div>
@@ -194,33 +197,49 @@
               </li>
             
               <li class="menu-item ">
-                <a href="{{ route('doctor.list') }}" wire:navigate  class="menu-link {{request()->segment(2) === 'doctor' ? 'select' : '' }}" style="      color: #9d926a ;
+                <a href="{{ route('doctor.list') }}" wire:navigate  class="menu-link {{ request()->segment(2) === 'doctor' ? 'select' : '' }}" style="      color: #9d926a ;
                 border-bottom: 3px solid #9d926aa;">
                     <i class="fa-solid fa-user-doctor me-3 fs-5"></i>
                   <div data-i18n="Analytics">doctor</div>
                 </a>
               </li>
               <li class="menu-item ">
-                <a href="{{ route('staff.list') }}" wire:navigate  class="menu-link {{request()->segment(2) === 'staff' ? 'select' : '' }}" style="      color: #9d926a ;
+                <a href="{{ route('staff.list') }}" wire:navigate  class="menu-link {{ request()->segment(2) === 'staff' ? 'select' : '' }}" style="      color: #9d926a ;
                 border-bottom: 3px solid #9d926aa;">
                     <i class="fa-solid fa-user-nurse me-3 fs-5"></i>
                   <div data-i18n="Analytics">Staff</div>
                 </a>
               </li>
               <li class="menu-item ">
-                <a href="{{route('pharamcy.list')}}" wire:navigate  class="menu-link {{request()->segment(2) === 'pharmacy' ? 'select' : '' }}" style="      color: #9d926a ;
+                <a href="{{ route('pharamcy.list') }}" wire:navigate  class="menu-link {{ request()->segment(2) === 'pharmacy' ? 'select' : '' }}" style="      color: #9d926a ;
                 border-bottom: 3px solid #9d926aa;">
                     <i class="fa-solid fa-pills me-3 fs-5"></i>
                   <div data-i18n="Analytics">Medicine</div>
                 </a>
               </li>
               <li class="menu-item ">
-                <a href="{{route('finance.expense.list')}}" wire:navigate  class="menu-link {{request()->segment(2) === 'finance' ? 'select' : '' }}" style="      color: #9d926a ;
+                <a href="{{ route('finance.expense.list') }}" wire:navigate  class="menu-link {{ request()->segment(2) === 'finance' ? 'select' : '' }}" style="      color: #9d926a ;
                 border-bottom: 3px solid #9d926aa;">
                     <i class="fa-solid fa-coins me-3"></i>
                   <div data-i18n="Analytics">Finance</div>
                 </a>
               </li>
+              @elseif(request()->segment(1) === 'receptionist')
+              <li class="menu-item ">
+                <a href="{{ route('pharamcy.list') }}" wire:navigate  class="menu-link {{ request()->segment(2) === 'pharmacy' ? 'select' : '' }}" style="      color: #9d926a ;
+                border-bottom: 3px solid #9d926aa;">
+                    <i class="fa-solid fa-pills me-3 fs-5"></i>
+                  <div data-i18n="Analytics">Medicine</div>
+                </a>
+              </li>
+              <li class="menu-item ">
+                <a href="{{ route('receptionist.prescription.list') }}" wire:navigate  class="menu-link {{ request()->segment(2) === 'pharmacy' ? 'select' : '' }}" style="      color: #9d926a ;
+                border-bottom: 3px solid #9d926aa;">
+                    <i class="fa-solid fa-pills me-3 fs-5"></i>
+                  <div data-i18n="Analytics">Prescription</div>
+                </a>
+              </li>
+              @endif
   
               <!-- Layouts -->
               {{-- <li class="menu-item">
@@ -280,7 +299,7 @@
                   <li class="nav-item  ">
                     <div  class="d-block" id="hello1" >
                       <div class="avatar avatar-online   ">
-                        <img src="{{asset('admin/assets/img/avatars/1.png')}}" alt class="w-px-40 h-auto rounded-circle" />
+                        <img src="{{ asset('admin/assets/img/avatars/1.png') }}" alt class="w-px-40 h-auto rounded-circle" />
                       </div>
                     </div>
                     <div class="card dropdown-menu2  d-none" style="margin-top:300px;">
@@ -290,7 +309,7 @@
                             <div class="d-flex">
                               <div class="flex-shrink-0 me-3">
                                 <div class="avatar avatar-online">
-                                  <img src="{{asset('admin/assets/img/avatars/1.png')}}" alt class="w-px-40 h-auto rounded-circle" />
+                                  <img src="{{ asset('admin/assets/img/avatars/1.png') }}" alt class="w-px-40 h-auto rounded-circle" />
                                 </div>
                               </div>
                               <div class="flex-grow-1">
@@ -320,7 +339,7 @@
                           <div class="dropdown-divider"></div>
                         </li>
                         <li>
-                          <form action="{{route('logout')}}" method="post">
+                          <form action="{{ route('logout') }}" method="post">
                           @csrf
                           <button type="submit" class="btn btn-sm">logout</button>
                         </form>
@@ -397,7 +416,7 @@
 
       </div>
       
-      @livewireScripts()
+      {{-- @livewireScripts() --}}
       {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" data-navigate-track integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> --}}
 
     <script src="{{ asset('admin/assets/vendor/libs/jquery/jquery.js') }}" data-navigate-track></script>

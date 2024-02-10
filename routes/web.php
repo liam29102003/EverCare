@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Admin\StaffController;
 use App\Http\Controllers\Admin\DoctorController;
-use App\Http\Controllers\Admin\FinanceController;
+use App\Http\Controllers\ReceptionistController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,9 +18,10 @@ use App\Http\Controllers\Admin\FinanceController;
 |
 */
 
+use App\Http\Controllers\Admin\FinanceController;
 use App\Http\Controllers\Admin\PatientController;
 use App\Http\Controllers\Admin\PharmacyController;
-use App\Http\Controllers\ReceptionistController;
+use App\Http\Controllers\receptionist\PrescriptionController;
 
 // Route::group(['prefix'=>'admin','middleware'=>['admin:admin']],function(){
 //  Route::get('/login', [AdminController::class, 'loginForm']);
@@ -35,13 +36,13 @@ Route::get('/', function () {
 Route::get('/login',function(){
     return view('login');
 })->name('login_page');
-Route::get('/new/appointment',[AppointmentController::class,'newAppointment'])->name('new#appointment');
+// Route::get('/new/appointment',[AppointmentController::class,'newAppointment'])->name('new#appointment');
 Route::get('/doctor/list',[DoctorController::class,'doctorListPage'])->name('doctor#list');
 Route::get('/doctor/detailPage',[DoctorController::class,'doctorDetailPage'])->name('doctor#detailPage');
-Route::get('admin/login', [AdminController::class, 'loginForm']);
+Route::get('admin/login', [AdminController::class, 'loginForm'])->name('admin.login');
 Route::post('admin/login', [AdminController::class, 'store'])->name('admin.login');
-Route::get('receptionist/login', [ReceptionistController::class, 'loginForm']);
-Route::post('receptionist/login', [ReceptionistController::class, 'store'])->name('receptionist.login');
+Route::get('receptionist/login', [ReceptionistController::class, 'loginForm'])->name('receptionist.login');
+Route::post('receptionist/login', [ReceptionistController::class, 'store']);
 
 Route::middleware([
     'auth:sanctum',
@@ -61,7 +62,7 @@ Route::group(['prefix'=>'admin','middleware'=>['auth:sanctum,admin', 'verified']
     
     Route::prefix('doctor')->group(function () {
         Route::get('/list',[DoctorController::class,'index'])->name('doctor.list');
-        Route::get('/add',[DoctorController::class,'add']);
+        Route::get('/add',[DoctorController::class,'add'])->name('doctor.add');
         Route::post('/addDoctor',[DoctorController::class,'addDoctor'])->name('doctor.store');
         Route::get('/details/{doctor}',[DoctorController::class,'details'])->name('doctor.details');
         Route::get('/edit/{doctor}',[DoctorController::class,'edit'])->name('doctor.edit');
@@ -116,12 +117,21 @@ Route::middleware(['auth:sanctum,receptionist', 'verified'])->get('/receptionist
     return view('rec.dashboard');
 })->name('dashboard');
 
-Route::get('/pp',function () {
-    return view('receptionist.pharmacy');
+Route::prefix('receptionist')->middleware(['auth:sanctum,receptionist', 'verified'])->group(function () {
+    Route::get('/dashboard',function () {
+        return view('rec.dashboard');
+    })->name('dashboard');
+    Route::get('/pharmacy',function () {
+        return view('receptionist.pharmacy');
+    })->name('pharmacy');
+    Route::get('/cart',function () {
+        return view('receptionist.cart');
+    })->name('cart');
+    Route::get('/prescription',[PrescriptionController::class,'list'])->name('receptionist.prescription.list');
+
 });
-Route::get('/cart',function () {
-    return view('receptionist.cart');
-})->name('cart');
+
+
 
 
 

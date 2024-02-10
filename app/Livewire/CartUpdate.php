@@ -70,10 +70,10 @@ class CartUpdate extends Component
         if(empty($myAssociativeArray))
         {
             session()->flash('status', 'Cart is empty!');
-            return $this->redirect('/pp',navigate:true);
+            return $this->redirect('/receptionist/pharmacy',navigate:true);
         }
         session()->flash('status', 'Item has been removed from cart!');
-        return $this->redirect('/cart',navigate:true);
+        return $this->redirect('/receptionist/cart',navigate:true);
     }
 
     public function render()

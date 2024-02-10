@@ -1,4 +1,3 @@
-@props(['text2'])
 
 <div class="container-fluid">
     <div class="row">
@@ -14,13 +13,12 @@
   </div>
     <div class="d-flex justify-content-between mb-0  pb-0">
         <div class="mb-0">
-            <h2 class="card-header" style="color:#9d926a">Doctor list</h2>
+            <h2 class="card-header" style="color:#9d926a">prescription list</h2>
         </div>
         <div class="mb-0">
             <div class="mt-3 me-2 d-flex align-items-center ">
               <i class="fa-solid fa-magnifying-glass"></i>
               <input type="text" class="form-control  ms-2 " wire:model.live="search" placeholder="Search.....">
-              <a href="{{route('doctor.add')}}" wire:navigate class="btn btn-primary ms-2"  style="background:#9d926a; color:#fffdd2; border-color:#9d926a !important "><i class="fa-solid fa-plus"></i></a>
 
             </div>
               
@@ -34,33 +32,30 @@
         <table class="table" >
             <thead  >
                 <tr style="border: 2px solid #faf8e3; background-color:#faf8e3" class="shadow">
-                    <th style="color:#9d926a" class="btn" wire:click='sorting("name")'>Name @if ($orderName === 'name')
-                        <span>{{ $type === 'asc' ? '▲' : '▼' }}</span>
-                    @endif</th>                    
-                    <th style="color:#9d926a" wire:click='sorting("speciality")'>Speciality @if ($orderName === 'speciality')
-                        <span>{{ $type === 'asc' ? '▲' : '▼' }}</span>
-                    @endif</th>
-                    <th style="color:#9d926a" wire:click='sorting("qualification")'>Qualification @if ($orderName === 'qualification')
+                    <th style="color:#9d926a" class="btn" >Patient name </th>                    
+                    <th style="color:#9d926a" >Doctor name </th>
+                    <th style="color:#9d926a" wire:click='sorting("disease")'>disease @if ($orderName === 'disease')
                         <span>{{ $type === 'asc' ? '▲' : '▼' }}</span>
                     @endif</th>
+                    
                     <th style="color:#9d926a">Actions</th>
                 </tr>
             </thead>
             <tbody class="table-border-bottom-0">
-                @foreach ($doctors as $doctor)
-                <tr wire:key="{{ $doctor->id }}" style="border-top:2px solid #FFFEF2; border-bottom:2px solid #FFFEF2; border-top:0;" class="shadow-sm mb-3">
-                    <td><img src="{{ asset('storage/' . $doctor->image) }}" alt="" width="30"
-                                class="rounded-circle me-2"> <strong>{{ $doctor->name }}</strong></td>
-                        <td>{{ $doctor->speciality }}</td>
-                        <td><span class="badge bg-label-primary me-1">{{ $doctor->qualification }}</span></td>
+                @foreach ($prescriptions as $prescription)
+                <tr wire:key="{{ $prescription->id }}" style="border-top:2px solid #FFFEF2; border-bottom:2px solid #FFFEF2; border-top:0;" class="shadow-sm mb-3">
+                    <td><img src="{{ asset('storage/' . $prescription->image) }}" alt="" width="30"
+                                class="rounded-circle me-2"> <strong>{{ $prescription->patient->name }}</strong></td>
+                        <td>{{ $prescription->speciality }}</td>
+                        <td><span class="badge bg-label-primary me-1">{{ $prescription->disease }}</span></td>
                         <td>
-                            <a href="{{ route('doctor.details', $doctor->id) }}" wire:navigate class=" text-warning"><i
+                            <a href="{{ route('prescription.details', $prescription->id) }}" wire:navigate class=" text-warning"><i
                                     class="fa-solid fa-eye"></i></a>
                             <button type="button" class="btn text-danger"
-                                x-on:click=" $dispatch('open-modal'); $wire.changevalue({{ $doctor->id }}, 'Are you sure to delete')">
+                                x-on:click=" $dispatch('open-modal'); $wire.changevalue({{ $prescription->id }}, 'Are you sure to delete')">
 
                                 <i class="fa-solid fa-trash"></i></button>
-                            <a href="{{ route('doctor.edit', $doctor->id) }}" wire:navigate class="text-success"><i
+                            <a href="{{ route('prescription.edit', $prescription->id) }}" wire:navigate class="text-success"><i
                                     class="fa-solid fa-pen-to-square"></i></a>
                         </td>
                     </tr>
@@ -69,7 +64,7 @@
             </tbody>
         </table>
         <div class="text-white ms-3 mt-3" >
-        {{ $doctors->links() }}
+        {{ $prescriptions->links() }}
 
         </div>
 

@@ -13,9 +13,7 @@
                 {{ session('status') }}
             </div>
         @endif
-<form action="{{route('logout')}}" method="post">
-@csrf
-<button>Logout</button></form>
+
         <form method="POST" action="{{ isset($guard) ? url($guard.'/login') :  route('login') }}">
             @csrf
             

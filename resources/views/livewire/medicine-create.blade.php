@@ -1,32 +1,32 @@
-<div class="container-fluid flex-grow-1 container-p-y " >
+<div class="container-fluid flex-grow-1 container-p-y ">
     {{-- <h4 class="fw-bold py-3 mb-4">Appointment Form</h4> --}}
 
 
     <!-- Basic Layout & Basic with Icons -->
     <div class="row">
         <!-- Basic Layout -->
-        <div class="col-6 offset-3" >
-            <div class="card mb-4" style="background-color:#F6E8B1 !important; color:#9d926a !important" >
-                <div class="card-header d-flex align-items-center justify-content-center">
-                    <h5 class="mb-0">Add Medicine</h5>
+        <div class="col-md-6 offset-md-3">
+            <div class="card mb-4" style="background-color:#F6E8B1 !important; color:#9d926a !important">
+                <div class="card-header pb-2 mb-0   d-flex align-items-center justify-content-center">
+                    <h3 class="mb-0 ">Add Medicine</h3>
                     <!-- <small class="text-muted float-end">Default label</small> -->
                 </div>
                 <div class="card-body">
                     <form method="post" wire:submit='save' action="" enctype="multipart/form-data">
                         @csrf
 
-                        <div class="row mb-3">
+                        <div class="row mb-2">
                             @if (session('status'))
                                 <livewire:alert>
                             @endif
 
                         </div>
 
-                        
+
 
 
                         <div class="row mb-2 w-25  p-0 tex-center" style="margin: auto">
-                            <div class="spinner-border ms-2 text-secondary text-center mb-3 " wire:loading
+                            <div class="spinner-border ms-2 text-secondary text-center mb-2 " wire:loading
                                 wire:target='image' role="status">
                                 <span class="visually-hidden">Loading...</span>
                             </div>
@@ -36,76 +36,89 @@
                             @endif
 
                         </div>
-                        <div class="row mb-3">
-                            <label class="col-sm-3 col-form-label" for="basic-default-name"><i
-                                    class="fa-solid fa-signature me-2"></i>Image :</label>
+                        <div class="row mb-2">
+                            <div class="col-md-10 offset-md-1">
+                                <label class=" col-form-label" for="basic-default-name"><i
+                                        class="fa-solid fa-signature me-2"></i>Image :</label>
+                                <br>
+                                <div class="">
+                                    <input type="file" class="form-control shadow-sm" id="basic-default-name" name='image'
+                                        wire:model='image' placeholder="John Doe" style="border: 0"/>
+                                    <small class="text-danger">
+                                        @error('image')
+                                            {{ $message }}
+                                        @enderror
+                                    </small>
 
-                            <div class="col-sm-9">
-                                <input type="file" class="form-control" id="basic-default-name" name='image'
-                                    wire:model='image' placeholder="John Doe" />
-                                <small class="text-danger">
-                                    @error('image')
-                                        {{ $message }}
-                                    @enderror
-                                </small>
+                                </div>
+                            </div>
 
+
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-md-10 offset-md-1">
+                                <label class=" col-form-label" for="basic-default-name"><i
+                                        class="fa-solid fa-signature me-2"></i>Name :</label>
+                                <br>
+                                <div class="">
+                                    <input type="text" class="form-control shadow-sm" id="basic-default-name" name='name'
+                                        wire:model='name' placeholder="John Doe" style="border: 0"/>
+                                    <small class="text-danger">
+                                        @error('name')
+                                            {{ $message }}
+                                        @enderror
+                                    </small>
+
+                                </div>
                             </div>
 
                         </div>
-                        <div class="row mb-3">
-                            <label class="col-sm-3 col-form-label" for="basic-default-name"><i
-                                    class="fa-solid fa-signature me-2"></i>Name :</label>
+                        <div class="row mb-2">
+                            <div class="col-md-10 offset-md-1">
 
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" id="basic-default-name" name='name'
-                                    wire:model='name' placeholder="John Doe" />
-                                <small class="text-danger">
-                                    @error('name')
-                                        {{ $message }}
-                                    @enderror
-                                </small>
+                                <label class=" col-form-label" for="basic-default-name"><i
+                                        class="fa-solid fa-signature me-2"></i>price :</label>
 
-                        </div>
+                                <div class="">
+                                    <input type="number" class="form-control shadow-sm" id="basic-default-name" name='price'
+                                        wire:model='price' placeholder="JohnDoe@gmail.com" style="border: 0" />
+                                    <small class="text-danger">
+                                        @error('price')
+                                            {{ $message }}
+                                        @enderror
+                                    </small>
 
-                        </div>
-                        <div class="row mb-3">
-                            <label class="col-sm-3 col-form-label" for="basic-default-name"><i
-                                    class="fa-solid fa-signature me-2"></i>price :</label>
-
-                            <div class="col-sm-9">
-                                <input type="number" class="form-control" id="basic-default-name" name='price'
-                                    wire:model='price' placeholder="JohnDoe@gmail.com" />
-                                <small class="text-danger">
-                                    @error('price')
-                                        {{ $message }}
-                                    @enderror
-                                </small>
-
+                                </div>
                             </div>
                         </div>
-                        <div class="row mb-3">
-                            <label class="col-sm-3 col-form-label" for="basic-default-name"><i
+                        <div class="row mb-2">
+                            <div class="col-md-10 offset-md-1">
+
+                            <label class=" col-form-label" for="basic-default-name"><i
                                     class="fa-solid fa-signature me-2"></i>Quantity :</label>
 
-                            <div class="col-sm-9">
-                                <input type="number" class="form-control" id="basic-default-name" name='Quantity'
-                                    wire:model='quantity' placeholder="" />
-                                <small class="text-danger">
+                            <div class="">
+                                <input type="number" class="form-control shadow-sm" id="basic-default-name" name='Quantity'
+                                    wire:model='quantity' placeholder=""      style="border: 0" />
+                           <small class="text-danger">
                                     @error('quantity')
                                         {{ $message }}
                                     @enderror
                                 </small>
 
                             </div>
+                            </div>
                         </div>
 
-                        <div class="row mb-3">
-                            <label class="col-sm-3 col-form-label" for="basic-default-name"><i
+                        <div class="row mb-2">
+                            <div class="col-md-10 offset-md-1">
+
+                            <label class=" col-form-label" for="basic-default-name"><i
                                     class="fa-solid fa-stethoscope me-2"></i>Manufacture</label>
 
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" id="basic-default-Manufacture"
-                                    placeholder="Neurologist" name='manufacturer' wire:model='manufacturer' />
+                            <div class="">
+                                <input type="text" class="form-control shadow-sm" id="basic-default-Manufacture"
+                                    placeholder="Neurologist" name='manufacturer' wire:model='manufacturer' style="border: 0"/>
                                 <small class="text-danger">
                                     @error('manufacturer')
                                         {{ $message }}
@@ -113,14 +126,17 @@
                                 </small>
 
                             </div>
+                            </div>
                         </div>
-                        <div class="row mb-3">
-                            <label class="col-sm-3 col-form-label" for="basic-default-name"><i
+                        <div class="row mb-2">
+                            <div class="col-md-10 offset-md-1">
+
+                            <label class=" col-form-label" for="basic-default-name"><i
                                     class="fa-solid fa-graduation-cap "></i>Side Effect :</label>
 
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" id="basic-default-qa" placeholder="MBBS"
-                                    name='side' wire:model='side' />
+                            <div class="">
+                                <input type="text" class="form-control shadow-sm" id="basic-default-qa" placeholder="MBBS"
+    style="border: 0"                                name='side' wire:model='side' />
                                 <small class="text-danger">
                                     @error('side')
                                         {{ $message }}
@@ -128,21 +144,24 @@
                                 </small>
 
                             </div>
+                            </div>
                         </div>
 
 
-                        
-                        
 
 
 
-                        <div class="row mb-3">
-                            <label class="col-sm-3 col-form-label" for="basic-default-message"><i
+
+
+                        <div class="row mb-2">
+                            <div class="col-md-10 offset-md-1">
+
+                            <label class=" col-form-label" for="basic-default-message"><i
                                     class="fa-regular fa-file-lines me-2"></i>Description :</label>
-                            <div class="col-sm-9">
-                                <textarea id="basic-default-message" name='description' class="form-control" placeholder="Brief Description Go Here"
+                            <div class="">
+                                <textarea id="basic-default-message" name='description' class="form-control shadow-sm" placeholder="Brief Descstyle="border: 0"ription Go Here"
                                     aria-label="Hi, Do you have a moment to talk Joe?" aria-describedby="basic-icon-default-message2"
-                                    wire:model='description'></textarea>
+                                    wire:model='description' style="border: 0"></textarea>
                                 <small class="text-danger">
                                     @error('description')
                                         {{ $message }}
@@ -150,16 +169,21 @@
                                 </small>
 
                             </div>
+                            </div>
                         </div>
-                        <div class="row justify-content-end">
-                            <div class="col-sm-9 ">
+                        <div class="row">
+                            <div class="col-md-10 offset-md-1 d-flex justify-content-between">
+
                                 <button type="submit" class="btn btn-primary border-0 d-flex align-items-center"
-                                    style="background: #D4CAA3 ">
+                                style="background:#9d926a; color:#fffdd2; border-color:#9d926a !important ">
                                     <div>Send</div>
 
                                     <div class="spinner-border ms-2" wire:loading wire:target='' role="status">
                                         <span class="visually-hidden">Loading...</span>
                                     </div>
+                                </button>
+                                <button type="reset" class="btn btn-primary border-0 d-flex align-items-center" style="background:#9d926a; color:#fffdd2; border-color:#9d926a !important ">
+                                    Clear
                                 </button>
                             </div>
                         </div>
