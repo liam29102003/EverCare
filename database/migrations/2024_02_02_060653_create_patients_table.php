@@ -14,13 +14,12 @@ return new class extends Migration
         Schema::create('patients', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('email')->unique();
+            $table->string('email');
+            $table->string('password');
+            $table->string('dob');
             $table->string('phone');
-            $table->date('dob');
             $table->string('gender');
             $table->string('address');
-            $table->string('bloodType');
-            $table->enum('type', ['in-person', 'online'])->default('online');
             $table->timestamps();
         });
     }

@@ -17,13 +17,13 @@ newIcon.addEventListener('click',()=>{
     }
 })
 
-window.addEventListener('resize',()=>{
+window.addEventListener('load',()=>{
     console.log(window.innerWidth)
     if(window.innerWidth<800){
         newElement.style.display = "block";
         ori1Element.style.display = "none";
         ori2Element.style.display = "none";
-
+    
     }else{
         newElement.style.display = "none";
         ori1Element.style.display = "block";
@@ -32,13 +32,13 @@ window.addEventListener('resize',()=>{
     }
 })
 
-window.addEventListener('load',()=>{
+window.addEventListener('resize',()=>{
     console.log(window.innerWidth)
     if(window.innerWidth<800){
         newElement.style.display = "block";
         ori1Element.style.display = "none";
         ori2Element.style.display = "none";
-    
+
     }else{
         newElement.style.display = "none";
         ori1Element.style.display = "block";

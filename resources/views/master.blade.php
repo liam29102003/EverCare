@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+   
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
     <link
     href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.min.css"
@@ -34,6 +36,7 @@
 <body>
 
 <!-- Nav section -->
+<!--  -->
 <div class="navContainer">
     <div class="respMenu p-3 bg-dark" style="border-bottom: 1px solid;">
         <div class="navItem mt-3"><a href="{{route('home')}}" wire:navigate class="text-decoration-none " style="color: inherit;">Home</a></div>
@@ -60,7 +63,6 @@
         </div>
         <div class="new p-1 rounded"><i class="fa-solid fa-bars"></i></div>
     </div>
-</div>
 <!-- end of nav section -->
 @yield('content')
 
