@@ -26,4 +26,12 @@ class DoctorController extends Controller
         return view('admin.doctor_edit',compact('doctor'));
     }
     
+    public function doctorListPage(){
+        return view('user.doctor_list');
+    }
+
+    public function doctorDetailPage(){
+        return view('user.doctor_detail_page');
+    }
+    
 }

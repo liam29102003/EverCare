@@ -1,0 +1,126 @@
+/* *{
+    --borderRadius--:20px;
+    --btnColour--:#000;
+    --fontColour--:white;
+    font-family:'IBM Plex Sans', sans-serif;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-style: normal;
+    --linkColor--:#000;
+    --hover--:#a5f4fc;
+    
+
+}
+.back{
+    color: #000;
+}
+
+
+form, .back{
+    /* width: 524px;
+    height: 584px; */
+    /* border-radius: var(--borderRadius--); */
+/* } */
+/* .card{
+    border-radius: 20px;
+    background-color: #000;
+
+} */
+.logIncontainer{
+    width: 524px;
+    height: 584px;
+    display: flex;
+    row-gap: 50px;
+}
+.imgContainer{
+    /* margin:auto; */
+    margin-top: 77px;
+    /* margin-left: 119px; */
+    /* margin-right: 165px; */
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+    /* position: relative; */
+    border-radius: 10px;
+
+}
+
+.password-toggle-icon {
+    position: absolute;
+    right: 1rem;
+    top: 0px;
+    bottom: 0px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+form img {
+    flex-shrink: 0;
+    width: 239.558px;
+    height: 70.241px;
+    flex-shrink: 0;
+}
+
+.passwordContainer {
+    position: relative;
+    /* background-color: #000; */
+    width: 100%;
+}
+
+.passwordContainer > input {
+    width: 100%;
+}
+
+.passwordContainer > button {
+    appearance: none;
+    background-color: transparent;
+    border: none;
+}
+
+.textContainer,.submitContainer{
+    display: flex;
+    /* width: 288px; */
+    flex-direction: column;
+    align-items: flex-start;
+    margin: auto;
+
+}
+label[for="password"] div{
+    position: absolute;
+}
+.textContainer label{
+    color: #000;
+    /* font-size: 12px; */
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px; /* 133.333% */
+    letter-spacing: 0.32px;
+}
+.textContainer div{
+    display: flex;
+    align-items:center;
+    flex-direction: row;
+    gap: 8px;
+/*    width: 100%;
+*/}
+
+input[type=text] ,input[type=password],input[type=submit], input[type=email]{
+    box-sizing: border-box;
+    display: flex;
+    padding: 11px 16px 10px 16px;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+/*    width: /*auto*/;
+} */
+
+
+/* .submitContainer{
+    background-color: var(--btnColour--);
+} */
+.logInLink, .signUpLink{
+    color: gray;
+}
+
+.form-container{
+    border: 5px double #000;
+}
