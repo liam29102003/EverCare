@@ -129,6 +129,8 @@ Route::prefix('receptionist')->middleware(['auth:sanctum,receptionist', 'verifie
         return view('receptionist.cart');
     })->name('cart');
     Route::get('/prescription',[PrescriptionController::class,'list'])->name('receptionist.prescription.list');
+    Route::get('/prescription/detail/{medicalRecord}',[PrescriptionController::class,'detail'])->name('receptionist.prescription.detail');
+
 
 });
 
