@@ -13,4 +13,5 @@ class AppointmentController extends Controller
     public function oldAppointment(){
         return view('user.old_appointment_form');
     }
+
 }

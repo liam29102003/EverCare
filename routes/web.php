@@ -19,8 +19,8 @@ use App\Http\Controllers\Admin\DoctorController;
 */
 
 use App\Http\Controllers\ReceptionistController;
+use App\Http\Controllers\user\PatientController;
 use App\Http\Controllers\Admin\FinanceController;
-use App\Http\Controllers\Admin\PatientController;
 use App\Http\Controllers\Admin\PharmacyController;
 use App\Http\Controllers\receptionist\PrescriptionController;
 
@@ -44,6 +44,18 @@ Route::get('admin/login', [AdminController::class, 'loginForm'])->name('admin.lo
 Route::post('admin/login', [AdminController::class, 'store'])->name('admin.login');
 Route::get('receptionist/login', [ReceptionistController::class, 'loginForm'])->name('receptionist.login');
 Route::post('receptionist/login', [ReceptionistController::class, 'store']);
+
+// Patient collection
+
+Route::prefix('patient')->group(function(){
+    Route::get('/dashboard',[PatientController::class, 'dashboard'])->name('patient.dashboard');
+    Route::get('/appointment',[PatientController::class,'makeAppointment'])->name('patient.makeappointment');
+});
+
+// 
+
+
+
 
 Route::middleware([
     'auth:sanctum',
