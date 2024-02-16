@@ -8,7 +8,7 @@
         <div class="col-md-6 offset-md-3">
             <div class="card mb-4 p-2 p-md-0" style="background-color:#F6E8B1; color:#9d926a !important">
                 <div class="card-header d-flex align-items-center justify-content-center">
-                    <h5 class="mb-0">Add Doctor</h5>
+                    <h3 class="mb-0">Add Staff</h3>
                     <!-- <small class="text-muted float-end">Default label</small> -->
                 </div>
                 <div class="card-body">
@@ -285,15 +285,19 @@
                             </div>
                             </div>
                         </div>
-                        <div class="row justify-content-end">
-                            <div class=" ">
+                        <div class="row">
+                            <div class="col-md-10 offset-md-1 d-flex justify-content-between">
+
                                 <button type="submit" class="btn btn-primary border-0 d-flex align-items-center"
-                                    style="background: #16d4ad">
+                                style="background:#9d926a; color:#fffdd2; border-color:#9d926a !important ">
                                     <div>Send</div>
 
                                     <div class="spinner-border ms-2" wire:loading wire:target='' role="status">
                                         <span class="visually-hidden">Loading...</span>
                                     </div>
+                                </button>
+                                <button type="reset" class="btn btn-primary border-0 d-flex align-items-center" style="background:#9d926a; color:#fffdd2; border-color:#9d926a !important ">
+                                    Clear
                                 </button>
                             </div>
                         </div>

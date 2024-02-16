@@ -77,6 +77,10 @@ class MedicineList extends Component
     {
         $this->medicine_id = $value? Pharmacy::where('name', 'like', '%' . $this->search . '%')->pluck('id') : [];
     }
+    public function updatedSearch(): void
+    {
+        $this->gotoPage(1);
+    }
     public function render()
     {
         return view('livewire.medicine-list')->with(

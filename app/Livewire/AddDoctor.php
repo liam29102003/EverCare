@@ -40,16 +40,21 @@ class AddDoctor extends Component
     #[Validate('required|min:3')]
 
     public $password = 'EverCareDoctor';
-    #[Validate('required|min:3')]
     public $image;
-    #[Validate('required|min:3')]
+    #[Validate('required')]
     public $exp;
+    public $imagePath ="images/profile.PNG"; 
 
     public function save()
     {
         $validated = $this->validate();
         $hashedPassword = Hash::make($this->password);
-        $path = $this->image->store('images', 'public');
+        if(empty($this->image)){
+            $path = $this->imagePath;
+        }
+        else{
+            $path = $this->image->store('images', 'public');
+        }
         // dd($path);
 
         Doctor::create(

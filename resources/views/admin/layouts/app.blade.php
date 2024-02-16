@@ -226,14 +226,14 @@
               </li>
               @elseif(request()->segment(1) === 'receptionist')
               <li class="menu-item ">
-                <a href="{{ route('pharamcy.list') }}" wire:navigate  class="menu-link {{ request()->segment(2) === 'pharmacy' ? 'select' : '' }}" style="      color: #9d926a ;
+                <a href="{{ route('pharmacy') }}" wire:navigate  class="menu-link {{ request()->segment(2) === 'pharmacy' ? 'select' : '' }}" style="      color: #9d926a ;
                 border-bottom: 3px solid #9d926aa;">
                     <i class="fa-solid fa-pills me-3 fs-5"></i>
                   <div data-i18n="Analytics">Medicine</div>
                 </a>
               </li>
               <li class="menu-item ">
-                <a href="{{ route('receptionist.prescription.list') }}" wire:navigate  class="menu-link {{ request()->segment(2) === 'pharmacy' ? 'select' : '' }}" style="      color: #9d926a ;
+                <a href="{{ route('receptionist.prescription.list') }}" wire:navigate  class="menu-link {{ request()->segment(2) === 'prescription' ? 'select' : '' }}" style="      color: #9d926a ;
                 border-bottom: 3px solid #9d926aa;">
                     <i class="fa-solid fa-pills me-3 fs-5"></i>
                   <div data-i18n="Analytics">Prescription</div>
@@ -378,7 +378,7 @@
                     , made with ❤️ by
                     Group 2
                   </div>
-                  <div>
+                  <div class="d-flex">
                     <div class="dropdown dropup footer-link me-3">
                       <button
                         type="button"
@@ -390,6 +390,7 @@
                       >
                         Currency
                       </button>
+                        
                       <div class=" dropdown-menu1 dropup card d-none " style="position:absolute !important; margin-top:-210px">
                         <a class="dropdown-item" href=""><i class="bx bx-dollar"></i> USD</a>
                         <a class="dropdown-item" href=""><i class="bx bx-euro"></i> Euro</a>
@@ -398,9 +399,13 @@
                         <a class="dropdown-item" href=""><i class="bx bx-bitcoin"></i> Bitcoin</a>
                       </div>
                     </div>
-                    <a href="" class="btn btn-sm btn-outline-danger"
-                        ><i class="bx bx-log-out-circle"></i> Logout</a
+                    <form action="{{route('logout')}}" method="post">
+                      @csrf
+                    <button class="btn btn-sm btn-outline-danger"
+                        ><i class="bx bx-log-out-circle"></i> Logout</button
                       >
+                    </form>
+
                   </div>
                 </div>
               </footer>

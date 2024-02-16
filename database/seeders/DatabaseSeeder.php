@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Doctor;
 use App\Models\Staff;
 use App\Models\Patient;
 use App\Models\Pharmacy;
@@ -21,18 +22,18 @@ class DatabaseSeeder extends Seeder
     {
         // Staff::factory(20)->create();
         // Patient::factory(20)->create();
-        \App\Models\Admin::factory()->create();
-        \App\Models\Receptionist::factory()->create();
-        Prescription::factory(10)->create();
+        // \App\Models\Admin::factory()->create();
+        // \App\Models\Receptionist::factory()->create();
+        // Prescription::factory(10)->create();
         // Patient::factory(5)->create();
         // \App\Models\Admin::factory()->create();
         // \App\Models\Receptionist::factory()->create();
         // Prescription::factory(5)->create();
-        Pharmacy::factory(10)->create();
+        // Pharmacy::factory(10)->create();
         // MedicalRecord::factory(5)->create();
-        Schedule::factory(10)->create();
+        // Schedule::factory(10)->create();
         // \App\Models\User::factory(10)->create();
-
+        Doctor::factory(10)->create();
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',

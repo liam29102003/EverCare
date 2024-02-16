@@ -12,7 +12,7 @@
             <hr>
             
             <div class="d-flex justify-content-between mb-2 px-4">
-                <a href="{{route('receptionist.prescription.list')}}" wire:navigate class="btn  btn-primary " >Back</a>
+                <a wire:click='delete' href="{{route('receptionist.prescription.list')}}" wire:navigate  class="btn  btn-primary " >Back</a>
                 <a href="{{route('cart')}}" wire:navigate class="btn  btn-primary "><i class="fa-solid fa-cart-shopping"></i></a>
 
             </div>

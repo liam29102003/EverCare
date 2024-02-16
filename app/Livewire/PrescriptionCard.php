@@ -15,7 +15,10 @@ class PrescriptionCard extends Component
     {
         $this->medicalRecordId = $medicalRecordId;
     }
-    
+    public function delete()
+    {
+        session()->forget('my_associative_array');
+    }
 
     public function render()
     {

@@ -21,7 +21,7 @@ class Cart extends Component
         
         session()->forget('my_associative_array');
         session()->flash('status', 'Cart has been cleared!');
-        return $this->redirect('/pp',navigate:true);
+        return $this->redirect('/receptionist/pharmacy',navigate:true);
     }
     public function handleMessageFromChild($message)
     {

@@ -1,7 +1,7 @@
 body{
     /* background-color: #FFFEF2; */
-    background-color: #fffdd2;
-    color: #5d5d5a
+    background-color: #DEFFBD;
+    color: #73AD48;
 }
 .logo{
     font-family:fantasy;
@@ -18,7 +18,7 @@ body{
     z-index: 5;
 }
 .navbar{
-        background-color: #faf8e3;
+        background-color: #C6E9AF;
         /* position: sticky;
         top:10px;
         z-index: 5; */
@@ -29,7 +29,7 @@ body{
     /* border-bottom:5px solid #d7d5ae; */
 
     text-decoration: none;
-    color: #aca484;
+    color: #73AD48;
     /* border: 0; */
     transition: all 0.5s ease-in-out;
 }
@@ -57,8 +57,8 @@ body{
     /* border-bottom:5px solid #ffa45c55; */
 }
 .navBtn{
-    border: 2px solid #aca484;
-    color:#aca484
+    border: 2px solid #73AD48;
+    color:#73AD48
 }
 .navBtn:hover{
     background-color:#5d5d5aaa ;
@@ -118,7 +118,7 @@ background-color: #00000022;
     color:black;
 }
 .card{
-    background-color: #ffa45c11;
+    /* background-color: #ffa45c11; */
     border-radius: 25% 10%;
     border-bottom: 4px double #aca484;
 }
