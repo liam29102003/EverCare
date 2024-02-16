@@ -24,7 +24,7 @@
                     </div>
                     <div class="mb-3">
                         <div class="mt-3 me-2  d-flex align-items-center ">
-                            <button type="submit" class="btn btn-sm btn-primary  d-flex align-items-center"
+                            <button wire:click='checkOut' type="submit" class="btn btn-sm btn-primary  d-flex align-items-center"
                                 style="background:#9d926a; color:#fffdd2; border-color:#9d926a !important ">
                                 <div>Check out</div>
 

@@ -5,11 +5,7 @@
             style="background:#9d926a; color:#fffdd2; border-color:#9d926a !important ">
             <i class="fa-solid fa-cart-shopping"></i>
             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                @if(session()->has('my_associative_array'))
-                <?= count(session('my_associative_array'))?>
-                @else
-                <?= 0 ?>
-                @endif
+               {{$count}}
 
                 <span class="visually-hidden">unread messages</span>
             </span>
@@ -26,7 +22,7 @@
     
         <div class="row">
             @foreach ($pharmacies as $pharmacy)
-                <livewire:rec-pharmacy :key="$pharmacy->id" :pharmacy="$pharmacy" />
+                <livewire:rec-pharmacy :key="$pharmacy->id" :pharmacy="$pharmacy" :count="$count"/>
             @endforeach
     
         </div>

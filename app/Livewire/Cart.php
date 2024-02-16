@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Voucher;
 use Livewire\Component;
 
 class Cart extends Component
@@ -9,6 +10,7 @@ class Cart extends Component
     public $cart = [];
     public $price;
     public $quantity;
+    public $key;
     
     public function updatedQuantity()
     {
@@ -21,11 +23,34 @@ class Cart extends Component
         
         session()->forget('my_associative_array');
         session()->flash('status', 'Cart has been cleared!');
-        return $this->redirect('/pp',navigate:true);
+        return $this->redirect('/receptionist/pharmacy',navigate:true);
     }
     public function handleMessageFromChild($message)
     {
         $this->quantity = $message;
+    }
+    public function checkOut()
+    {
+        $this->cart = session('my_associative_array', []);
+        // dd($this->cart[0]);
+        session()->forget('my_associative_array');
+        foreach($this->cart as $key=>$value){
+        Voucher::create(
+            [
+                'medical_record_id'=>$value['mr_id'],
+                'name'=>$value['name'],
+                'amount'=>$value['price'],
+                'quantity'=>$value['quantity'],
+                'price'=>0
+            ]
+
+            );
+            $this->key = $key;
+        }
+        return $this->redirect('/receptionist/voucher/'.$this->cart[$this->key]['mr_id']);
+
+        // dd($this->cart);
+
     }
     public function render()
     {

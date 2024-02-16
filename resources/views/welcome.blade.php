@@ -10,7 +10,7 @@
             <h4 class="text-start">သင်ရဲ့ ယုံကြည်အားထားရာ</h4>
             <h1 class="text-start brand" style="text-shadow: black 1px 0 3px; font-size:60px"><i class="fa-solid fa-staff-snake me-2 "></i>EVER CARE</h1>
             <p class="text-center">ကျန်းမာသော ခန္ဓာကိုယ်ဖြင့် ပျော်ရွှင်သော ဘဝကို တည်ဆောက်ပါ။</p>
-            <button class="btn ownBtn mt-3">ရက်ချိန်းယူပါ&nbsp;<i class="fa-regular fa-calendar"></i></button>
+            <a href="{{route('new#appointment')}}" wire:navigate class="btn ownBtn mt-3">ရက်ချိန်းယူပါ&nbsp;<i class="fa-regular fa-calendar"></i></a>
        </div>
        <div class="rightHero col-12 col-lg-7  text-center " >
     
@@ -20,7 +20,7 @@
   
    
 </div>
-<div class="container-fluid  d-flex justify-content-between " style="background-color:  #000000aa;margin-top: 160px;">
+<div class="container-fluid  d-flex justify-content-between " style="background-color:  #B3C99C;margin-top: 160px;">
 <div class="w-25 text-center ms-3">
     <img src="{{asset('master/images/patient.png')}}" class="w-75 " style="border-radius: 50%;position: relative;margin-top: -40%;">
     <h3 class="" style="color:#fffdd2">Patients</h3>
@@ -68,8 +68,8 @@
                         <div class="carousel-item active w-100">
                             <div class="row">
 
-                                <div class="col-md-4 mb-3">
-                                    <div class="card shadow">
+                                <div class="col-md-4 mb-3 p-5 pt-0">
+                                    <div class="card border-0 shadow-sm">
                                         <img class="img-fluid" alt="100%x280" src="https://images.unsplash.com/photo-1532781914607-2031eca2f00d?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=7c625ea379640da3ef2e24f20df7ce8d">
                                         <div class="card-body text-center">
                                             <h5 class="card-title">X-ray</h5>
@@ -79,30 +79,31 @@
 
                                     </div>
                                 </div>
-                                <div class="col-md-4 mb-3">
-                                    <div class="card shadow">
-                                        <img class="img-fluid" alt="100%x280" src="https://images.unsplash.com/photo-1517760444937-f6397edcbbcd?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=42b2d9ae6feb9c4ff98b9133addfb698">
+                                <div class="col-md-4 mb-3 p-5 pt-0">
+                                    <div class="card border-0 shadow-sm">
+                                        <img class="img-fluid" alt="100%x280" src="https://images.unsplash.com/photo-1532781914607-2031eca2f00d?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=7c625ea379640da3ef2e24f20df7ce8d">
                                         <div class="card-body text-center">
-                                            <h5 class="card-title">အထွေထွေဆရာဝန်များ</h5>
+                                            <h5 class="card-title">X-ray</h5>
                                             <p class="card-text">၂၄ နာရီ</p>
 
                                         </div>
+
                                     </div>
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                    <div class="card shadow">
-                                        <img class="img-fluid" alt="100%x280" src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=3d2e8a2039c06dd26db977fe6ac6186a">
+                                </div><div class="col-md-4 mb-3 p-5 pt-0">
+                                    <div class="card border-0 shadow-sm">
+                                        <img class="img-fluid" alt="100%x280" src="https://images.unsplash.com/photo-1532781914607-2031eca2f00d?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=7c625ea379640da3ef2e24f20df7ce8d">
                                         <div class="card-body text-center">
-                                            <h5 class="card-title">အထွေထွေဆရာဝန်များ</h5>
+                                            <h5 class="card-title">X-ray</h5>
                                             <p class="card-text">၂၄ နာရီ</p>
 
                                         </div>
+
                                     </div>
                                 </div>
 
                             </div>
                         </div>
-                        <div class="carousel-item  w-100">
+                        {{-- <div class="carousel-item  w-100">
                             <div class="row">
 
                                 <div class="col-md-4 mb-3">
@@ -175,7 +176,7 @@
                                 </div>
 
                             </div>
-                        </div>
+                        </div> --}}
                         <!--  -->
                         <!-- item -->
                         

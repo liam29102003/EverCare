@@ -6,6 +6,7 @@ use App\Models\Prescription;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\MedicalRecord;
+use App\Models\Voucher;
 use Carbon\Carbon;
 
 class PrescriptionController extends Controller
@@ -17,5 +18,9 @@ class PrescriptionController extends Controller
     public function detail($id)
     {
         return view('receptionist.prescription.detail')->with('medicalRecordId',$id);
+    }
+    public function voucher($id)
+    {
+        return view('voucher')->with('vouchers',Voucher::where('medical_record_id',$id)->get());
     }
 }

@@ -47,6 +47,10 @@ class StaffList extends Component
         $this->orderName = $name;
         $this->type=$this->type === "asc" ? "desc" : "asc";
     }
+    public function updatedSearch(): void
+    {
+        $this->gotoPage(1);
+    }
     public function render()
     {
         return view('livewire.staff-list')->with(

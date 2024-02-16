@@ -12,9 +12,10 @@ class RecPharmacy extends Component
     public $id;
     public $myAssociativeArray=[];
     public $text="Add to Cart";
-    public function mount($pharmacy)
+    public $count =0;
+    public function mount($pharmacy,$count)
     {
-
+        $this->count = $count;
         $this->myAssociativeArray = session('my_associative_array', []);
         $this->id = $pharmacy->id;
         if (isset($this->myAssociativeArray[$this->id])) {
@@ -34,20 +35,21 @@ class RecPharmacy extends Component
         
         $this->text="Update Cart";
         session()->flash('status', 'Item Added to Cart');
-        return $this->redirect('/receptionist/pharmacy', navigate:true);
+        $this->dispatch('updateParent', count( session('my_associative_array', [])));
+
+        // return $this->redirect('/receptionist/pharmacy', navigate:true);
         }
         // session()->forget('my_associative_array');  
 
     }
+    
     public function increment()
     {
         $this->quantity++;
     }
     public function decrement()
     {
-        $myAssociativeArray = session('my_associative_array', []);
-
-        dd($myAssociativeArray);
+       
         if ($this->quantity > 0)
             $this->quantity--;
     }

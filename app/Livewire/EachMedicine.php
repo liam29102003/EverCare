@@ -17,8 +17,10 @@ class EachMedicine extends Component
     public $insufficient;
     public $id;
     public $price;
-    public function mount($medicine)
+    public $mr_id;
+    public function mount($medicine,$mr_id)
     {
+        $this->mr_id = $mr_id;
         $this->medicine = $medicine;
         $pharmacy = Pharmacy::where('name',$this->medicine->medicine_name)->first();
         
@@ -43,7 +45,7 @@ class EachMedicine extends Component
 
         $myAssociativeArray = session('my_associative_array', []);
         $newKey = $this->id;
-        $newValue = ['name' => $this->medicine->medicine_name, 'price' => $this->price, 'quantity' => $this->insufficient ? $this->insufficient : $this->qty];
+        $newValue = ['mr_id'=>$this->mr_id,'name' => $this->medicine->medicine_name, 'price' => $this->price, 'quantity' => $this->insufficient ? $this->insufficient : $this->qty];
         $myAssociativeArray[$newKey] = $newValue;
         session(['my_associative_array' => $myAssociativeArray]);
         

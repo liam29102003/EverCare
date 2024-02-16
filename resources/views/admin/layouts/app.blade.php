@@ -103,7 +103,8 @@
 </script>
   <style>
     .select{
-      background-color:#FFFDD1 !important;
+      color: #bb95dc;
+      background-color:#e2dcf8 !important;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
     }
@@ -157,13 +158,13 @@
 
     {{-- <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script> --}}
 
-  <body style="background-color: #fffdd2"   >
+  <body style="background-color: #e2dcf8"   >
 
     <div class="layout-wrapper layout-content-navbar "  >
         <div class="layout-container">
           <!-- Menu -->
   
-          <aside id="layout-menu" class="layout-menu menu-vertical menu shadow" style="background-color: #F6E8B1">
+          <aside id="layout-menu" class="layout-menu menu-vertical menu shadow" style="background-color: #bb95dc; color:white !important">
             <div class="app-brand demo text-center" style="margin: auto">
               <a href="#" class="app-brand-link mt-3" >
                 <span class="app-brand-logo demo fs-2  pe-3" style=" display: block;
@@ -172,9 +173,9 @@
                 overflow: hidden;
                 min-height: 1px;">
                 
-                <span class="app-brand-text demo menu-text fw-bolder fs-4 text-center  " style="flex-shrink: 0;
-                opacity: 1; color: #5d5d5a;
-                transition: opacity 0.15s ease-in-out; font-family:fantasy; font-style: italic; font-size: large;"><i class="fa-solid fa-staff-snake me-2 fs-1"></i><span>EVER CARE</span></span>
+                <span class="app-brand-text fs-3 demo menu-text  text-center  " style="flex-shrink: 0;
+                opacity: 1; color: white;
+                transition: opacity 0.15s ease-in-out; font-family:fantasy; font-style: italic; "><i class="fa-solid fa-staff-snake me-2 fs-1"></i><span>EVER CARE</span></span>
               </a>
               
               <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
@@ -189,7 +190,7 @@
               @if(request()->segment(1) === 'admin')
             
               <li class="menu-item  " >
-                <a href="{{ route('dashboard') }}" class="menu-link  mb-0 {{ request()->segment(2) === 'dashboard' ? 'select' : '' }}" style="      color: #9d926a ;
+                <a href="{{ route('dashboard') }}" class="menu-link  mb-0 {{ request()->segment(2) === 'dashboard' ? 'select' : '' }}" style="      color: white ;
                 border-bottom: 3px solid #9d926aa;">
                     <i class="fa-solid fa-user-tie me-3 fs-5"></i>
                     <div data-i18n="Analytics">Dashboard</div>
@@ -197,28 +198,28 @@
               </li>
             
               <li class="menu-item ">
-                <a href="{{ route('doctor.list') }}" wire:navigate  class="menu-link {{ request()->segment(2) === 'doctor' ? 'select' : '' }}" style="      color: #9d926a ;
+                <a href="{{ route('doctor.list') }}" wire:navigate  class="menu-link {{ request()->segment(2) === 'doctor' ? 'select' : '' }}" style="      color:white ;
                 border-bottom: 3px solid #9d926aa;">
                     <i class="fa-solid fa-user-doctor me-3 fs-5"></i>
                   <div data-i18n="Analytics">doctor</div>
                 </a>
               </li>
               <li class="menu-item ">
-                <a href="{{ route('staff.list') }}" wire:navigate  class="menu-link {{ request()->segment(2) === 'staff' ? 'select' : '' }}" style="      color: #9d926a ;
+                <a href="{{ route('staff.list') }}" wire:navigate  class="menu-link {{ request()->segment(2) === 'staff' ? 'select' : '' }}" style="      color:white ;
                 border-bottom: 3px solid #9d926aa;">
                     <i class="fa-solid fa-user-nurse me-3 fs-5"></i>
                   <div data-i18n="Analytics">Staff</div>
                 </a>
               </li>
               <li class="menu-item ">
-                <a href="{{ route('pharamcy.list') }}" wire:navigate  class="menu-link {{ request()->segment(2) === 'pharmacy' ? 'select' : '' }}" style="      color: #9d926a ;
+                <a href="{{ route('pharamcy.list') }}" wire:navigate  class="menu-link {{ request()->segment(2) === 'pharmacy' ? 'select' : '' }}" style="      color:white ;
                 border-bottom: 3px solid #9d926aa;">
                     <i class="fa-solid fa-pills me-3 fs-5"></i>
                   <div data-i18n="Analytics">Medicine</div>
                 </a>
               </li>
               <li class="menu-item ">
-                <a href="{{ route('finance.expense.list') }}" wire:navigate  class="menu-link {{ request()->segment(2) === 'finance' ? 'select' : '' }}" style="      color: #9d926a ;
+                <a href="{{ route('finance.expense.list') }}" wire:navigate  class="menu-link {{ request()->segment(2) === 'finance' ? 'select' : '' }}" style="      color:white ;
                 border-bottom: 3px solid #9d926aa;">
                     <i class="fa-solid fa-coins me-3"></i>
                   <div data-i18n="Analytics">Finance</div>
@@ -226,14 +227,14 @@
               </li>
               @elseif(request()->segment(1) === 'receptionist')
               <li class="menu-item ">
-                <a href="{{ route('pharamcy.list') }}" wire:navigate  class="menu-link {{ request()->segment(2) === 'pharmacy' ? 'select' : '' }}" style="      color: #9d926a ;
+                <a href="{{ route('pharmacy') }}" wire:navigate  class="menu-link {{ request()->segment(2) === 'pharmacy' ? 'select' : '' }}" style="      color:white ;
                 border-bottom: 3px solid #9d926aa;">
                     <i class="fa-solid fa-pills me-3 fs-5"></i>
                   <div data-i18n="Analytics">Medicine</div>
                 </a>
               </li>
               <li class="menu-item ">
-                <a href="{{ route('receptionist.prescription.list') }}" wire:navigate  class="menu-link {{ request()->segment(2) === 'pharmacy' ? 'select' : '' }}" style="      color: #9d926a ;
+                <a href="{{ route('receptionist.prescription.list') }}" wire:navigate  class="menu-link {{ request()->segment(2) === 'prescription' ? 'select' : '' }}" style="      color:white ;
                 border-bottom: 3px solid #9d926aa;">
                     <i class="fa-solid fa-pills me-3 fs-5"></i>
                   <div data-i18n="Analytics">Prescription</div>
@@ -280,7 +281,7 @@
   
             <nav
               class="layout-navbar   container-xxl navbar navbar-expand-xl navbar-detached align-items-center"
-              id="layout-navbar" style="background-color:#faf8e3 !important; color:#9d926a !important"
+              id="layout-navbar" style="background-color:#f0ecfb !important; color:#bb95dc !important" 
             >
               <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
                 <a class="nav-item nav-link px-0 me-xl-4" href="#">
@@ -370,7 +371,7 @@
                 <!--/ Layout Demo -->
               </div>
               <!-- / Content -->
-              <footer class="content-footer footer bg-white p-3 mt-3 m-4 rounded shadow" style="background-color:#faf8e3 !important; color:#9d926a !important" >
+              <footer class="content-footer footer bg-white p-3 mt-3 m-4 rounded shadow" style="background-color:#f0ecfb !important; color:#bb95dc !important" >
                 <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
                   <div class="mb-2 mb-md-0">
                     ©
@@ -378,7 +379,7 @@
                     , made with ❤️ by
                     Group 2
                   </div>
-                  <div>
+                  <div class="d-flex">
                     <div class="dropdown dropup footer-link me-3">
                       <button
                         type="button"
@@ -390,6 +391,7 @@
                       >
                         Currency
                       </button>
+                        
                       <div class=" dropdown-menu1 dropup card d-none " style="position:absolute !important; margin-top:-210px">
                         <a class="dropdown-item" href=""><i class="bx bx-dollar"></i> USD</a>
                         <a class="dropdown-item" href=""><i class="bx bx-euro"></i> Euro</a>
@@ -398,9 +400,13 @@
                         <a class="dropdown-item" href=""><i class="bx bx-bitcoin"></i> Bitcoin</a>
                       </div>
                     </div>
-                    <a href="" class="btn btn-sm btn-outline-danger"
-                        ><i class="bx bx-log-out-circle"></i> Logout</a
+                    <form action="{{route('logout')}}" method="post">
+                      @csrf
+                    <button class="btn btn-sm btn-outline-danger"
+                        ><i class="bx bx-log-out-circle"></i> Logout</button
                       >
+                    </form>
+
                   </div>
                 </div>
               </footer>
