@@ -41,4 +41,5 @@ class PatientController extends Controller
     public function makeAppointment(){
         return view('patient.appointmentForm');
     }
+    
 }

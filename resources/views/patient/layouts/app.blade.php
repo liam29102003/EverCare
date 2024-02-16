@@ -197,7 +197,7 @@
               </li>
             
               <li class="menu-item ">
-                <a href="{{ route('patient.makeappointment') }}" wire:navigate  class="menu-link {{ request()->segment(2) === 'doctor' ? 'select' : '' }}" style="      color: #9d926a ;
+                <a href="{{ route('patient.makeappointment') }}" wire:navigate  class="menu-link {{ request()->segment(2) === 'appointment' ? 'select' : '' }}" style="      color: #9d926a ;
                 border-bottom: 3px solid #9d926aa;">
                     <i class="fa-solid fa-user-doctor me-3 fs-5"></i>
                   <div data-i18n="Analytics">Make Appointment</div>
@@ -253,7 +253,7 @@
               </div>
   
               <div class="navbar-nav-right d-flex align-items-center " id="navbar-collapse">
-                <div><span style="font-size: 20px;"><i class="fa-sharp fa-solid fa-house-user me-3"></i>Admin's Dashboard</span></div>
+                <div><span style="font-size: 20px;"><i class="fa-sharp fa-solid fa-house-user me-3"></i>Patient's Dashboard</span></div>
   
                 <ul class="navbar-nav flex-row align-items-center ms-auto">
                   <!-- Place this tag where you want the button to render. -->
@@ -267,7 +267,7 @@
                       </div>
                     </div>
                     <div class="card dropdown-menu2  d-none" style="margin-top:300px;">
-                      <ul class=" ps-0 "  style = "list-style-type:none; margin:auto !important" >
+                      <ul class=" ps-0 "  style = "list-style-type:none; margin:auto !important">
                         <li class=" ms-0">
                           <a class="dropdown-item" href="#">
                             <div class="d-flex">

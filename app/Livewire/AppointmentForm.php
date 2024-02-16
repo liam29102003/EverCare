@@ -35,20 +35,21 @@ class AppointmentForm extends Component
                 'gender'=>'required',
             ]);
             
-        Appointment::create([
-            'patient_type'=>'New Patient',
-            'treatment_type' => $this->treatment_type,
-            'email' => $this->email,
-            'doctor_id' => $this->doctor,
-            'address'=>$this->address,
-            'name' => $this->name,
-            'password' => Hash::make($this->password),
-            'dob' => $this->dob,
-            'phone' => $this->phone,
-            'gender' => $this->gender,
-            'appointment_date'=>$this->appointment_date,
-            'description' => $this->description,
-        ]);
+            $appointmentData = [
+                'patient_type'=>'New Patient',
+                'treatment_type' => $this->treatment_type,
+                'email' => $this->email,
+                'doctor_id' => $this->doctor,
+                'address'=>$this->address,
+                'name' => $this->name,
+                'password' => Hash::make($this->password),
+                'dob' => $this->dob,
+                'phone' => $this->phone,
+                'gender' => $this->gender,
+                'appointment_date'=>$this->appointment_date,
+                'description' => $this->description,
+            ];
+        Appointment::create($appointmentData);
         Patient::create([
             'email' => $this->email,
             'address'=>$this->address,
@@ -60,7 +61,7 @@ class AppointmentForm extends Component
         ]);
         session()->flash('message', 'Your Appointment is successfully made !');
         $this->reset();
-        return $this->redirect('/new/appointment',navigate:true);
+
     }
 
     public function render()
