@@ -142,7 +142,7 @@ Route::prefix('receptionist')->middleware(['auth:sanctum,receptionist', 'verifie
     })->name('cart');
     Route::get('/prescription',[PrescriptionController::class,'list'])->name('receptionist.prescription.list');
     Route::get('/prescription/detail/{medicalRecord}',[PrescriptionController::class,'detail'])->name('receptionist.prescription.detail');
-
+    Route::get('/voucher/{id}',[PrescriptionController::class,'voucher'])->name('voucher');
 
 });
 

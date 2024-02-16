@@ -1,13 +1,20 @@
 <div class="container">
    <div class="row">
-    <div class="col-8 offset-2">
-        <div class="card mt-3 pt-3">
+    <div class="col-sm-8 offset-sm-2">
+        <div class="card mt-3 pt-3" style="background-color: #bb95dc; color:white">
             <div class="px-4">   
+                <strong>Patient Id : </strong><span>{{$prescription->patient->id}}</span>
+                <br>
                 <strong>Name : </strong><span>{{$prescription->patient->name}}</span>
+                <br>
+                <strong>Doctor : </strong><span>{{$prescription->doctor->name}}</span>
+                <br>
+                <strong>Date : </strong><span>{{$prescription->created_at}}</span>
+
             </div>
             <hr>
             @foreach ($prescription->prescription as $medicine)
-                <livewire:each-medicine :medicine="$medicine" :key="$medicine->id" />
+                <livewire:each-medicine :medicine="$medicine" :key="$medicine->id" :mr_id="$prescription->id"/>
             @endforeach
             <hr>
             

@@ -5,10 +5,10 @@
     @endif
     <div class="container">
         <div class="row">
-            <p class="col-4">{{$medicine->medicine_name}}</p>
+            <p class="col-sm-4">{{$medicine->medicine_name}}</p>
             
-            <p class="col-4 text-center">{{$qty}}</p>
-            <p class="col-4 text-end">
+            <p class="col-sm-4 text-sm-center">{{$qty}}</p>
+            <p class="col-sm-4 text-sm-end">
             @if($exist == 'available')
             <button wire:click='addToCart' class="btn btn-sm btn-primary">Add to Cart</button>
             @elseif($exist == 'error')
