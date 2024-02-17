@@ -1,7 +1,8 @@
 body{
     /* background-color: #FFFEF2; */
-    background-color: #e2dcf8;
-    color: #ffffff;
+    /* background-color: #e2dcf8; */
+    background-color: white;
+    color: #e2dc;
 }
 .logo{
     font-family:fantasy;
@@ -18,7 +19,7 @@ body{
     z-index: 5;
 }
 .navbar{
-        background-color: #bb95dc;
+        background-color: #bb95dccc;
         /* position: sticky;
         top:10px;
         z-index: 5; */

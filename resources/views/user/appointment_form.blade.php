@@ -1,11 +1,9 @@
-<div class="container pt-5 ">
-<div class="row mb-3">
-                            @if (session('message'))
-                                <livewire:second-alert>
-                            @endif
+@extends('master')
 
-                        </div>
-        <form action="" wire:submit='save'>
+
+@section('content')
+<div class="container pt-5 ">
+        <form action="{{route('appointment.make')}}" method='post'>
             @csrf
             <div class="col-12 col-md-8 offset-md-2 p-5 border-0 form-container d-flex flex-column justify-content-center align-items-center" style="background-color:#F6E8B1; color:#9d926a !important">
                 <h2 class="txt-shadow">Make Appointment Here!</h2>
@@ -18,7 +16,7 @@
                     <div class="d-flex wrap">
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input bg-secondary " type="radio" wire:model="treatment_type" value='in person'>
+                                <input class="form-check-input bg-secondary" type="radio" name="treatment_type" value='in person'>
                                 <label class="form-check-label" >
                                   In person treatment
                                 </label>
@@ -27,7 +25,7 @@
                         </div>
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input bg-secondary " type="radio" wire:model="treatment_type" value='online'>
+                                <input class="form-check-input bg-secondary " type="radio" name="treatment_type" value='online'>
                                 <label class="form-check-label" >
                                   Online treatment
                                 </label>
@@ -43,14 +41,14 @@
                     <div class=" d-flex col-12 justify-content-between" style="flex-wrap: wrap;">
                         <div class="left displayNone">
                         <label for="">Name<span class='text-danger'>*</span></label>
-                        <input type="text" class="form-control shadow-sm" wire:model='name' placeholder="Johnn Doe" style='border:0'>
+                        <input type="text" class="form-control shadow-sm" name='name' placeholder="Johnn Doe" style='border:0'>
                         @error('name')
                             <span class='text-danger'>{{$message}}</span>
                         @enderror
                     </div>
                         <div class="right email">
                             <label for="">Email<span class='text-danger'>*</span></label>
-                            <input type="email" class="form-control shadow-sm " wire:model='email' placeholder="example@gmail.com" style='border:0'>
+                            <input type="email" class="form-control shadow-sm " name='email' placeholder="example@gmail.com" style='border:0'>
                             @error('email')
                             <span class='text-danger'>{{$message}}</span>
                         @enderror
@@ -63,14 +61,14 @@
                     <div class=" d-flex col-12 justify-content-between" style="flex-wrap: wrap;">
                         <div class="left">
                         <label for="">Password<span class='text-danger'>*</span></label>
-                        <input type="password" class="form-control shadow-sm" placeholder="password" wire:model='password' style='border:0'>
+                        <input type="password" class="form-control shadow-sm" placeholder="password" name='password' style='border:0'>
                         @error('password')
                             <span class='text-danger'>{{$message}}</span>
                         @enderror
                     </div>
                         <div class="right">
                             <label for="">Confirm password<span class='text-danger'>*</span></label>
-                            <input type="password" class="form-control shadow-sm" placeholder="Confirm password" wire:model='confirm_password' style='border:0'>
+                            <input type="password" class="form-control shadow-sm" placeholder="Confirm password" name='confirm_password' style='border:0'>
                             @error('confirm_password')
                             <span class='text-danger'>{{$message}}</span>
                         @enderror
@@ -83,14 +81,14 @@
                     <div class=" d-flex col-12 justify-content-between" style="flex-wrap: wrap;">
                         <div class="left">
                             <label for="">Date of birth<span class='text-danger'>*</span></label>
-                            <input type="date" class="form-control shadow-sm" wire:model='dob' placeholder="First Name" style='border:0'>
+                            <input type="date" class="form-control shadow-sm" name='dob' placeholder="First Name" style='border:0'>
                             @error('dob')
                             <span class='text-danger'>{{$message}}</span>
                         @enderror
                         </div>
                         <div class="right">
                             <label for="">Phone No<span class='text-danger'>*</span></label>
-                            <input type="text" class="form-control shadow-sm" placeholder="09456********" wire:model='phone' aria-label="Username" aria-describedby="basic-addon1" style='border:0'>
+                            <input type="number" class="form-control shadow-sm" placeholder="09456********" name='phone' aria-label="Username" aria-describedby="basic-addon1" style='border:0'>
                             @error('phone')
                             <span class='text-danger'>{{$message}}</span>
                         @enderror
@@ -104,7 +102,7 @@
                     <div class="d-flex wrap" style="gap: 6px;">
                         <div class="col-3">
                             <div class="form-check">
-                                <input class="form-check-input bg-secondary" value='male' type="radio" wire:model="gender" id="flexRadioDefault1" style='border:0'>
+                                <input class="form-check-input bg-secondary" value='male' type="radio" name="gender" id="flexRadioDefault1" style='border:0'>
                                 <label class="form-check-label" for="flexRadioDefault1">
                                   Male
                                 </label>
@@ -113,7 +111,7 @@
                         </div>
                         <div class="col-3">
                             <div class="form-check">
-                                <input class="form-check-input bg-secondary" value='female' type="radio" wire:model="gender" id="flexRadioDefault1" style='border:0'>
+                                <input class="form-check-input bg-secondary" value='female' type="radio" name="gender" id="flexRadioDefault1" style='border:0'>
                                 <label class="form-check-label" for="flexRadioDefault1">
                                   Female
                                 </label>
@@ -127,38 +125,15 @@
     
                 <div class="w-100 mt-3 displayNone">
                     <label for="">Address</label>
-                    <textarea wire:model="address" style='border:0' id="" class="w-100 form-control shadow-sm" rows="3" placeholder="City, Street, Home No"></textarea>
+                    <textarea name="address" style='border:0' id="" class="w-100 form-control shadow-sm" rows="3" placeholder="City, Street, Home No"></textarea>
                 </div>
     
                 <div class="w-100 wrap mt-3">
-                    <div class=" d-flex col-12 justify-content-between" style="flex-wrap: wrap;">
-                        <div class="left">
-                            <label for="">Choose Doctor<span class='text-danger'>*</span></label>
-                            <select class="form-control shadow-sm form-select " aria-label="Default select example" wire:model='doctor' style='border:0'>
-                                <option selected>Doctor (Speciality)</option>
-                                <option value="1">Aye Aye (OG)</option>
-                                <option value="2">Mg Mg (Surgery)</option>
-                                <option value="3">Than Than (Cardiac)</option>
-                            </select>
-                            @error('doctor')
-                            <span class='text-danger'>{{$message}}</span>
-                        @enderror
-                        </div>
-                        <div class="right">
-                            <label for="">Choose Appointment Date<span class='text-danger'>*</span></label>
-                            <select class="form-control shadow-sm form-select " wire:model='appointment_date' aria-label="Default select example" style='border:0'>
-                                <option selected value='3'>Monday (4:30)</option>
-                                <option value="1">Wednesday (2:30)</option>
-                            </select>
-                            @error('appointment_date')
-                            <span class='text-danger'>{{$message}}</span>
-                        @enderror
-                        </div>
-                    </div>
+                    <livewire:dynamic-schedule :doctors="$doctors"/>
                 </div>
                 <div class="w-100 mt-3 ">
                     <label for="">Description</label>
-                    <textarea wire:model="description" id="" class="w-100 form-control shadow-sm" rows="3" placeholder="symptoms" style='border:0'></textarea>
+                    <textarea name="description" id="" class="w-100 form-control shadow-sm" rows="3" placeholder="symptoms" style='border:0'></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary mt-3 border-0 d-flex align-items-center"
                 style="background:#9d926a; color:#fffdd2; border-color:#9d926a !important ">
@@ -168,11 +143,11 @@
                         <span class="visually-hidden">Loading...</span>
                     </div>
                 </button>
-                {{-- <button type="reset" class="btn btn-primary border-0 d-flex align-items-center" style="background:#9d926a; color:#fffdd2; border-color:#9d926a !important ">
-                    Clear
-                </button>                 --}}
+                
             </div>
         </form>
     </div>
 
 
+
+@endsection

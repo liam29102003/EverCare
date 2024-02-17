@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('address');
             $table->string('doctor_id');
             $table->string('appointment_date');
-            $table->string('description');
+            $table->string('description')->default(' ');
         });
     }
 
