@@ -31,7 +31,7 @@ class DatabaseSeeder extends Seeder
         // Prescription::factory(5)->create();
         // Pharmacy::factory(10)->create();
         // MedicalRecord::factory(5)->create();
-        // Schedule::factory(10)->create();
+        Schedule::factory(10)->create();
         // \App\Models\User::factory(10)->create();
         Doctor::factory(10)->create();
         // \App\Models\User::factory()->create([

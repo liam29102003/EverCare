@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('qualification');
             $table->string('gender');
             $table->string('image');
-            $table->string('bio');
+            $table->longText('bio');
             $table->timestamps();
         });
     }

@@ -20,7 +20,7 @@
       href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="{{ asset('master/login-signup.css') }}" />
+    <link rel="stylesheet" href="{{ asset('user/assets/login-signup.css') }}" />
     <link rel="stylesheet" href="{{ asset('admin/assets/vendor/fonts/boxicons.css') }}" />
     <link rel="stylesheet" href="{{ asset('admin/assets/vendor/css/core.css') }}" class="template-customizer-core-css" />
     <link rel="stylesheet" href="{{ asset('admin/assets/vendor/css/theme-default.css') }}" class="template-customizer-theme-css" />
@@ -44,7 +44,7 @@
         <div class="navItem mt-3"><a href="" class="text-decoration-none " style="color: inherit;">Contact</a></div>
         <div class="navItem mt-3"><a href="" class="text-decoration-none " style="color: inherit;">FAQ</a></div>
         <div class="mt-3">
-            <a href="{{route('new#appointment')}}" wire:navigate class=" navBtn btn">Make Appointment</a>
+            <a href="" wire:navigate class=" navBtn btn">Make Appointment</a>
             <a href="{{route('login_page')}}" wire:navigate class="navBtn btn">Login</a>
             </div>
     </div>
@@ -58,7 +58,7 @@
             
         </div>
         <div class="origin">
-            <a href="{{route('new#appointment')}}" wire:navigate class=" navBtn btn ">Make Appointment</a>
+            <a href="{{route('appointment.form')}}" wire:navigate class=" navBtn btn ">Make Appointment</a>
             <a href="{{route('login_page')}}" wire:navigate class=" navBtn btn ">Login</a>
         </div>
         <div class="new p-1 rounded"><i class="fa-solid fa-bars"></i></div>
