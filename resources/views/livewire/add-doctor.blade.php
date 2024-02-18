@@ -1,4 +1,4 @@
-<div class="container-fluid flex-grow-1 container-p-y" style="background-color:#fffdd2">
+<div class="container-fluid flex-grow-1 container-p-y" style="background-color:#">
     {{-- <h4 class="fw-bold py-3 mb-4">Appointment Form</h4> --}}
 
 
@@ -6,10 +6,10 @@
     <div class="row">
         <!-- Basic Layout -->
         <div class="col-lg-6 offset-lg-3">
-            <div class="card mb-4" style="background-color:#F6E8B1; color:#9d926a !important">
+            <div class="card mb-4" style="background-color:#bb95dc; color:#ffffff !important">
                 <div class="card-header text-center pb-0">
                     <h3 class="mb-0"
-                        style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; color:#9d926a">
+                        style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; color:#ffffff">
                         Add New Doctor</h3>
                 </div>
 
@@ -42,7 +42,7 @@
                             <div class="col-md-10 offset-md-1">
 
 
-                                <label class=" col-form-label" for="basic-default-name"><i
+                                <label class=" col-form-label text-white" for="basic-default-name"><i
                                         class="fa-solid fa-signature me-2"></i>Image :</label>
 
                                 <div class="">
@@ -61,7 +61,7 @@
                         <div class="row mb-3">
                             <div class="col-md-10 offset-md-1">
 
-                                <label class=" col-form-label" for="basic-default-name"><i
+                                <label class=" col-form-label text-white" for="basic-default-name"><i
                                         class="fa-solid fa-signature me-2"></i>Name :</label>
 
                                 <div class="">
@@ -79,7 +79,7 @@
                         <div class="row mb-3">
                             <div class="col-md-10 offset-md-1">
 
-                                <label class=" col-form-label" for="basic-default-name"><i
+                                <label class=" col-form-label text-white" for="basic-default-name"><i
                                         class="fa-solid fa-signature me-2"></i>Email :</label>
 
                                 <div class="">
@@ -98,7 +98,7 @@
                         <div class="row mb-3">
                             <div class="col-md-10 offset-md-1">
 
-                                <label class=" col-form-label" for="basic-default-name"><i
+                                <label class=" col-form-label text-white" for="basic-default-name"><i
                                         class="fa-solid fa-signature me-2"></i>Phone :</label>
 
                                 <div class="">
@@ -116,7 +116,7 @@
                         <div class="row mb-3">
                             <div class="col-md-10 offset-md-1 d-flex justify-content-between">
                                 <div class="w-75">
-                                    <label class=" col-form-label" for="basic-default-name"><i
+                                    <label class=" col-form-label text-white" for="basic-default-name"><i
                                         class="fa-solid fa-signature me-2"></i>Exp :</label>
 
                                 <div class="">
@@ -131,7 +131,7 @@
                                 </div>
                                 </div>
                               <div class="w-50 ms-2">
-                                <label class=" col-form-label" for="basic-default-phone"><i
+                                <label class=" col-form-label text-white" for="basic-default-phone"><i
                                     class="fa-solid fa-venus-mars me-2"></i>Gender :</label>
 
                             <div class="">
@@ -155,7 +155,7 @@
 
                         <div class="row mb-3">
                             <div class="col-md-10 offset-md-1">
-                                <label class=" col-form-label" for="basic-default-name"><i
+                                <label class=" col-form-label text-white" for="basic-default-name"><i
                                         class="fa-solid fa-stethoscope me-2"></i>Speciality :</label>
 
                                 <div class="">
@@ -172,7 +172,7 @@
                         </div>
                         <div class="row mb-3">
                             <div class="col-md-10 offset-md-1">
-                                <label class=" col-form-label" for="basic-default-name"><i
+                                <label class=" col-form-label text-white" for="basic-default-name"><i
                                         class="fa-solid fa-graduation-cap "></i>Qualification:</label>
 
                                 <div class="">
@@ -200,7 +200,7 @@
 
                         <div class="row mb-3">
                             <div class="col-md-10 offset-md-1">
-                                <label class=" col-form-label" for="basic-default-message"><i
+                                <label class=" col-form-label text-white" for="basic-default-message"><i
                                         class="fa-regular fa-file-lines me-2"></i>Bio :</label>
                                 <div class="">
                                     <textarea id="basic-default-message" name='bio' class="form-control shadow-sm" placeholder="Brief Description Go Here"
@@ -220,14 +220,14 @@
                             <div class="col-md-10 offset-md-1 d-flex justify-content-between">
 
                                 <button type="submit" class="btn btn-primary border-0 d-flex align-items-center"
-                                style="background:#9d926a; color:#fffdd2; border-color:#9d926a !important ">
+                                style="background:#ffffff; color:#bb95dc; border:3px solid #e2dcf8 !important ">
                                     <div>Send</div>
 
                                     <div class="spinner-border ms-2" wire:loading wire:target='' role="status">
                                         <span class="visually-hidden">Loading...</span>
                                     </div>
                                 </button>
-                                <button type="reset" class="btn btn-primary border-0 d-flex align-items-center" style="background:#9d926a; color:#fffdd2; border-color:#9d926a !important ">
+                                <button type="reset" class="btn btn-primary border-0 d-flex align-items-center" style="background:#ffffff; color:#bb95dc; border:3px solid #e2dcf8 !important ">
                                     Clear
                                 </button>
                             </div>

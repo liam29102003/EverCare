@@ -49,7 +49,7 @@
             </div>
     </div>
     <div class="navbar mt-3 shadow-sm mb-5 mb-lg-0 p-3 mx-3 rounded justify-content-between">
-        <div class="logo d-flex align-items-center" ><i class="fa-solid fa-staff-snake me-2 fs-1"></i><div>EVER CARE</div></div>
+        <div class="logo d-flex align-items-center" style="font-family:fantasy"><i class="fa-solid fa-staff-snake me-2 fs-1"></i><div>EVER CARE</div></div>
         <div class="origin1">
             <a href="{{route('home')}}" wire:navigate class="navItem px-3 rounded me-3 py-2 ">Home</a>
             <a href="{{route('doctor#list')}}" wire:navigate class="navItem px-3 rounded me-3 py-2 ">Doctors</a>

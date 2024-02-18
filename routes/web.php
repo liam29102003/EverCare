@@ -92,11 +92,15 @@ Route::group(['prefix'=>'admin','middleware'=>['auth:sanctum,admin', 'verified']
     Route::prefix('finance')->group(function () {
         Route::get('/expense/add',[FinanceController::class,'expenseAdd'])->name('finance.expense.add');
         Route::get('/expense/list',[FinanceController::class,'expenseList'])->name('finance.expense.list');
+        Route::get('/income/list',[FinanceController::class,'incomeList'])->name('finance.income.list');
+
         // Route::get('/add',[PharmacyController::class,'add'])->name('finance.add');
         // Route::post('/addDoctor',[DoctorController::class,'addDoctor'])->name('doctor.store');
         // Route::get('/details/{pharmacy}',[PharmacyController::class,'details'])->name('finance.details');
         Route::get('/edit/{expense}',[FinanceController::class,'edit'])->name('finance.expense.edit');
         // Route::post('/update/{doctor}',[DoctorController::class,'update'])->name('doctor.update');
+        Route::get('/voucher/{id}',[FinanceController::class,'voucher'])->name('finance.voucher');
+
     });
     Route::prefix('patient')->group(function () {
         Route::get('/list',[PatientController::class,'list'])->name('patient.list');

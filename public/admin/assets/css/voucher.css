@@ -10,20 +10,12 @@ body{
     display:flex;
     align-items:center;
     justify-content:center;
-    background:#fffdd2;
+    background:#bb95dc;
 }
 
-.wrapper{
-    color: #9d926a !important;
-    width:424px;
-    height:600px;
-    background:white;
-    position:relative;
-    padding:30px 40px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* x-offset y-offset blur-radius color */
-
+.card{
+    color: black;
 }
-
 .border-design{
     display:flex;
     width:100%;
@@ -155,12 +147,11 @@ table tbody tr:nth-child(even){
     border-top:1px solid #b4b4b4;
 }
 .total-section{
-    position:absolute;
-    right:40px;
+    /* position:absolute; */
+    /* right:40px; */
     font-size:12px;
-    width:160px;
-    margin-top:5px;
-    padding-right:5px;
+    
+    
 }
 
 .sub, .tax, .total{
@@ -180,8 +171,7 @@ table tbody tr:nth-child(even){
 }
 
 .payment-terms{
-    position:absolute;
-    bottom:0;
+   
     width:45%;
 }
 img{

@@ -106,6 +106,7 @@
       color: #bb95dc;
       background-color:#e2dcf8 !important;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      color: #bb95dc !important;
 
     }
     li a{
@@ -114,7 +115,9 @@
       border-botttom:1px solid black;
     }
     li a:hover{
-      background-color: #FFFDD1;
+      background-color: #e2dcf8;
+      color: #bb95dc !important;
+
     }
     .pagination li span{
       background-color:#9d926a !important;
@@ -128,7 +131,8 @@
     }
     th:hover{
       cursor: pointer;
-      background-color:#F6E8B1
+      background-color:#bb95dc;
+      color: white !important;
     }
     .profile_img {
             width: 150px;
@@ -150,6 +154,13 @@
         .table-bordered
         {
           border: 1px solid #9d926a !important;
+        }
+        .misc{
+          transition: all 0.3s ease-in-out;
+        }
+        .misc:hover{
+          color:white !important;
+          
         }
 
   </style>
@@ -422,7 +433,7 @@
 
       </div>
       
-      {{-- @livewireScripts() --}}
+      @livewireScripts()
       {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" data-navigate-track integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> --}}
 
     <script src="{{ asset('admin/assets/vendor/libs/jquery/jquery.js') }}" data-navigate-track></script>

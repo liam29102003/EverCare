@@ -3,8 +3,11 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12 offset-md-0">
-            <div class="card mt-4"  style="background-color:#F6E8B1 !important; color:#9d926a !important">
-                <h1>{{$search}}</h1>
+            <a href="{{route('finance.income.list')}}" class="btn btn-sm btn-outline-primary mt-3 shadow">Income</a>
+            <a class="btn btn-sm btn-outline-primary mt-3 shadow">Expense</a>
+
+            <div class="card mt-2"  style="background-color:#bb95dc !important; color:#ffffff !important">
+                {{-- <h1>{{$search}}</h1> --}}
                 
                 {{-- <h1 x-text="a"></h1> --}}
     <div class="mb-2 mt-2 w-50" style="margin: auto">
@@ -14,13 +17,13 @@
   </div>
     <div class="d-flex justify-content-between mb-0  pb-0">
         <div class="mb-0">
-            <h2 class="card-header" style="color:#9d926a">expense list</h2>
+            <h2 class="card-header" style="color:#ffffff">expense list</h2>
         </div>
         <div class="mb-0">
             <div class="mt-3 me-2 d-flex align-items-center ">
               <i class="fa-solid fa-magnifying-glass"></i>
-              <input type="text" class="form-control  ms-2 " wire:model.live="search" placeholder="Search.....">
-              <a href="{{route('finance.expense.add')}}" wire:navigate class="btn btn-primary ms-2"  style="background:#9d926a; color:#fffdd2; border-color:#9d926a !important "><i class="fa-solid fa-plus"></i></a>
+              <input type="text" class="form-control border-0 shadow ms-2 " wire:model.live="search" placeholder="Search.....">
+              <a href="{{route('finance.expense.add')}}" wire:navigate class="btn btn-primary ms-2"  style="background:#ffffff; color:#bb95dc; border-color:#bb95dc !important "><i class="fa-solid fa-plus"></i></a>
 
             </div>
               
@@ -33,18 +36,18 @@
     <div class="table-responsive text-nowrap mt-0 ">
         <table class="table" >
             <thead  >
-                <tr style="border: 2px solid #faf8e3; background-color:#faf8e3" class="shadow">
-                    <th style="color:#9d926a" class="btn" wire:click='sorting("name")'>Name @if ($orderName === 'name')
+                <tr style=" background-color:#e2dcf8" class="shadow">
+                    <th style="color:#bb95dc" class="btn" wire:click='sorting("name")'>Name @if ($orderName === 'name')
                         <span>{{ $type === 'asc' ? '▲' : '▼' }}</span>
                     @endif</th>                    
-                    <th style="color:#9d926a" wire:click='sorting("amount")'>Amount @if ($orderName === 'amount')
+                    <th style="color:#bb95dc" wire:click='sorting("amount")'>Amount @if ($orderName === 'amount')
                         <span>{{ $type === 'asc' ? '▲' : '▼' }}</span>
                     @endif</th>
-                    <th style="color:#9d926a" wire:click='sorting("created_at")'>Date @if ($orderName === 'created_at')
+                    <th style="color:#bb95dc" wire:click='sorting("created_at")'>Date @if ($orderName === 'created_at')
                         <span>{{ $type === 'asc' ? '▲' : '▼' }}</span>
                     @endif</th>
                     
-                    <th style="color:#9d926a">Actions</th>
+                    <th style="color:#bb95dc">Actions</th>
                 </tr>
             </thead>
             <tbody class="table-border-bottom-0">

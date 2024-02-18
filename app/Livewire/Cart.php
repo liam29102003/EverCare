@@ -2,7 +2,10 @@
 
 namespace App\Livewire;
 
+use App\Models\MedicalRecord;
 use App\Models\Voucher;
+use Exception;
+use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
 class Cart extends Component
@@ -31,9 +34,13 @@ class Cart extends Component
     }
     public function checkOut()
     {
+        DB::beginTransaction();
+
         $this->cart = session('my_associative_array', []);
         // dd($this->cart[0]);
+
         session()->forget('my_associative_array');
+        try{
         foreach($this->cart as $key=>$value){
         Voucher::create(
             [
@@ -47,7 +54,23 @@ class Cart extends Component
             );
             $this->key = $key;
         }
-        return $this->redirect('/receptionist/voucher/'.$this->cart[$this->key]['mr_id']);
+        // dd($this->key);
+        $m = MedicalRecord::find($this->cart[$this->key]['mr_id']);
+        if($m)
+        {
+            $m->status = 1;
+            $m->save();
+        }
+        
+        DB::commit();
+
+        return $this->redirect('/receptionist/voucher/'.$this->cart[$this->key]['mr_id'],navigate:true);
+    }
+    catch(Exception $e)
+    {
+        DB::rollback();
+
+    }
 
         // dd($this->cart);
 

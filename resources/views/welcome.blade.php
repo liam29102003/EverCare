@@ -9,7 +9,7 @@
         <div class="leftHero col-12 col-lg-5  d-flex flex-column justify-content-center align-items-center ">
             <h4 class="text-start">သင်ရဲ့ ယုံကြည်အားထားရာ</h4>
             <h1 class="text-start brand" style="text-shadow: black 1px 0 3px; font-size:60px"><i class="fa-solid fa-staff-snake me-2 "></i>EVER CARE</h1>
-            <p class="text-center">ကျန်းမာသော ခန္ဓာကိုယ်ဖြင့် ပျော်ရွှင်သော ဘဝကို တည်ဆောက်ပါ။</p>
+            <p class="text-center" style="color: #bb95dc">ကျန်းမာသော ခန္ဓာကိုယ်ဖြင့် ပျော်ရွှင်သော ဘဝကို တည်ဆောက်ပါ။</p>
             <a href="{{route('appointment.form')}}" wire:navigate class="btn ownBtn mt-3">ရက်ချိန်းယူပါ&nbsp;<i class="fa-regular fa-calendar"></i></a>
        </div>
        <div class="rightHero col-12 col-lg-7  text-center " >

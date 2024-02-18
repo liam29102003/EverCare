@@ -1,17 +1,15 @@
 body{
  
     background-color: white;
-    color: #e2dc;
+    color: #e8e6e6;
 }
 .logo{
-    font-family:fantasy;
+    color: white;
+    font-family:'Courier New', Courier, monospace !important;
     font-style: italic;
     font-size: large;
 }
-.heroContainer{
-    /* height: 100vh; */
-    /* background-image: url('images/Untitled design.png'); */
-}
+
 .navContainer{
     position: sticky;
     top: 1px;
@@ -29,7 +27,7 @@ body{
     /* border-bottom:5px solid #d7d5ae; */
 
     text-decoration: none;
-    color: ffffff;
+    color: #ffffff;
     /* border: 0; */
     transition: all 0.5s ease-in-out;
 }

@@ -21,6 +21,6 @@ class PrescriptionController extends Controller
     }
     public function voucher($id)
     {
-        return view('voucher')->with('vouchers',Voucher::where('medical_record_id',$id)->get());
+        return view('voucher')->with(['voucher'=>Voucher::where('medical_record_id',$id)->get(),'id'=>$id]);
     }
 }
