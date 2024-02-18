@@ -14,7 +14,7 @@
                     </div>
                     <img src="https://hips.hearstapps.com/hmg-prod/images/portrait-of-a-happy-young-doctor-in-his-clinic-royalty-free-image-1661432441.jpg?crop=0.66698xw:1xh;center,top&resize=1200:*" class="card-img-top" alt="...">
                     <div class="card-body text-center">
-                      <h5>Dr. Kyaw Kyaw</h5>
+                      <h5 class='dname'>Dr. Kyaw Kyaw</h5>
                       <div>M.B.B.S (Cardiac)</div>
                       <small>Cardiac</small>
                     </div>

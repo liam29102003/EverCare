@@ -1,10 +1,10 @@
 <div class=" d-flex col-12 justify-content-between" style="flex-wrap: wrap;">
                         <div class="left">
                             <label for="">Choose Doctor<span class='text-danger'>*</span></label>
-                            <select class="form-control shadow-sm form-select " aria-label="Default select example" name='doctor' style='border:0'>
-                                <option selected>Doctor (Speciality)</option>
+                            <select class="form-control shadow-sm form-select" name='doctor' wire:change="changeDoctor($event.target.value)" aria-label="Default select example"  style='border:0'>
+                                <option selected value="">Doctor (Speciality)</option>
                                 @foreach($doctors as $doctor)
-                                <option value='{{$doctor->id}}'>{{$doctor->name}} ({{$doctor->speciality}})</option>
+                                <option value='{{$doctor->id}}' wire:click="logd">{{$doctor->name}} ({{$doctor->speciality}})</option>
 
                                 @endforeach
                             </select>
@@ -15,10 +15,14 @@
                         <div class="right">
                             <label for="">Choose Appointment Date<span class='text-danger'>*</span></label>
                             <select class="form-control shadow-sm form-select " name='appointment_date' aria-label="Default select example" style='border:0'>
-                            <option selected value='3'>Choose Appointment Date</option>
-                            <option  value='3'>Monday (4:30)</option>
-                                <option value="1">Wednesday (2:30)</option>
+                            
+                            <option selected value=''>Choose Appointment Date</option>
+                            @foreach($appointments as $a)
+                                <option value="{{$a['from']}} to {{$a['to']}} | {{strtoupper($a['day'])}}" wire:click="logd">{{$a['from']}} to {{$a['to']}} | {{strtoupper($a['day'])}}</option>
+
+                                @endforeach
                             </select>
+
                             @error('appointment_date')
                             <span class='text-danger'>{{$message}}</span>
                         @enderror
