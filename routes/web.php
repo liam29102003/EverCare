@@ -5,7 +5,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Admin\StaffController;
 use App\Http\Controllers\AppointmentController;
-use App\Http\Controllers\Admin\DoctorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +17,7 @@ use App\Http\Controllers\Admin\DoctorController;
 |
 */
 
+use App\Http\Controllers\Admin\DoctorController;
 use App\Http\Controllers\ReceptionistController;
 use App\Http\Controllers\user\PatientController;
 use App\Http\Controllers\Admin\FinanceController;
@@ -29,7 +29,13 @@ use App\Http\Controllers\receptionist\PrescriptionController;
 //  Route::post('/login', [AdminController::class, 'store'])->name('admin.login');
 // });
 
-
+// Appointment
+Route::get('/appointment/form',[AppointmentController::class,'appFormPage'])->name('appointment.form');
+Route::post('/make/appointment',[AppointmentController::class, 'makeAppointment'])->name('appointment.make');
+Route::get('/patient/logout',[PatientController::class,'logout'])->name('patient.logout');
+Route::post('/patient/login',[PatientController::class,'loginPatient'])->name('patient.login');
+Route::post('/oldpatient/appointment',[AppointmentController::class,'oldAppointment'])->name('old.appointment.make');
+//
 
 Route::get('/', function () {
     return view('welcome');
@@ -37,25 +43,13 @@ Route::get('/', function () {
 Route::get('/login',function(){
     return view('login');
 })->name('login_page');
-Route::get('/new/appointment',[AppointmentController::class,'newAppointment'])->name('new#appointment');
+
 Route::get('/doctor/list',[DoctorController::class,'doctorListPage'])->name('doctor#list');
 Route::get('/doctor/detailPage',[DoctorController::class,'doctorDetailPage'])->name('doctor#detailPage');
 Route::get('admin/login', [AdminController::class, 'loginForm'])->name('admin.login');
 Route::post('admin/login', [AdminController::class, 'store'])->name('admin.login');
 Route::get('receptionist/login', [ReceptionistController::class, 'loginForm'])->name('receptionist.login');
 Route::post('receptionist/login', [ReceptionistController::class, 'store']);
-
-// Patient collection
-
-Route::prefix('patient')->group(function(){
-    Route::get('/dashboard',[PatientController::class, 'dashboard'])->name('patient.dashboard');
-    Route::get('/appointment',[PatientController::class,'makeAppointment'])->name('patient.makeappointment');
-});
-
-// 
-
-
-
 
 Route::middleware([
     'auth:sanctum',

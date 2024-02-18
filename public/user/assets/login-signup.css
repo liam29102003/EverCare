@@ -1,28 +1,28 @@
 *{
     --containerBg--:#ffffff;
     --borderRadius--:20px;
-    --btnColour--:#16d4ad77;
+    /* --btnColour--:#16d4ad77; */
     --fontColour--:#000;
     font-family:'IBM Plex Sans', sans-serif;
     font-feature-settings: 'clig' off, 'liga' off;
     font-style: normal;
-    --linkColor--:#0894b2;
+    /* --linkColor--:#0894b2; */
     --hover--:#a5f4fc;
     
 
 }
 .back{
-    color: #0894b2;
+    /* color: #0894b2; */
 }
 body{
-    color: #16d4ad77;
+    /* color: #16d4ad77;     */
 }
 
 form, .back{
     /* width: 524px;
     height: 584px; */
-    background: #16d4ad77
-    ;
+    /* background: #16d4ad77 */
+    
     border-radius: var(--borderRadius--);
 }
 /* .card{
@@ -30,26 +30,7 @@ form, .back{
     background-color: #000;
 
 } */
-.logIncontainer{
-    width: 524px;
-    height: 584px;
-    display: flex;
-    row-gap: 50px;
-    background-color: #16d4ad77;
-}
-.imgContainer{
-    /* margin:auto; */
-    margin-top: 77px;
-    /* margin-left: 119px; */
-    /* margin-right: 165px; */
-    display: flex;
-    flex-direction: column;
-    row-gap: 2rem;
-    /* position: relative; */
-    background-color: #16d4ad77; 
-    border-radius: 10px;
 
-}
 
 .password-toggle-icon {
     position: absolute;
@@ -94,14 +75,7 @@ form img {
 label[for="password"] div{
     position: absolute;
 }
-.textContainer label{
-    color: #0e8d9e;
-    /* font-size: 12px; */
-    font-style: normal;
-    font-weight: 400;
-    line-height: 16px; /* 133.333% */
-    letter-spacing: 0.32px;
-}
+
 .textContainer div{
     display: flex;
     align-items:center;
@@ -131,5 +105,5 @@ a:hover{
     background-color: var(--hover--);
 }
 .form-container{
-    border: 5px double #16d4ad;
+    /* border: 5px double #16d4ad; */
 }

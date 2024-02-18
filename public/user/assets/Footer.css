@@ -71,11 +71,9 @@ a{
 
 /* This is Article Css */
 .footerContainer{
-    background-color: red;
     flex-wrap: wrap;
     padding: 20px;
-    background-color: #16d4ad77;
-    color: white;
+    color: black;
 }
 
 .footerSection{
