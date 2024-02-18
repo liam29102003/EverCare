@@ -23,8 +23,8 @@ class PatientFactory extends Factory
            'dob' => $this->faker->date(),
            'gender' => $this->faker->randomElement(['male', 'female']),
            'address' => $this->faker->address(),
-           'bloodType' => $this->faker->randomElement(['A+', 'A-', 'B+', 'B-', 'O+', 'O-', 'AB+', 'AB-']),
-           'type' => $this->faker->randomElement(['in-person', 'online']),
+        //    'bloodType' => $this->faker->randomElement(['A+', 'A-', 'B+', 'B-', 'O+', 'O-', 'AB+', 'AB-']),
+        //    'type' => $this->faker->randomElement(['in-person', 'online']),
            
         ];
     }

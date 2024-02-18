@@ -17,17 +17,15 @@ class PrescriptionFactory extends Factory
     public function definition(): array
     {
         return [
-            'patient_id' => $this->faker->randomNumber(8),
-            'doctor_id' => $this->faker->randomNumber(8),
+            
             'medicine_name' => $this->faker->text(50),
-            'dosage' => $this->faker->text(50),
-            'frequency' => $this->faker->text(50),
-            'duration' => $this->faker->text(50),
+            'dosage' => $this->faker->numberBetween(1,10),
+            'frequency' => $this->faker->numberBetween(1,10),
+            'duration' => $this->faker->numberBetween(1,10),
             'note' => $this->faker->text(50),
             'buyOrNot'=>$this->faker->randomElement([true,false]),
-            'status' => $this->faker->randomElement([true, false]),
-            'medical_record_id' => $this->faker->randomNumber(8),
-            'quantity' => $this->faker->randomNumber(8),
+            'medical_record_id' => $this->faker->numberBetween(1,10),
+            'quantity' => $this->faker->numberBetween(1,10),
             'type' => $this->faker->randomElement(['injection', 'liquid','tablet']),
 
 

@@ -17,12 +17,13 @@ class MedicalRecordFactory extends Factory
     public function definition(): array
     {
         return [
-            'patient_id' => $this->faker->randomNumber(8),
-            'doctor_id' => $this->faker->randomNumber(8),
+            'patient_id' => $this->faker->numberBetween(1,10),
+            'doctor_id' => $this->faker->numberBetween(1,10),
             'disease' => $this->faker->text(50),
             'symptoms' => $this->faker->text(50),
-            'weight' => $this->faker->randomNumber(8),
-            'blood pressure' => $this->faker->randomNumber(8),
+            'weight' => $this->faker->randomNumber(3),
+            'blood pressure' => $this->faker->randomNumber(3),
+            'status' => $this->faker->randomElement([1, 0]),
             'note' => $this->faker->text(50),
             
         ];

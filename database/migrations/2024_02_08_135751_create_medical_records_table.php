@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('symptoms');
             $table->integer('weight')->nullable();
             $table->integer('blood pressure')->nullable();
+            $table->string('status');
             $table->text('note');
             $table->timestamps();
         });

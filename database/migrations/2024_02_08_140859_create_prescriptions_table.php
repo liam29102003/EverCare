@@ -13,15 +13,13 @@ return new class extends Migration
     {
         Schema::create('prescriptions', function (Blueprint $table) {
             $table->id();
-            $table->string('patient_id');
-            $table->string('doctor_id');
+           
             $table->string('medicine_name');
             $table->string('dosage')->nullable();
             $table->string('frequency')->nullable();
             $table->string('duration')->nullable();
             $table->string('note');
             $table->string('buyOrNot');
-            $table->string('status');
             $table->string('medical_record_id');
             $table->string('quantity')->nullable();
             $table->string('type');

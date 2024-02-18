@@ -13,7 +13,7 @@ class PrescriptionController extends Controller
 {
     public function list()
     {
-        return view('receptionist.prescription.list')->with('prescriptions', Prescription::where('status',1)->whereDate('created_at',Carbon::today())->get());
+        return view('receptionist.prescription.list')->with('prescriptions', MedicalRecord::where('status',1)->whereDate('created_at',Carbon::today())->get());
     }
     public function detail($id)
     {
