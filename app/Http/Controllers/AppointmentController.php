@@ -44,6 +44,7 @@ class AppointmentController extends Controller
             'appointment_date'=>$request->appointment_date,
             'address'=>$request->address
         ];
+        // dd($data);
         Appointment::create($data);
         Patient::create([
         'name'=>$request->name,
@@ -54,6 +55,39 @@ class AppointmentController extends Controller
         'phone'=>$request->phone,
         'address'=>$request->address
         ]);
+        $doctor = Doctor::where('id',$request->doctor)->get();
+        session()->put([
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'password'=>Hash::make($request->password),
+            'dob'=>$request->dob,
+            'gender'=>$request->gender,
+            'phone'=>$request->phone,
+            'address'=>$request->address
+            ]);
+        return view('user.successful_appointment',compact('data','doctor'));
+    }
+
+    public function oldAppointment(Request $request){
+        Validator::make($request->all(),[
+            'treatment_type'=>'required',  
+            'doctor'=>'required',
+            'appointment_date'=>'required',
+        ])->validate();
+        $data = [
+            'patient_type'=>'old',
+            'name'=>session()->get('name'),
+            'email'=>session()->get('email'),
+            'treatment_type'=>$request->treatment_type,
+            'password'=>session()->get('password'),
+            'dob'=>session()->get('dob'),
+            'gender'=>session()->get('gender'),
+            'phone'=>session()->get('phone'),
+            'doctor_id'=>$request->doctor,
+            'appointment_date'=>$request->appointment_date,
+            'address'=>session()->get('address')
+        ];
+        Appointment::create($data);
         $doctor = Doctor::where('id',$request->doctor)->get();
         return view('user.successful_appointment',compact('data','doctor'));
     }

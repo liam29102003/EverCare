@@ -6,10 +6,11 @@
         <div class="col-lg-6 offset-lg-4">
           <!-- <div class="card border-0 "> -->
           <!-- <a href="" class="btn back shadow shadow-sm mb-2" style="color: #0894b2;"><i class="fa-solid fa-arrow-left "></i></a> -->
-          <form action="" method="post" class="shadow pt-2" style="margin: auto">
+          <form action="{{route('patient.login')}}" method="post" class="shadow pt-2" style="margin: auto;">
+          @csrf
             <div class="logInContainer text-center">
               <div class="imgContainer mt-0">
-                <div style='font-size:50px;font-weight:bold; margin-top:10px;'>Evercare</div>
+                <div style='font-size:50px;font-weight:bold; margin-top:10px;color:black;'>Evercare</div>
                 <!-- <img
                   src="logo.png"
                   alt="clinic-logo"
@@ -24,7 +25,7 @@
                 >
                   <!-- <p class="fs-4" style="color: #16d;">Login Here</p> -->
 
-                  <div class="textContainer text-center mb-4 mt-3">
+                  <div class="textContainer text-center mb-4 mt-3" style='color:#000000bb'>
                     <label for="email" class="mb-2"
                       ><i class="fa-solid fa-envelope"></i>&nbsp;Email</label
                     >
@@ -34,8 +35,14 @@
                       name="email"
                       class="form-control"
                     />
+                    @error('email')
+                      <span>{{$message}}</span>
+                    @enderror
+                    @if(session('email'))
+                    <span>{{session('email')}}</span>
+                    @endif
                   </div>
-                  <div class="textContainer mb-3">
+                  <div class="textContainer mb-3" style='color:#000000bb'>
                     <label for="password" class="mb-2"
                       ><i class="fa-solid fa-lock"></i>&nbsp;Password</label
                     >
@@ -48,10 +55,14 @@
                         placeholder="********"
                         class="form-control"
                       />
-                      <button type="button" class="password-toggle-icon">
+                      
+                      <!-- <button type="button" class="password-toggle-icon">
                         <i class="fa-solid fa-eye" style="color: #000"></i>
-                      </button>
+                      </button> -->
                     </div>
+                    @error('password')
+                      <span>{{$message}}</span>
+                    @enderror
                     
                   </div>
                
@@ -81,11 +92,7 @@
                     </div>
                     <!-- <input type="submit" value="Login" class="btn shadow text-light"> -->
                   </div>
-                  <div class="llink">
-                    Already have an account?&nbsp;<a href="login.html" class="signUpLink"
-                      >Log In</a
-                    >
-                  </div>
+                  
                 </div>
               </div>
             </div>

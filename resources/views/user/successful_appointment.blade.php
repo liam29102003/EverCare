@@ -10,15 +10,19 @@
     <style>
         body{
             background-color: #fff;
+            color:#8f65dc;
         }
         .successAppImg{
             width:100px;
             height:100px;
         }
+        li{
+            text-align:left;
+        }
     </style>
 </head>
 <body>
-    <div style="height: 100vh;width:50%" class="container text-center d-flex flex-column justify-content-center align-items-center">
+    <div style="height: auto;width:70%;padding:50px;border-radius:15px;" class="mt-5 container text-center d-flex flex-column justify-content-center align-items-center">
         <div class=""><img src="https://freepngimg.com/download/success/6-2-success-png-image.png" class="successAppImg"/></div>
         <div class="mt-3 fw-bold">Your <strong>{{$data['treatment_type']}}</strong> appointment booked successfully!</div>
         @if($data['treatment_type'] == 'online')
@@ -43,6 +47,36 @@
             </table>
         </div>
         <a href="{{route('home')}}" class="btn btn-success mt-3">Go Home</a>
+
+        @if($data['treatment_type'] == 'online')
+        <div class="card mt-3">
+    <div class="card-header">
+        <h5 class="card-title">Online Consultation Guidelines</h5>
+    </div>
+    <div class="card-body">
+        <ol>
+            <li>Book an appointment by selecting a convenient time slot.</li>
+            <li>Ensure you have a stable internet connection.</li>
+            <li>Find a quiet and well-lit space for the consultation.</li>
+            <li>Log in to the consultation platform at least 5 minutes before the scheduled time.</li>
+            <li>Wait for the consultant to join the session.</li>
+            <li>During the consultation, communicate clearly and provide necessary information.</li>
+            <li>Respect the consultant's time and adhere to the allocated duration.</li>
+            <li>Follow any post-consultation instructions provided by the consultant.</li>
+        </ol>
+        <hr>
+        <p><strong>Rules:</strong></p>
+        <ul>
+            <li>Be respectful and courteous towards the consultant and other participants.</li>
+            <li>Avoid sharing sensitive or personal information in a public chat.</li>
+            <li>Comply with the platform's terms of service and guidelines.</li>
+            <li>Do not engage in any illegal or inappropriate behavior during the consultation.</li>
+            <li>Report any technical issues or concerns to the platform support team.</li>
+        </ul>
+    </div>
+</div>
+        @endif
+
     </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

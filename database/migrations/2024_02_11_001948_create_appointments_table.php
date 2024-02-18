@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('patient_type');
             $table->string('treatment_type');
             $table->string('email');
-            $table->string('password');
+            $table->string('password')->nullable(true);
             $table->string('dob');
             $table->string('phone');
             $table->string('gender');

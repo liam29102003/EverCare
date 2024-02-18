@@ -1,8 +1,8 @@
 
 .dcard{
-    background-color:  #f6E8b1;
+    background-color:  white;
     overflow: hidden;
-    border-radius:10% 30% 0% 0% ;
+    border-radius:10% 30% 0% 0%;
 }
 .card-img-top{
     height: 250px;
@@ -11,6 +11,9 @@
     margin:-50px;
     transition: all 0.4s;
 }
+.dname{
+    font-weight:bold;
+}
 .dcard:hover{
     .detailContainer{
         margin:10px;
@@ -18,7 +21,7 @@
 }
 .card-img-top{
     border-radius: 10% 30% 50% 70%;
-    border-bottom:5px solid black;
+
 }
 
 .leftDetail{
@@ -43,3 +46,4 @@
         
     }
 }
+

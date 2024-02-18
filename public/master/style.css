@@ -30,7 +30,7 @@ body{
     /* border-bottom:5px solid #d7d5ae; */
 
     text-decoration: none;
-    color: ffffff;
+    color: white !important;
     /* border: 0; */
     transition: all 0.5s ease-in-out;
 }
@@ -44,8 +44,8 @@ body{
 
 .navItem:hover{
 
-    background-color: #aca484;
-    color: white;
+    background-color: #fff;
+    color: #e2dc !important;
     /* border-bottom:5px solid #ffa45c55; */
 }
 .navItem:active{
@@ -59,11 +59,12 @@ body{
 }
 .navBtn{
     border: 2px solid #ffffff;
-    color:#ffffff
+    color:#ffffff;
+    transition:all 0.3s ease;
 }
 .navBtn:hover{
-    background-color:#5d5d5aaa ;
-    color:white
+    background-color:white ;
+    color:black
 }
 .respMenu{
     height: 0;
@@ -82,7 +83,7 @@ background-color: #00000022;
     border: 2px solid wheat;
 }
 .abImg:hover{
-    box-shadow: 5px 5px 0px #000000aa;
+    box-shadow: 5px 5px 0px #e2dc;
 }
 
 /* ----------------------------- */
@@ -92,6 +93,9 @@ background-color: #00000022;
     background-position: center;
 }
 
+.arr:hover{
+    background-color: #bb95dc;
+}
 .ownBtn{
     background-color: #bb95dc;
     color: white;
@@ -111,17 +115,15 @@ background-color: #00000022;
     margin-top: 10px;
     width:200px;
     height: 5px;
-    background-color: #5d5d5a;
 }
 
 .carousel-item{
     width: 50%;
 }
-.carouselBtn{
-    color:black;
-}
+
+
 .card{
-    /* background-color: #ffa45c11; */
+    background-color: #ffa45c00;
     border-radius: 25% 10%;
     border-bottom: 4px double #aca484;
 }
@@ -130,13 +132,13 @@ background-color: #00000022;
     border-radius:10%;
     border-bottom-left-radius: 0%;
     border-bottom-right-radius: 0%;
-
 }
 
 .about{
     font-size: 18px;
     line-height: 45px;
     text-align: justify;
+
 }
 .aboutImage{
     width: 50%;
@@ -179,8 +181,7 @@ background-color: #00000022;
     margin-top: 3px;
     flex-wrap: wrap;
     padding: 20px;
-    background-color: orange;
-    color: white;
+    border-top:1px solid #bb95dc;
 }
 
 .footerSection{

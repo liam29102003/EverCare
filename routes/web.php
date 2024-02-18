@@ -32,6 +32,10 @@ use App\Http\Controllers\receptionist\PrescriptionController;
 // Appointment
 Route::get('/appointment/form',[AppointmentController::class,'appFormPage'])->name('appointment.form');
 Route::post('/make/appointment',[AppointmentController::class, 'makeAppointment'])->name('appointment.make');
+Route::get('/patient/logout',[PatientController::class,'logout'])->name('patient.logout');
+Route::post('/patient/login',[PatientController::class,'loginPatient'])->name('patient.login');
+Route::post('/oldpatient/appointment',[AppointmentController::class,'oldAppointment'])->name('old.appointment.make');
+//
 
 Route::get('/', function () {
     return view('welcome');
