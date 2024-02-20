@@ -1,5 +1,6 @@
 <div class="d-flex align-items-center">
-    <button wire:click='back' class="btn-btn-success" >Back</button>
+    <button wire:click='back
+    ' class="btn-btn-success" >Back</button>
     <div class=" card p-4 px-5 border-0 shadow-sm">
         <div class="border-design top">
             <div class="c1"></div>

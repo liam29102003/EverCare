@@ -162,6 +162,9 @@
           color:white !important;
           
         }
+        .rec-button{
+          background-color: white !important;
+        }
 
   </style>
   @livewireStyles
@@ -238,10 +241,10 @@
               </li>
               @elseif(request()->segment(1) === 'receptionist')
               <li class="menu-item ">
-                <a href="{{ route('pharmacy') }}" wire:navigate  class="menu-link {{ request()->segment(2) === 'pharmacy' ? 'select' : '' }}" style="      color:white ;
+                <a href="{{ route('receptionist.appointment.list') }}" wire:navigate  class="menu-link {{ request()->segment(2) === 'pharmacy' ? 'select' : '' }}" style="      color:white ;
                 border-bottom: 3px solid #9d926aa;">
                     <i class="fa-solid fa-pills me-3 fs-5"></i>
-                  <div data-i18n="Analytics">Medicine</div>
+                  <div data-i18n="Analytics">Appointments</div>
                 </a>
               </li>
               <li class="menu-item ">

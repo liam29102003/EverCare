@@ -2,7 +2,7 @@
     <div class="mt-3   me-2 d-flex align-items-center text-end justify-content-between">
 
         <a href="{{ route('cart') }}" wire:navigate type="button" class="btn btn-sm ms-4 position-relative"
-            style="background:#9d926a; color:#fffdd2; border-color:#9d926a !important ">
+            style="background:#bb95dc; color:#ffffff; border-color:#ffffff !important ">
             <i class="fa-solid fa-cart-shopping"></i>
             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                {{$count}}

@@ -3,9 +3,13 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12 offset-md-0">
-            <a href="{{route('finance.income.list')}}" class="btn btn-sm btn-outline-primary mt-3 shadow">Income</a>
-            <a class="btn btn-sm btn-outline-primary mt-3 shadow">Expense</a>
-
+            @if(request()->routeIs('finance.income.list'))
+            <a href="{{route('finance.income.list')}}" wire:navigate class="btn btn-sm  mt-3 shadow" style="background-color:  #bb95dc; color:white">Income</a>
+            <a href="{{route('finance.expense.list')}}" wire:navigate class="btn btn-sm  mt-3 shadow" style="border: 2px solid #bb95dc">Expense</a>
+            @elseif(request()->routeIs('finance.expense.list'))
+            <a href="{{route('finance.income.list')}}" wire:navigate class="btn btn-sm  mt-3 shadow" style="border: 2px solid #bb95dc">Income</a>
+            <a href="{{route('finance.expense.list')}}" wire:navigate class="btn btn-sm  mt-3 shadow" style="background-color:  #bb95dc; color:white">Expense</a>
+            @endif
             <div class="card mt-2"  style="background-color:#bb95dc !important; color:#ffffff !important">
                 {{-- <h1>{{$search}}</h1> --}}
                 
@@ -53,18 +57,18 @@
             <tbody class="table-border-bottom-0">
                 @foreach ($expenses as $expense)
                 <tr wire:key="{{ $expense->id }}" style="border-top:2px solid #FFFEF2; border-bottom:2px solid #FFFEF2; border-top:0;" class="shadow-sm mb-3">
-                    <td><strong>{{ $expense->name }}</strong></td>
-                        <td>{{ $expense->amount }} MMK</td>
-                        <td><span class="badge bg-label-primary me-1">{{ date_format($expense->created_at,"Y/m/d")  }}</span></td>
+                    <td class="text-white"><strong>{{ $expense->name }}</strong></td>
+                        <td class="text-white">{{ $expense->amount }} MMK</td>
+                        <td class="text-white"><span class="badge bg-label-primary me-1">{{ date_format($expense->created_at,"Y/m/d")  }}</span></td>
 
                         <td>
                             
-                            <button type="button" class="btn text-danger"
+                            <button type="button" class="btn misc" style="color: #e2dcf8"
                                 x-on:click=" $dispatch('open-modal'); $wire.changevalue({{ $expense->id }}, 'Are you sure to delete')">
 
                                 <i class="fa-solid fa-trash"></i></button>
-                            <a href="{{route('finance.expense.edit',$expense->id)}}" wire:navigate class="text-success"><i
-                                    class="fa-solid fa-pen-to-square"></i></a>
+                            <a href="{{route('finance.expense.edit',$expense->id)}}" wire:navigate class="misc"><i
+                                    class="fa-solid fa-pen-to-square" style="color: #e2dcf8"></i></a>
                                     
                         </td>
                     </tr>

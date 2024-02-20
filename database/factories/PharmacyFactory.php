@@ -20,7 +20,7 @@ class PharmacyFactory extends Factory
             'name' => $this->faker->name,
             'quantity' => $this->faker->randomNumber(4),
             'price' => $this->faker->randomNumber(4),
-            'image' => $this->faker->imageUrl(640, 480, 'food', true, 'Faker'),
+            'image' => 'images/depositphotos_1097789-stock-photo-lot-of-medicines.jpg',
             'description' => $this->faker->text(50),
             'manufacturer' => $this->faker->name,
             'side' => $this->faker->name,

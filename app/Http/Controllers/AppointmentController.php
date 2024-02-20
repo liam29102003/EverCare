@@ -91,4 +91,13 @@ class AppointmentController extends Controller
         $doctor = Doctor::where('id',$request->doctor)->get();
         return view('user.successful_appointment',compact('data','doctor'));
     }
+    public function instructions(){
+        // $doctor = Doctor::where('id',$doctor)->get();
+        return view('user.successful_appointment');
+
+    }
+    public function list()
+    {
+        return view('receptionist.appointment_list');
+    }
 }

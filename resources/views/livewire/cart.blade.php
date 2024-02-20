@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12 offset-md-0">
-            <div class="card mt-4" style="background-color:#F6E8B1 !important; color:#9d926a !important">
+            <div class="card mt-4" style="background-color:#bb95dc !important; color:#ffffff !important">
 
 
                 <div class="mb-2 mt-2 w-50" style="margin: auto">
@@ -14,7 +14,7 @@
                         <div class="mt-3 ms-2  d-flex align-items-center ">
                             <button wire:click='deleteCart' type="submit"
                                 class="btn btn-sm btn-primary  d-flex align-items-center"
-                                style="background:#9d926a; color:#fffdd2; border-color:#9d926a !important ">
+                                style="background:#bb95dc; color:#ffffff; border-color:#ffffff !important ">
                                 <div>Clear</div>
 
 
@@ -25,7 +25,7 @@
                     <div class="mb-3">
                         <div class="mt-3 me-2  d-flex align-items-center ">
                             <button wire:click='checkOut' type="submit" class="btn btn-sm btn-primary  d-flex align-items-center"
-                                style="background:#9d926a; color:#fffdd2; border-color:#9d926a !important ">
+                            style="background:#bb95dc; color:#ffffff; border-color:#ffffff !important ">
                                 <div>Check out</div>
 
 
@@ -39,11 +39,11 @@
                     {{-- <button wire:click="deleteCart">Delete</button> --}}
                     <table class="table">
                         <thead>
-                            <tr style="border: 2px solid #faf8e3; background-color:#faf8e3" class="shadow">
-                                <th style="color:#9d926a" class="">Name</th>
-                                <th style="color:#9d926a" class="text-center">Quantity</th>
-                                <th style="color:#9d926a" class="text-center">Price</th>
-                                <th style="color:#9d926a">Actions</th>
+                            <tr style="border: 0; background-color:#e2dcf8" class="shadow">
+                                <th style="color:#bb95dc" class="">Name</th>
+                                <th style="color:#bb95dc" class="text-center">Quantity</th>
+                                <th style="color:#bb95dc" class="text-center">Price</th>
+                                <th style="color:#bb95dc">Actions</th>
                             </tr>
                         </thead>
 

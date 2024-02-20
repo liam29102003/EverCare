@@ -6,9 +6,9 @@
     <div class="row">
         <!-- Basic Layout -->
         <div class="col-6 offset-3" >
-            <div class="card mb-4" style="background-color:#F6E8B1 !important; color:#9d926a !important" >
-                <div class="card-header d-flex align-items-center justify-content-center">
-                    <h5 class="mb-0">Add Expense</h5>
+            <div class="card mb-4" style="background-color:#bb95dc !important; color:#ffffff !important" >
+                <div class="card-header d-flex align-items-center justify-content-center pb-0">
+                    <h5 class="mb-0 text-white fs-3">Add Expense</h5>
                     <!-- <small class="text-muted float-end">Default label</small> -->
                 </div>
                 <div class="card-body">
@@ -31,7 +31,7 @@
                         <div class="row mb-3">
                             <div class="col-md-10 offset-md-1">
 
-                            <label class=" col-form-label" for="basic-default-name"><i
+                            <label class=" col-form-label text-white" for="basic-default-name"><i
                                     class="fa-solid fa-signature me-2"></i>Name :</label>
 
                             <div class="">
@@ -50,7 +50,7 @@
                         <div class="row mb-3">
                             <div class="col-md-10 offset-md-1">
 
-                            <label class=" col-form-label" for="basic-default-name"><i
+                            <label class=" col-form-label text-white" for="basic-default-name"><i
                                     class="fa-solid fa-signature me-2"></i>Amount :</label>
 
                             <div class="">
@@ -69,14 +69,14 @@
                             <div class="col-md-10 offset-md-1 d-flex justify-content-between">
 
                                 <button type="submit" class="btn btn-primary border-0 d-flex align-items-center"
-                                style="background:#9d926a; color:#fffdd2; border-color:#9d926a !important ">
+                                style="background:#ffffff; color:#bb95dc; border:3px solid #e2dcf8 !important ">
                                     <div>Send</div>
 
                                     <div class="spinner-border ms-2" wire:loading wire:target='' role="status">
                                         <span class="visually-hidden">Loading...</span>
                                     </div>
                                 </button>
-                                <button type="reset" class="btn btn-primary border-0 d-flex align-items-center" style="background:#9d926a; color:#fffdd2; border-color:#9d926a !important ">
+                                <button type="reset" class="btn btn-primary border-0 d-flex align-items-center" style="background:#ffffff; color:#bb95dc; border:3px solid #e2dcf8 !important ">
                                     Clear
                                 </button>
                             </div>
