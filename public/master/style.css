@@ -179,6 +179,8 @@ background-color: #00000022;
     flex-wrap: wrap;
     padding: 20px;
     border-top:1px solid #bb95dc;
+    background-color: #bb95dc22;
+    color:white;
 }
 
 .footerSection{
@@ -186,16 +188,16 @@ background-color: #00000022;
 }
 
 .footerInfo{
-    color:gray;
+    color:black;
     margin:20px;
 }
 .makeApp{
     padding:10px 20px;
-    background-color: #16d4ed;
+    background-color: #16d4ed00;
 }
 .contactInfo{
     margin: 5px;
-    color:gray;
+    color:black;
     text-decoration: underline;
 }
 

@@ -107,7 +107,7 @@
         
     </div>
     <div class="navbar mt-3 shadow-sm mb-5 mb-lg-0 p-3 mx-3 rounded justify-content-between">
-        <div class="logo d-flex align-items-center" ><i class="fa-solid fa-staff-snake me-2 fs-1 text-dark" ></i><div class='text-dark fw-bold'>EVER CARE</div></div>
+        <div class="logo d-flex align-items-center" ><i class="fa-solid fa-staff-snake me-2 fs-1 " ></i><div class=' fw-bold'>EVER CARE</div></div>
         <div class="origin1">
             <a href="{{route('home')}}" wire:navigate class="navItem px-3 rounded me-3 py-2 ">Home</a>
             <a href="{{route('doctor#list')}}" wire:navigate class="navItem px-3 rounded me-3 py-2 ">Doctors</a>
@@ -178,9 +178,9 @@
         </div>
     </div>
 </div>
-<div class="defaultColor text-center p-2  shadow shadow-lg border d-flex justify-content-center align-items-center">
+<div class="defaultColor text-center p-2  shadow shadow-lg border d-flex justify-content-center align-items-center" style='background-color:#bb95dc'>
     <span class="me-2 d-flex justify-content-center align-items-center"><i class="fa-solid fa-staff-snake me-2 fs-1"></i><div>EVER CARE</div></span>
-    <small class="">© 2019-2023 Evercare. All rights reserved.</small>
+    <small class="" style='color:white;'>© 2019-2023 Evercare. All rights reserved.</small>
 </div>
 <!-- end of footer -->
 @livewireScripts()
