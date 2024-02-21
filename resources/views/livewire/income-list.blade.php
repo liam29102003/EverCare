@@ -3,8 +3,15 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12 offset-md-0">
-            <button class="btn btn-sm btn-outline-primary mt-3 shadow">Income</button>
-            <button class="btn btn-sm btn-outline-primary mt-3 shadow">Expense</button>
+            @if(request()->routeIs('finance.income.list'))
+            <a href="{{route('finance.income.list')}}" wire:navigate class="btn btn-sm  mt-3 shadow" style="background-color:  #bb95dc; color:white">Income</a>
+            <a href="{{route('finance.expense.list')}}" wire:navigate class="btn btn-sm  mt-3 shadow" style="border: 2px solid #bb95dc">Expense</a>
+            @elseif(request()->routeIs('finance.expense.list'))
+            <a href="{{route('finance.income.list')}}" wire:navigate class="btn btn-sm  mt-3 shadow" style="border: 2px solid #bb95dc">Income</a>
+            <a href="{{route('finance.expense.list')}}" wire:navigate class="btn btn-sm  mt-3 shadow" style="background-color:  #bb95dc; color:white">Expense</a>
+            @endif
+           
+
 
             <div class="card mt-2"  style="background-color:#bb95dc !important; color:#ffffff !important">
                 {{-- <h1>{{$search}}</h1> --}}
@@ -23,7 +30,6 @@
             <div class="mt-3 me-2 d-flex align-items-center ">
               <i class="fa-solid fa-magnifying-glass"></i>
               <input type="text" class="form-control border-0 shadow ms-2 " wire:model.live="search" placeholder="Search.....">
-              <a href="{{route('finance.expense.add')}}" wire:navigate class="btn btn-primary ms-2"  style="background:#ffffff; color:#bb95dc; border-color:#bb95dc !important "><i class="fa-solid fa-plus"></i></a>
 
             </div>
               
@@ -49,7 +55,7 @@
             </thead>
             <tbody class="table-border-bottom-0">
                 @foreach ($records as $record)
-                <tr wire:key="{{ $record->medical_record_id }}" style="border-top:2px solid #FFFEF2; border-bottom:2px solid #FFFEF2; border-top:0;" class="shadow-sm mb-3">
+                <tr wire:key="{{ $record->medical_record_id }}" style="border-top:2px solid #FFFEF2;  " class="shadow-sm mb-3">
                     <td class="ms-5 text-white"><strong>{{ $record->medical_record_id }}</strong></td>
                         <td class="text-white">{{ $record->amount }} MMK</td>
                         <td class="text-white"><span class="badge bg-label-primary me-1">{{ date_format($record->updated_at,"Y/m/d")  }}</span></td>

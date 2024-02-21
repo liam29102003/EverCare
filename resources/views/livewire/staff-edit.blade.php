@@ -6,9 +6,9 @@
     <div class="row">
         <!-- Basic Layout -->
         <div class="col-md-6 offset-md-3">
-            <div class="card mb-4 p-2 p-md-0" style="background-color:#F6E8B1; color:#9d926a !important">
+            <div class="card mb-4 p-2 p-md-0" style="background-color:#bb95dccc; color:#ffffff !important">
                 <div class="card-header d-flex align-items-center justify-content-center">
-                    <h3 class="mb-0">Edit staff</h3>
+                    <h3 class="mb-0 text-white">Edit staff</h3>
                     <!-- <small class="text-muted float-end">Default label</small> -->
                 </div>
                 <div class="card-body">
@@ -42,7 +42,7 @@
                         <div class="row mb-3">
                             <div class="col-md-10 offset-md-1">
 
-                            <label class=" col-form-label" for="basic-default-name">Image :</label>
+                            <label class=" col-form-label text-white" for="basic-default-name">Image :</label>
 
                             <div class="">
                                 <input type="file" class="form-control shadow-sm" id="basic-default-name" name='image'
@@ -61,7 +61,7 @@
                         <div class="row mb-3">
                             <div class="col-md-10 offset-md-1">
 
-                            <label class=" col-form-label" for="basic-default-name">Name :</label>
+                            <label class=" col-form-label text-white" for="basic-default-name">Name :</label>
 
                             <div class="">
                                 <input type="text" class="form-control shadow-sm" id="basic-default-name" name='name'
@@ -81,7 +81,7 @@
                         <div class="row mb-3">
                             <div class="col-md-10 offset-md-1">
 
-                            <label class=" col-form-label" for="basic-default-name"><i
+                            <label class=" col-form-label text-white" for="basic-default-name"><i
                                     class="fa-solid fa-stethoscope me-2"></i>Address:</label>
 
                             <div class="">
@@ -99,7 +99,7 @@
                         <div class="row mb-3">
                             <div class="col-md-10 offset-md-1">
 
-                            <label class=" col-form-label" for="basic-default-name"><i
+                            <label class=" col-form-label text-white" for="basic-default-name"><i
                                     class="fa-solid fa-graduation-cap "></i>Qualification</label>
 
                             <div class="">
@@ -118,7 +118,7 @@
                         <div class="row mb-3">
                             <div class="col-md-10 offset-md-1">
 
-                            <label class=" col-form-label" for="basic-default-name"><i
+                            <label class=" col-form-label text-white" for="basic-default-name"><i
                                     class="fa-solid fa-graduation-cap "></i>DOB</label>
 
                             <div class="">
@@ -137,7 +137,7 @@
                         <div class="row mb-3">
                             <div class="col-md-10 offset-md-1">
 
-                            <label class=" col-form-label" for="basic-default-name"><i
+                            <label class=" col-form-label text-white" for="basic-default-name"><i
                                     class="fa-solid fa-signature me-2"></i>Email :</label>
 
                             <div class="">
@@ -163,7 +163,7 @@
                                     <div class="col-6  p-0">
                                         <div class="container-fluid">
                                             <div class="row align-items-center">
-                                                <label class="  me-0 col-form-label p-0 "
+                                                <label class="  me-0 col-form-label text-white p-0 "
                                                     for="basic-default-name"><i
                                                     class="fa-solid fa-signature me-2"></i>Role :</label>
 
@@ -190,7 +190,7 @@
                                     <div class="col-6 p-0">
                                         <div class="container-fluid">
                                             <div class="row align-items-center">
-                                                <label class="  col-form-label p-0" for="basic-default-name"><i
+                                                <label class="  col-form-label text-white p-0" for="basic-default-name"><i
                                                     class="fa-solid fa-signature me-2"></i>gender :</label>
 
                                                 <div class=" p-0 ps-1">
@@ -225,7 +225,7 @@
                                     <div class="col-6  p-0">
                                         <div class="container-fluid">
                                             <div class="row align-items-center">
-                                                <label class="  me-0 col-form-label p-0 "
+                                                <label class="  me-0 col-form-label text-white p-0 "
                                                     for="basic-default-name"><i
                                                     class="fa-solid fa-signature me-2"></i>Phone :</label>
 
@@ -246,7 +246,7 @@
                                     <div class="col-6 p-0">
                                         <div class="container-fluid">
                                             <div class="row align-items-center">
-                                                <label class="  col-form-label p-0" for="basic-default-name"><i
+                                                <label class="  col-form-label text-white p-0" for="basic-default-name"><i
                                                     class="fa-solid fa-signature me-2"></i>Salary :</label>
 
                                                 <div class="  p-0 ps-1">
@@ -273,7 +273,7 @@
                         <div class="row mb-3">
                             <div class="col-md-10 offset-md-1">
 
-                            <label class=" col-form-label" for="basic-default-message"><i
+                            <label class=" col-form-label text-white" for="basic-default-message"><i
                                     class="fa-regular fa-file-lines me-2"></i>Note :</label>
                             <div class="">
                                 <textarea id="basic-default-message" name='note' class="form-control shadow-sm" placeholder="Brief Description Go Here"
@@ -292,14 +292,14 @@
                             <div class="col-md-10 offset-md-1 d-flex justify-content-between">
 
                                 <button type="submit" class="btn btn-primary border-0 d-flex align-items-center"
-                                style="background:#9d926a; color:#fffdd2; border-color:#9d926a !important ">
+                                style="background:#ffffff; color:#bb95dc; border:3px solid #e2dcf8 !important ">
                                     <div>Send</div>
 
                                     <div class="spinner-border ms-2" wire:loading wire:target='' role="status">
                                         <span class="visually-hidden">Loading...</span>
                                     </div>
                                 </button>
-                                <button type="reset" class="btn btn-primary border-0 d-flex align-items-center" style="background:#9d926a; color:#fffdd2; border-color:#9d926a !important ">
+                                <button type="reset" class="btn btn-primary border-0 d-flex align-items-center" style="background:#ffffff; color:#bb95dc; border:3px solid #e2dcf8 !important ">
                                     Clear
                                 </button>
                             </div>

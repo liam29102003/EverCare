@@ -25,8 +25,21 @@ class VoucherPdf extends Component
     }
     public function back()
     {
-        return redirect()->back();
-    }
+        $url = "http://127.0.0.1:8000/admin/finance/voucher/1";
+
+// Parse the URL to extract the path
+$path = parse_url($url, PHP_URL_PATH);
+
+// Explode the path by "/" and get the segment at index 2 (zero-indexed)
+$segments = explode('/', $path);
+
+// Get the admin segment
+$adminSegment = $segments[1];
+if($adminSegment == 'admin')
+{
+    return $this->redirect(route('finance.income.list'));
+}
+    }   
     public function render()
     {
         return view('livewire.voucher-pdf');

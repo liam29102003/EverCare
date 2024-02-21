@@ -2,7 +2,7 @@
 <div class="container-fluid" x-data="{'check':false}">
     <div class="row">
         <div class="col-md-12 offset-md-0">
-            <div class="card mt-4" style="background-color:#F6E8B1 !important; color:#9d926a !important">
+            <div class="card mt-4"  style="background-color:#bb95dccc !important; color:#ffffff !important">
                 {{-- <h1 x-text="a"></h1> --}}
 
 
@@ -16,28 +16,28 @@
                         <div class="col-md-4 p-0  mb-0 align-content-between text-center text-md-start">
                             <button x-show="!check" x-on:click="check = ! check" type="submit"
                                 class="btn  ms-2 btn-primary w-50 text-center mx-auto mb-0 "
-                                style="background:#9d926a; color:#fffdd2; border-color:#9d926a !important ">
+                                style="background:#bb95dccc; color:#ffffff; border:2px solid #ffffff !important ">
                                 <div> <small x-show="!check">Manage</small> <small x-show="check">Close</small><small>Quantity</small> </div>
                             </button>
                             <div x-show='check' class="mb-0  text-center  text-md-start">
-                                <button class="btn mb-0  btn-sm"  x-on:click="check = ! check" style="background:#9d926a; color:#fffdd2; border-color:#9d926a !important ">X</button>
-                                <button class="btn mb-0 btn-sm" wire:click="decrementQuantity" style="background:#9d926a; color:#fffdd2; border-color:#9d926a !important ">-</button>
-                                <input type="number" class="form-control-sm w-25" wire:model.live='jump'>
-                                <button class="btn mb-0 btn-sm" wire:click="incrementQuantity" style="background:#9d926a; color:#fffdd2; border-color:#9d926a !important " class="btn">+</button>
+                                <button class="btn mb-0  btn-sm"  x-on:click="check = ! check" style="background:#bb95dccc; color:#ffffff; border:2px solid #ffffff !important ">X</button>
+                                <button class="btn mb-0 btn-sm" wire:click="decrementQuantity" style="background:#bb95dccc; color:#ffffff; border:2px solid #ffffff !important ">-</button>
+                                <input type="number" class="form-control-sm w-25 border-0 shadow" wire:model.live='jump'>
+                                <button class="btn mb-0 btn-sm" wire:click="incrementQuantity" style="background:#bb95dccc; color:#ffffff; border:2px solid #ffffff !important " class="btn">+</button>
         
                             </div>
                         </div>
                         <div class="mb-0 col-md-4 text-center">
-                            <h2 class="card-header" style="color:#9d926a">Medicine list</h2>
+                            <h2 class="card-header" style="color:#ffffff">Medicine list</h2>
                         </div>
     
                         <div class="mb-2 col-md-4">
                             
                                 <div class="mt-3 me-2 d-flex align-items-center ">
                                     <i class="fa-solid fa-magnifying-glass"></i>
-                                    <input type="text" class="form-control  ms-2 " wire:model.live="search"
-                                         placeholder="Search.....">
-                                    <a href="{{route('pharmacy.add')}}" wire:navigate class="btn btn-primary ms-2"  style="background:#9d926a; color:#fffdd2; border-color:#9d926a !important "><i class="fa-solid fa-plus"></i></a>
+                                    <input type="text" class="form-control border-0 shadow ms-2 " wire:model.live="search" placeholder="Search.....">
+                                    <a href="{{route('pharmacy.add')}}" wire:navigate class="btn btn-primary ms-2"  style="background:#ffffff; color:#bb95dc; border-color:#bb95dc !important "><i class="fa-solid fa-plus"></i></a>
+                      
                                 </div>
                                 
                             
@@ -53,27 +53,27 @@
                 <div class="table-responsive text-nowrap">
                     <table class="table">
                         <thead style="border-bottom: 0px;">
-                            <tr style="border: 2px solid #faf8e3; background-color:#faf8e3" class="shadow">
+                            <tr style=" background-color:#e2dcf8" class="shadow">
 
                                 
-                                <th style="color:#9d926a" class="btn" wire:click='sorting("name")'>
+                                <th style="color:#bb95dc" class="btn" wire:click='sorting("name")'>
                                     <input type="checkbox" x-show="check"  wire:model.live='selectAll' >
 
                                     Name @if ($orderName === 'name')
                                         <span>{{ $type === 'asc' ? '▲' : '▼' }}</span>
                                     @endif
                                 </th>
-                                <th style="color:#9d926a" class="text-center " wire:click='sorting("price")'>Price
+                                <th style="color:#bb95dc" class="text-center " wire:click='sorting("price")'>Price
                                     @if ($orderName === 'price')
                                         <span>{{ $type === 'asc' ? '▲' : '▼' }}</span>
                                     @endif
                                 </th>
-                                <th style="color:#9d926a" class="text-center" wire:click='sorting("quantity")'>Quantity
+                                <th style="color:#bb95dc" class="text-center" wire:click='sorting("quantity")'>Quantity
                                     @if ($orderName === 'quantity')
                                         <span>{{ $type === 'asc' ? '▲' : '▼' }}</span>
                                     @endif
                                 </th>
-                                <th style="color:#9d926a" class="text-center">Actions</th>
+                                <th style="color:#bb95dc" class="text-center">Actions</th>
                             </tr>
                         </thead>
 
@@ -88,20 +88,20 @@
                                         <input type="checkbox" x-show="check"   wire:model.live="medicine_id"  value="{{ $m->id }}">
                                         {{-- {{count($medicine_id)}} --}}
                                         <img src="{{ asset('storage/' . $m->image) }}" alt="" width="30"
-                                            class="rounded-circle me-2"> <strong>{{ $m->name }}</strong>
+                                            class="rounded-circle me-2"> <strong class="text-white">{{ $m->name }}</strong>
                                     </td>
-                                    <td class="text-center">{{ $m->price }} MMK</td>
-                                    <td class="text-center"><span
+                                    <td class="text-center text-white">{{ $m->price }} MMK</td>
+                                    <td class="text-center text-white"><span
                                             class="badge bg-label-primary me-1">{{ $m->quantity }}</span></td>
-                                    <td class="text-center">
+                                    <td class="text-center text-white">
                                         <a href="{{ route('pharmacy.details', $m->id) }}" wire:navigate
-                                            class=" text-warning"><i class="fa-solid fa-eye"></i></a>
-                                        <button type="button" class="btn text-danger"
-                                            x-on:click=" $dispatch('open-modal'); $wire.changevalue({{ $m->id }}, 'Are you sure to delete')">
+                                            style="color: #e2dcf8"><i class="fa-solid fa-eye"></i></a>
+                                        <button type="button" class="btn"
+                                            x-on:click=" $dispatch('open-modal'); $wire.changevalue({{ $m->id }}, 'Are you sure to delete')"  style="color: #e2dcf8">
 
                                             <i class="fa-solid fa-trash"></i></button>
                                         <a href="{{ route('pharmacy.edit', $m->id) }}" wire:navigate
-                                            class="text-success"><i class="fa-solid fa-pen-to-square"></i></a>
+                                        style="color: #e2dcf8"><i class="fa-solid fa-pen-to-square"></i></a>
                                     </td>
                                 </tr>
                             @endforeach

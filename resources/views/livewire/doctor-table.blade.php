@@ -3,7 +3,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12 offset-md-0">
-            <div class="card mt-4"  style="background-color:#bb95dc !important; color:#ffffff !important">
+            <div class="card mt-4"  style="background-color:#bb95dccc !important; color:#ffffff !important">
                 {{-- <h1 x-text="a"></h1> --}}
                 
                 {{-- <h1 x-text="a"></h1> --}}

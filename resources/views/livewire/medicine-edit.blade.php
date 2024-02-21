@@ -6,8 +6,8 @@
     <div class="row">
         <!-- Basic Layout -->
         <div class="col-6 offset-3">
-            <div class="card mb-4" style="background:#F6E8B1;">
-                <div class="card-header text-center pb-0"><h3 class="mb-0" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; color:#9d926a">Edit Medicine</h3></div>
+            <div class="card mb-4" style="background:#bb95dc;">
+                <div class="card-header text-center pb-0"><h3 class="mb-0" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; color:white">Edit Medicine</h3></div>
 
                 <div class="card-body">
                     <form method="post" wire:submit='save({{$medicine->id}})' action="" enctype="multipart/form-data">
@@ -38,7 +38,7 @@
 
                         </div>
                         <div class="row mb-3">
-                            <label class="col-sm-3 col-form-label" for="basic-default-name"><i
+                            <label class="col-sm-3 col-form-label text-white" for="basic-default-name"><i
                                     class="fa-solid fa-signature me-2"></i>Image :</label>
 
                             <div class="col-sm-9">
@@ -54,7 +54,7 @@
 
                         </div>
                         <div class="row mb-3">
-                            <label class="col-sm-3 col-form-label" for="basic-default-name"><i
+                            <label class="col-sm-3 col-form-label text-white" for="basic-default-name"><i
                                     class="fa-solid fa-signature me-2"></i>Name :</label>
 
                             <div class="col-sm-9">
@@ -70,7 +70,7 @@
 
                         </div>
                         <div class="row mb-3">
-                            <label class="col-sm-3 col-form-label" for="basic-default-name"><i
+                            <label class="col-sm-3 col-form-label text-white" for="basic-default-name"><i
                                     class="fa-solid fa-signature me-2"></i>Price :</label>
 
                             <div class="col-sm-9">
@@ -85,7 +85,7 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label class="col-sm-3 col-form-label" for="basic-default-name"><i
+                            <label class="col-sm-3 col-form-label text-white" for="basic-default-name"><i
                                     class="fa-solid fa-signature me-2"></i>Quantity :</label>
 
                             <div class="col-sm-9">
@@ -100,7 +100,7 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label class="col-sm-3 col-form-label" for="basic-default-name" style="font-size:10px"><i
+                            <label class="col-sm-3 col-form-label text-white" for="basic-default-name" style="font-size:10px"><i
                                     class="fa-solid fa-signature me-2" ></i>Manufacturer:</label>
 
                             <div class="col-sm-9">
@@ -115,7 +115,7 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label class="col-sm-3 col-form-label" for="basic-default-name"><i
+                            <label class="col-sm-3 col-form-label text-white" for="basic-default-name"><i
                                     class="fa-solid fa-signature me-2"></i>SideEffect :</label>
 
                             <div class="col-sm-9">
@@ -130,7 +130,7 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label class="col-sm-3 col-form-label" for="basic-default-message"><i
+                            <label class="col-sm-3 col-form-label text-white" for="basic-default-message"><i
                                     class="fa-regular fa-file-lines me-2"></i>Description :</label>
                             <div class="col-sm-9">
                                 <textarea id="basic-default-message" name='bio' class="form-control" placeholder="Brief Description Go Here"
@@ -145,15 +145,19 @@
                             </div>
                         </div>
 
-                        <div class="row justify-content-end">
-                            <div class="col-sm-9 ">
+                        <div class="row">
+                            <div class="col-md-10 offset-md-1 d-flex justify-content-between">
+
                                 <button type="submit" class="btn btn-primary border-0 d-flex align-items-center"
-                                style="background:#9d926a; color:#fffdd2; border-color:#9d926a !important ">
+                                style="background:#ffffff; color:#bb95dc; border:3px solid #e2dcf8 !important ">
                                     <div>Send</div>
 
                                     <div class="spinner-border ms-2" wire:loading wire:target='' role="status">
                                         <span class="visually-hidden">Loading...</span>
                                     </div>
+                                </button>
+                                <button type="reset" class="btn btn-primary border-0 d-flex align-items-center" style="background:#ffffff; color:#bb95dc; border:3px solid #e2dcf8 !important ">
+                                    Clear
                                 </button>
                             </div>
                         </div>

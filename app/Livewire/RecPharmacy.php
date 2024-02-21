@@ -36,7 +36,7 @@ class RecPharmacy extends Component
         $this->text="Update Cart";
         session()->flash('status', 'Item Added to Cart');
         $this->dispatch('updateParent', count( session('my_associative_array', [])));
-
+            // dd(count(session('my_associative_array', [])));
         // return $this->redirect('/receptionist/pharmacy', navigate:true);
         }
         // session()->forget('my_associative_array');  

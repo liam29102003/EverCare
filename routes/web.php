@@ -34,6 +34,7 @@ Route::get('/appointment/form',[AppointmentController::class,'appFormPage'])->na
 Route::post('/make/appointment',[AppointmentController::class, 'makeAppointment'])->name('appointment.make');
 Route::get('/patient/logout',[PatientController::class,'logout'])->name('patient.logout');
 Route::post('/patient/login',[PatientController::class,'loginPatient'])->name('patient.login');
+Route::get('instructions',[AppointmentController::class,'instructions'])->name('instructions');
 Route::post('/oldpatient/appointment',[AppointmentController::class,'oldAppointment'])->name('old.appointment.make');
 //
 
@@ -141,6 +142,7 @@ Route::prefix('receptionist')->middleware(['auth:sanctum,receptionist', 'verifie
     Route::get('/prescription',[PrescriptionController::class,'list'])->name('receptionist.prescription.list');
     Route::get('/prescription/detail/{medicalRecord}',[PrescriptionController::class,'detail'])->name('receptionist.prescription.detail');
     Route::get('/voucher/{id}',[PrescriptionController::class,'voucher'])->name('voucher');
+    Route::get('/appointments',[AppointmentController::class,'list'])->name('receptionist.appointment.list');
 
 });
 
