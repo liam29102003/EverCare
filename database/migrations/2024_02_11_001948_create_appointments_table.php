@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('gender');
             $table->string('address');
             $table->string('doctor_id');
+            $table->string('appointment_day');
             $table->string('appointment_date');
             $table->string('description')->default(' ');
         });

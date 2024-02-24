@@ -7,7 +7,7 @@
     <livewire:new-appointment >
 
     @else
-    {{-- <livewire:old-appointment > --}}
+    
 
     @endif
     </div>

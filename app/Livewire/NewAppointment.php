@@ -5,6 +5,7 @@ namespace App\Livewire;
 use Livewire\Component;
 use App\Models\Appointment;
 use Illuminate\Support\Facades\Hash;
+use Carbon\Carbon;
 
 class NewAppointment extends Component
 {
@@ -20,6 +21,7 @@ class NewAppointment extends Component
     public $description;
     public $doctor;
     public $appointment_date;
+    public $appointment_day;
     public $doctors;
     public $appointments;
 
@@ -34,16 +36,14 @@ class NewAppointment extends Component
     }
     public function changeDoctor($value)
     {
-        // dd("helo");
-        // dd($value);
         $this->doctor = $value;
         if ($this->doctor == null) {
             $this->appointments = [];
         } else {
             $this->appointments = \App\Models\Schedule::where('doctor_id', $this->doctor)->get()->toArray();
         }
-        // dd($appointment_date);
     }
+
     public function save()
     {
         $this->validate([
@@ -58,21 +58,34 @@ class NewAppointment extends Component
             'gender' => 'required',
             'description' => 'required',
             'doctor' => 'required',
-            'appointment_date' => 'required',
+            'appointment_day' => 'required',
         ]);
+        $selectedDay = substr($this->appointment_day,strrpos($this->appointment_day, '| ') + 2);
+        $currentDate = Carbon::now();
+        $selectedDayIndex = Carbon::parse('next ' . ucfirst($selectedDay))->dayOfWeek;
+        if($selectedDayIndex - $currentDate->dayOfWeek == 0){
+            $dayDifference = ($selectedDayIndex - $currentDate->dayOfWeek + 7) % 7 + 7;
+        }else{
+            $dayDifference = ($selectedDayIndex - $currentDate->dayOfWeek + 7) % 7;
+        }
+        $nearestDate = $currentDate->addDays($dayDifference)->toDateString();
+        // dd($nearestDate); // Output the nearest date of the selected day
+
+
         $status = Appointment::create([
+            'patient_type'=>'new',
             'name' => $this->name,
             'treatment_type' => $this->treatment_type,
             'email' => $this->email,
             'password' => Hash::make($this->password),
-            // 'confirm_password' => $this->confirm_password,
             'dob' => $this->dob,
             'address' => $this->address,
             'phone' => $this->phone,
             'gender' => $this->gender,
             'description' => $this->description,
             'doctor_id' => $this->doctor,
-            'appointment_date' => $this->appointment_date,
+            'appointment_day' => $this->appointment_day,
+            'appointment_date' => $nearestDate,
         ]);
         if ($status) {
             session()->put([
@@ -84,8 +97,9 @@ class NewAppointment extends Component
                 'gender' => $this->gender,
                 'phone' => $this->phone,
                 'address' => $this->address,
-                'appointment_date' => $this->appointment_date,
+                'appointment_day' => $this->appointment_day,
                 'doctor_id' => $this->doctor,
+                'appointment_date' => $nearestDate,
             ]);
             return $this->redirect(route('instructions'), navigate: true);
         };

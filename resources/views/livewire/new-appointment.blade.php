@@ -140,16 +140,16 @@
                 </div>
                 <div class="right">
                     <label for="">Choose Appointment Date<span class='text-danger'>*</span></label>
-                    <select class="form-control shadow-sm form-select " name='appointment_date' aria-label="Default select example" style='border:0' wire:model="appointment_date">
+                    <select class="form-control shadow-sm form-select " name='appointment_day' aria-label="Default select example" style='border:0' wire:model="appointment_day">
                     
                     <option selected value=''>Choose Appointment Date</option>
                     @foreach($appointments as $a)
-                        <option value="{{$a['from']}} to {{$a['to']}} | {{strtoupper($a['day'])}}" wire:click="logd">{{$a['from']}} to {{$a['to']}} | {{strtoupper($a['day'])}}</option>
+                        <option value="{{$a['from']}} to {{$a['to']}} | {{$a['day']}}" wire:click="logd">{{$a['from']}} to {{$a['to']}} | {{strtoupper($a['day'])}}</option>
 
                         @endforeach
                     </select>
 
-                    @error('appointment_date')
+                    @error('appointment_day')
                     <span class='text-danger'>{{$message}}</span>
                 @enderror
                 </div>

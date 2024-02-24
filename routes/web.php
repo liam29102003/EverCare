@@ -2,9 +2,9 @@
 
 use App\Models\Pharmacy;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Admin\StaffController;
-use App\Http\Controllers\AppointmentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +17,7 @@ use App\Http\Controllers\AppointmentController;
 |
 */
 
+use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\Admin\DoctorController;
 use App\Http\Controllers\ReceptionistController;
 use App\Http\Controllers\user\PatientController;
@@ -143,7 +144,8 @@ Route::prefix('receptionist')->middleware(['auth:sanctum,receptionist', 'verifie
     Route::get('/prescription/detail/{medicalRecord}',[PrescriptionController::class,'detail'])->name('receptionist.prescription.detail');
     Route::get('/voucher/{id}',[PrescriptionController::class,'voucher'])->name('voucher');
     Route::get('/appointments',[AppointmentController::class,'list'])->name('receptionist.appointment.list');
-
+    // email sending
+    Route::get('/send/mail',[MailController::class,'index'])->name('receptionist.mail');
 });
 
 

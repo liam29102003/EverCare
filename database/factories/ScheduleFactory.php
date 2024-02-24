@@ -17,7 +17,7 @@ class ScheduleFactory extends Factory
     public function definition(): array
     {
         return [
-            'day' => $this->faker->randomElement(['mon','tue','wed','thurs','fri']),
+            'day' => $this->faker->randomElement(['mon','tue','wed','thu','fri','sat','sun']),
             'to' => $this->faker->randomNumber(1),
             'from' => $this->faker->randomNumber(1),
             'doctor_id' => $this->faker->randomNumber(4), 
