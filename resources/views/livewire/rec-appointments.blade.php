@@ -34,7 +34,7 @@
                     <select name="" id="" wire:model.live='time' class="form-select ms-md-2 me-md-2 border-0 shadow">
                         <option value="">All</option>
                         @foreach ($schedules as $schedule)
-                            <option value="{{ $schedule->from .' to '. $schedule->to . ' | '.ucfirst($schedule->day)}}">{{$schedule->day . $schedule->from .'-'. $schedule->to }}</option>
+                            <option value="{{ $schedule->from .' to '. $schedule->to . ' | '.ucfirst($schedule->day)}}">{{$schedule->day ."|". $schedule->from .'-'. $schedule->to }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -87,7 +87,7 @@
                 <tr wire:key="{{ $appointment->id }}" style="border-top:2px solid #FFFEF2; " class="shadow-sm mb-3 text-white">
                     <td><strong><?= $i++ ?></strong></td>
 
-                    <td><strong>{{ $appointment->name }}</strong></td>
+                    <td><strong>helo{{ $appointment->name }}</strong></td>
                         <td>{{ $appointment->phone }}</td>
                         {{-- <td><span class="badge bg-label-primary me-1">{{ $appointment->appointment_date }}</span></td> --}}
                         <td>

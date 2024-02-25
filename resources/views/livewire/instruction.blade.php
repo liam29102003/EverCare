@@ -41,7 +41,9 @@
                     <td class="p-2" style="border-right:1px solid black">
                     {{$doctor[0]->name}} <div class='fw-bold'>({{$doctor[0]->speciality}})</div>
                 </td>
-                    <td class="p-2" style="border-right:1px solid black">{{session('appointment_date')}}</td>
+                    <td class="p-2" style="border-right:1px solid black">
+                <div>{{session('appointment_date')}}</div>
+            <div>{{session('appointment_day')}}</div></td>
                     <td class="p-2" style="border-right:1px solid black">{{session('name')}}</td>
                 </tr>
             </table>

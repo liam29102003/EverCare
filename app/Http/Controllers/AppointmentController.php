@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Doctor;
 use App\Models\Patient;
 use App\Models\Appointment;
@@ -87,6 +88,8 @@ class AppointmentController extends Controller
             'appointment_date'=>$request->appointment_date,
             'address'=>session()->get('address')
         ];
+
+        
         Appointment::create($data);
         $doctor = Doctor::where('id',$request->doctor)->get();
         return view('user.successful_appointment',compact('data','doctor'));
@@ -99,5 +102,12 @@ class AppointmentController extends Controller
     public function list()
     {
         return view('receptionist.appointment_list');
+    }
+
+    public function payment($id){
+        return view('user.payment')->with(['id'=>$id]);
+    }
+    public function approvePage(){
+        return view('receptionist.approve_page');
     }
 }
