@@ -87,7 +87,7 @@ class NewAppointment extends Component
                 'appointment_date' => $this->appointment_date,
                 'doctor_id' => $this->doctor,
             ]);
-            return $this->redirect(route('instructions'), navigate: true);
+            return $this->redirect('/instructions', navigate: true);
         };
     }
 

@@ -215,21 +215,21 @@
                 <a href="{{ route('doctor.list') }}" wire:navigate  class="menu-link {{ request()->segment(2) === 'doctor' ? 'select' : '' }}" style="      color:white ;
                 border-bottom: 3px solid #9d926aa;">
                     <i class="fa-solid fa-user-doctor me-3 fs-5"></i>
-                  <div data-i18n="Analytics">doctor</div>
+                  <div data-i18n="Analytics">{{ __('form.doctors') }}</div>
                 </a>
               </li>
               <li class="menu-item ">
                 <a href="{{ route('staff.list') }}" wire:navigate  class="menu-link {{ request()->segment(2) === 'staff' ? 'select' : '' }}" style="      color:white ;
                 border-bottom: 3px solid #9d926aa;">
                     <i class="fa-solid fa-user-nurse me-3 fs-5"></i>
-                  <div data-i18n="Analytics">Staff</div>
+                  <div data-i18n="Analytics">{{ __('form.staff') }}</div>
                 </a>
               </li>
               <li class="menu-item ">
                 <a href="{{ route('pharamcy.list') }}" wire:navigate  class="menu-link {{ request()->segment(2) === 'pharmacy' ? 'select' : '' }}" style="      color:white ;
                 border-bottom: 3px solid #9d926aa;">
                     <i class="fa-solid fa-pills me-3 fs-5"></i>
-                  <div data-i18n="Analytics">Medicine</div>
+                  <div data-i18n="Analytics">{{ __('form.medicine') }}</div>
                 </a>
               </li>
               <li class="menu-item ">
@@ -239,7 +239,7 @@
                   <div data-i18n="Analytics">Finance</div>
                 </a>
               </li>
-              @elseif(request()->segment(1) === 'receptionist')
+              @elseif(request()->segment(2) === 'receptionist')
               <li class="menu-item ">
                 <a href="{{ route('receptionist.appointment.list') }}" wire:navigate  class="menu-link {{ request()->segment(2) === 'pharmacy' ? 'select' : '' }}" style="      color:white ;
                 border-bottom: 3px solid #9d926aa;">
@@ -309,9 +309,15 @@
                 <ul class="navbar-nav flex-row align-items-center ms-auto">
                   <!-- Place this tag where you want the button to render. -->
                  
-  
+                  <li class="nav-item me-3">
+                    <livewire:toggle-language>
+                  </li>
                   <!-- User -->
                   <li class="nav-item  ">
+
+                    <div>
+                      
+                    </div>
                     <div  class="d-block" id="hello1" >
                       <div class="avatar avatar-online   ">
                         <img src="{{ asset('admin/assets/img/avatars/1.png') }}" alt class="w-px-40 h-auto rounded-circle" />
@@ -363,6 +369,7 @@
                     </div>
                     
                   </li>
+                  
                   <!--/ User -->
                 </ul>
               </div>
@@ -394,26 +401,7 @@
                     Group 2
                   </div>
                   <div class="d-flex">
-                    <div class="dropdown dropup footer-link me-3">
-                      <button
-                        type="button"
-                        class="btn btn-sm btn-outline-secondary dropdown-toggle"
-                        data-bs-toggle="dropdown"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                        id="hello"
-                      >
-                        Currency
-                      </button>
-                        
-                      <div class=" dropdown-menu1 dropup card d-none " style="position:absolute !important; margin-top:-210px">
-                        <a class="dropdown-item" href=""><i class="bx bx-dollar"></i> USD</a>
-                        <a class="dropdown-item" href=""><i class="bx bx-euro"></i> Euro</a>
-                        <a class="dropdown-item" href=""><i class="bx bx-pound"></i> Pound</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href=""><i class="bx bx-bitcoin"></i> Bitcoin</a>
-                      </div>
-                    </div>
+                    {{-- <livewire:toggle-language> --}}
                     <form action="{{route('logout')}}" method="post">
                       @csrf
                     <button class="btn btn-sm btn-outline-danger"
