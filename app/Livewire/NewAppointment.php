@@ -2,10 +2,11 @@
 
 namespace App\Livewire;
 
+use Carbon\Carbon;
+use App\Models\Patient;
 use Livewire\Component;
 use App\Models\Appointment;
 use Illuminate\Support\Facades\Hash;
-use Carbon\Carbon;
 
 class NewAppointment extends Component
 {
@@ -24,7 +25,8 @@ class NewAppointment extends Component
     public $appointment_day;
     public $doctors;
     public $appointments;
-
+    public $status='pending';
+    
     public function mount()
     {
         $this->doctors = \App\Models\Doctor::all();
@@ -46,6 +48,9 @@ class NewAppointment extends Component
 
     public function save()
     {
+        if($this->treatment_type == 'in person'){
+            $this->status = 'approved';
+        }
         $this->validate([
             'name' => 'required',
             'treatment_type' => 'required',
@@ -86,7 +91,18 @@ class NewAppointment extends Component
             'doctor_id' => $this->doctor,
             'appointment_day' => $this->appointment_day,
             'appointment_date' => $nearestDate,
+            'status'=>$this->status,
+            
         ]);
+        Patient::create([
+            'name'=>$this->name,
+            'email'=>$this->email,
+            'password'=>Hash::make($this->password),
+            'dob'=>$this->dob,
+            'gender'=>$this->gender,
+            'phone'=>$this->phone,
+            'address'=>$this->address
+            ]);
         if ($status) {
             session()->put([
                 'type' => $this->treatment_type,

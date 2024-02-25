@@ -27,6 +27,8 @@ return new class extends Migration
             $table->string('appointment_day');
             $table->string('appointment_date');
             $table->string('description')->default(' ');
+            $table->string('status')->default('pending');
+            $table->string('image')->nullable(true);
         });
     }
 

@@ -18,10 +18,12 @@ class ConfirmMail extends Mailable
      */
     public $subject;
     public $body;
-    public function __construct($subject,$body)
+    public $id;
+    public function __construct($subject,$body,$id)
     {
         $this->subject = $subject;
         $this->body = $body;
+        $this->id = $id;
     }
 
     /**

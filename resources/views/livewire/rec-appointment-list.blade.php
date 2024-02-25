@@ -9,6 +9,12 @@
     @if(count($appointments) !== 0 && $type=='online')
     <a href="{{route('receptionist.mail')}}" class='btn btn-sm btn-success'>Send Confirmation Email to All Patients&nbsp;<i class="fa-regular fa-paper-plane"></i></a>
     @endif
+    <a href='{{route("rec.approve.online")}}' class="btn btn-success me-5 text-white position-relative" wire:navigate>
+    Approve Online Approvements
+  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+    {{$sc}}
+  </span>
+</a>
 </div>
         <table class="table mt-3" >
             <thead  >
@@ -22,8 +28,13 @@
             </thead>
 
             @if(count($appointments) == 0)
-            <tbody>            <td colspan="4" class="text-center " style="color: white !important"><h3>There is no appointment</h3></td>
+            @if($type == 'online')
+            <tbody><td colspan="4" class="text-center " style="color: white !important"><h3>There is no new appointment to send email</h3></td>
             </tbody>
+            @else
+            <tbody><td colspan="4" class="text-center " style="color: white !important"><h3>There is no appointment</h3></td>
+            </tbody>
+            @endif
             @else
             <tbody class="table-border-bottom-0">
                 <?php $i = 1;?>
@@ -32,7 +43,7 @@
                     <td><strong><?= $i++ ?></strong></td>
 
                     <td><strong>{{ $appointment->name }}</strong></td>
-                    <td><strong>{{ $appointment->doctor_name }}</strong></td>
+                    <td><strong>{{ $appointment->phone }}</strong></td>
                         <td><div>{{ $appointment->appointment_date }}</div><div>{{ $appointment->appointment_day }}</div></td>
                         {{-- <td><span class="badge bg-label-primary me-1">{{ $appointment->appointment_date }}</span></td> --}}
                         <td>

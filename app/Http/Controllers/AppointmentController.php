@@ -103,4 +103,11 @@ class AppointmentController extends Controller
     {
         return view('receptionist.appointment_list');
     }
+
+    public function payment($id){
+        return view('user.payment')->with(['id'=>$id]);
+    }
+    public function approvePage(){
+        return view('receptionist.approve_page');
+    }
 }

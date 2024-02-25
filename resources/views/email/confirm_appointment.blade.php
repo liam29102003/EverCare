@@ -6,8 +6,8 @@
     <title>Document</title>
 </head>
 <body>
-    {{$body}}
+    {{$body}} | {{$id}}
     <img src="https://buffer.com/library/content/images/2023/10/free-images.jpg" alt="" style='width:200px;height:200px'>
-    <a href="http://127.0.0.1:8000/receptionist/appointments">confirm</a>
+    <a href="http://localhost:8000/patient/payment/{{$id}}">confirm</a>
 </body>
 </html>

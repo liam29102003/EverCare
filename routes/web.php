@@ -37,7 +37,8 @@ Route::get('/patient/logout',[PatientController::class,'logout'])->name('patient
 Route::post('/patient/login',[PatientController::class,'loginPatient'])->name('patient.login');
 Route::get('instructions',[AppointmentController::class,'instructions'])->name('instructions');
 Route::post('/oldpatient/appointment',[AppointmentController::class,'oldAppointment'])->name('old.appointment.make');
-//
+Route::get('/patient/payment/{id}',[AppointmentController::class,'payment'])->name('patient.payment');
+Route::get('/patient/profile',[PatientController::class,'profile'])->name('patient.appointment');
 
 Route::get('/', function () {
     return view('welcome');
@@ -146,6 +147,7 @@ Route::prefix('receptionist')->middleware(['auth:sanctum,receptionist', 'verifie
     Route::get('/appointments',[AppointmentController::class,'list'])->name('receptionist.appointment.list');
     // email sending
     Route::get('/send/mail',[MailController::class,'index'])->name('receptionist.mail');
+Route::get('/approve/appointmentPage',[AppointmentController::class,'approvePage'])->name('rec.approve.online');
 });
 
 

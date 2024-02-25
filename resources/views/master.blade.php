@@ -134,7 +134,7 @@
     </button>
     <div class="dropdown-content">
         @if(session()->get('name'))
-        <a href="#">Profile</a>
+        <a href="{{route('patient.appointment')}}">Profile</a>
         <a href="#">My Appointments</a> 
         <a href="{{route('patient.logout')}}">Logout</a>
         @else
