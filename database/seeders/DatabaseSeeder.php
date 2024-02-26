@@ -23,15 +23,15 @@ class DatabaseSeeder extends Seeder
         // Staff::factory(20)->create();
         // Patient::factory(10)->create();
         // \App\Models\Admin::factory()->create();
-        \App\Models\Receptionist::factory()->create();
+        // \App\Models\Receptionist::factory()->create();
         // Prescription::factory(9)->create();
         // Patient::factory(5)->create();
         
-        Pharmacy::factory(10)->create();
+        // Pharmacy::factory(10)->create();
         // MedicalRecord::factory(5)->create();
-        Schedule::factory(10)->create();
+        // Schedule::factory(10)->create();
         // \App\Models\User::factory(10)->create();
-        Doctor::factory(10)->create();
+        Doctor::factory(1)->create();
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',

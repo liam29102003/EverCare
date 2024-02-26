@@ -1,79 +1,94 @@
 @extends('admin.layouts.app')
 <style>
     .card-body{
-        background-color:#bb95dc; 
-        color: white
+        background-color:white; 
+        color: #bb95dc
     }
     .head{
-        border-right: 4px solid white;
+        border-right: 3px solid #bb95dc;
     }
     td{
-        color: white;
+        color: #bb95dc;
     }
     th{
-        color: white;
+        color: #bb95dc;
     }
     table{
         border-color: white !important;
+    }
+    hr{
+        border-color: #bb95dc !important;
+        background-color: #bb95dc
     }
 </style>
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-10 offset-md-1">
-                <div class="card">
+            <div class="col-lg-10 offset-lg-1 bg-white mt-3 py-2">
+                <div class="" style="border:2px dashed #bb95dc">
                     <div class="card-header text-center">
-                        <h3>Medical Record</h3>
+                        <h3 class="text-decoration-underline">{{ __("form.Medical Record") }}</h3>
                     </div>
                     <div class="card-body">
                         <div class="container">
                             <div class="row py-2">
-                                <div class=" col-2  head">Name:</div>
-                                <div class="col-5 ">{{ $medicalRecord->patient->name }}</div>
-                                <div class="  col-2  head">Date:</div>
-                                <div class="col-3 ">{{ $medicalRecord->created_at->format('Y-m-d') }}</div>
+                                <div class=" col-lg-2  mb-2  col-6  head">{{ __("form.Name") }}:</div>
+                                
+                                <div class="col-lg-5  mb-2  col-6 ">{{ $medicalRecord->patient->name }}</div>
+                                
+                                <div class="  col-lg-2  mb-2  col-6  head">{{ __("form.Date") }}:</div>
+                                <div class="col-lg-3  mb-2  col-6 ">{{ $medicalRecord->created_at->format('Y-m-d') }}</div>
 
                             </div>
-                            <div class="row py-2">
-                                <div class="col-2 head">Date of birth</div>
-                                <div class="col-2">{{$medicalRecord->patient->dob}}</div>
-
-                                <div class="col-1  head">Age:</div>
-                                <div class="col-1 ">{{ $age }}</div>
                             
-                            <div class="col-1  head">Sex:</div>
-                            <div class="col-2 ">{{ $medicalRecord->patient->gender }}</div>
-                            <div class="col-2  head">Patient ID:</div>
-                            <div class="col-1 ">{{ $medicalRecord->patient->id }}</div>
+                            <div class="row py-2">
+                                <div class="col-lg-2  mb-2  col-6 head">{{ __("form.Date of Birth") }}</div>
+                                <div class="col-lg-2  mb-2 col-6 " >{{$medicalRecord->patient->dob}}</div>
+
+                                <div class="col-lg-1  mb-2  col-6  head">{{ __("form.Age") }}:</div>
+                                <div class="col-lg-1  mb-2  col-6 ">{{ $age }}</div>
+                            
+                            <div class="col-lg-1  mb-2  col-6  head">{{ __("form.Sex") }}:</div>
+                            <div class="col-lg-2  mb-2  col-6 ">{{ $medicalRecord->patient->gender }}</div>
+                            <div class="col-lg-2  mb-2  col-6  head">{{ __("form.Patient ID") }}:</div>
+                            <div class="col-lg-1  mb-2  col-6 ">{{ $medicalRecord->patient->id }}</div>
 
                         </div>
-                        <div class="row py-2">
-                            <div class="col-2  head">Patient Email:</div>
-                            <div class="col-4 ">{{ $medicalRecord->patient->email }}</div>
-                            <div class="col-2  head">Patient Phone:</div>
-                            <div class="col-4 ">{{ $medicalRecord->patient->phone }}</div>
-                        </div>
-                        <div class="row py-2">
-                            <div class="col-2  head">Diagnosed with:</div>
-                            <div class="col-9 ">{{$medicalRecord->disease}}</div>
-                        </div>
-                        <div class="row py-2">
-                            <div class="col-2  head">Blood Preasure:</div>
-                            <div class="col-2 ">{{ $medicalRecord->blood_pressure }}</div>
                         
-                        <div class="col-2  head">Pulse Rate:</div>
-                        <div class="col-2 ">{{ $medicalRecord->blood_pressure }}</div>
-                        <div class="col-2  head">Weight:</div>
-                        <div class="col-2  ">{{ $medicalRecord->weight }}</div>
+
+                        <div class="row py-2">
+                            <div class="col-lg-2  mb-2  col-6  head">{{ __("form.Patient Email") }}:</div>
+                            <div class="col-lg-4  mb-2  col-6 ">{{ $medicalRecord->patient->email }}</div>
+                            <div class="col-lg-2  mb-2  col-6  head">{{ __("form.Patient Phone") }}:</div>
+                            <div class="col-lg-4  mb-2  col-6 ">{{ $medicalRecord->patient->phone }}</div>
                         </div>
+                        
+
+                        <div class="row py-2">
+                            <div class="col-lg-2  col-6  head">{{ __("form.Diagnosed with") }}:</div>
+                            <div class="col-lg-9  col-6 ">{{$medicalRecord->disease}}</div>
+                        </div>
+                        
+
+                        <div class="row py-2">
+                            <div class="col-lg-2  mb-2  col-6  head">{{ __("form.Blood Pressure") }}:</div>
+                            <div class="col-lg-2  mb-2  col-6 ">{{ $medicalRecord->blood_pressure }}</div>
+                        
+                        <div class="col-lg-2  mb-2  col-6  head">{{ __("form.Pulse Rate") }}:</div>
+                        <div class="col-lg-2  mb-2  col-6 ">{{ $medicalRecord->pulse_rate }}</div>
+                        <div class="col-lg-2  mb-2  col-6  head">{{ __("form.Weight") }}:</div>
+                        <div class="col-lg-2  mb-2  col-6  ">{{ $medicalRecord->weight }}</div>
+                        </div>
+                        
+
                         <div class="row">
-                            <div class="col">
-                                <table class="table  " border="1" >
+                            <div class="col table-responsive">
+                                <table class="table  table-striped " border="1" >
                                     <tr>
                                         <th></th>
-                                        <th class="text-white">Medicine</th>
-                                        <th class="text-white text-center">Unit</th>
-                                        <th class="text-white">Dosage</th>
+                                        <th class="" style="color: #bb95dc">{{ __("form.Medicine") }}</th>
+                                        <th class=" text-center" style="color: #bb95dc">{{ __("form.Unit") }}</th>
+                                        <th class="" style="color: #bb95dc">{{ __("form.Dosage") }}</th>
                                     </tr>
                                     <tr>
                                         <td>1</td>
@@ -83,10 +98,10 @@
 
                                     </tr>
                                     <tr>
-                                        <td>2</td>
-                                        <td>Paracetamol</td>
-                                        <td class="text-center">1</td>
-                                        <td>3 times a day</td>
+                                        <td style="color: #bb95dc">2</td>
+                                        <td style="color: #bb95dc">Paracetamol</td>
+                                        <td style="color: #bb95dc" class="text-center">1</td>
+                                        <td style="color: #bb95dc">3 times a day</td>
 
                                     </tr><tr>
                                         <td>3</td>
@@ -99,22 +114,30 @@
 
                             </div>
                         </div>
+                        
                         <div class="row py-2">
-                            <div class="col-2 head">Diet to follow:</div>
-                            <div class="col-10 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium dicta ipsum aspernatur a, impedit commodi non eveniet quidem? Quis hic maxime repellat molestias, necessitatibus reiciendis deleniti. Suscipit ut odit ipsam!</div>
+                            <div class="col-lg-2  col-6 head">{{ __("form.Diet to follow") }}:</div>
+                            <div class="col-lg-10 col-6  ">{{$medicalRecord->diet}}</div>
                         </div>
+                        {{--  --}}
+
                         <div class="row py-2">
-                            <div class="col-2 head">Note:</div>
-                            <div class="col-10 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium dicta ipsum aspernatur a, impedit commodi non eveniet quidem? Quis hic maxime repellat molestias, necessitatibus reiciendis deleniti. Suscipit ut odit ipsam!</div>
+                            <div class="col-lg-2  col-6 head">{{ __("form.Note") }}:</div>
+                            <div class="col-lg-10 col-6  ">{{$medicalRecord->note}}</div>
                         </div>
+
                         <div class="row py-2">
-                            <div class="col-3 head">Doctor:</div>
-                            <div class="col-9 ">{{$medicalRecord->doctor->name}}</div>
+                            <div class="col-lg-3  col-6 head">{{ __("form.Doctor") }}:</div>
+                            <div class="col-lg-9  col-6 ">{{$medicalRecord->doctor->name}}</div>
                         </div>
+                        
+
                         <div class="row py-2">
-                            <div class="col-3 head">Follow Up Doctor:</div>
-                            <div class="col-9 ">Dr Thu Ya</div>
+                            <div class="col-lg-3  col-6 head">{{ __("form.Follow Up Doctor") }}:</div>
+                            <div class="col-lg-9  col-6 ">Dr Thu Ya</div>
                         </div>
+                        
+
                         {{-- <
         
         <div class="row">

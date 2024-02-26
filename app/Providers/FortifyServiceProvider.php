@@ -1,25 +1,27 @@
 <?php
 
 namespace App\Providers;
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\ReceptionistController;
+use Illuminate\Support\Str;
+use App\Models\Receptionist;
 
-use App\Actions\Fortify\AttemptToAuthenticate; // add new line
-use App\Actions\Fortify\RedirectIfTwoFactorAuthenticatable;
+use Illuminate\Http\Request;
+use Laravel\Fortify\Fortify;
 // use Laravel\Fortify\Actions\RedirectIfTwoFactorAuthenticatable;
-use Illuminate\Contracts\Auth\StatefulGuard;
 use Illuminate\Support\Facades\Auth;
 use App\Actions\Fortify\CreateNewUser;
-use App\Actions\Fortify\ResetUserPassword;
-use App\Actions\Fortify\UpdateUserPassword;
-use App\Actions\Fortify\UpdateUserProfileInformation;
-use App\Models\Receptionist;
-use Illuminate\Cache\RateLimiting\Limit;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Str;
-use Laravel\Fortify\Fortify;
+use Illuminate\Cache\RateLimiting\Limit;
+use App\Http\Controllers\AdminController;
+use App\Actions\Fortify\ResetUserPassword;
+use App\Http\Controllers\DoctorController;
+use App\Actions\Fortify\UpdateUserPassword;
+use Illuminate\Support\Facades\RateLimiter;
+use Illuminate\Contracts\Auth\StatefulGuard;
+use App\Http\Controllers\DoctorAuthController;
+use App\Http\Controllers\ReceptionistController;
+use App\Actions\Fortify\UpdateUserProfileInformation;
+use App\Actions\Fortify\RedirectIfTwoFactorAuthenticatable;
+use App\Actions\Fortify\AttemptToAuthenticate; // add new line
 
 class FortifyServiceProvider extends ServiceProvider
 {
@@ -41,6 +43,7 @@ class FortifyServiceProvider extends ServiceProvider
         $this->app->when([
             AdminController::class,
             ReceptionistController::class, // Add StaffController to the list
+            DoctorAuthController::class,
             AttemptToAuthenticate::class,
             RedirectIfTwoFactorAuthenticatable::class
         ])
@@ -49,7 +52,11 @@ class FortifyServiceProvider extends ServiceProvider
             // Check the current route or other conditions to determine which guard to use
             if (request()->is('receptionist/*')) {
                 return Auth::guard('receptionist');
-            } else {
+            } 
+            else if (request()->is('doctor/*')) {
+                return Auth::guard('doctor');
+            }
+            else {
                 return Auth::guard('admin');
             }
         });

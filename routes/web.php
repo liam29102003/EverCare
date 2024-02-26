@@ -27,6 +27,7 @@ use App\Http\Controllers\ReceptionistController;
 use App\Http\Controllers\user\PatientController;
 use App\Http\Controllers\Admin\FinanceController;
 use App\Http\Controllers\Admin\PharmacyController;
+use App\Http\Controllers\DoctorAuthController;
 use App\Http\Controllers\DoctorController as doctor;
 use App\Http\Controllers\receptionist\PrescriptionController;
 
@@ -67,6 +68,8 @@ Route::get('/patient/profile',[PatientController::class,'profile'])->name('patie
     Route::post('admin/login', [AdminController::class, 'store'])->name('admin.login');
     Route::get('receptionist/login', [ReceptionistController::class, 'loginForm'])->name('receptionist.login');
     Route::post('receptionist/login', [ReceptionistController::class, 'store']);
+    Route::get('doctor/login', [DoctorAuthController::class, 'loginForm'])->name('doctor.login');
+    Route::post('doctor/login', [DoctorAuthController::class, 'store']);
 
     Route::middleware([
         'auth:sanctum',
@@ -139,7 +142,9 @@ Route::get('/patient/profile',[PatientController::class,'profile'])->name('patie
     Route::middleware(['auth:sanctum,receptionist', 'verified'])->get('/receptionist/dashboard', function () {
         return view('rec.dashboard');
     })->name('dashboard');
-
+    Route::middleware(['auth:sanctum,doctor', 'verified'])->get('/doctor/dashboard', function () {
+        return view('doctor.dashboard');
+    })->name('dashboard');
     Route::prefix('receptionist')->middleware(['auth:sanctum,receptionist', 'verified'])->group(function () {
         Route::get('/dashboard', function () {
             return view('rec.dashboard');
@@ -155,6 +160,7 @@ Route::get('/patient/profile',[PatientController::class,'profile'])->name('patie
         Route::get('/voucher/{id}', [PrescriptionController::class, 'voucher'])->name('voucher');
         Route::get('/appointments', [AppointmentController::class, 'list'])->name('receptionist.appointment.list');
     });
+
     Route::get('/doctor/medicalrecord/add', [doctor::class, 'add'])->name('add.medicalrecord');
     Route::get('/doctor/medicalrecord/list', [doctor::class, 'list'])->name('list.medicalrecord');
     Route::get('/doctor/medicalrecord/detail/{medicalRecord}', [doctor::class, 'detail'])->name('detail.medicalrecord');

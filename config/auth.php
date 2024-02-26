@@ -48,6 +48,10 @@ return [
             'driver' => 'session',
             'provider' => 'receptionists',
         ],
+        'doctor' => [
+            'driver' => 'session',
+            'provider' => 'doctor',
+        ],
     ],
 
     /*
@@ -79,6 +83,10 @@ return [
         'receptionists' => [
             'driver' => 'eloquent',
             'model' => App\Models\Receptionist::class,
+        ],
+        'doctor' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Doctor::class,
         ],
 
         // 'users' => [
@@ -124,7 +132,13 @@ return [
             'table' => 'password_reset_tokens',
             'expire' => 60,
             'throttle' => 60,
-            ],
+        ],
+        'doctor' => [
+            'provider' =>'doctor',
+            'table' => 'password_reset_tokens',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
     ],
 
     /*
