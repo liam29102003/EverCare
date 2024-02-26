@@ -8,9 +8,10 @@
 
     @else
     
+    <livewire:old-appointment>
 
     @endif
-    </div>
+</div>
 
 
 

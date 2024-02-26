@@ -1,4 +1,4 @@
-<form action="{{route('old.appointment.make')}}" method='post'>
+<form action="" wire:submit='save' method='post'>
     @csrf
     <div class="col-12 col-md-8 offset-md-2 p-5 border-0 form-container d-flex flex-column justify-content-center align-items-center" style="background-color:#bb95dc22; color:#9d926a !important">
         <h2 class="txt-shadow">Make Appointment Here!</h2>
@@ -11,7 +11,7 @@
             <div class="d-flex wrap">
                 <div class="col-6">
                     <div class="form-check">
-                        <input class="form-check-input bg-secondary" type="radio" name="treatment_type" value='in person'>
+                        <input class="form-check-input bg-secondary" type="radio" name="treatment_type" value='in person' wire:model='treatment_type'>
                         <label class="form-check-label" >
                           In person treatment
                         </label>
@@ -20,7 +20,7 @@
                 </div>
                 <div class="col-6">
                     <div class="form-check">
-                        <input class="form-check-input bg-secondary " type="radio" name="treatment_type" value='online'>
+                        <input class="form-check-input bg-secondary " type="radio" name="treatment_type" value='online' wire:model='treatment_type'>
                         <label class="form-check-label" >
                           Online treatment
                         </label>
@@ -33,104 +33,62 @@
         </div>
         
         <div class="w-100 wrap mt-3">
-            <!-- <div class=" d-flex col-12 justify-content-between" style="flex-wrap: wrap;">
+            <div class=" d-flex col-12 justify-content-between" style="flex-wrap: wrap;">
                 <div class="left displayNone">
                 <label for="">Name<span class='text-danger'>*</span></label>
-                <input type="hidden" class="form-control shadow-sm" value="{{session()->get('name')}}" name='name' placeholder="Johnn Doe" style='border:0'>
+                <input type="text" class="form-control shadow-sm" name='name' value="{{session('name')}}" placeholder="Johnn Doe" style='border:0' wire:model='name' disabled>
                 @error('name')
                     <span class='text-danger'>{{$message}}</span>
                 @enderror
-            </div> -->
-                <div class="email" >
+            </div>
+                <div class="right email">
                     <label for="">Email<span class='text-danger'>*</span></label>
-                    <input type="email" disabled class="form-control shadow-sm " value="{{session()->get('email')}}" name='email' placeholder="example@gmail.com" style='border:0'>
+                    <input type="email" class="form-control shadow-sm " name='email' value="{{session('email')}}" placeholder="example@gmail.com" style='border:0' wire:model='email' disabled>
                     @error('email')
                     <span class='text-danger'>{{$message}}</span>
                 @enderror
                 </div>
                 
-            
-        </div>
-
-        <!-- <div class="w-100 wrap mt-3 displayNone">
-            <div class=" d-flex col-12 justify-content-between" style="flex-wrap: wrap;">
-                <div class="left">
-                <label for="">Password<span class='text-danger'>*</span></label>
-                <input type="password" class="form-control shadow-sm" placeholder="password" name='password' style='border:0'>
-                @error('password')
-                    <span class='text-danger'>{{$message}}</span>
-                @enderror
-            </div>
-                <div class="right">
-                    <label for="">Confirm password<span class='text-danger'>*</span></label>
-                    <input type="password" class="form-control shadow-sm" placeholder="Confirm password" name='confirm_password' style='border:0'>
-                    @error('confirm_password')
-                    <span class='text-danger'>{{$message}}</span>
-                @enderror
-                </div>
-            </div>
-        </div> -->
-
-
-        <!-- <div class="w-100 wrap mt-3 displayNone">
-            <div class=" d-flex col-12 justify-content-between" style="flex-wrap: wrap;">
-                <div class="left">
-                    <label for="">Date of birth<span class='text-danger'>*</span></label>
-                    <input type="date" class="form-control shadow-sm" name='dob' placeholder="First Name" style='border:0'>
-                    @error('dob')
-                    <span class='text-danger'>{{$message}}</span>
-                @enderror
-                </div>
-                <div class="right">
-                    <label for="">Phone No<span class='text-danger'>*</span></label>
-                    <input type="number" class="form-control shadow-sm" placeholder="09456********" name='phone' aria-label="Username" aria-describedby="basic-addon1" style='border:0'>
-                    @error('phone')
-                    <span class='text-danger'>{{$message}}</span>
-                @enderror
-                </div>
-            </div>
-        </div> -->
-
-
-        <!-- <div class="w-100 wrap mt-3 displayNone">
-            <label for="">Gender</label>
-            <div class="d-flex wrap" style="gap: 6px;">
-                <div class="col-3">
-                    <div class="form-check">
-                        <input class="form-check-input bg-secondary" value='male' type="radio" name="gender" id="flexRadioDefault1" style='border:0'>
-                        <label class="form-check-label" for="flexRadioDefault1">
-                          Male
-                        </label>
-                      </div>
-             
-                </div>
-                <div class="col-3">
-                    <div class="form-check">
-                        <input class="form-check-input bg-secondary" value='female' type="radio" name="gender" id="flexRadioDefault1" style='border:0'>
-                        <label class="form-check-label" for="flexRadioDefault1">
-                          Female
-                        </label>
-                      </div>
-                </div>
-                @error('gender')
-                    <span class='text-danger'>{{$message}}</span>
-                @enderror
             </div>
         </div>
--->
-        <!-- <div class="w-100 mt-3 displayNone">
-            <label for="">Address</label>
-            <textarea name="address" style='border:0' id="" class="w-100 form-control shadow-sm" rows="3" placeholder="City, Street, Home No"></textarea>
-        </div> -->
 
         <div class="w-100 wrap mt-3">
-            <livewire:dynamic-schedule/>
+            <div class=" d-flex col-12 justify-content-between" style="flex-wrap: wrap;">
+                <div class="left">
+                    <label for="">Choose Doctor<span class='text-danger'>*</span></label>
+                    <select class="form-control shadow-sm form-select" name='doctor' wire:change="changeDoctor($event.target.value)" aria-label="Default select example"  style='border:0' wire:model='doctor'>
+                        <option selected value="">Doctor (Speciality)</option>
+                        @foreach($doctors as $doctor)
+                        <option value='{{$doctor->id}}' wire:click="logd">{{$doctor->name}} ({{$doctor->speciality}})</option>
+
+                        @endforeach
+                    </select>
+                    @error('doctor')
+                    <span class='text-danger'>{{$message}}</span>
+                @enderror
+                </div>
+                <div class="right">
+                    <label for="">Choose Appointment Date<span class='text-danger'>*</span></label>
+                    <select class="form-control shadow-sm form-select " name='appointment_day' aria-label="Default select example" style='border:0' wire:model="appointment_day">
+                    
+                    <option selected value=''>Choose Appointment Date</option>
+                    @foreach($appointments as $a)
+                        <option value="{{$a['from']}} to {{$a['to']}} | {{$a['day']}}" wire:click="logd">{{$a['from']}} to {{$a['to']}} | {{strtoupper($a['day'])}}</option>
+
+                        @endforeach
+                    </select>
+
+                    @error('appointment_day')
+                    <span class='text-danger'>{{$message}}</span>
+                @enderror
+                </div>
+            </div>
         </div>
         <div class="w-100 mt-3 ">
             <label for="">Description</label>
-            <textarea name="description" id="" class="w-100 form-control shadow-sm" rows="3" placeholder="symptoms" style='border:0'></textarea>
+            <textarea name="description" id="" class="w-100 form-control shadow-sm" rows="3" placeholder="symptoms" style='border:0' wire:model='description'></textarea>
         </div>
-        <button type="submit" class="btn mt-3 border-0 d-flex align-items-center"
+        <button type="submit" class="btn btn-primary mt-3 border-0 d-flex align-items-center"
         style="background:#bb95dcff; color:#fffdd2; border-color:#9d926a !important ">
             <div>Make Appointment</div>
 
