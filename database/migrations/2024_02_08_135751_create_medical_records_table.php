@@ -18,8 +18,11 @@ return new class extends Migration
             $table->string('disease');
             $table->string('symptoms');
             $table->integer('weight')->nullable();
-            $table->integer('blood pressure')->nullable();
+            $table->string('blood_pressure')->nullable();
+            $table->integer('pulse_rate')->nullable();
             $table->string('status');
+            $table->longText('diet')->nullable();
+            $table->string('next_doctor_id')->nullable();
             $table->text('note');
             $table->timestamps();
         });

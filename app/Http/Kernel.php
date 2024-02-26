@@ -68,6 +68,7 @@ class Kernel extends HttpKernel
         'admin' => \App\Http\Middleware\AdminRedirectIfAuthenticated::class,
         'receptionist' => \App\Http\Middleware\ReceptionistRedirectIfAuthenticated::class,
         'localization'=>Localization::class,
+        'doctor'=>\App\Http\Middleware\DoctorRedirectIfAuthenticated::class,
 
     ];
 }

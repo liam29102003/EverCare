@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -19,7 +20,7 @@ class DoctorFactory extends Factory
         return [
             'name' => $this->faker->name,
             'email' => $this->faker->unique()->safeEmail,
-            'password' => md5('EverCareDoctor'),
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'phone' => $this->faker->phoneNumber,
             'exp'=>$this->faker->numberBetween(1,10),
             'speciality'=>$this->faker->randomElement(['cardiology','dermatology','neurology','orthopedics','gynaecology','oncology','pediatrics','psychiatry','radiology','urology']),
@@ -27,6 +28,12 @@ class DoctorFactory extends Factory
             'gender'=>$this->faker->randomElement(['male','female']),
             'image'=>'images/profile.PNG',
             'bio'=>$this->faker->paragraph,
+            'email_verified_at' => now(),
+            'current_team_id' => null,
+            'profile_photo_path' => null,
+            'remember_token' => Str::random(10),
+
+
 
         ];
     }
