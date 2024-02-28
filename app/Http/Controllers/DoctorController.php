@@ -28,4 +28,6 @@ $age = $currentDate->diff($birthDate)->y;
 // dd($age);
         return view('doctor.medicalRecord.detail', compact('medicalRecord', 'age'));
     }
+
+    
 }

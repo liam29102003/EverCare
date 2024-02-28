@@ -2,13 +2,19 @@
 
 namespace App\Livewire;
 
+use Carbon\Carbon;
 use App\Models\Doctor;
 use Livewire\Component;
+use App\Models\Appointment;
+use Illuminate\Support\Facades\Hash;
 
 class OldAppointment extends Component
 {
     public $doctors;
     public $doctor;
+    public $name;
+    public $email;
+    public $dob;
     public $treatment_type;
     public $appointment_day;
     public $description;
@@ -58,16 +64,35 @@ class OldAppointment extends Component
 
         $status = Appointment::create([
             'patient_type'=>'old',
-            'name' => $this->name,
+            'name' => session('name'),
             'treatment_type' => $this->treatment_type,
-            'email' => $this->email,
+            'email' => session('email'),
             'doctor_id' => $this->doctor,
             'appointment_day' => $this->appointment_day,
             'appointment_date' => $nearestDate,
             'status'=>$this->status,
-            
+            'password'=>Hash::make(session('password')),
+            'dob'=>session('dob'),
+            'phone'=>session('phone'),
+            'gender'=>session('gender'),
+            'address'=>session('address'),
         ]);
 
+        if ($status) {
+            session()->put([
+                'type' => $this->treatment_type,
+                'name' => session('name'),
+                'email' => session('email'),
+                'dob' => session('dob'),
+                'gender' => session('gender'),
+                'phone' => session('phone'),
+                'address' => session('address'),
+                'appointment_day' => $this->appointment_day,
+                'doctor_id' => $this->doctor,
+                'appointment_date' => $nearestDate,
+            ]);
+            return $this->redirect('/instructions', navigate: true);
+        };
         
     }
 

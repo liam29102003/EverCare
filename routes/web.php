@@ -6,7 +6,7 @@ use App\Http\Middleware\Localization;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\Admin\StaffController;
+use App\Http\Controllers\DoctorAuthController;
 
 
 /*
@@ -20,15 +20,16 @@ use App\Http\Controllers\Admin\StaffController;
 |
 */
 
-use App\Http\Controllers\LocalizaionController;
+use App\Http\Controllers\Admin\StaffController;
 use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\LocalizaionController;
 use App\Http\Controllers\Admin\DoctorController;
 use App\Http\Controllers\ReceptionistController;
 use App\Http\Controllers\user\PatientController;
 use App\Http\Controllers\Admin\FinanceController;
 use App\Http\Controllers\Admin\PharmacyController;
-use App\Http\Controllers\DoctorAuthController;
 use App\Http\Controllers\DoctorController as doctor;
+use App\Http\Controllers\admin\PatientController as patient;
 use App\Http\Controllers\receptionist\PrescriptionController;
 
 // Route::group(['prefix'=>'admin','middleware'=>['admin:admin']],function(){
@@ -54,6 +55,7 @@ Route::get('instructions',[AppointmentController::class,'instructions'])->name('
 Route::post('/oldpatient/appointment',[AppointmentController::class,'oldAppointment'])->name('old.appointment.make');
 Route::get('/patient/payment/{id}',[AppointmentController::class,'payment'])->name('patient.payment');
 Route::get('/patient/profile',[PatientController::class,'profile'])->name('patient.appointment');
+Route::get('/contact',[PatientController::class,'contactPage'])->name('contactPage');
 
     Route::get('/', function () {
         return view('welcome');
@@ -63,7 +65,7 @@ Route::get('/patient/profile',[PatientController::class,'profile'])->name('patie
     })->name('login_page');
 
     Route::get('/doctor/list', [DoctorController::class, 'doctorListPage'])->name('doctor#list');
-    Route::get('/doctor/detailPage', [DoctorController::class, 'doctorDetailPage'])->name('doctor#detailPage');
+    Route::get('/doctor/detailPage/{id}', [DoctorController::class, 'doctorDetailPage'])->name('doctor#detailPage');
     Route::get('admin/login', [AdminController::class, 'loginForm'])->name('admin.login');
     Route::post('admin/login', [AdminController::class, 'store'])->name('admin.login');
     Route::get('receptionist/login', [ReceptionistController::class, 'loginForm'])->name('receptionist.login');

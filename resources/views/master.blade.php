@@ -111,9 +111,7 @@
         <div class="origin1">
             <a href="{{route('home')}}" wire:navigate class="navItem px-3 rounded me-3 py-2 ">Home</a>
             <a href="{{route('doctor#list')}}" wire:navigate class="navItem px-3 rounded me-3 py-2 ">Doctors</a>
-            <a href="#" class="navItem px-3 rounded me-3 py-2 ">Contact</a>
-            <a href="#" class="navItem px-3 rounded me-3 py-2 ">FAQ</a>
-            
+            <a href="{{route('contactPage')}}" class="navItem px-3 rounded me-3 py-2 ">Contact</a> 
         </div>
 
         <div class="origin">
@@ -121,12 +119,20 @@
         </div>
         <div class="profile-dropdown">
     <button class="profile-button">
-        <!-- <img src="profile-image.jpg" alt="Profile Image" class="profile-image"> -->
+        @if(session('gender')=='male')
+        <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="Profile Image" class="profile-image">
+        @elseif(session('gender')=='female')
+        <img src="https://static.vecteezy.com/system/resources/thumbnails/004/899/680/small_2x/beautiful-blonde-woman-with-makeup-avatar-for-a-beauty-salon-illustration-in-the-cartoon-style-vector.jpg" alt="Profile Image" class="profile-image">
+        @else
         <i class="fa-solid fa-user me-2"></i>
+        @endif
+        
+        
         <span class="profile-name">
             @if(session()->get("name"))
                 {{session()->get("name")}}
             @else
+            
               Guest  
             @endif
         </span>
@@ -134,9 +140,9 @@
     </button>
     <div class="dropdown-content">
         @if(session()->get('name'))
-        <a href="{{route('patient.appointment')}}">Profile</a>
+        <a href="{{route('patient.appointment')}}" wire:navigate>Profile</a>
         <a href="#">My Appointments</a> 
-        <a href="{{route('patient.logout')}}">Logout</a>
+        <a href="{{route('patient.logout')}}" wire:navigate>Logout</a>
         @else
         <a href="{{route('login_page')}}" wire:navigate >Login</a>
         @endif
@@ -154,7 +160,6 @@
         <div class="ps-3">
           <div class='contactInfo'><a>Blog</a></div>
        <div class='contactInfo'><a>Doctors</a></div>
-       <div class='contactInfo'><a>FAQ</a></div>
        <div class='contactInfo'><a>Home</a></div>
         </div>
     </div>

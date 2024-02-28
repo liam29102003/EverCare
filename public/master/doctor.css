@@ -1,3 +1,18 @@
+.category{
+    
+}
+.cateitem{
+    color:#e2dc;
+    border: 2px solid #bb95dccc;
+    border-radius:5px;
+
+}
+.selected{
+    color:white;
+    border: 2px solid #bb95dccc;
+    border-radius:5px;
+    background-color: #bb95dccc;
+}
 
 .dcard{
     background-color:  white;
