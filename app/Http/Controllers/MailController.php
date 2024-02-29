@@ -16,7 +16,8 @@ class MailController extends Controller
         
         $currentDate = Carbon::now()->toDateString();
         $threeDaysFromNow = Carbon::now()->addDays(3)->toDateString();
-        $emails = Appointment::select('email','id')->where('treatment_type','online')
+        $emails = Appointment::select('appointments.*','doctors.name as dname')->where('treatment_type','online')
+        ->join('doctors', 'appointments.doctor_id', '=', 'doctors.id')
             ->whereDate('appointment_date', '>=', $currentDate)
             ->whereDate('appointment_date', '<=', $threeDaysFromNow)
             ->where('status','pending')
@@ -24,7 +25,7 @@ class MailController extends Controller
 
         foreach($emails as $email){
             // dd($email['email']);
-            Mail::to($email['email'])->send(new ConfirmMail($subject, $body,$email['id']));
+            Mail::to($email['email'])->send(new ConfirmMail($subject, $body,$email['id'],$email['appointment_date'],$email['appointment_day'],$email['name'],$email['dname']));
 
             Appointment::where('treatment_type','online')
             ->whereDate('appointment_date', '>=', $currentDate)
