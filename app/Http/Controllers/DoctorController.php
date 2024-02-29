@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use DateTime;
+use App\Models\Appointment;
 use Illuminate\Http\Request;
 use App\Models\MedicalRecord;
+use Illuminate\Support\Facades\Auth;
 
 class DoctorController extends Controller
 {
@@ -12,9 +14,9 @@ class DoctorController extends Controller
     {
         return view('doctor.medicalRecord.add');
     }
-    public function list()
+    public function list($id)
     {
-        return view('doctor.medicalRecord.list');
+        return view('doctor.medicalRecord.list',compact('id'));
     }
     public function detail(MedicalRecord $medicalRecord)
     {
@@ -28,6 +30,12 @@ $age = $currentDate->diff($birthDate)->y;
 // dd($age);
         return view('doctor.medicalRecord.detail', compact('medicalRecord', 'age'));
     }
-
-    
+    public function listAppointment()
+    {
+        return view('doctor.appointment.list');
+    }
+    public function appointmentDetail($type,$id)
+    {
+        return view('doctor.appointment.detail')->with(['type'=>$type,'id'=>$id, 'appointment' => Appointment::find($id)]);
+    }
 }

@@ -5,6 +5,8 @@ return [
     "staff"=>"ဝန်ထမ်းများ",
     "medicine"=>"ဆေး၀ါးများ",
     'Medical Record'=>"ဆေးမှတ်တမ်း",
+    'Medical Records'=>"ဆေးမှတ်တမ်းများ",
+
     "Name"=>"အမည်",
     "Date"=>"နေ့စွဲ",
     "Date of Birth"=>"မွေးနေ့စွဲ",
@@ -25,6 +27,7 @@ return [
     "Note"=>"မှတ်ချက်",
     "Doctor"=>"ဆရာဝန်",
     "Follow Up Doctor"=>"နောက်ဆရာဝန်",
+    "Appointments"=>"ရက်ချိန်းများ",
 
 
 ];

@@ -239,7 +239,7 @@
                   <div data-i18n="Analytics">Finance</div>
                 </a>
               </li>
-              @elseif(request()->segment(2) === 'receptionist')
+              @elseif(request()->segment(1) === 'receptionist')
               <li class="menu-item ">
                 <a href="{{ route('receptionist.appointment.list') }}" wire:navigate  class="menu-link {{ request()->segment(2) === 'pharmacy' ? 'select' : '' }}" style="      color:white ;
                 border-bottom: 3px solid #9d926aa;">
@@ -252,6 +252,21 @@
                 border-bottom: 3px solid #9d926aa;">
                     <i class="fa-solid fa-pills me-3 fs-5"></i>
                   <div data-i18n="Analytics">Prescription</div>
+                </a>
+              </li>
+              @elseif(request()->segment(1) === 'doctor')
+              <li class="menu-item ">
+                <a href="{{ route('list.medicalrecord') }}" wire:navigate  class="menu-link {{ request()->segment(2) === 'medicalrecord' ? 'select' : '' }}" style="      color:white ;
+                border-bottom: 3px solid #9d926aa;">
+                    <i class="fa-solid fa-pills me-3 fs-5"></i>
+                  <div data-i18n="Analytics">{{ __('form.Medical Records')}}</div>
+                </a>
+              </li>
+              <li class="menu-item ">
+                <a href="{{ route('doctor.appointment.list') }}" wire:navigate  class="menu-link {{ request()->segment(2) === 'appointment' ? 'select' : '' }}" style="      color:white ;
+                border-bottom: 3px solid #9d926aa;">
+                    <i class="fa-solid fa-pills me-3 fs-5"></i>
+                  <div data-i18n="Analytics">{{ __('form.Appointments')}}</div>
                 </a>
               </li>
               @endif

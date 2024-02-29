@@ -168,32 +168,31 @@ Route::get('/contact',[PatientController::class,'contactPage'])->name('contactPa
         Route::get('/voucher/{id}', [PrescriptionController::class, 'voucher'])->name('voucher');
         Route::get('/appointments', [AppointmentController::class, 'list'])->name('receptionist.appointment.list');
     });
-
-    Route::get('/doctor/medicalrecord/add', [doctor::class, 'add'])->name('add.medicalrecord');
-    Route::get('/doctor/medicalrecord/list', [doctor::class, 'list'])->name('list.medicalrecord');
-    Route::get('/doctor/medicalrecord/detail/{medicalRecord}', [doctor::class, 'detail'])->name('detail.medicalrecord');
+    Route::prefix('doctor')->middleware(['auth:sanctum,doctor', 'verified'])->group(function () {
+        Route::get('/medicalrecord/add', [doctor::class, 'add'])->name('add.medicalrecord');
+        Route::get('/medicalrecord/list/{id?}', [doctor::class, 'list'])->name('list.medicalrecord');
+        Route::get('/medicalrecord/detail/{medicalRecord}', [doctor::class, 'detail'])->name('detail.medicalrecord');
+    
+        Route::get('/appointment/list', [doctor::class, 'listAppointment'])->name('doctor.appointment.list');
+        Route::get('appointment/detail/{type}/{id}',[doctor::class,'appointmentDetail'])->name('doctor.appointment.detail');
+    });
+    Route::prefix('receptionist')->middleware(['auth:sanctum,receptionist', 'verified'])->group(function () {
+        Route::get('/dashboard', function () {
+            return view('rec.dashboard');
+        })->name('dashboard');
+        Route::get('/pharmacy', function () {
+            return view('receptionist.pharmacy');
+        })->name('pharmacy');
+        Route::get('/cart', function () {
+            return view('receptionist.cart');
+        })->name('cart');
+        Route::get('/prescription', [PrescriptionController::class, 'list'])->name('receptionist.prescription.list');
+        Route::get('/prescription/detail/{medicalRecord}', [PrescriptionController::class, 'detail'])->name('receptionist.prescription.detail');
+        Route::get('/voucher/{id}', [PrescriptionController::class, 'voucher'])->name('voucher');
+        Route::get('/appointments', [AppointmentController::class, 'list'])->name('receptionist.appointment.list');
+        // email sending
+        Route::get('/send/mail', [MailController::class, 'index'])->name('receptionist.mail');
+        Route::get('/approve/appointmentPage', [AppointmentController::class, 'approvePage'])->name('rec.approve.online');
+    });
+    
 });
-Route::prefix('receptionist')->middleware(['auth:sanctum,receptionist', 'verified'])->group(function () {
-    Route::get('/dashboard',function () {
-        return view('rec.dashboard');
-    })->name('dashboard');
-    Route::get('/pharmacy',function () {
-        return view('receptionist.pharmacy');
-    })->name('pharmacy');
-    Route::get('/cart',function () {
-        return view('receptionist.cart');
-    })->name('cart');
-    Route::get('/prescription',[PrescriptionController::class,'list'])->name('receptionist.prescription.list');
-    Route::get('/prescription/detail/{medicalRecord}',[PrescriptionController::class,'detail'])->name('receptionist.prescription.detail');
-    Route::get('/voucher/{id}',[PrescriptionController::class,'voucher'])->name('voucher');
-    Route::get('/appointments',[AppointmentController::class,'list'])->name('receptionist.appointment.list');
-    // email sending
-    Route::get('/send/mail',[MailController::class,'index'])->name('receptionist.mail');
-Route::get('/approve/appointmentPage',[AppointmentController::class,'approvePage'])->name('rec.approve.online');
-});
-
-
-
-
-
-

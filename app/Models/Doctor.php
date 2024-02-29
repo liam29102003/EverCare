@@ -14,7 +14,7 @@ class Doctor extends Authenticatable
 {
     use HasFactory;
     protected $fillable=[
-        'name', 'speciality','exp', 'qualification', 'gender', 'bio', 'email', 'phone', 'password', 'image'
+        'name', 'speciality','exp', 'qualification', 'gender', 'bio', 'email', 'phone', 'password', 'image',
     ];
     public function schedule()
     {

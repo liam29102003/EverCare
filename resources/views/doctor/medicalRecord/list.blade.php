@@ -2,7 +2,8 @@
 @extends('admin.layouts.app')
 @section('content')
 {{-- {{count($medicals)}} --}}
-<livewire:doctor-medical-record-list>
+{{-- {{$id}} --}}
+<livewire:doctor-medical-record-list :patientid=$id>
    
 
 @endsection

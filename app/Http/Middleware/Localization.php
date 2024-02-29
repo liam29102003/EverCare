@@ -20,7 +20,7 @@ class Localization
             app()->setLocale(session()->get('localization'));
         }
         else{
-            app()->setLocale(config('app.locale'));
+            app()->setLocale('en');
 
         }
         // URL::defaults(['locale'=>$request->segment(1)]);

@@ -28,6 +28,7 @@ return new class extends Migration
             $table->string('appointment_date');
             $table->string('description')->default(' ');
             $table->string('status')->default('pending');
+            $table->longText('symptoms');
             $table->string('image')->nullable(true);
         });
     }
