@@ -45,7 +45,7 @@
                     <label for="">Email<span class='text-danger'>*</span></label>
                     <input type="email" class="form-control shadow-sm " name='email' placeholder="example@gmail.com" style='border:0' wire:model='email' disabled>
                     @error('email')
-                    <span class='text-danger'>{{$message}}</span>
+                    <span class='text-danger'>{{message('email')}}</span>
                 @enderror
                 </div>
                 

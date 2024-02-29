@@ -107,7 +107,7 @@ class StaffCreate extends Component
         $this->image='';
 
         $this->reset();
-        return $this->redirect(route('staff.index'), navigate:true);
+        return $this->redirect(route('staff.list'), navigate:true);
     }
     public function render()
     {

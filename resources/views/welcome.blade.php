@@ -28,17 +28,17 @@
 <div class="w-25 text-center ms-3 " style='border:3px solid #bb95dc'>
     <img src="{{asset('master/images/patient.png')}}" class="w-75 " style="border-radius: 50%;position: relative;margin-top: -40%;">
     <h3 class="" style="color:#bb95dc;">Patients</h3>
-    <h4 class="" style="color:#bb95dc;">100+</h4>
+    <h4 class="" style="color:#bb95dc;">{{count($patients)}}</h4>
 </div>
 <div class="w-25 text-center" style='border:3px solid #bb95dc'>
     <img src="{{asset('master/images/doctor.png')}}" class="w-75 " style="border-radius: 50%;position: relative;margin-top: -40%;">
     <h3 class="" style="color:#bb95dc;">Doctors</h3>
-    <h4 class="" style="color:#bb95dc;">30+</h4>
+    <h4 class="" style="color:#bb95dc;">{{count($doctors)}}</h4>
 </div>
 <div class="w-25 text-center me-3" style='border:3px solid #bb95dc'>
     <img src="{{asset('master/images/receptionist.png')}}" class="w-75 " style="border-radius: 50%;position: relative;margin-top: -40%;">
     <h3 class="" style="color:#bb95dc;">Staffs</h3>
-    <h4 class="" style="color:#bb95dc;">40+</h4>
+    <h4 class="" style="color:#bb95dc;">{{count($staffs)}}</h4>
 </div>
 </div>
 <!-- End of Hero section  -->
@@ -74,10 +74,10 @@
 
                                 <div class="col-md-4 mb-3">
                                     <div class="card shadow carItem">
-                                        <img class="" alt="100%x280" src="https://images.unsplash.com/photo-1532781914607-2031eca2f00d?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=7c625ea379640da3ef2e24f20df7ce8d">
+                                        <img class="" alt="100%x280" src="https://www.pharmacyregulation.org/sites/default/files/styles/regulate_responsive/public/regulate/gphco-7806.jpg?itok=gCv8qecN">
                                         <div class="card-body text-center">
-                                            <h5 class="card-title">X-ray</h5>
-                                            <p class="card-text">၂၄ နာရီ</p>
+                                            <h5 class="card-title">Pharmacy Service</h5>
+                                            <p class="card-text">8AM to 6PM </p>
 
                                         </div>
 
@@ -85,20 +85,20 @@
                                 </div>
                                 <div class="col-md-4 mb-3 ">
                                     <div class="card shadow">
-                                        <img class="" alt="100%x280" src="https://buffer.com/library/content/images/size/w1200/2023/10/free-images.jpg">
+                                        <img class="" alt="100%x280" src="https://www.praktischarzt.de/wp-content/uploads/2023/03/Becoming-a-medical-doctor-or-physician-in-Germany.jpg">
                                         <div class="card-body text-center">
-                                            <h5 class="card-title">အထွေထွေဆရာဝန်များ</h5>
-                                            <p class="card-text">၂၄ နာရီ</p>
+                                            <h5 class="card-title">General Doctors</h5>
+                                            <p class="card-text">9AM to 8PM Services</p>
 
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-4 mb-3">
                                     <div class="card shadow">
-                                        <img class="" alt="100%x280" src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=3d2e8a2039c06dd26db977fe6ac6186a">
+                                        <img class="" alt="100%x280" src="https://www.defactodentists.com/wp-content/uploads/2020/08/The-Ripley-Family-Dental-Centre_6629_AT-1024x640.jpg">
                                         <div class="card-body text-center">
-                                            <h5 class="card-title">အထွေထွေဆရာဝန်များ</h5>
-                                            <p class="card-text">၂၄ နာရီ</p>
+                                            <h5 class="card-title">Dental Clinic</h5>
+                                            <p class="card-text">9AM to 8PM Services</p>
 
                                         </div>
                                     </div>
@@ -111,10 +111,10 @@
 
                                 <div class="col-md-4 mb-3">
                                     <div class="card shadow">
-                                        <img class="img-fluid" alt="100%x280" src="https://images.unsplash.com/photo-1532781914607-2031eca2f00d?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=7c625ea379640da3ef2e24f20df7ce8d">
+                                        <img class="img-fluid" alt="100%x280" src="https://www.asiaroyalhospital.com/wp-content/uploads/2019/02/ul.jpg">
                                         <div class="card-body text-center">
-                                            <h5 class="card-title">X-ray</h5>
-                                            <p class="card-text">၂၄ နာရီ</p>
+                                            <h5 class="card-title">4D ultrasound</h5>
+                                            <p class="card-text">24 Hours Services</p>
 
                                         </div>
 
@@ -122,20 +122,20 @@
                                 </div>
                                 <div class="col-md-4 mb-3">
                                     <div class="card shadow">
-                                        <img class="img-fluid" alt="100%x280" src="https://images.unsplash.com/photo-1517760444937-f6397edcbbcd?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=42b2d9ae6feb9c4ff98b9133addfb698">
+                                        <img class="img-fluid" alt="100%x280" src="https://nccmed.com/wp-content/uploads/2022/01/echocardiogram.png">
                                         <div class="card-body text-center">
-                                            <h5 class="card-title">အထွေထွေဆရာဝန်များ</h5>
-                                            <p class="card-text">၂၄ နာရီ</p>
+                                            <h5 class="card-title">Echocardiogram</h5>
+                                            <p class="card-text">24 Hours Services</p>
 
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-4 mb-3">
                                     <div class="card shadow">
-                                        <img class="img-fluid" alt="100%x280" src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=3d2e8a2039c06dd26db977fe6ac6186a">
+                                        <img class="img-fluid" alt="100%x280" src="https://qph.cf2.quoracdn.net/main-qimg-f6d9f781f0e4b7b738940f91a466177f">
                                         <div class="card-body text-center">
-                                            <h5 class="card-title">အထွေထွေဆရာဝန်များ</h5>
-                                            <p class="card-text">၂၄ နာရီ</p>
+                                            <h5 class="card-title">Impatient Care</h5>
+                                            <p class="card-text">24 Hours Services</p>
 
                                         </div>
                                     </div>

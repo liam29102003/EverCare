@@ -1,12 +1,12 @@
 <?php
 
+use App\Models\Staff;
 use App\Models\Pharmacy;
+use App\Models\Doctor as D;
+use App\Models\Patient as P;
 use Illuminate\Support\Facades\App;
 use App\Http\Middleware\Localization;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\MailController;
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\DoctorAuthController;
 
 
 /*
@@ -20,6 +20,9 @@ use App\Http\Controllers\DoctorAuthController;
 |
 */
 
+use App\Http\Controllers\MailController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\DoctorAuthController;
 use App\Http\Controllers\Admin\StaffController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\LocalizaionController;
@@ -58,7 +61,10 @@ Route::get('/patient/profile',[PatientController::class,'profile'])->name('patie
 Route::get('/contact',[PatientController::class,'contactPage'])->name('contactPage');
 
     Route::get('/', function () {
-        return view('welcome');
+        $doctors = D::all();
+        $patients = P::all();
+        $staffs = Staff::all();
+        return view('welcome')->with(['doctors' => $doctors, 'patients' => $patients,'staffs' => $staffs]);
     })->name('home');
     Route::get('/login', function () {
         return view('login');
@@ -139,7 +145,7 @@ Route::get('/contact',[PatientController::class,'contactPage'])->name('contactPa
 
         Route::get('/dashboard', function () {
             return view('admin.dashboard');
-        })->name('dashboard');
+        })->name('admin#dashboard');
     });
     Route::middleware(['auth:sanctum,receptionist', 'verified'])->get('/receptionist/dashboard', function () {
         return view('rec.dashboard');
