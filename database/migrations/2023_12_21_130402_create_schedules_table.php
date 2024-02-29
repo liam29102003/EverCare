@@ -17,7 +17,7 @@ return new class extends Migration
             $table->time('to');
             $table->time('from');
             $table->foreignId('doctor_id');
-            // $table->integer('room_id');
+            $table->string('type');
             $table->timestamps();
         });
     }

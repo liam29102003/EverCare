@@ -5,6 +5,7 @@ return [
     "staff"=>"staff",
     "medicine"=>"medicine",
     'Medical Record'=>"Medical_Record",
+    'Medical Records'=>"Medical Records",
     "Name"=>"Name",
     "Date"=>"Date",
     "Date of Birth"=>"Date of Birth",
@@ -25,4 +26,6 @@ return [
     "Note"=>"Note",
     "Doctor"=>"Doctor",
     "Follow Up Doctor"=>"Follow Up Doctor",
+    "Appointments"=>"Appointments",
+
 ];

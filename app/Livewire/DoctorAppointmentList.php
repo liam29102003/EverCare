@@ -2,11 +2,13 @@
 
 namespace App\Livewire;
 
+use Carbon\Carbon;
 use Livewire\Component;
+use App\Models\Appointment;
 use Livewire\WithPagination;
-use App\Models\MedicalRecord;
+use Illuminate\Support\Facades\Auth;
 
-class DoctorMedicalRecordList extends Component
+class DoctorAppointmentList extends Component
 {
     use WithPagination;
     // #[Reactive]
@@ -18,15 +20,18 @@ class DoctorMedicalRecordList extends Component
     public $search = '';
     public $orderName = "created_at";
     public $type = "asc";
-    public $id = "";
-    public function mount($patientid)
+    public $date;
+    public $typet="inperson";
+    public function mount()
     {
-        $this->id = $patientid;
-    }
+        // Get today's date
+        $this->date =date('Y-m-d');
+        
+    } // Replace 'Asia/Yangon' with your desired timezone
     public function delete()
     {
         // dd($this->text2);
-        $post = MedicalRecord::find($this->text2);
+        $post = Appointment::find($this->text2);
 
         if ($post) {
             $post->delete();
@@ -51,17 +56,18 @@ class DoctorMedicalRecordList extends Component
         $this->orderName = $name;
         $this->type = $this->type === "asc" ? "desc" : "asc";
     }
+    public function changeType($type)
+    {
+        $this->typet = $type;
+        
+    }
     public function updatedSearch(): void
     {
         $this->gotoPage(1);
     }
+   
     public function render()
     {
-        $medicals = MedicalRecord::whereHas('patient', function ($query)  {
-            $query->where('name', 'like', '%' . $this->search . '%')->where('doctor_id', 5)->where('patient_id', 'like', '%' . $this->id . '%')->orderBy($this->orderName,$this->type);
-        })->paginate(10);
-        return view('livewire.doctor-medical-record-list')->with('medicals',$medicals);
+        return view('livewire.doctor-appointment-list')->with('appointments',Appointment::where('status','approved')->where('doctor_id',Auth::user()->id)->where('appointment_date',$this->date)->where('treatment_type',$this->typet)->orderBy($this->orderName,$this->type)->paginate());
     }
 }
-
-

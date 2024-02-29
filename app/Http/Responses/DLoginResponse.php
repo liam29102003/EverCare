@@ -17,6 +17,6 @@ class DLoginResponse implements LoginResponseContract
     {
         return $request->wantsJson()
                     ? response()->json(['two_factor' => false])
-                    : redirect()->intended('/doctor/dashboard');
+                    : redirect()->intended('/doctor/medicalrecord/list');
     }
 }

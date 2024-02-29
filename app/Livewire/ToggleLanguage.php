@@ -10,13 +10,13 @@ class ToggleLanguage extends Component
     public function updatedLanguage()
     {
         // dd($this->language);
-        if (!in_array($this->language, config('localization.locales'))) {{
-            abort(400);
+        if (!in_array($this->language, config('localization.locales'))) { {
+                abort(400);
+            }
         }
-        
-}
-session(['localization' => $this->language]);
-return $this->redirect(url()->previous(),navigate:true);
+        session(['localization' => $this->language]);
+        // dd(session('localization'));
+        return $this->redirect(url()->previous(), navigate: true);
     }
     public function render()
     {

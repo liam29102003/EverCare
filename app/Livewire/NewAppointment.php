@@ -79,14 +79,7 @@ class NewAppointment extends Component
 
         $status = Appointment::create([
             'patient_type'=>'new',
-            'name' => $this->name,
             'treatment_type' => $this->treatment_type,
-            'email' => $this->email,
-            'password' => Hash::make($this->password),
-            'dob' => $this->dob,
-            'address' => $this->address,
-            'phone' => $this->phone,
-            'gender' => $this->gender,
             'description' => $this->description,
             'doctor_id' => $this->doctor,
             'appointment_day' => $this->appointment_day,
