@@ -19,11 +19,19 @@ class ConfirmMail extends Mailable
     public $subject;
     public $body;
     public $id;
-    public function __construct($subject,$body,$id)
+    public $appointment_date;
+    public $appointment_day;
+    public $name;
+    public $dname;
+    public function __construct($subject,$body,$id,$appointment_date,$appointment_day,$name,$dname)
     {
         $this->subject = $subject;
         $this->body = $body;
         $this->id = $id;
+        $this->appointment_date = $appointment_date;
+        $this->appointment_day = $appointment_day;
+        $this->name = $name;
+        $this->dname = $dname;
     }
 
     /**
