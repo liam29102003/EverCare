@@ -31,8 +31,10 @@ class DoctorController extends Controller
         return view('user.doctor_list');
     }
 
-    public function doctorDetailPage(){
-        return view('user.doctor_detail_page');
+    public function doctorDetailPage($id){
+        return view('user.doctor_detail_page')->with([
+            'doctor'=>Doctor::where('id',$id)->first()
+        ]);
     }
     
 }

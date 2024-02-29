@@ -32,7 +32,7 @@
             <div class="row">
               <div class="col">
               
-                <p>{{$text}}</p>
+                <p class='text-danger'>{{$text}}</p>
               </div>
             </div>
             

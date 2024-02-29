@@ -77,4 +77,7 @@ class PatientController extends Controller
         return view('user.profile');
     }
     
+    public function contactPage(){
+        return view('user.contact_page');
+    }
 }

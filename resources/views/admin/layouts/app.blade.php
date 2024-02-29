@@ -204,7 +204,7 @@
               @if(request()->segment(1) === 'admin')
             
               <li class="menu-item  " >
-                <a href="{{ route('dashboard') }}" class="menu-link  mb-0 {{ request()->segment(2) === 'dashboard' ? 'select' : '' }}" style="      color: white ;
+                <a href="{{ route('admin#dashboard') }}" class="menu-link  mb-0 {{ request()->segment(2) === 'dashboard' ? 'select' : '' }}" style="      color: white ;
                 border-bottom: 3px solid #9d926aa;">
                     <i class="fa-solid fa-user-tie me-3 fs-5"></i>
                     <div data-i18n="Analytics">Dashboard</div>

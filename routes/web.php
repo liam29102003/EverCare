@@ -1,12 +1,12 @@
 <?php
 
+use App\Models\Staff;
 use App\Models\Pharmacy;
+use App\Models\Doctor as D;
+use App\Models\Patient as P;
 use Illuminate\Support\Facades\App;
 use App\Http\Middleware\Localization;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\MailController;
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\Admin\StaffController;
 
 
 /*
@@ -20,15 +20,19 @@ use App\Http\Controllers\Admin\StaffController;
 |
 */
 
-use App\Http\Controllers\LocalizaionController;
+use App\Http\Controllers\MailController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\DoctorAuthController;
+use App\Http\Controllers\Admin\StaffController;
 use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\LocalizaionController;
 use App\Http\Controllers\Admin\DoctorController;
 use App\Http\Controllers\ReceptionistController;
 use App\Http\Controllers\user\PatientController;
 use App\Http\Controllers\Admin\FinanceController;
 use App\Http\Controllers\Admin\PharmacyController;
-use App\Http\Controllers\DoctorAuthController;
 use App\Http\Controllers\DoctorController as doctor;
+use App\Http\Controllers\admin\PatientController as patient;
 use App\Http\Controllers\receptionist\PrescriptionController;
 
 // Route::group(['prefix'=>'admin','middleware'=>['admin:admin']],function(){
@@ -46,24 +50,28 @@ Route::middleware(Localization::class)->group(function () {
     Route::get('instructions', [AppointmentController::class, 'instructions'])->name('instructions');
     Route::post('/oldpatient/appointment', [AppointmentController::class, 'oldAppointment'])->name('old.appointment.make');
     //
-    Route::get('/appointment/form', [AppointmentController::class, 'appFormPage'])->name('appointment.form');
-    Route::post('/make/appointment', [AppointmentController::class, 'makeAppointment'])->name('appointment.make');
-    Route::get('/patient/logout', [PatientController::class, 'logout'])->name('patient.logout');
-    Route::post('/patient/login', [PatientController::class, 'loginPatient'])->name('patient.login');
-    Route::get('instructions', [AppointmentController::class, 'instructions'])->name('instructions');
-    Route::post('/oldpatient/appointment', [AppointmentController::class, 'oldAppointment'])->name('old.appointment.make');
-    Route::get('/patient/payment/{id}', [AppointmentController::class, 'payment'])->name('patient.payment');
-    Route::get('/patient/profile', [PatientController::class, 'profile'])->name('patient.appointment');
+Route::get('/appointment/form',[AppointmentController::class,'appFormPage'])->name('appointment.form');
+Route::post('/make/appointment',[AppointmentController::class, 'makeAppointment'])->name('appointment.make');
+Route::get('/patient/logout',[PatientController::class,'logout'])->name('patient.logout');
+Route::post('/patient/login',[PatientController::class,'loginPatient'])->name('patient.login');
+Route::get('instructions',[AppointmentController::class,'instructions'])->name('instructions');
+Route::post('/oldpatient/appointment',[AppointmentController::class,'oldAppointment'])->name('old.appointment.make');
+Route::get('/patient/payment/{id}',[AppointmentController::class,'payment'])->name('patient.payment');
+Route::get('/patient/profile',[PatientController::class,'profile'])->name('patient.appointment');
+Route::get('/contact',[PatientController::class,'contactPage'])->name('contactPage');
 
     Route::get('/', function () {
-        return view('welcome');
+        $doctors = D::all();
+        $patients = P::all();
+        $staffs = Staff::all();
+        return view('welcome')->with(['doctors' => $doctors, 'patients' => $patients,'staffs' => $staffs]);
     })->name('home');
     Route::get('/login', function () {
         return view('login');
     })->name('login_page');
 
     Route::get('/doctor/list', [DoctorController::class, 'doctorListPage'])->name('doctor#list');
-    Route::get('/doctor/detailPage', [DoctorController::class, 'doctorDetailPage'])->name('doctor#detailPage');
+    Route::get('/doctor/detailPage/{id}', [DoctorController::class, 'doctorDetailPage'])->name('doctor#detailPage');
     Route::get('admin/login', [AdminController::class, 'loginForm'])->name('admin.login');
     Route::post('admin/login', [AdminController::class, 'store'])->name('admin.login');
     Route::get('receptionist/login', [ReceptionistController::class, 'loginForm'])->name('receptionist.login');
@@ -137,7 +145,7 @@ Route::middleware(Localization::class)->group(function () {
 
         Route::get('/dashboard', function () {
             return view('admin.dashboard');
-        })->name('dashboard');
+        })->name('admin#dashboard');
     });
     Route::middleware(['auth:sanctum,receptionist', 'verified'])->get('/receptionist/dashboard', function () {
         return view('rec.dashboard');

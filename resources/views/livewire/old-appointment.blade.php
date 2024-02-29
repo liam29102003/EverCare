@@ -36,16 +36,16 @@
             <div class=" d-flex col-12 justify-content-between" style="flex-wrap: wrap;">
                 <div class="left displayNone">
                 <label for="">Name<span class='text-danger'>*</span></label>
-                <input type="text" class="form-control shadow-sm" name='name' value="{{session('name')}}" placeholder="Johnn Doe" style='border:0' wire:model='name' disabled>
+                <input type="text" class="form-control shadow-sm" name='name'  placeholder="Johnn Doe" style='border:0' wire:model='name' disabled>
                 @error('name')
                     <span class='text-danger'>{{$message}}</span>
                 @enderror
             </div>
                 <div class="right email">
                     <label for="">Email<span class='text-danger'>*</span></label>
-                    <input type="email" class="form-control shadow-sm " name='email' value="{{session('email')}}" placeholder="example@gmail.com" style='border:0' wire:model='email' disabled>
+                    <input type="email" class="form-control shadow-sm " name='email' placeholder="example@gmail.com" style='border:0' wire:model='email' disabled>
                     @error('email')
-                    <span class='text-danger'>{{$message}}</span>
+                    <span class='text-danger'>{{message('email')}}</span>
                 @enderror
                 </div>
                 
