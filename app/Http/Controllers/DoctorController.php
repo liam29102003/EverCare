@@ -14,8 +14,9 @@ class DoctorController extends Controller
     {
         return view('doctor.medicalRecord.add');
     }
-    public function list($id)
+    public function list($id = '')
     {
+        
         return view('doctor.medicalRecord.list',compact('id'));
     }
     public function detail(MedicalRecord $medicalRecord)

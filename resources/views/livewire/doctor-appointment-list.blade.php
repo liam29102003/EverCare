@@ -16,6 +16,11 @@
            
 
             <div class="card mt-2"  style="background-color:#bb95dccc !important; color:#ffffff !important">
+                <div class="mb-2 mt-2 w-50" style="margin: auto">
+                    @if (session('status'))
+                        <livewire:alert>
+                    @endif
+                </div>
                 {{-- <h1 x-text="a"></h1> --}}
                 
                 {{-- <h1 x-text="a"></h1> --}}
