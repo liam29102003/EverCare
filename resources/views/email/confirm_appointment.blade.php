@@ -14,8 +14,8 @@
         }
     </style>
 </head>
-<body>
-    <div class="container p-5 mt-5 col-8">
+<body class='p-3'>
+    <div class="container p-5 mt-5 col-8" style='padding:30px'>
         <h3 class="mb-5">Dear {{$name}},</h3>
 
 <div class="" style="font-size:20px">This is a friendly reminder about your upcoming appointment with us at:</div>
