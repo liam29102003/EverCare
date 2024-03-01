@@ -20,8 +20,12 @@ class OldAppointment extends Component
     public $description;
     public $appointments;
     public $status='pending';
+public $patient_id;
     
     public function mount(){
+        $this->name = session('name');
+        $this->email = session('email');
+        $this->patient_id = session('id');
         $this->doctors = Doctor::all();
         if ($this->doctor == null) {
             $this->appointments = [];
@@ -61,32 +65,22 @@ class OldAppointment extends Component
         $nearestDate = $currentDate->addDays($dayDifference)->toDateString();
         // dd($nearestDate); // Output the nearest date of the selected day
 
-
         $status = Appointment::create([
             'patient_type'=>'old',
-            'name' => session('name'),
+            'patient_id'=>$this->patient_id,
             'treatment_type' => $this->treatment_type,
-            'email' => session('email'),
             'doctor_id' => $this->doctor,
             'appointment_day' => $this->appointment_day,
             'appointment_date' => $nearestDate,
             'status'=>$this->status,
-            'password'=>Hash::make(session('password')),
-            'dob'=>session('dob'),
-            'phone'=>session('phone'),
-            'gender'=>session('gender'),
-            'address'=>session('address'),
+            'description'=>$this->description,
         ]);
 
         if ($status) {
             session()->put([
                 'type' => $this->treatment_type,
-                'name' => session('name'),
-                'email' => session('email'),
-                'dob' => session('dob'),
-                'gender' => session('gender'),
-                'phone' => session('phone'),
-                'address' => session('address'),
+                'name' => $this->name,
+                'email' => $this->email,
                 'appointment_day' => $this->appointment_day,
                 'doctor_id' => $this->doctor,
                 'appointment_date' => $nearestDate,

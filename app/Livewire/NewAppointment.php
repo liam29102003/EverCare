@@ -76,39 +76,39 @@ class NewAppointment extends Component
         }
         $nearestDate = $currentDate->addDays($dayDifference)->toDateString();
         // dd($nearestDate); // Output the nearest date of the selected day
+        Patient::create([
+            'name'=>$this->name,
+            'email'=>$this->email,
+            'password'=>Hash::make($this->password),
+            'dob'=>$this->dob,
+            'gender'=>$this->gender,
+            'phone'=>$this->phone,
+            'address'=>$this->address
+        ]);
 
-        $patient = new patient();
-            $patient->name=$this->name;
-            $patient->email=$this->email;
-            $patient->password=Hash::make($this->password);
-           $patient->dob=$this->dob;
-           $patient->gender=$this->gender;
-           $patient->phone=$this->phone;
-           $patient->address=$this->address;
-           $patient->save();
-            
-            $id = $patient->id; // Output the type of id
-            $status = Appointment::create([
+        $patient = Patient::where('email',$this->email)->first();
+        $status = Appointment::create([
             'patient_type'=>'new',
+            'patient_id'=>$patient->id,
             'treatment_type' => $this->treatment_type,
             'description' => $this->description,
             'doctor_id' => $this->doctor,
-            'patient_id' => $this->patient_id,
             'appointment_day' => $this->appointment_day,
             'appointment_date' => $nearestDate,
             'status'=>$this->status,
-            
         ]);
+
         if ($status) {
             session()->put([
+                'id'=>$patient->id,
                 'type' => $this->treatment_type,
-                'name' => $this->name,
-                'email' => $this->email,
+                'name' => $patient->name,
+                'email' => $patient->email,
                 'password' => Hash::make($this->password),
-                'dob' => $this->dob,
-                'gender' => $this->gender,
-                'phone' => $this->phone,
-                'address' => $this->address,
+                'dob' => $patient->dob,
+                'gender' => $patient->gender,
+                'phone' => $patient->phone,
+                'address' => $patient->address,
                 'appointment_day' => $this->appointment_day,
                 'doctor_id' => $this->doctor,
                 'appointment_date' => $nearestDate,
