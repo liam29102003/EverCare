@@ -1,4 +1,11 @@
 <div>
+    <style>
+        .auto:hover {
+            background-color: #bb95dc;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
     {{-- <h1>{{$type}}</h1>
 <h2>{{$id}}</h2></div> --}}
     <div class="container">
@@ -6,7 +13,7 @@
             <div class="col-md-8 offset-md-2">
                 <div class="card mt-3">
                     <div class="card-body m-3" style="border: 2px dashed #bb95dc">
-                        <table class="table "  >
+                        <table class="table ">
                             <tr>
                                 <th>Name</th>
                                 <td>:</td>
@@ -37,21 +44,21 @@
                                 <td>:</td>
                                 <td>{{ $appointment->description }}</td>
                             </tr>
-                            @if ($appointment->treatment_type === 'online' )
-                                
-                                @if($show)
-                                <tr>
-                                    <th>Symptoms</th>
-                                    <td>:</td>
-                                    <td><input type="text" class="form-control " style="border-color:#bb95dc !important " wire:model = "symptom"></td>
-                                </tr>
+                            @if ($appointment->treatment_type === 'online')
+
+                                @if ($show)
+                                    <tr>
+                                        <th>Symptoms</th>
+                                        <td>:</td>
+                                        <td><input type="text" class="form-control "
+                                                style="border-color:#bb95dc !important " wire:model = "symptom"></td>
+                                    </tr>
                                 @else
-                                
-                                <tr>
-                                    <th>Symptoms</th>
-                                    <td>:</td>
-                                    <td>{{ $appointment->symptoms }}</td>
-                                </tr>
+                                    <tr>
+                                        <th>Symptoms</th>
+                                        <td>:</td>
+                                        <td>{{ $appointment->symptoms }}</td>
+                                    </tr>
                                 @endif
                             @endif
                             @if ($appointment->patient_type === 'old')
@@ -66,64 +73,166 @@
                             @endif
                             <tr class="text-center">
                                 {{-- <livewire:appointment-buttom :appointment=$appointment /> --}}
-                                <td colspan="3"><button wire:click='name'  class="btn"  style="background-color: #bb95dc; color:white; border:2px solid #bb95dc; ">{{$text}}</button>
+                                <td colspan="3"><button wire:click='name' class="btn"
+                                        style="background-color: #bb95dc; color:white; border:2px solid #bb95dc; ">{{ $text }}</button>
                                 </td>
                             </tr>
-                            @if($show)
-                            <tr>
-                                <th>
-                                    Disease
-                                </th>
-                                <td>:</td>
-                                <td><input type="text" name="" class="form-control " style="border-color:#bb95dc !important " id="" wire:model.live='disease'></td>
-                            </tr>
-                            <tr>
-                                <th>
-                                    Diet
-                                </th>
-                                <td>:</td>
-                                <td><input type="text" name="" class="form-control " style="border-color:#bb95dc !important " id="" wire:model.live='diet'></td>
-                            </tr>
-                            <tr>
-                                <th>
-                                    Note
-                                </th>
-                                <td>:</td>
-                                <td><input type="text" name="" class="form-control " style="border-color:#bb95dc !important " id="" wire:model.live='note'></td>
-                            </tr>
-                            <tr>
-                                <th>
-                                    Follow up doctor
-                                </th>
-                                <td>:</td>
-                                <td>
-                                    <select name="" id="" class="form-select" wire:model.live='specialization' style="border-color:#bb95dc !important">
-                                        <option value="">Choose speciality</option>
-                                        @foreach ($specializations as $specialization)
-                                        <option value="{{ $specialization->id }}">{{ $specialization->name }}</option>
-                                        @endforeach
-                                    </select>
-                                    @if(count($doctor_name) !== 0)
-                                    <select name="" id="" class="mt-2 form-select" wire:model.live='follow_up' style="border-color:#bb95dc !important">
-                                        <option value="">Choose docotor</option>
-                                        @foreach ($doctor_name as $name)
-                                        <option value="{{ $name['id'] }}">{{ $name['name'] }}</option>
-                                        @endforeach
-                                    </select>
+                            @if ($show)
+                                <tr>
+                                    <th>
+                                        Disease
+                                    </th>
+                                    <td>:</td>
+                                    <td><input type="text" name="" class="form-control "
+                                            style="border-color:#bb95dc !important " id=""
+                                            wire:model.live='disease'></td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        Diet
+                                    </th>
+                                    <td>:</td>
+                                    <td><input type="text" name="" class="form-control "
+                                            style="border-color:#bb95dc !important " id=""
+                                            wire:model.live='diet'></td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        Note
+                                    </th>
+                                    <td>:</td>
+                                    <td><input type="text" name="" class="form-control "
+                                            style="border-color:#bb95dc !important " id=""
+                                            wire:model.live='note'></td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        Follow up doctor
+                                    </th>
+                                    <td>:</td>
+                                    <td>
+                                        <select name="" id="" class="form-select"
+                                            wire:model.live='specialization' style="border-color:#bb95dc !important">
+                                            <option value="">Choose speciality</option>
+                                            @foreach ($specializations as $specialization)
+                                                <option value="{{ $specialization->id }}">{{ $specialization->name }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                        @if (count($doctor_name) !== 0)
+                                            <select name="" id="" class="mt-2 form-select"
+                                                wire:model.live='next' style="border-color:#bb95dc !important">
+                                                <option value="">Choose docotor</option>
+                                                @foreach ($doctor_name as $name)
+                                                    <option value="{{ $name['id'] }}">{{ $name['name'] }}</option>
+                                                @endforeach
+                                            </select>
+                                        @endif
+                                    </td>
+                                </tr>
+                                <tr class="text-center">
+                                    {{-- <livewire:appointment-buttom :appointment=$appointment /> --}}
+                                    <td colspan="3"><button wire:click='pname' class="btn"
+                                            style="background-color: #bb95dc; color:white; border:2px solid #bb95dc; ">{{ $text2 }}</button>
+                                    </td>
+                                </tr>
+                                @if($pshow)
+                                <tr>
+                                    @if (count($temp) !== 0)
+                                        <td colspan="4">
+                                            <table class="table table-bordered">
+                                                <thead>
+                                                    <th>Name</th>
+                                                    <th>Dosage</th>
+                                                    <th>Frequency</th>
+                                                    <th>Duration</th>
+                                                    <th></th>
+                                                </thead>
+                                                @foreach ($temp as $index => $t)
+                                                    <tr>
+                                                        <td>{{ $t['name'] }}</td>
+                                                        <td>{{ $t['dosage'] }}</td>
+                                                        <td>{{ $t['frequency'] }}</td>
+                                                        <td>{{ $t['duration'] }}</td>
+                                                        <td><button wire:click='delete("{{ $index }}")'
+                                                                class="btn btn-sm btn-danger"><i
+                                                                    class="fa-solid fa-trash"></i></button></td>
+                                                    </tr>
+                                                @endforeach
+
+                                            </table>
+                                        </td>
                                     @endif
-                                </td>
-                            </tr>
-                            <tr class="text-center">
-                                <td colspan=""><button type="reset"
-                                        class="btn"
-                                         style="background-color: #bb95dc; color:white; border:2px solid #bb95dc; ">Clear</button>
-                                </td>
-                                <td></td>
-                                <td><button
-                                    class="btn" wire:click='save()'
-                                     style="background-color: #bb95dc; color:white; border:2px solid #bb95dc; ">Add</button>
-                            </td>
-                            </tr>
+                                </tr>
+                                <tr>
+                                    <td>Medicine Name</td>
+                                    <td>:</td>
+                                    <td><input type="text" name="" class="form-control " wire:model.live='search'
+                                            style="border-color:#bb95dc !important " id=""
+                                            >
+                                        @if ($search !== '' && $this->m_name === '')
+                                            <ul style="overflow: scroll; max-height:100px;">
+                                                @foreach ($medicines as $medicine)
+                                                    <li class="auto" wire:click='click("{{ $medicine->name }}")'>
+                                                        {{ $medicine->name }}</li>
+                                                @endforeach
+                                            </ul>
+                                        @endif
+                                        @error('search')
+                                            <p class="text-danger mb-0">{{ $message }}</p>
+                                        @enderror
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+                                    <td>Dosage</td>
+                                    <td>:</td>
+                                    <td><input type="number" name="" id="" class="form-control"
+                                            style="border-color:#bb95dc !important " wire:model.live='dosage'>
+                                        @error('dosage')
+                                            <p class="text-danger mb-0">{{ $message }}</p>
+                                        @enderror
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Frequency</td>
+                                    <td>:</td>
+                                    <td><input type="number" name="" id="" class="form-control"
+                                            style="border-color:#bb95dc !important " wire:model.live='frequency'>
+                                        @error('frequency')
+                                            <p class="text-danger mb-0">{{ $message }}</p>
+                                        @enderror
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Duration</td>
+                                    <td>:</td>
+                                    <td><input type="number" name="" id="" class="form-control"
+                                            style="border-color:#bb95dc !important " wire:model.live='duration'>
+                                        @error('duration')
+                                            <p class="text-danger mb-0">{{ $message }}</p>
+                                        @enderror
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="3 " class="text-center"><button type="reset" wire:click='check'
+                                            class="btn"
+                                            style="background-color: #bb95dc; color:white; border:2px solid #bb95dc; ">Check</button>
+                                    </td>
+                                </tr>
+                                @endif
+                                <tr class="text-center">
+                                    <td colspan=""><button type="reset" class="btn"
+                                            style="background-color: #bb95dc; color:white; border:2px solid #bb95dc; ">Clear</button>
+                                    </td>
+                                    <td></td>
+                                    <td><button class="btn" wire:click='save()'
+                                            style="background-color: #bb95dc; color:white; border:2px solid #bb95dc; ">Add</button>
+                                    </td>
+                                </tr>
+
                             @endif
                         </table>
 

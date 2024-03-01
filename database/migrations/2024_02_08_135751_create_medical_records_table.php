@@ -23,7 +23,8 @@ return new class extends Migration
             $table->string('status');
             $table->longText('diet')->nullable();
             $table->string('next_doctor_id')->nullable();
-            $table->text('note');
+            $table->string('treatment_type');
+            $table->text('note')->nullable();
             $table->timestamps();
         });
     }

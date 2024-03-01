@@ -26,6 +26,7 @@ class NewAppointment extends Component
     public $doctors;
     public $appointments;
     public $status='pending';
+    public $patient_id = 3;
     
     public function mount()
     {
@@ -76,26 +77,28 @@ class NewAppointment extends Component
         $nearestDate = $currentDate->addDays($dayDifference)->toDateString();
         // dd($nearestDate); // Output the nearest date of the selected day
 
-
-        $status = Appointment::create([
+        $patient = new patient();
+            $patient->name=$this->name;
+            $patient->email=$this->email;
+            $patient->password=Hash::make($this->password);
+           $patient->dob=$this->dob;
+           $patient->gender=$this->gender;
+           $patient->phone=$this->phone;
+           $patient->address=$this->address;
+           $patient->save();
+            
+            $id = $patient->id; // Output the type of id
+            $status = Appointment::create([
             'patient_type'=>'new',
             'treatment_type' => $this->treatment_type,
             'description' => $this->description,
             'doctor_id' => $this->doctor,
+            'patient_id' => $this->patient_id,
             'appointment_day' => $this->appointment_day,
             'appointment_date' => $nearestDate,
             'status'=>$this->status,
             
         ]);
-        Patient::create([
-            'name'=>$this->name,
-            'email'=>$this->email,
-            'password'=>Hash::make($this->password),
-            'dob'=>$this->dob,
-            'gender'=>$this->gender,
-            'phone'=>$this->phone,
-            'address'=>$this->address
-            ]);
         if ($status) {
             session()->put([
                 'type' => $this->treatment_type,

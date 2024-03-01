@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Prescription extends Model
 {
     use HasFactory;
-    protected $fillable = ['patient_id','doctor_id','medicine_name','dosage','frequency','duration','note','status','medical','quantity','type','buyOrNot'];
+    protected $fillable = ['temp_id','medicine_name','dosage','frequency','duration','status','medical_record_id','quantity','type','buyOrNot'];
     public function patient()
     {
         return $this->belongsTo(Patient::class);

@@ -11,9 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('prescriptions', function (Blueprint $table) {
+        Schema::create('temp_pres', function (Blueprint $table) {
             $table->id();
-           $table->string('temp_id')->nullable();
+
+
             $table->string('medicine_name');
             $table->string('dosage')->nullable();
             $table->string('frequency')->nullable();
@@ -33,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('prescriptions');
+        Schema::dropIfExists('temp_pres');
     }
 };
