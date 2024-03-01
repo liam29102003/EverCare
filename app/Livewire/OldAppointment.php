@@ -71,11 +71,6 @@ class OldAppointment extends Component
             'appointment_day' => $this->appointment_day,
             'appointment_date' => $nearestDate,
             'status'=>$this->status,
-            'password'=>Hash::make(session('password')),
-            'dob'=>session('dob'),
-            'phone'=>session('phone'),
-            'gender'=>session('gender'),
-            'address'=>session('address'),
         ]);
 
         if ($status) {
