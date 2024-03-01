@@ -1,5 +1,5 @@
 <form action="" wire:submit='save' method='post'>
-    @csrf
+
     <div class="col-12 col-md-8 offset-md-2 p-5 border-0 form-container d-flex flex-column justify-content-center align-items-center" style="background-color:#bb95dc22; color:#9d926a !important">
         <h2 class="txt-shadow">Make Appointment Here!</h2>
         <p class="text-center">Fill the form below and we will get back soon to you for more updates and plan your appointment.</p>
@@ -36,7 +36,7 @@
             <div class=" d-flex col-12 justify-content-between" style="flex-wrap: wrap;">
                 <div class="left displayNone">
                 <label for="">Name<span class='text-danger'>*</span></label>
-                <input type="text" class="form-control shadow-sm" name='name'  placeholder="{{session('name')}}" value='' style='border:0' wire:model='name' disabled>
+                <input type="text" class="form-control shadow-sm" name='name'  placeholder="" style='border:0' wire:model='name' disabled>
                 @error('name')
                     <span class='text-danger'>{{$message}}</span>
                 @enderror

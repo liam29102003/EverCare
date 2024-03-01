@@ -99,6 +99,7 @@ class NewAppointment extends Component
 
         if ($status) {
             session()->put([
+                'id'=>$patient->id,
                 'type' => $this->treatment_type,
                 'name' => $patient->name,
                 'email' => $patient->email,

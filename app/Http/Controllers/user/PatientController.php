@@ -61,6 +61,7 @@ class PatientController extends Controller
         }
 
         session()->put([
+            'id'=>$patient->id,
             'name'=>$patient->name,
             'email'=>$request->email,
             'password'=>Hash::make($request->password),
