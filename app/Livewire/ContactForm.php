@@ -18,6 +18,14 @@ class ContactForm extends Component
     }
 
     public function sendMessage(){
+        $this->validate([
+            'name' => 'required',
+            'reason'=>'required',
+            'email' => 'required',
+            'phone' => 'required',
+            'message' => 'required'
+        ]);
+
         Contact::create([
             'reason'=>$this->reason,
             'name'=>$this->name,

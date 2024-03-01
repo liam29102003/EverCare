@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Doctor;
 use Illuminate\Http\Request;
+use App\Models\Specialization;
 use Illuminate\Support\Facades\App;
 use App\Http\Controllers\Controller;
 
@@ -33,7 +34,10 @@ class DoctorController extends Controller
 
     public function doctorDetailPage($id){
         return view('user.doctor_detail_page')->with([
-            'doctor'=>Doctor::where('id',$id)->first()
+            'doctor'=>Doctor::select('doctors.*','specializations.name as sname')
+            ->where('doctors.id',$id)
+            ->join('specializations','specializations.id','doctors.speciality')
+            ->first(),
         ]);
     }
     

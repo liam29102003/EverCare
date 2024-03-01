@@ -21,7 +21,7 @@
                     </div>
                     <div class="row ">
                         <div class="col-3 p-0"><p class=" ps-3 fw-bold h-1 py-3 mb-0">Speciality:</p></div>
-                        <div class="col-9 ps-1"><p class=" ps-3  h-1 py-3 mb-0">{{$doctor->speciality}}</p></div>
+                        <div class="col-9 ps-1"><p class=" ps-3  h-1 py-3 mb-0">{{$doctor->sname}}</p></div>
                     </div>
                     <div class="row">
                         <div class="col-3 p-0"><p class=" ps-3 fw-bold h-1 p-3 mb-0" style="background-color: #bb95dc44;">Qualification:</p></div>

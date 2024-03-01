@@ -59,7 +59,7 @@ Route::post('/oldpatient/appointment',[AppointmentController::class,'oldAppointm
 Route::get('/patient/payment/{id}',[AppointmentController::class,'payment'])->name('patient.payment');
 Route::get('/patient/profile',[PatientController::class,'profile'])->name('patient.appointment');
 Route::get('/contact',[PatientController::class,'contactPage'])->name('contactPage');
-
+Route::get('/review',[PatientController::class,'reviewPage'])->name('patient.review');
     Route::get('/', function () {
         $doctors = D::all();
         $patients = P::all();
@@ -140,8 +140,9 @@ Route::get('/contact',[PatientController::class,'contactPage'])->name('contactPa
             Route::get('/details/{patient}', [PatientController::class, 'details'])->name('patient.details');
             Route::get('/edit/{patient}', [PatientController::class, 'edit'])->name('patient.edit');
             Route::post('/update/{patient}', [PatientController::class, 'update'])->name('patient.update');
+            
         });
-
+        Route::get('/contact/messages',[FinanceController::class,'messagePage'])->name('contact.messages');
 
         Route::get('/dashboard', function () {
             return view('admin.dashboard');

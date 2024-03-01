@@ -239,6 +239,14 @@
                   <div data-i18n="Analytics">Finance</div>
                 </a>
               </li>
+
+              <li class="menu-item ">
+                <a href="{{ route('contact.messages') }}" wire:navigate  class="menu-link {{ request()->segment(2) === 'contact' ? 'select' : '' }}" style="      color:white ;
+                border-bottom: 3px solid #9d926aa;">
+                    <i class="fa-solid fa-coins me-3"></i>
+                  <div data-i18n="Analytics">Messages</div>
+                </a>
+              </li>
               @elseif(request()->segment(1) === 'receptionist')
               <li class="menu-item ">
                 <a href="{{ route('receptionist.appointment.list') }}" wire:navigate  class="menu-link {{ request()->segment(2) === 'pharmacy' ? 'select' : '' }}" style="      color:white ;
