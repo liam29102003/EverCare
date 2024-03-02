@@ -277,8 +277,16 @@
               <li class="menu-item ">
                 <a href="{{ route('doctor.appointment.list') }}" wire:navigate  class="menu-link {{ request()->segment(2) === 'appointment' ? 'select' : '' }}" style="      color:white ;
                 border-bottom: 3px solid #9d926aa;">
-                    <i class="fa-solid fa-pills me-3 fs-5"></i>
+                <i class="fa-solid fa-calendar-check me-3 fs-5"></i>
+                    {{-- <i class="fa-solid fa-pills me-3 fs-5"></i> --}}
                   <div data-i18n="Analytics">{{ __('form.Appointments')}}</div>
+                </a>
+              </li>
+              <li class="menu-item ">
+                <a href="{{ route('doctor.profile') }}" wire:navigate  class="menu-link {{ request()->segment(2) === 'profile' ? 'select' : '' }}" style="      color:white ;
+                border-bottom: 3px solid #9d926aa;">
+                <i class="fa-solid fa-user me-3 fs-5"></i>
+                  <div data-i18n="Analytics">{{ __('Profile')}}</div>
                 </a>
               </li>
               @endif

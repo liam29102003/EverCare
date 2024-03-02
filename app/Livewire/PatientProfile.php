@@ -37,6 +37,7 @@ class PatientProfile extends Component
         ]);
         Patient::where('email',session('email'))->update([
             'name'=>$this->name,
+            // 'email'=>session('email'),
             'address'=>$this->address,
             'phone'=>$this->phone,
             'gender'=>$this->gender,

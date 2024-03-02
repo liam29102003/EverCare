@@ -178,7 +178,7 @@ Route::get('/appointment/list',[AppointmentController::class,'myAppointmentPage'
     
         Route::get('/appointment/list', [doctor::class, 'listAppointment'])->name('doctor.appointment.list');
         Route::get('appointment/detail/{type}/{id}',[doctor::class,'appointmentDetail'])->name('doctor.appointment.detail');
-        Route::get('/profilePage',[profileController::class,'docProfile'])->name('doctor.profile');
+        Route::get('/profile',[profileController::class,'docProfile'])->name('doctor.profile');
     });
     Route::prefix('receptionist')->middleware(['auth:sanctum,receptionist', 'verified'])->group(function () {
         Route::get('/dashboard', function () {
