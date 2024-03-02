@@ -5,12 +5,12 @@
         <div class="col-md-12 offset-md-0">
             <div class="d-flex mt-2 mb-0">
                 <input type="date" name="" id="" wire:model.live='date' class="form-control w-25 border-0 ">
-                @if($typet === "inperson")
+                @if($typet === "in person")
                 <button class="btn ms-1" wire:click='changeType("online")' style="background-color: white; color:#bb95dc; border:2px solid #bb95dc">Online</button>
-                <button class="btn ms-1" wire:click='changeType("inperson")' style="background-color: #bb95dc; color:white; border:2px solid #ffffff">In person</button>
+                <button class="btn ms-1" wire:click='changeType("in person")' style="background-color: #bb95dc; color:white; border:2px solid #ffffff">In person</button>
                 @elseif($typet === "online")
                 <button class="btn ms-1" wire:click='changeType("online")' style="background-color: #bb95dc; color:white; border:2px solid #ffffff">Online</button>
-                <button class="btn ms-1" wire:click='changeType("inperson")' style="background-color: white; color:#bb95dc; border:2px solid #bb95dc; ">In person</button>
+                <button class="btn ms-1" wire:click='changeType("in person")' style="background-color: white; color:#bb95dc; border:2px solid #bb95dc; ">In person</button>
                 @endif
             </div>
            
@@ -51,16 +51,16 @@
         <table class="table" >
             <thead  >
                 <tr style=" background-color:#e2dcf8" class="shadow">
-                    <th style="color:#bb95dc" class="btn" wire:click='sorting("name")'>Name @if ($orderName === 'name')
+                    <th style="color:#bb95dc" class="btn" >Name @if ($orderName === 'name')
                         <span>{{ $type === 'asc' ? '▲' : '▼' }}</span>
                     @endif</th>                    
-                    <th style="color:#bb95dc" wire:click='sorting("treatment_type")'>Type @if ($orderName === 'treatment_type')
+                    <th style="color:#bb95dc" >Type @if ($orderName === 'treatment_type')
                         <span>{{ $type === 'asc' ? '▲' : '▼' }}</span>
                     @endif</th>
-                    <th style="color:#bb95dc" wire:click='sorting("patient_type")'>Status @if ($orderName === 'patient_type')
+                    <th style="color:#bb95dc" >Status @if ($orderName === 'patient_type')
                         <span>{{ $type === 'asc' ? '▲' : '▼' }}</span>
                     @endif</th>
-                    <th style="color:#bb95dc" wire:click='sorting("appointment_date")'>Date @if ($orderName === 'appointment_date')
+                    <th style="color:#bb95dc" >Date @if ($orderName === 'appointment_date')
                         <span>{{ $type === 'asc' ? '▲' : '▼' }}</span>
                     @endif</th>
                     <th style="color:#bb95dc" class="text-center">Actions</th>

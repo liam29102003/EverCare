@@ -66,12 +66,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
     @yield('styles')
-<script>
+    <script>console.log("hello");
+    $d = document.getElementById('hello1');
+    console.log($d);
+    </script>
+{{-- <script>
     // JavaScript control for the dropdown
     document.addEventListener('livewire:navigated', function() {
         var dropdownButton = document.getElementById('hello');
         var dropdownMenu = document.querySelector('.dropdown-menu1');
-        console.log('Hello')
 
         dropdownButton.addEventListener('click', function() {
             // Toggle the 'show' class to display/hide the dropdown menu
@@ -86,9 +89,10 @@
         });
         var dropdownButton1 = document.getElementById('hello1');
         var dropdownMenu2 = document.querySelector('.dropdown-menu2');
-        console.log('Hello')
-
+        console.log(dropdownButton1);
         dropdownButton1.addEventListener('click', function() {
+          console.log('Hello')
+
             // Toggle the 'show' class to display/hide the dropdown menu
             dropdownMenu2.classList.toggle('d-none');
         });
@@ -100,7 +104,7 @@
             }
         });
     });
-</script>
+</script> --}}
   <style>
     .select{
       color: #bb95dc;
@@ -332,18 +336,15 @@
                 <ul class="navbar-nav flex-row align-items-center ms-auto">
                   <!-- Place this tag where you want the button to render. -->
                  
-                  <li class="nav-item me-3">
-                    <livewire:toggle-language>
-                  </li>
+                 
                   <!-- User -->
                   <li class="nav-item  ">
 
-                    <div>
-                      
-                    </div>
+                    
                     <div  class="d-block" id="hello1" >
-                    @if(request()->segment(1) === 'doctor')
-                      <div class="avatar avatar-online">
+                      @if(request()->segment(1) === 'doctor')
+
+                      <div class="avatar avatar-online   ">
                         <a href="{{route('doctor.profile')}}" wire:navigate><img src="{{ asset('admin/assets/img/avatars/1.png') }}" alt class="w-px-40 h-auto rounded-circle" /></a>
                       </div>
                     @elseif(request()->segment(1) === 'admin')
@@ -352,51 +353,15 @@
                       </div>
                     @endif
                     </div>
-                    <div class="card dropdown-menu2  d-none" style="margin-top:300px;">
-                      <ul class=" ps-0 "  style = "list-style-type:none; margin:auto !important" >
-                        <li class=" ms-0">
-                          <a class="dropdown-item" href="#">
-                            <div class="d-flex">
-                              <div class="flex-shrink-0 me-3">
-                                <div class="avatar avatar-online">
-                                  <img src="{{ asset('admin/assets/img/avatars/1.png') }}" alt class="w-px-40 h-auto rounded-circle" />
-                                </div>
-                              </div>
-                              <div class="flex-grow-1">
-                                <span class="fw-semibold d-block">John Doe</span>
-                                <small class="text-muted">Admin</small>
-                              </div>
-                            </div>
-                          </a>
-                        </li>
-                        <li>
-                          <div class="dropdown-divider"></div>
-                        </li>
-                        <li>
-                          <a class="dropdown-item" href="#">
-                            <i class="bx bx-user me-2"></i>
-                            <span class="align-middle">My Profile</span>
-                          </a>
-                        </li>
-                        <li>
-                          <a class="dropdown-item" href="#">
-                            <i class="bx bx-cog me-2"></i>
-                            <span class="align-middle">Settings</span>
-                          </a>
-                        </li>
-                        
-                        <li>
-                          <div class="dropdown-divider"></div>
-                        </li>
-                        <li>
-                          <form action="{{ route('logout') }}" method="post">
-                          @csrf
-                          <button type="submit" class="btn btn-sm">logout</button>
-                        </form>
-                        </li>
-                      </ul>
-                    </div>
                     
+                  </li>
+                  <li class="nav-item ms-2">
+                    <div>
+                      <form action="{{route('logout')}}" method="post">
+                      @csrf
+                      <button class="btn btn-sm btn-primary">Logout</button>
+                    </form>
+                    </div>
                   </li>
                   
                   <!--/ User -->

@@ -58,7 +58,7 @@ class DoctorMedicalRecordList extends Component
     public function render()
     {
         $medicals = MedicalRecord::whereHas('patient', function ($query)  {
-            $query->where('name', 'like', '%' . $this->search . '%')->where('doctor_id', 5)->where('patient_id', 'like', '%' . $this->id . '%')->orderBy($this->orderName,$this->type);
+            $query->where('name', 'like', '%' . $this->search . '%')->where('doctor_id', 5)->where('patient_id', 'like', '%' . $this->id . '%')->orderBy('updated_at','asc');
         })->paginate(10);
         return view('livewire.doctor-medical-record-list')->with('medicals',$medicals);
     }

@@ -1,25 +1,6 @@
 @extends('admin.layouts.app')
 <style>
-    .card-body{
-        background-color:white; 
-        color: #bb95dc
-    }
-    .head{
-        border-right: 3px solid #bb95dc;
-    }
-    td{
-        color: #bb95dc;
-    }
-    th{
-        color: #bb95dc;
-    }
-    table{
-        border-color: white !important;
-    }
-    hr{
-        border-color: #bb95dc !important;
-        background-color: #bb95dc
-    }
+    /*  */
 </style>
 @section('content')
     <div class="container">
@@ -31,59 +12,80 @@
                     </div>
                     <div class="card-body">
                         <div class="container">
-                            <div class="row py-2">
-                                <div class=" col-lg-2  mb-2  col-6  head">{{ __("form.Name") }}:</div>
+                            <div class="row py-md-2">
+                                <div class=" col-lg-4  mb-2  col-12  head">{{ __("form.Name") }} &nbsp;  : &nbsp; <span style="background-color: aliceblue; border-radius:10%" class="p-2">{{ $medicalRecord->patient->name }}</span></div>
+                                <div class="col-lg-4  mb-2  col-12  head">{{ __("form.Age") }} &nbsp;  : &nbsp;  <span style="background-color: aliceblue; border-radius:10%" class="p-2">{{ $age }}</span></div>
+                                {{-- <div class="col-lg-4 mb-2  col-12 "></div> --}}
                                 
-                                <div class="col-lg-5  mb-2  col-6 ">{{ $medicalRecord->patient->name }}</div>
-                                
-                                <div class="  col-lg-2  mb-2  col-6  head">{{ __("form.Date") }}:</div>
-                                <div class="col-lg-3  mb-2  col-6 ">{{ $medicalRecord->created_at->format('Y-m-d') }}</div>
+                                <div class="  col-lg-4  mb-2  col-12  head">{{ __("form.Date") }} &nbsp;  : &nbsp;<span style="background-color: aliceblue; border-radius:10%" class="p-2">{{ $medicalRecord->created_at->format('Y-m-d') }}</span></div>
+                                {{-- <div class="col-lg-3  mb-2  col-6 "></div> --}}
 
                             </div>
+                            <hr class="mt-0">
+                            <div class="row py-md-2">
+                                <div class="col-lg-4  mb-2  col-12 head">{{ __("form.Date of Birth") }}  &nbsp;  : &nbsp;<span style="background-color: aliceblue; border-radius:10%" class="p-2"> {{$medicalRecord->patient->dob}}</span></div>
+                                {{-- <div class="col-lg-2  mb-2 col-6 " ></div> --}}
+
+                                
                             
-                            <div class="row py-2">
-                                <div class="col-lg-2  mb-2  col-6 head">{{ __("form.Date of Birth") }}</div>
-                                <div class="col-lg-2  mb-2 col-6 " >{{$medicalRecord->patient->dob}}</div>
-
-                                <div class="col-lg-1  mb-2  col-6  head">{{ __("form.Age") }}:</div>
-                                <div class="col-lg-1  mb-2  col-6 ">{{ $age }}</div>
-                            
-                            <div class="col-lg-1  mb-2  col-6  head">{{ __("form.Sex") }}:</div>
-                            <div class="col-lg-2  mb-2  col-6 ">{{ $medicalRecord->patient->gender }}</div>
-                            <div class="col-lg-2  mb-2  col-6  head">{{ __("form.Patient ID") }}:</div>
-                            <div class="col-lg-1  mb-2  col-6 ">{{ $medicalRecord->patient->id }}</div>
+                            <div class="col-lg-4  mb-2  col-12  head">{{ __("form.Sex") }} &nbsp;  : &nbsp; <span style="background-color: aliceblue; border-radius:10%" class="p-2">{{ $medicalRecord->patient->gender }}</span></div>
+                            {{-- <div class="col-lg-2  mb-2  col-6 "></div> --}}
+                            <div class="col-lg-4  mb-2  col-12  head">{{ __("form.Patient ID") }}&nbsp;  : &nbsp;<span style="background-color: aliceblue; border-radius:10%" class="p-2">{{ $medicalRecord->patient->id }}</span></div>
+                            {{-- <div class="col-lg-1  mb-2  col-6 "></div> --}}
 
                         </div>
-                        
+                        <hr class="mt-0">
 
                         <div class="row py-2">
-                            <div class="col-lg-2  mb-2  col-6  head">{{ __("form.Patient Email") }}:</div>
-                            <div class="col-lg-4  mb-2  col-6 ">{{ $medicalRecord->patient->email }}</div>
-                            <div class="col-lg-2  mb-2  col-6  head">{{ __("form.Patient Phone") }}:</div>
-                            <div class="col-lg-4  mb-2  col-6 ">{{ $medicalRecord->patient->phone }}</div>
+                            <div class="col-lg-6  mb-2  col-12  head">{{ __("form.Patient Email") }}&nbsp;  : &nbsp; <span style="background-color: aliceblue; border-radius:10%" class="p-2">{{ $medicalRecord->patient->email }}</span></div>
+                            <div class="col-lg-6  mb-2  col-12  head">{{ __("form.Patient Phone") }}&nbsp;  : &nbsp; <span style="background-color: aliceblue; border-radius:10%" class="p-2">{{ $medicalRecord->patient->phone }}</span></div>
+                            {{-- <div class="col-lg-4  mb-2  col-6 "></div>  --}}
                         </div>
-                        
+                        <hr class="mt-0">
+
 
                         <div class="row py-2">
-                            <div class="col-lg-2  col-6  head">{{ __("form.Diagnosed with") }}:</div>
-                            <div class="col-lg-9  col-6 ">{{$medicalRecord->disease}}</div>
+                            <div class="col-lg-12  col-12  head">{{ __("form.Diagnosed with") }} &nbsp;  : &nbsp; <span style="background-color: aliceblue; border-radius:10%" class="p-2">{{$medicalRecord->disease}}</span></div>
+                            {{-- <div class="col-lg-9  col-6 "></div> --}}
                         </div>
-                        
+                        <hr class="mt-0">
+
 
                         <div class="row py-2">
-                            <div class="col-lg-2  mb-2  col-6  head">{{ __("form.Blood Pressure") }}:</div>
-                            <div class="col-lg-2  mb-2  col-6 ">{{ $medicalRecord->blood_pressure }}</div>
+                            <div class="col-lg-4  mb-2  col-12  head">{{ __("form.Blood Pressure") }} : <span style="background-color: aliceblue; border-radius:10%" class="p-2">@if($medicalRecord->blood_pressure){{ $medicalRecord->blood_pressure }}@else  - @endif</span></div>
+                            {{-- <div class="col-lg-2  mb-2  col-6 "></div> --}}
                         
-                        <div class="col-lg-2  mb-2  col-6  head">{{ __("form.Pulse Rate") }}:</div>
-                        <div class="col-lg-2  mb-2  col-6 ">{{ $medicalRecord->pulse_rate }}</div>
-                        <div class="col-lg-2  mb-2  col-6  head">{{ __("form.Weight") }}:</div>
-                        <div class="col-lg-2  mb-2  col-6  ">{{ $medicalRecord->weight }}</div>
+                        <div class="col-lg-4  mb-2  col-12  head">{{ __("form.Pulse Rate") }} : <span style="background-color: aliceblue; border-radius:10%" class="p-2">@if($medicalRecord->pulse_rate){{ $medicalRecord->pulse_rate }}@else  - @endif</span></div>
+                        {{-- <div class="col-lg-2  mb-2  col-6 ">{{ $medicalRecord->pulse_rate }}</div> --}}
+                        <div class="col-lg-4  mb-2  col-12  head">{{ __("form.Weight") }} : <span style="background-color: aliceblue; border-radius:10%" class="p-2">@if($medicalRecord->weight){{ $medicalRecord->weight }}@else  - @endif</span></div>
+                        {{-- <div class="col-lg-2  mb-2  col-6  "></div> --}}
                         </div>
+                        <hr class="mt-0">
+
+
+                       
+                        
+                        <div class="row py-2">
+                            <div class="col-lg-12  col-12 head">{{ __("form.Diet to follow") }} : <span style="background-color:aliceblue; border-radius:10%" class="p-2">{{$medicalRecord->diet}}</span></div>
+                        </div>
+                        {{--  --}}
+                        <hr class="mt-0">
+
+                        <div class="row py-2">
+                            <div class="col-lg-12  col-12 head">{{ __("form.Note") }} : <span style="background-color:aliceblue; border-radius:10%" class="p-2">{{$medicalRecord->note}}</span></div>
+                        </div>
+                        <hr class="mt-0">
+
+                        <div class="row py-2">
+                            <div class="col-lg-6  col-12 head">{{ __("form.Doctor") }} : <span style="background-color:aliceblue; border-radius:10%" class="p-2">{{$medicalRecord->doctor->name}}</span></div>
+                            <div class="col-lg-6  col-12 head">{{ __("form.Follow Up Doctor") }} : <span style="background-color:aliceblue; border-radius:10%" class="p-2">@if($medicalRecord->next_doctor){{$medicalRecord->next_doctor}}@else - @endif</div>
+                            </div>
                         
 
+                        <hr class="mt-0">
                         <div class="row">
                             <div class="col table-responsive">
-                                <table class="table  table-striped " border="1" >
+                                <table class="table  table-bordered " border="1" >
                                     <tr>
                                         <th></th>
                                         <th class="" style="color: #bb95dc">{{ __("form.Medicine") }}</th>
@@ -109,28 +111,6 @@
                                 </table>
 
                             </div>
-                        </div>
-                        
-                        <div class="row py-2">
-                            <div class="col-lg-2  col-6 head">{{ __("form.Diet to follow") }}:</div>
-                            <div class="col-lg-10 col-6  ">{{$medicalRecord->diet}}</div>
-                        </div>
-                        {{--  --}}
-
-                        <div class="row py-2">
-                            <div class="col-lg-2  col-6 head">{{ __("form.Note") }}:</div>
-                            <div class="col-lg-10 col-6  ">{{$medicalRecord->note}}</div>
-                        </div>
-
-                        <div class="row py-2">
-                            <div class="col-lg-3  col-6 head">{{ __("form.Doctor") }}:</div>
-                            <div class="col-lg-9  col-6 ">{{$medicalRecord->doctor->name}}</div>
-                        </div>
-                        
-
-                        <div class="row py-2">
-                            <div class="col-lg-3  col-6 head">{{ __("form.Follow Up Doctor") }}:</div>
-                            <div class="col-lg-9  col-6 ">Dr Thu Ya</div>
                         </div>
                         
 
