@@ -71,7 +71,7 @@ class DoctorDetails extends Component
     public function render()
     {
         $doctor =Doctor::where('id',$this->doctor_id)->first();
-        $schedules = Schedule::where('doctor_id',$this->doctor_id) ->get();
+        $schedules = Schedule::where('doctor_id',$this->doctor_id)->get();
         return view('livewire.doctor-details')->with(compact('doctor','schedules'));
     }
 }

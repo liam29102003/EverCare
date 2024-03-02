@@ -342,9 +342,12 @@
 
                     
                     <div  class="d-block" id="hello1" >
+                      @if(request()->segment(1) === 'doctor')
+
                       <div class="avatar avatar-online   ">
-                        <img src="{{ asset('admin/assets/img/avatars/1.png') }}" alt class="w-px-40 h-auto rounded-circle"  />
+                        <a href="{{route('doctor.profile')}}" wire:navigate><img src="{{ asset('admin/assets/img/avatars/1.png') }}" alt class="w-px-40 h-auto rounded-circle" /></a>
                       </div>
+                    @endif
                     </div>
                     
                   </li>

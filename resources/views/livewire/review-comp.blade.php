@@ -45,8 +45,6 @@
 
 .card{
     padding:3px;
-    display:flex;
-    align-items:flex-start;
     gap:2rem;
     background-color:white;
     border-radius:1rem;
@@ -228,7 +226,7 @@ a {
 }
 
 
-form .user-details .input-box{
+.form .user-details .input-box{
     width:380px;
     margin-bottom:5px;
     
@@ -301,89 +299,81 @@ form .user-details .input-box{
                     Our clinic always try to provide preventive, diagnostic, and treatment services for various health condition. We also make an effort to assit individuals to maintain a good health by addressing a wide range of needs and necessaricity.
                 </p>
                 <p>
-                    Your feedback is a gift. We appreciate you taking the time to share your thoughts with us to enhance our services.
+                   {{session('name')==null ? 'helo' : 'ioeo'}} Your feedback is a gift. We appreciate you taking the time to share your thoughts with us to enhance our services.
                 </p>
+                @if(session('name') == "")
+                <button class="main-button"><a href="{{route('login_page')}}"><i class="fa-regular fa-pen-to-square"></i> Write Review</a></button>
+            @else
                 <button class="main-button"><a href="#form-body"><i class="fa-regular fa-pen-to-square"></i> Write Review</a></button>
+            @endif
             </div>
 
             
         
         <div class="container-right">
-            <div class="card">
-                <img src="customer1.jpg" alt="user1">
-                <div class="card_content">
-                    <span><i class="ri-double-quotes-l"></i></span>
+            @foreach($reviews as $r)
+            <div class="card d-flex flex-row">
+                <div><img src="https://media.istockphoto.com/id/1161086164/vector/avatar-flat-icon-on-black-background-black-style-vector-illustration.jpg?s=612x612&w=0&k=20&c=3sh60zGoNRpiZ2_i1eyhK-lUEDhl13JyXwMCR2toXD8=" alt="user1"></div>
+                <div class="card_content pt-3">
+                    <span><i class="fa-solid fa-quote-left"></i></span>
                     <div class="card_details">
                         
                         <p>
-                            လူနာတွေအပေါ်လည်းနွေးထွေးမှုရှိပြီး ဝန်ဆောင်မှုအရမ်းကောင်းတဲ့ဆေးခန်းပါ။ 100% recommend ပေးပါတယ်။
+                            {{$r->message}}
                         </p>
-                        <h4>-Aung Aung</h4>
+                        <h4>-{{$r->name}}</h4>
                     </div>
                     
                 </div>
             </div>
-            <div class="card">
-                <img src="customer2.jpg" alt="user2">
-                <div class="card_content">
-                    <span><i class="ri-double-quotes-l"></i></span>
-                    <div class="card_details">
-                        <p>
-                            အဆင့်မြင့်တဲ့စက်တွေနဲ့ ကျွမ်းကျင်တဲ့ဆရာဝန်တွေနဲ့သေချာတိုင်ပင်ပြီးမှ treatment လုပ်လို့ရတာမို့ စိတ်ချရတဲ့ဆေးခန်းပါ။
-                        </p>
-                        <h4>-Yi Yi</h4>
-                        </div>
-                        
-                    
-                </div>
-            </div>
-            <div class="card">
-                <img src="customer3.jpg" alt="user3">
-                <div class="card_content">
-                    <span><i class="ri-double-quotes-l"></i></span>
-                    <div class="card_details">
-                        <p>
-                            အားလုံးအဆင်ပြေပြေချောချောမွေ့မွေ့ဖြစ်အောင် ကူညီပေးတဲ့ ဆရာ ဆရာမတွေ အကုန်လုံးကိုကျေးဇူးတင်ပါတယ်။</i>
-
-                        </p>
-                
-                        <h4>-Hnin234</h4>
-                    </div>
-                    
-                </div>
-            </div>
+            @endforeach
+            {{$reviews->links()}}
         </div>
         </div>
+        
+        @if(session('name'))
         <div class="form-body" id="form-body" style='color:black'>
             <div class="form-container">
                 <div class="title">Feedback<i class="fa-regular fa-comment"></i>
                 </div>
-        <form>
+        <div class='form'>
             <div class="user-details d-flex align-items-center justify-content-center">
                 <div class="input-box mt-3">
                     <span class="details"><i class="fa-regular fa-calendar-days"></i> Name : </span>
-                    <input type = "text" name="datetime" placeholder="Enter date and time" required>
+                    <input type = "text" wire:model='name' name="name" placeholder="john doe"  disabled>
+                @error('name')
+<span class="text-danger">{{$message}}</span>
+                @enderror
                 </div>
                 <div class="input-box mt-3">
                     <span class="details"><i class="fa-solid fa-user"></i> Email :</span>
-                    <input type = "text" name="name" placeholder="Enter full name" required>
+                    <input type = "text" wire:model='email' name="name" placeholder="johndoe@gmail.com"  disabled>
+                @error('email')
+<span class="text-danger">{{$message}}</span>
+                @enderror
                 </div>
                 
                 <div class="input-box mt-3">
                     <span class="details"><i class="fa-regular fa-comments"></i> Complaint, comment or suggestion :</span>
-                     <textarea name="feedback" rows="10" cols="50" placeholder="Enter your feedback" required></textarea>
+                     <textarea name="feedback" wire:model='message' rows="10" cols="50" placeholder="Enter your feedback" >
 
+                     </textarea>
+@error('message')
+<span class="text-danger">{{$message}}</span>
+@enderror
                 </div>
 
             
                 <div>
-                <button class="input-box btn text-white main-button"><i class="fa-regular fa-paper-plane"></i> Submit</button>
+                <button wire:click='saveReview' class="input-box btn text-white main-button"><i class="fa-regular fa-paper-plane"></i> Submit</button>
                 </div>
             </div>
             
-        </form>
+</div>
         </div>
         </div>
+        @endif
+        
     
     </div>
 </div>

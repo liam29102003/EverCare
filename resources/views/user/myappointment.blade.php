@@ -1,5 +1,5 @@
 @extends('master')
 
 @section('content')
-<livewire:instruction>
+<livewire:my-appointment-list/>
 @endsection

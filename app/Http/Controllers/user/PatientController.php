@@ -47,7 +47,7 @@ class PatientController extends Controller
 
     public function logout(){
         session()->flush();
-        return back();
+        return redirect()->route('home');
     }
 
     public function loginPatient(Request $request){

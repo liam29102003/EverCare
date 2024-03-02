@@ -110,4 +110,7 @@ class AppointmentController extends Controller
     public function approvePage(){
         return view('receptionist.approve_page');
     }
+    public function myAppointmentPage(){
+        return view('user.myappointment');
+    }
 }
