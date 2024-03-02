@@ -197,6 +197,7 @@ Route::get('/appointment/list',[AppointmentController::class,'myAppointmentPage'
         // email sending
         Route::get('/send/mail', [MailController::class, 'index'])->name('receptionist.mail');
         Route::get('/approve/appointmentPage', [AppointmentController::class, 'approvePage'])->name('rec.approve.online');
+
     });
     
 });

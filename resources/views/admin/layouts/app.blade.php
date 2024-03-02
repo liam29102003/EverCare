@@ -355,6 +355,10 @@
                       <div class="avatar avatar-online   ">
                         <a href="{{route('doctor.profile')}}" wire:navigate><img src="{{ asset('admin/assets/img/avatars/1.png') }}" alt class="w-px-40 h-auto rounded-circle" /></a>
                       </div>
+                    @elseif(request()->segment(1) === 'admin')
+                    <div class="avatar avatar-online">
+                        <a href="{{route('admin.profile')}}" wire:navigate><img src="{{ asset('admin/assets/img/avatars/1.png') }}" alt class="w-px-40 h-auto rounded-circle" /></a>
+                      </div>
                     @endif
                     </div>
                     

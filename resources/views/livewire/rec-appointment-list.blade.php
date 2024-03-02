@@ -9,7 +9,7 @@
             <a href="{{ route('receptionist.mail') }}" class='btn mt-md-2 '  style="background-color: #bb95dc; color: white; ">Send Confirmation Email to All
                 Patients&nbsp;<i class="fa-regular fa-paper-plane mb-0 "></i></a>
         @endif
-        <a href='{{ route('rec.approve.online') }}' class="btn mt-md-2  me-5 shadow-sm position-relative" wire:navigate
+        <a href='{{ route("rec.approve.online") }}' class="btn mt-md-2  me-5 shadow-sm position-relative" wire:navigate
             style="background-color: #bb95dc; color: white; ">
             Approve Online Approvements
             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
@@ -26,7 +26,6 @@
                     <th style="color:#bb95dc">Name </th>
                     <th style="color:#bb95dc">Phone</th>
                     <th style="color:#bb95dc">Appointment Day</th>
-                    <th style="color:#bb95dc">Actions</th>
                 </tr>
             </thead>
 
@@ -60,12 +59,7 @@
                                 <div>{{ $appointment->appointment_day }}</div>
                             </td>
                             {{-- <td><span class="badge bg-label-primary me-1">{{ $appointment->appointment_date }}</span></td> --}}
-                            <td>
-                                @if ($appointment->treatment_type == 'online')
-                                    <a href="#" class="btn btn-sm btn-light">Send&nbsp;<i
-                                            class="fa-regular fa-paper-plane"></i></a>
-                                @endif
-                            </td>
+                            
                         </tr>
                     @endforeach
 

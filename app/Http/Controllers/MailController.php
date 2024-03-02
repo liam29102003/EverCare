@@ -16,8 +16,10 @@ class MailController extends Controller
         
         $currentDate = Carbon::now()->toDateString();
         $threeDaysFromNow = Carbon::now()->addDays(3)->toDateString();
-        $emails = Appointment::select('appointments.*','doctors.name as dname')->where('treatment_type','online')
+        $emails = Appointment::select('appointments.*','doctors.name as dname','patients.*')
+        ->where('treatment_type','online')
         ->join('doctors', 'appointments.doctor_id', '=', 'doctors.id')
+        ->join('patients','patients.id','appointments.patient_id')
             ->whereDate('appointment_date', '>=', $currentDate)
             ->whereDate('appointment_date', '<=', $threeDaysFromNow)
             ->where('status','pending')
@@ -30,11 +32,15 @@ class MailController extends Controller
             Appointment::where('treatment_type','online')
             ->whereDate('appointment_date', '>=', $currentDate)
             ->whereDate('appointment_date', '<=', $threeDaysFromNow)
-            ->where('email',$email['email'])
+            ->where('patient_id',$email['patient_id'])
             ->where('status','pending')
             ->update(['status' => 'sent']);
         }
         // Mail::to('thantzinwin1843@gmail.com')->send(new ConfirmMail($subject, $body));
         return back()->with(['success'=>"Appointment confirmation email was sent to all patients successfully!"]);
+       }
+
+       public function cancel(){
+
        }
 }
