@@ -34,8 +34,9 @@
                     <img src="{{asset('storage/payment/'.$a->image)}}" style='width:300px;' alt="">
                 </th>
                     <th style="color: #e2dcf8">
-                    <button wire:click="approve({{$a->id}})" class="btn btn-sm btn-success">Approve</button>
-                    <a href="" class="btn btn-sm btn-danger">Cancel</a>
+                    <!-- <button wire:click="approve({{$a->id}})" class="btn btn-sm btn-success">Approve</button> -->
+                    <a href="{{route('approve.app.mail',['email'=>$a->email,'id'=>$a->id])}}"  class="btn btn-sm btn-primary">Approve</a>
+                    <a href="{{route('cancel.app.mail',['email'=>$a->email,'id'=>$a->id])}}"  class="btn btn-sm btn-danger">Cancel</a>
                 </th>
                 </tr>
                 @endforeach

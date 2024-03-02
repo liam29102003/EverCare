@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Mail;
 use Carbon\Carbon;
+use App\Models\Doctor;
+use App\Mail\cancelMail;
+use App\Mail\ApproveMail;
 use App\Mail\ConfirmMail;
 use App\Models\Appointment;
 use Illuminate\Http\Request;
@@ -40,7 +43,22 @@ class MailController extends Controller
         return back()->with(['success'=>"Appointment confirmation email was sent to all patients successfully!"]);
        }
 
-       public function cancel(){
 
-       }
+       public function cancelMail($id,$email){
+        $appointment = Appointment::where('id',$id)->first();
+        $doctor = Doctor::where('id',$appointment->doctor_id)->first();
+        Mail::to($email)->send(new cancelMail($appointment->appointment_date,$appointment->appointment_day,$doctor->name));
+        $appointment->delete();
+        return back()->with(['success'=>"Appointment cancellation success!"]);
+    }
+
+    public function approveMail($id,$email){
+        $appointment = Appointment::where('id',$id)->first();
+        $doctor = Doctor::where('id',$appointment->doctor_id)->first();
+        Mail::to($email)->send(new ApproveMail($appointment->appointment_date,$appointment->appointment_day,$doctor->name));
+        $appointment->update([
+            'status'=>'approved',
+        ]);
+        return back()->with(['success'=>"Appointment approved success!"]);
+    }
 }

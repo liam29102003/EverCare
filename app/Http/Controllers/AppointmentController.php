@@ -113,4 +113,9 @@ class AppointmentController extends Controller
     public function myAppointmentPage(){
         return view('user.myappointment');
     }
+    public function cancelAppointment($id){
+        Appointment::where('id',$id)->delete();
+        return back()->with('status','Appointment cancelation is successfully');
+    }
+
 }
