@@ -50,16 +50,36 @@ color:white;
                             <option value="advertisement">Advertisement</option>
                             <option value="other">Other</option>
                         </select>
+                        @error('reason')
+                            <span class='text-danger'>{{$message}}</span>
+                        @enderror
                         <div class="d-flex gap-2">
+                            <div style='width:50%'>
                             <input class="form-control mt-2" type="text" wire:model='name' name="user_name" placeholder="Your name">
+                            @error('name')
+                            <span class='text-danger'>{{$message}}</span>
+                            @enderror
+                            </div>
+                            
+                            <div style='width:50%'>
                             <input class="form-control mt-2" type="email" wire:model="email" id="" placeholder="Email">
+                            
+                            @error('email')
+                            <span class='text-danger'>{{$message}}</span>
+                        @enderror
+                            </div>
                         </div>
 
                            
                         <input class="form-control mt-2" type="number" wire:model="phone" id="" placeholder="Phone">
-
+                        @error('phone')
+                            <span class='text-danger'>{{$message}}</span>
+                        @enderror
                         <!-- <input type="textarea" class="mform-md-3" name="message" id="" style="height: 5rem;" placeholder="Message"> -->
                         <textarea class="form-control mt-2"  wire:model="message" id=""placeholder="Message"></textarea>
+                        @error('message')
+                            <span class='text-danger'>{{$message}}</span>
+                        @enderror
                         <input type="submit" class="btn btn-primary mt-3 px-5" value="Submit" wire:click='sendMessage' name="submit_btn">
                     
                 </div>

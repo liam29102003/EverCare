@@ -29,4 +29,8 @@ class FinanceController extends Controller
     {
         return view('admin.finance.expenseEdit',compact('expense'));
     }
+
+    public function messagePage(){
+        return view('admin.message');
+    }
 }

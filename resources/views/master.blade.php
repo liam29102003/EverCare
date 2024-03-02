@@ -104,7 +104,7 @@
         <div class=" mt-3"><a href="{{route('home')}}" wire:navigate class="navItem text-decoration-none " style="color: inherit;">Home</a></div>
         <div class=" mt-3"><a href="{{route('doctor#list')}}" wire:navigate class="navItem text-decoration-none " style="color: inherit;">Doctors</a></div>
         <div class=" mt-3"><a href="" class="text-decoration-none navItem" style="color: inherit;">Contact</a></div>
-        <div class=" mt-3"><a href="" class="text-decoration-none navItem" style="color: inherit;">FAQ</a></div>
+        <div class=" mt-3"><a href="" class="text-decoration-none navItem" style="color: inherit;">Review</a></div>
         <div class="mt-3">
             <a href="" wire:navigate class=" navBtn btn">Make Appointment</a>
         </div>
@@ -116,6 +116,7 @@
             <a href="{{route('home')}}" wire:navigate class="navItem px-3 rounded me-3 py-2 ">Home</a>
             <a href="{{route('doctor#list')}}" wire:navigate class="navItem px-3 rounded me-3 py-2 ">Doctors</a>
             <a href="{{route('contactPage')}}" class="navItem px-3 rounded me-3 py-2 ">Contact</a> 
+            <a href="{{route('patient.review')}}" class="navItem px-3 rounded me-3 py-2 ">Review</a>
         </div>
 
         <div class="origin">

@@ -81,4 +81,8 @@ class PatientController extends Controller
     public function contactPage(){
         return view('user.contact_page');
     }
+
+    public function reviewPage(){
+        return view('user.review');
+    }
 }
