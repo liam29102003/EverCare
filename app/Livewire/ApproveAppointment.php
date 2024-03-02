@@ -10,7 +10,9 @@ class ApproveAppointment extends Component
     public function render()
     {
         return view('livewire.approve-appointment')->with([
-            'appointments'=>Appointment::where('status','sent')->paginate(10)
+            'appointments'=>Appointment::select('appointments.*','patients.*')
+            ->join('patients','patients.id','appointments.patient_id')
+            ->where('status','sent')->paginate(10)
         ]);
     }
 

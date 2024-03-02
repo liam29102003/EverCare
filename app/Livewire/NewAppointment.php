@@ -55,7 +55,7 @@ class NewAppointment extends Component
         $this->validate([
             'name' => 'required',
             'treatment_type' => 'required',
-            'email' => 'required',
+            'email' => 'required|unique:patients,email',
             'password' => 'required',
             'confirm_password' => 'required',
             'dob' => 'required',
