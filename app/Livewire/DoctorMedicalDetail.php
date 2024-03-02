@@ -107,6 +107,7 @@ class DoctorMedicalDetail extends Component
         $medicalRecord->note = $this->note;
         $medicalRecord->next_doctor_id = $this->next;
         $medicalRecord->treatment_type=$appointment->treatment_type;
+        $medicalRecord->status = $appointment->treatment_type=='online'? 1 :0;
         $medicalRecord->save();
         if($this->next !== "")
         {

@@ -87,29 +87,25 @@
                                     <tr>
                                         <th></th>
                                         <th class="" style="color: #bb95dc">{{ __("form.Medicine") }}</th>
-                                        <th class=" text-center" style="color: #bb95dc">{{ __("form.Unit") }}</th>
-                                        <th class="" style="color: #bb95dc">{{ __("form.Dosage") }}</th>
+                                        <th class=" text-center" style="color: #bb95dc">{{ __("form.Dosage") }}</th>
+                                        <th class="" style="color: #bb95dc">{{ __("Frequency") }}</th>
+                                        <th class="" style="color: #bb95dc">{{ __("Duration") }}</th>
+
                                     </tr>
+                                    @if(count($prescription) > 0)
+                                    @foreach ($prescription as $presc)
                                     <tr>
                                         <td>1</td>
-                                        <td>Paracetamol</td>
-                                        <td class="text-center">1</td>
-                                        <td>3 times a day</td>
+                                        <td>{{$presc->medicine_name}}</td>
+                                        <td class="text-center">{{$presc->dosage}}</td>
+                                        <td>{{$presc->frequency}}</td>
+                                        <td>{{$presc->duration}}</td>
+
 
                                     </tr>
-                                    <tr>
-                                        <td style="color: #bb95dc">2</td>
-                                        <td style="color: #bb95dc">Paracetamol</td>
-                                        <td style="color: #bb95dc" class="text-center">1</td>
-                                        <td style="color: #bb95dc">3 times a day</td>
-
-                                    </tr><tr>
-                                        <td>3</td>
-                                        <td>Paracetamol</td>
-                                        <td class="text-center">1</td>
-                                        <td>3 times a day</td>
-
-                                    </tr>
+                                    @endforeach
+                                    
+                                    @endif
                                 </table>
 
                             </div>

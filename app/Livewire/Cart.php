@@ -48,7 +48,7 @@ class Cart extends Component
                 'name'=>$value['name'],
                 'amount'=>$value['price'],
                 'quantity'=>$value['quantity'],
-                'price'=>0
+                'price'=>$value['price']*$value['quantity'],
             ]
 
             );

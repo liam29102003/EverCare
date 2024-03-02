@@ -33,7 +33,7 @@
         <table>
             <thead>
                 <tr>
-                    <td>No</td><td>Description</td><td>Qty</td><td>Price</td><td>Amount</td>
+                    <td>No</td><td>Description</td><td>Qty</td><td>Total Price</td><td>Price</td>
                 </tr>
             </thead>
             <tbody>

@@ -29,6 +29,9 @@ class CartUpdate extends Component
     {
 
         $this->quantity++;
+        if ($this->quantity > $this->pharmacy->quantity) {
+            $this->quantity = $this->pharmacy->quantity;
+        }
         if (isset($this->myAssociativeArray[$this->id])) {
             $this->myAssociativeArray[$this->id]['quantity'] = $this->quantity;
 
@@ -45,11 +48,26 @@ class CartUpdate extends Component
         if ($this->quantity > $this->pharmacy->quantity) {
             $this->quantity = $this->pharmacy->quantity;
         }
+        if (isset($this->myAssociativeArray[$this->id])) {
+            $this->myAssociativeArray[$this->id]['quantity'] = $this->quantity;
+
+            // Store the updated array back in the session
+            session(['my_associative_array' => $this->myAssociativeArray]);
+        }
     }
     public function decrement()
     {
         if ($this->quantity > 0)
             $this->quantity--;
+            if ($this->quantity > $this->pharmacy->quantity) {
+                $this->quantity = $this->pharmacy->quantity;
+            }
+            if (isset($this->myAssociativeArray[$this->id])) {
+                $this->myAssociativeArray[$this->id]['quantity'] = $this->quantity;
+    
+                // Store the updated array back in the session
+                session(['my_associative_array' => $this->myAssociativeArray]);
+            }
     }
     public function delete()
     {
