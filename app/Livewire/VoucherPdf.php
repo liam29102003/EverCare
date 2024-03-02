@@ -25,19 +25,25 @@ class VoucherPdf extends Component
     }
     public function back()
     {
-        $url = "http://127.0.0.1:8000/admin/finance/voucher/1";
+        // dd(url()->previous());
+        // if(request()->segment(1) === "admin"){
+        $url = url()->previous();
 
 // Parse the URL to extract the path
-$path = parse_url($url, PHP_URL_PATH);
+        $path = parse_url($url, PHP_URL_PATH);
 
 // Explode the path by "/" and get the segment at index 2 (zero-indexed)
-$segments = explode('/', $path);
+        $segments = explode('/', $path);
 
 // Get the admin segment
-$adminSegment = $segments[1];
-if($adminSegment == 'admin')
+$segment = $segments[1];
+if($segment == 'admin')
 {
     return $this->redirect(route('finance.income.list'));
+}
+if($segment == 'receptionist')
+{   
+    return $this->redirect(route('receptionist.prescription.list'));
 }
     }   
     public function render()
