@@ -115,8 +115,8 @@
         <div class="origin1">
             <a href="{{route('home')}}" wire:navigate class="navItem px-3 rounded me-3 py-2 ">Home</a>
             <a href="{{route('doctor#list')}}" wire:navigate class="navItem px-3 rounded me-3 py-2 ">Doctors</a>
-            <a href="{{route('contactPage')}}" class="navItem px-3 rounded me-3 py-2 ">Contact</a> 
-            <a href="{{route('patient.review')}}" class="navItem px-3 rounded me-3 py-2 ">Review</a>
+            <a href="{{route('contactPage')}}" wire:navigate class="navItem px-3 rounded me-3 py-2 ">Contact</a> 
+            <a href="{{route('patient.review')}}" wire:navigate class="navItem px-3 rounded me-3 py-2 ">Review</a>
         </div>
 
         <div class="origin">
@@ -146,7 +146,7 @@
     <div class="dropdown-content">
         @if(session()->get('name'))
         <a href="{{route('patient.appointment')}}" wire:navigate>Profile</a>
-        <a href="#">My Appointments</a> 
+        <a href="{{route('patient.myAppointmentPage')}}">My Appointments</a> 
         <a href="{{route('patient.logout')}}" wire:navigate>Logout</a>
         @else
         <a href="{{route('login_page')}}" wire:navigate >Login</a>

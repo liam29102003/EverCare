@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\profileController;
 use App\Http\Controllers\DoctorAuthController;
 use App\Http\Controllers\Admin\StaffController;
 use App\Http\Controllers\AppointmentController;
@@ -60,6 +61,7 @@ Route::get('/patient/payment/{id}',[AppointmentController::class,'payment'])->na
 Route::get('/patient/profile',[PatientController::class,'profile'])->name('patient.appointment');
 Route::get('/contact',[PatientController::class,'contactPage'])->name('contactPage');
 Route::get('/review',[PatientController::class,'reviewPage'])->name('patient.review');
+Route::get('/appointment/list',[AppointmentController::class,'myAppointmentPage'])->name('patient.myAppointmentPage');
     Route::get('/', function () {
         $doctors = D::all();
         $patients = P::all();
@@ -143,7 +145,7 @@ Route::get('/review',[PatientController::class,'reviewPage'])->name('patient.rev
             
         });
         Route::get('/contact/messages',[FinanceController::class,'messagePage'])->name('contact.messages');
-
+        Route::get('/profilePage',[profileController::class,'adminProfile'])->name('admin.profile');
         Route::get('/dashboard', function () {
             return view('admin.dashboard');
         })->name('admin#dashboard');
@@ -176,6 +178,7 @@ Route::get('/review',[PatientController::class,'reviewPage'])->name('patient.rev
     
         Route::get('/appointment/list', [doctor::class, 'listAppointment'])->name('doctor.appointment.list');
         Route::get('appointment/detail/{type}/{id}',[doctor::class,'appointmentDetail'])->name('doctor.appointment.detail');
+        Route::get('/profilePage',[profileController::class,'docProfile'])->name('doctor.profile');
     });
     Route::prefix('receptionist')->middleware(['auth:sanctum,receptionist', 'verified'])->group(function () {
         Route::get('/dashboard', function () {
