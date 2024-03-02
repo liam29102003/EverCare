@@ -62,7 +62,10 @@ Route::get('/patient/profile',[PatientController::class,'profile'])->name('patie
 Route::get('/contact',[PatientController::class,'contactPage'])->name('contactPage');
 Route::get('/review',[PatientController::class,'reviewPage'])->name('patient.review');
 Route::get('/appointment/list',[AppointmentController::class,'myAppointmentPage'])->name('patient.myAppointmentPage');
-    Route::get('/', function () {
+Route::get('/cancel/appointment/{id}',[AppointmentController::class,'cancelAppointment'])->name('cancelAppointment');   
+
+
+Route::get('/', function () {
         $doctors = D::all();
         $patients = P::all();
         $staffs = Staff::all();
@@ -197,7 +200,8 @@ Route::get('/appointment/list',[AppointmentController::class,'myAppointmentPage'
         // email sending
         Route::get('/send/mail', [MailController::class, 'index'])->name('receptionist.mail');
         Route::get('/approve/appointmentPage', [AppointmentController::class, 'approvePage'])->name('rec.approve.online');
-
+        Route::get('/approve/app/mail/{id}/{email}',[MailController::class,'approveMail'])->name('approve.app.mail');
+        Route::get('/cancel/app/mail/{id}/{email}',[MailController::class,'cancelMail'])->name('cancel.app.mail');
     });
     
 });
