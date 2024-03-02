@@ -26,6 +26,7 @@ class NewAppointment extends Component
     public $doctors;
     public $appointments;
     public $status='pending';
+    public $patient_id = 3;
     
     public function mount()
     {

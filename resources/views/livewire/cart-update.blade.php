@@ -5,7 +5,7 @@
     </td>
     <td class="" style="width:200px">
         <div class="input-group mb-3 w-75 m-auto text-center">
-            <input type="button" class="input-group-text btn text-white" value="-"  style="color:white; border:2px solid white !important">
+            <input type="button" wire:click='decrement' class="input-group-text btn text-white" value="-"  style="color:white; border:2px solid white !important">
             <input type="text" wire:model.live='quantity' class="form-control text-center" aria-label=""
                 style="border: 1px solid #ffffff !important">
             <input type="button" wire:click='increment' class="input-group-text btn text-white " value="+" style="color:white; border:2px solid white !important"> 

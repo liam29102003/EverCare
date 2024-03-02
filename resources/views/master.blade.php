@@ -123,17 +123,17 @@
             <a href="{{route('appointment.form')}}" wire:navigate class="navBtn btn ">Make Appointment</a>
         </div>
         <div class="profile-dropdown">
-    <button class="profile-button">
-        @if(session('gender')=='male')
-        <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="Profile Image" class="profile-image">
-        @elseif(session('gender')=='female')
-        <img src="https://static.vecteezy.com/system/resources/thumbnails/004/899/680/small_2x/beautiful-blonde-woman-with-makeup-avatar-for-a-beauty-salon-illustration-in-the-cartoon-style-vector.jpg" alt="Profile Image" class="profile-image">
-        @else
-        <i class="fa-solid fa-user me-2"></i>
-        @endif
+        <button class="profile-button btn">
+            @if(session('gender')=='male')
+            <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="Profile Image" class="profile-image">
+            @elseif(session('gender')=='female')
+            <img src="https://static.vecteezy.com/system/resources/thumbnails/004/899/680/small_2x/beautiful-blonde-woman-with-makeup-avatar-for-a-beauty-salon-illustration-in-the-cartoon-style-vector.jpg" alt="Profile Image" class="profile-image">
+            @else
+            <i class="fa-solid fa-user me-2"></i>
+            @endif
         
         
-        <span class="profile-name">
+         <span class="profile-name">
             @if(session()->get("name"))
                 {{session()->get("name")}}
             @else

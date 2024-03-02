@@ -15,5 +15,6 @@ class patient extends Model
         'dob',
         'gender',
         'address',
+        'patient_id'
     ];
 }

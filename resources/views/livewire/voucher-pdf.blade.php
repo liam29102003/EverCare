@@ -1,6 +1,7 @@
-<div class="d-flex align-items-center">
-    <button wire:click='back
-    ' class="btn-btn-success" >Back</button>
+
+<div class=" ">
+    <button wire:click='back' class="btn btn-sm  mb-2" style="border:2px solid white; color:white">Back</button>
+
     <div class=" card p-4 px-5 border-0 shadow-sm">
         <div class="border-design top">
             <div class="c1"></div>
@@ -33,7 +34,7 @@
         <table>
             <thead>
                 <tr>
-                    <td>No</td><td>Description</td><td>Qty</td><td>Price</td><td>Amount</td>
+                    <td>No</td><td>Description</td><td>Qty</td><td>Total Price</td><td>Price</td>
                 </tr>
             </thead>
             <tbody>
@@ -78,3 +79,4 @@
         </div>
     </div>
 </div>
+

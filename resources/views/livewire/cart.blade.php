@@ -22,6 +22,9 @@
                         </div>
 
                     </div>
+                    <div class="">
+                        <h3 class=" mb-0 p-3 text-white">Cart</h3>
+                    </div>
                     <div class="mb-3">
                         <div class="mt-3 me-2  d-flex align-items-center ">
                             <button wire:click='checkOut' type="submit" class="btn btn-sm btn-primary  d-flex align-items-center"

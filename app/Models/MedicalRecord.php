@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class MedicalRecord extends Model
 {
     use HasFactory;
-    protected $fillable = ['patient_id','doctor_id','disease','symptoms','weight','blood pressure','note'];
+    protected $fillable = ['patient_id','doctor_id','disease','symptoms','weight','blood pressure','note','treatment_type','next_doctor_id'];
     public function prescription()
     {
         return $this->hasMany(Prescription::class);
