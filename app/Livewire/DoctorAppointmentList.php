@@ -21,7 +21,7 @@ class DoctorAppointmentList extends Component
     public $orderName = "created_at";
     public $type = "asc";
     public $date;
-    public $typet="inperson";
+    public $typet="in person";
     public function mount()
     {
         // Get today's date
@@ -68,6 +68,6 @@ class DoctorAppointmentList extends Component
    
     public function render()
     {
-        return view('livewire.doctor-appointment-list')->with('appointments',Appointment::where('status','approved')->where('doctor_id',Auth::user()->id)->where('appointment_date',$this->date)->where('treatment_type',$this->typet)->orderBy($this->orderName,$this->type)->paginate());
+        return view('livewire.doctor-appointment-list')->with('appointments',Appointment::where('status','approved')->where('doctor_id',Auth::user()->id)->where('appointment_date',$this->date)->where('treatment_type',$this->typet)->orderBy('updated_at','asc')->paginate());
     }
 }
