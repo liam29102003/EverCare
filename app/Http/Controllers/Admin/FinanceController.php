@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Contact;
 use App\Models\Finance;
 use App\Models\Voucher;
 use Illuminate\Http\Request;
@@ -31,6 +32,11 @@ class FinanceController extends Controller
     }
 
     public function messagePage(){
+        
         return view('admin.message');
+    }
+    public function messageDetails($id)
+    {
+        return view('admin.messageDetails')->with(['message'=>Contact::find($id)]);
     }
 }

@@ -145,6 +145,7 @@ Route::get('/appointment/list',[AppointmentController::class,'myAppointmentPage'
             
         });
         Route::get('/contact/messages',[FinanceController::class,'messagePage'])->name('contact.messages');
+        Route::get('/contact/detail/{id}',[FinanceController::class,'messageDetails'])->name('contact.detail');
         Route::get('/profilePage',[profileController::class,'adminProfile'])->name('admin.profile');
         Route::get('/dashboard', function () {
             return view('admin.dashboard');

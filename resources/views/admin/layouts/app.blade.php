@@ -244,13 +244,7 @@
                 </a>
               </li>
 
-              <li class="menu-item ">
-                <a href="{{ route('contact.messages') }}" wire:navigate  class="menu-link {{ request()->segment(2) === 'contact' ? 'select' : '' }}" style="      color:white ;
-                border-bottom: 3px solid #9d926aa;">
-                    <i class="fa-solid fa-coins me-3"></i>
-                  <div data-i18n="Analytics">Messages</div>
-                </a>
-              </li>
+              <livewire:view-count>
               @elseif(request()->segment(1) === 'receptionist')
               <li class="menu-item ">
                 <a href="{{ route('receptionist.appointment.list') }}" wire:navigate  class="menu-link {{ request()->segment(2) === 'appointments' ? 'select' : '' }}" style="      color:white ;
@@ -354,10 +348,6 @@
 
                       <div class="avatar avatar-online   ">
                         <a href="{{route('doctor.profile')}}" wire:navigate><img src="{{ asset('admin/assets/img/avatars/1.png') }}" alt class="w-px-40 h-auto rounded-circle" /></a>
-                      </div>
-                    @elseif(request()->segment(1) === 'admin')
-                    <div class="avatar avatar-online">
-                        <a href="{{route('admin.profile')}}" wire:navigate><img src="{{ asset('admin/assets/img/avatars/1.png') }}" alt class="w-px-40 h-auto rounded-circle" /></a>
                       </div>
                     @endif
                     </div>

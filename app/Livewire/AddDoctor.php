@@ -8,6 +8,7 @@ use Livewire\Component;
 use App\Models\Schedule;
 use GuzzleHttp\Psr7\Request;
 use Livewire\WithFileUploads;
+use App\Models\Specialization;
 use Livewire\Attributes\Validate;
 use Illuminate\Support\Facades\Hash;
 
@@ -97,6 +98,6 @@ class AddDoctor extends Component
         //         })
         //         ->pluck('id')
         // )->get();
-        return view('livewire.add-doctor');
+        return view('livewire.add-doctor')->with('specialities', Specialization::all());
     }
 }

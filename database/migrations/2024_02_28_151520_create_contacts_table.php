@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('email');
             $table->integer('phone');
+            $table->boolean('view')->default(0);
             $table->string('message');
         });
     }

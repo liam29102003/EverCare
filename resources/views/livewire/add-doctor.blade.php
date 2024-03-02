@@ -159,8 +159,13 @@
                                         class="fa-solid fa-stethoscope me-2"></i>Speciality :</label>
 
                                 <div class="">
-                                    <input type="text" class="form-control shadow-sm" id="basic-default-speciality"
-                                        placeholder="Neurologist" name='speciality' wire:model='speciality'  style='border:0'/>
+                                    
+                                        <select name="" id="" class="form-select border-0 shadow-sm" wire:model='speciality'>
+                                            <option value="">Choose Speciality</option>
+                                            @foreach ($specialities as $s)
+                                            <option value="{{$s->id}}">{{$s->name}}</option>
+                                            @endforeach
+                                        </select>
                                     <small class="text-danger">
                                         @error('speciality')
                                             {{ $message }}
