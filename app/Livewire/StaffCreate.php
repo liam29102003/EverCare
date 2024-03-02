@@ -100,6 +100,7 @@ class StaffCreate extends Component
                     'password' =>'EverCareStaff',
                     'created_at' => now(),
                     'updated_at' => now(),
+                    'image'=>$path,
                 ]
                 );
         }

@@ -243,14 +243,20 @@
                   <div data-i18n="Analytics">Finance</div>
                 </a>
               </li>
-
               <livewire:view-count>
+
+              <li class="menu-item ">
+                <a href="{{ route('admin.password') }}" wire:navigate  class="menu-link {{ request()->segment(2) === 'update' ? 'select' : '' }}" style="      color:white ;
+                border-bottom: 3px solid #9d926aa;">
+                    <i class="fa-solid fa-lock me-3 fs-5"></i>
+                  <div data-i18n="Analytics">Password</div>
+                </a>
+              </li>
               @elseif(request()->segment(1) === 'receptionist')
               <li class="menu-item ">
                 <a href="{{ route('receptionist.appointment.list') }}" wire:navigate  class="menu-link {{ request()->segment(2) === 'appointments' ? 'select' : '' }}" style="      color:white ;
                 border-bottom: 3px solid #9d926aa;">
-                    <i class="fa-solid fa-pills me-3 fs-5"></i>
-                  <div data-i18n="Analytics">Appointments</div>
+<i class="fa-solid fa-calendar-check me-3 fs-5"></i>                  <div data-i18n="Analytics">Appointments</div>
                 </a>
               </li>
               <li class="menu-item ">
@@ -258,6 +264,13 @@
                 border-bottom: 3px solid #9d926aa;">
                     <i class="fa-solid fa-pills me-3 fs-5"></i>
                   <div data-i18n="Analytics">Prescription</div>
+                </a>
+              </li>
+              <li class="menu-item ">
+                <a href="{{ route('receptionist.password') }}" wire:navigate  class="menu-link {{ request()->segment(2) === 'update' ? 'select' : '' }}" style="      color:white ;
+                border-bottom: 3px solid #9d926aa;">
+                    <i class="fa-solid fa-lock me-3 fs-5"></i>
+                  <div data-i18n="Analytics">Password</div>
                 </a>
               </li>
               @elseif(request()->segment(1) === 'doctor')
@@ -348,6 +361,11 @@
 
                       <div class="avatar avatar-online   ">
                         <a href="{{route('doctor.profile')}}" wire:navigate><img src="{{ asset('admin/assets/img/avatars/1.png') }}" alt class="w-px-40 h-auto rounded-circle" /></a>
+                      </div>
+                      @elseif(request()->segment(1) === 'receptionist')
+                      <div class="avatar avatar-online   ">
+                        
+                        <a href="{{route('receptionist.password')}}" wire:navigate><img src="{{ asset('storage/'.Auth::user()->image) }}" alt class="w-px-40 h-auto rounded-circle" /></a>
                       </div>
                     @endif
                     </div>

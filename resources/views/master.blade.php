@@ -146,7 +146,11 @@
     <div class="dropdown-content">
         @if(session()->get('name'))
         <a href="{{route('patient.appointment')}}" wire:navigate>Profile</a>
-        <a href="{{route('patient.myAppointmentPage')}}">My Appointments</a> 
+        <hr class="mt-1 mb-1">
+        <a href="{{route('patient.myAppointmentPage')}}" wire:navigate>My Appointments</a> 
+        <hr class="mt-1 mb-1">
+        <a href="{{route('patient.medicalRecord')}}" wire:navigate>My medical records</a> 
+<hr class="mt-1 mb-1">
         <a href="{{route('patient.logout')}}" wire:navigate>Logout</a>
         @else
         <a href="{{route('login_page')}}" wire:navigate >Login</a>
@@ -188,7 +192,7 @@
         </div>
     </div>
 </div>
-<div class="defaultColor text-center p-2  shadow shadow-lg border d-flex justify-content-center align-items-center" style='background-color:#bb95dc'>
+<div class="defaultColor text-center p-2  shadow shadow-lg border d-flex justify-content-center align-items-center" style='background-color:#bb95dc !important'>
     <span class="me-2 d-flex justify-content-center align-items-center"><i class="fa-solid fa-staff-snake me-2 fs-1"></i><div>EVER CARE</div></span>
     <small class="" style='color:white;'>© 2019-2023 Evercare. All rights reserved.</small>
 </div>

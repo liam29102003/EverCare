@@ -27,6 +27,7 @@ class Receptionist extends Authenticatable
         'name',
         'email',
         'password',
+        'image'
     ];
 
     /**

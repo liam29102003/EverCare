@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Schedule extends Model
 {
     use HasFactory;
-    protected $fillable=['day','to','from','doctor_id'];
+    protected $fillable=['day','to','from','doctor_id','type'];
     public function doctor()
     {
         return $this->belongsTo(Doctor::class);

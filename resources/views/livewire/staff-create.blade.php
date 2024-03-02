@@ -167,7 +167,7 @@
                                                 <div class="  p-0 ps-1">
                                                     <select name="Role" id="role" class="form-select shadow-sm" wire:model='role' style="border:0">
                                                         <option value="">Choose Role</option>
-                                                        <option value="Receptionist">Receptionist</option>
+                                                        <option value="receptionist">Receptionist</option>
                                                         <option value="Nurse">Nurse</option>
                                                         <option value="Janitor">Janitor</option>
                                                         <option value="Security">Security</option>

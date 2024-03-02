@@ -63,7 +63,7 @@ Route::get('/contact',[PatientController::class,'contactPage'])->name('contactPa
 Route::get('/review',[PatientController::class,'reviewPage'])->name('patient.review');
 Route::get('/appointment/list',[AppointmentController::class,'myAppointmentPage'])->name('patient.myAppointmentPage');
 Route::get('/cancel/appointment/{id}',[AppointmentController::class,'cancelAppointment'])->name('cancelAppointment');   
-
+Route::get('/patient/medicalRecords',[PatientController::class,'medicalRecords'])->name('patient.medicalRecord');
 
 Route::get('/', function () {
         $doctors = D::all();
@@ -150,6 +150,8 @@ Route::get('/', function () {
         Route::get('/contact/messages',[FinanceController::class,'messagePage'])->name('contact.messages');
         Route::get('/contact/detail/{id}',[FinanceController::class,'messageDetails'])->name('contact.detail');
         Route::get('/profilePage',[profileController::class,'adminProfile'])->name('admin.profile');
+        Route::get('/update/password',[profileController::class,'adminProfile'])->name('admin.password');
+
         Route::get('/dashboard', function () {
             return view('admin.dashboard');
         })->name('admin#dashboard');
@@ -203,6 +205,8 @@ Route::get('/', function () {
         Route::get('/approve/appointmentPage', [AppointmentController::class, 'approvePage'])->name('rec.approve.online');
         Route::get('/approve/app/mail/{id}/{email}',[MailController::class,'approveMail'])->name('approve.app.mail');
         Route::get('/cancel/app/mail/{id}/{email}',[MailController::class,'cancelMail'])->name('cancel.app.mail');
+        Route::get('/update/password',[profileController::class,'recProfile'])->name('receptionist.password');
+
     });
     
 });
