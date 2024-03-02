@@ -342,9 +342,11 @@
                       
                     </div>
                     <div  class="d-block" id="hello1" >
-                      <div class="avatar avatar-online   ">
-                        <img src="{{ asset('admin/assets/img/avatars/1.png') }}" alt class="w-px-40 h-auto rounded-circle" />
+                    @if(request()->segment(1) === 'doctor')
+                      <div class="avatar avatar-online">
+                        <a href="{{route('doctor.profile')}}" wire:navigate><img src="{{ asset('admin/assets/img/avatars/1.png') }}" alt class="w-px-40 h-auto rounded-circle" /></a>
                       </div>
+                    @endif
                     </div>
                     <div class="card dropdown-menu2  d-none" style="margin-top:300px;">
                       <ul class=" ps-0 "  style = "list-style-type:none; margin:auto !important" >

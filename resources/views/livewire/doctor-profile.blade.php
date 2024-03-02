@@ -53,10 +53,10 @@
 					<div class="card">
 						<div class="card-body" >
 							<div class="d-flex flex-column align-items-center text-center">
-								@if(Auth::user()->gender=='male')
+								@if(Auth::user()->image=='')
 								<img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
 								@else
-								<img src="https://static.vecteezy.com/system/resources/thumbnails/004/899/680/small_2x/beautiful-blonde-woman-with-makeup-avatar-for-a-beauty-salon-illustration-in-the-cartoon-style-vector.jpg" alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
+								<img src="{{asset('storage/'.Auth::user()->image)}}" alt="Admin" class="rounded-circle" width="210" height='210'>
 								@endif
 								<div class="mt-3">
 									<h4>{{Auth::user()->name}}</h4>
