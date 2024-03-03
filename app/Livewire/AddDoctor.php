@@ -38,7 +38,7 @@ class AddDoctor extends Component
     #[Validate('required|min:3')]
 
     public $phone = "";
-    #[Validate('required|min:3')]
+    #[Validate('required')]
 
     public $password = 'EverCareDoctor';
     public $image;
