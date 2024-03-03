@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('status')->default('pending');
             $table->longText('symptoms')->nullable(true);
             $table->string('image')->nullable(true);
+            $table->string('price')->nullable(true);
         });
     }
 

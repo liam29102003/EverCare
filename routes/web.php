@@ -33,7 +33,7 @@ use App\Http\Controllers\user\PatientController;
 use App\Http\Controllers\Admin\FinanceController;
 use App\Http\Controllers\Admin\PharmacyController;
 use App\Http\Controllers\DoctorController as doctor;
-use App\Http\Controllers\admin\PatientController as patient;
+// use App\Http\Controllers\admin\PatientController as patient;
 use App\Http\Controllers\receptionist\PrescriptionController;
 
 // Route::group(['prefix'=>'admin','middleware'=>['admin:admin']],function(){
@@ -131,7 +131,7 @@ Route::get('/', function () {
             Route::get('/expense/add', [FinanceController::class, 'expenseAdd'])->name('finance.expense.add');
             Route::get('/expense/list', [FinanceController::class, 'expenseList'])->name('finance.expense.list');
             Route::get('/income/list', [FinanceController::class, 'incomeList'])->name('finance.income.list');
-
+            Route::get('/net/income',[FinanceController::class,'netIncome'])->name('net.income');
             // Route::get('/add',[PharmacyController::class,'add'])->name('finance.add');
             // Route::post('/addDoctor',[DoctorController::class,'addDoctor'])->name('doctor.store');
             // Route::get('/details/{pharmacy}',[PharmacyController::class,'details'])->name('finance.details');
@@ -139,15 +139,18 @@ Route::get('/', function () {
             // Route::post('/update/{doctor}',[DoctorController::class,'update'])->name('doctor.update');
             Route::get('/voucher/{id}', [FinanceController::class, 'voucher'])->name('finance.voucher');
         });
-        Route::prefix('patient')->group(function () {
-            Route::get('/list', [PatientController::class, 'list'])->name('patient.list');
-            Route::get('/add', [PatientController::class, 'add'])->name('patient.add');
-            Route::post('/addPatient', [PatientController::class, 'addPatient'])->name('patient.store');
-            Route::get('/details/{patient}', [PatientController::class, 'details'])->name('patient.details');
-            Route::get('/edit/{patient}', [PatientController::class, 'edit'])->name('patient.edit');
-            Route::post('/update/{patient}', [PatientController::class, 'update'])->name('patient.update');
-            
+        Route::prefix('patient')->group(function(){
+            Route::get('/list',[PatientController::class,'patientList'])->name('admin.patient.list');
         });
+        // Route::prefix('patient')->group(function () {
+        //     Route::get('/list', [PatientController::class, 'list'])->name('patient.list');
+        //     Route::get('/add', [PatientController::class, 'add'])->name('patient.add');
+        //     Route::post('/addPatient', [PatientController::class, 'addPatient'])->name('patient.store');
+        //     Route::get('/details/{patient}', [PatientController::class, 'details'])->name('patient.details');
+        //     Route::get('/edit/{patient}', [PatientController::class, 'edit'])->name('patient.edit');
+        //     Route::post('/update/{patient}', [PatientController::class, 'update'])->name('patient.update');
+            
+        // });
         Route::get('/contact/messages',[FinanceController::class,'messagePage'])->name('contact.messages');
         Route::get('/contact/detail/{id}',[FinanceController::class,'messageDetails'])->name('contact.detail');
         Route::get('/profilePage',[profileController::class,'adminProfile'])->name('admin.profile');

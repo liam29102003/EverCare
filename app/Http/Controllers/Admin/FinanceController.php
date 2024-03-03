@@ -39,4 +39,7 @@ class FinanceController extends Controller
     {
         return view('admin.messageDetails')->with(['message'=>Contact::find($id)]);
     }
+    public function netIncome(){
+        return view('admin.finance.netIncome');
+    }
 }

@@ -9,13 +9,10 @@ use Carbon\Carbon;
 class RecAppointmentList extends Component
 {
     public $type;
-    public $doctor;
     public function render()
     {
         $currentDate = Carbon::now()->toDateString();
-        $threeDaysFromNow = Carbon::now()->addDays(1)->toDateString();
-        $nextAppointment = Appointment::where('appointment_date',$currentDate)->get();
-        dd($nextAppointment);
+        $threeDaysFromNow = Carbon::now()->addDays(2)->toDateString();
         if($this->type == 'online'){
             $appointments = Appointment::where('treatment_type',$this->type)
             ->whereDate('appointment_date', '>=', $currentDate)

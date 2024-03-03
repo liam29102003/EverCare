@@ -243,6 +243,13 @@
                   <div data-i18n="Analytics">Finance</div>
                 </a>
               </li>
+              <li class="menu-item ">
+                <a href="{{ route('admin.patient.list') }}" wire:navigate  class="menu-link {{ request()->segment(2) === 'patient' ? 'select' : '' }}" style="      color:white ;
+                border-bottom: 3px solid #9d926aa;">
+                    <i class="fa-solid fa-user me-3"></i>
+                  <div data-i18n="Analytics">Patients</div>
+                </a>
+              </li>
               <livewire:view-count>
 
               <li class="menu-item ">
