@@ -6,7 +6,11 @@ use Livewire\Component;
 
 class ToggleLanguage extends Component
 {
-    public $language;
+    public $language = "my";
+    public function mount()
+    {
+        $this->language = session('localization');
+    }
     public function updatedLanguage()
     {
         // dd($this->language);

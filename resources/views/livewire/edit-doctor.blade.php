@@ -192,6 +192,23 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="row mb-3">
+                            <div class="col-md-10 offset-md-1">
+                                <label class=" col-form-label text-white" for="basic-default-name"><i
+                                        class="fa-solid fa-graduation-cap "></i>Consulation Fee:</label>
+
+                                <div class="">
+                                    <input type="text" class="form-control shadow-sm" id="basic-default-qa"
+                                        placeholder="MBBS" name='qualification' wire:model='fee'  style='border:0' value="{{ $doctor->fee }}" />
+                                    <small class="text-danger">
+                                        @error('qualification')
+                                            {{ $message }}
+                                        @enderror
+                                    </small>
+
+                                </div>
+                            </div>
+                        </div>
 
 
 {{-- 
