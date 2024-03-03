@@ -64,7 +64,7 @@ Route::get('/review',[PatientController::class,'reviewPage'])->name('patient.rev
 Route::get('/appointment/list',[AppointmentController::class,'myAppointmentPage'])->name('patient.myAppointmentPage');
 Route::get('/cancel/appointment/{id}',[AppointmentController::class,'cancelAppointment'])->name('cancelAppointment');   
 Route::get('/patient/medicalRecords',[PatientController::class,'medicalRecords'])->name('patient.medicalRecord');
-Route::get('/patient/medicalRecord/detail',[PatientController::class,'medicalRecordDetail'])->name('patient.medicalRecord');
+Route::get('/patient/medicalRecord/detail/{medicalRecord}',[PatientController::class,'medicalRecordDetail'])->name('patient.medicalRecord.detail');
 
 Route::get('/', function () {
         $doctors = D::all();
