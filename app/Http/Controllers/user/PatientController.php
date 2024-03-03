@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\user;
 
+use DateTime;
 use App\Models\Doctor;
 use App\Models\Patient;
+use App\Models\Prescription;
 use Illuminate\Http\Request;
+use App\Models\MedicalRecord;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -89,6 +92,20 @@ class PatientController extends Controller
     {
         return view('user.medicalRecord');;
     }
+    public function medicalRecordDetail(MedicalRecord $medicalRecord)
+    {
+        $dob = $medicalRecord->patient->dob;
+        $d = $medicalRecord->created_at;
+        $birthDate = new DateTime($dob);
+        // Get the current date
+        $currentDate = new DateTime($d);
+        // Calculate the difference between the current date and the date of birth
+        $age = $currentDate->diff($birthDate)->y;
+        $prescription = Prescription::where('medical_record_id', $medicalRecord->id)->get();
+        // dd($age);
+        return view('user.medicalRecordDetail', compact('medicalRecord', 'age','prescription'));
+    }
+
 
     public function patientList(){
         return view('admin.patient_list');

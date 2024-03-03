@@ -21,28 +21,14 @@
                             <p class="mb-2"> Date : <span class="p-1 text-dark rounded" style="background-color: aliceblue">{{$m->created_at}}</span></p>
                         </div>
                         <div>
-                            <button class="btn" style="border:2px solid white; color:white"><i class="fa-solid fa-eye"></i></button>
+                            <a href={{route('patient.medicalRecord.detail',$m->id)}} class="btn" style="border:2px solid white; color:white"><i class="fa-solid fa-eye"></i></a>
                         </div>
                     </div>
                     
                     
                 </div>
             </div>
-            <div class="col-md-6 offset-md-3 text-white" >
-                <div class="card p-3 shadow " style="background-color: #bb95dc; color:white !important">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div>
-                            <p class="mb-2">Doctor name : <span class="p-1 text-dark rounded" style="background-color: aliceblue">Dr. {{$m->doctor->name}}</span> </p> 
-                            <p class="mb-2"> Date : <span class="p-1 text-dark rounded" style="background-color: aliceblue">{{$m->created_at}}</span></p>
-                        </div>
-                        <div>
-                            <button class="btn" style="border:2px solid white; color:white"><i class="fa-solid fa-eye"></i></button>
-                        </div>
-                    </div>
-                    
-                    
-                </div>
-            </div>
+           
         @endforeach
     </div>
 </div>
