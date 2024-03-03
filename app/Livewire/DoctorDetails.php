@@ -20,6 +20,8 @@ class DoctorDetails extends Component
     #[Validate('required|min:3')]
 
     public $from;
+    #[Validate('required')]
+    public $type;
     public $text="Add";
    public function mount($doctor_id)
     {
@@ -38,6 +40,7 @@ class DoctorDetails extends Component
         $schedule->to = $this->to;
         $schedule->from = $this->from;
         $schedule->doctor_id = $this->doctor_id;
+        $schedule->type = $this->type;
         $schedule->save();
         session()->flash('status', 'Schedule successfully added.');
         
@@ -48,6 +51,7 @@ class DoctorDetails extends Component
         $schedule->day = $this->day;
         $schedule->to = $this->to;
         $schedule->from = $this->from;
+        $schedule->type = $this->type;
         $schedule->save();
         session()->flash('status', 'Schedule successfully updated.');
         $this->text = "Add";
@@ -66,6 +70,7 @@ class DoctorDetails extends Component
         $this->to = $schedule->to;
         $this->from = $schedule->from;
         $this->text = "edit";
+        $this->type = $schedule->type;
         $this->id = $id;
     }
     public function render()

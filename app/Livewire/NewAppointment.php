@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Hash;
 class NewAppointment extends Component
 {
     public $name;
-    public $treatment_type;
+    public $treatment_type  = 'online';
     public $email;
     public $password;
     public $confirm_password;
@@ -20,7 +20,7 @@ class NewAppointment extends Component
     public $phone;
     public $gender;
     public $description;
-    public $doctor;
+    public $doctor = 0;
     public $appointment_date;
     public $appointment_day;
     public $doctors;
@@ -43,7 +43,7 @@ class NewAppointment extends Component
         if ($this->doctor == null) {
             $this->appointments = [];
         } else {
-            $this->appointments = \App\Models\Schedule::where('doctor_id', $this->doctor)->get()->toArray();
+            $this->appointments = \App\Models\Schedule::where('doctor_id', $this->doctor)->where('type',$this->treatment_type)->get()->toArray();
         }
     }
 
@@ -119,6 +119,8 @@ class NewAppointment extends Component
 
     public function render()
     {
+        $this->appointments = \App\Models\Schedule::where('doctor_id', $this->doctor)->where('type',$this->treatment_type)->get()->toArray();
+
         return view('livewire.new-appointment');
     }
 }

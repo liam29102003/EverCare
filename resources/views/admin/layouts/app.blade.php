@@ -219,21 +219,21 @@
                 <a href="{{ route('doctor.list') }}" wire:navigate  class="menu-link {{ request()->segment(2) === 'doctor' ? 'select' : '' }}" style="      color:white ;
                 border-bottom: 3px solid #9d926aa;">
                     <i class="fa-solid fa-user-doctor me-3 fs-5"></i>
-                  <div data-i18n="Analytics">{{ __('form.doctors') }}</div>
+                  <div data-i18n="Analytics">{{ __('doctors') }}</div>
                 </a>
               </li>
               <li class="menu-item ">
                 <a href="{{ route('staff.list') }}" wire:navigate  class="menu-link {{ request()->segment(2) === 'staff' ? 'select' : '' }}" style="      color:white ;
                 border-bottom: 3px solid #9d926aa;">
                     <i class="fa-solid fa-user-nurse me-3 fs-5"></i>
-                  <div data-i18n="Analytics">{{ __('form.staff') }}</div>
+                  <div data-i18n="Analytics">{{ __('staff') }}</div>
                 </a>
               </li>
               <li class="menu-item ">
                 <a href="{{ route('pharamcy.list') }}" wire:navigate  class="menu-link {{ request()->segment(2) === 'pharmacy' ? 'select' : '' }}" style="      color:white ;
                 border-bottom: 3px solid #9d926aa;">
                     <i class="fa-solid fa-pills me-3 fs-5"></i>
-                  <div data-i18n="Analytics">{{ __('form.medicine') }}</div>
+                  <div data-i18n="Analytics">{{ __('medicine') }}</div>
                 </a>
               </li>
               <li class="menu-item ">
@@ -285,7 +285,7 @@
                 <a href="{{ route('list.medicalrecord') }}" wire:navigate  class="menu-link {{ request()->segment(2) === 'medicalrecord' ? 'select' : '' }}" style="      color:white ;
                 border-bottom: 3px solid #9d926aa;">
                     <i class="fa-solid fa-pills me-3 fs-5"></i>
-                  <div data-i18n="Analytics">{{ __('form.Medical Records')}}</div>
+                  <div data-i18n="Analytics">{{ __('Medical Records')}}</div>
                 </a>
               </li>
               <li class="menu-item ">
@@ -293,7 +293,7 @@
                 border-bottom: 3px solid #9d926aa;">
                 <i class="fa-solid fa-calendar-check me-3 fs-5"></i>
                     {{-- <i class="fa-solid fa-pills me-3 fs-5"></i> --}}
-                  <div data-i18n="Analytics">{{ __('form.Appointments')}}</div>
+                  <div data-i18n="Analytics">{{ __('Appointments')}}</div>
                 </a>
               </li>
               <li class="menu-item ">

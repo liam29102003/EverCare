@@ -68,6 +68,18 @@
                                 </td>
                             </tr>
                             <tr>
+                                <td><label for="" class="">Type</label></td>
+                                <td>:</td>
+                                <td>
+                                    <select name="" id="" class="form-select" wire:model='type'>
+                                        <option value="online" >Online</option>
+                                        <option value="in person" >Inperson</option>
+
+                                    </select>
+                                
+                                </td>
+                            </tr>
+                            <tr>
                                 <td  class="text-center border-0 d-flex">
                                     <button type="submit" class="btn btn-primary me-2  d-flex align-items-center"
                                         style="background:#bb95dc; color:white; border:3px solid #ffffff !important ">
@@ -115,7 +127,7 @@
                                 <tr>
                                     <th width="30%" class="text-white">Specialization</th>
                                     <td width="2%">:</td>
-                                    <td>{{ $doctor->speciality }}</td>
+                                    <td>{{ $doctor->specialization->name }}</td>
                                 </tr>
                                 <tr>
                                     <th width="30%" class="text-white">Experience</th>
@@ -138,7 +150,7 @@
                                     <td >
                                         @foreach ($schedules as $schedule)
                                             <p class="mb-0">{{ $schedule->day }}:{{ $schedule->from }} -
-                                                {{ $schedule->to }} <i x-show="open" class="fa-sharp mx-2 fa-solid fa-circle-minus text-white shadow" wire:click='delete({{$schedule->id}})'></i><i x-show="open" class="fa-sharp fa-solid fa-pencil text-white" wire:click='edit({{$schedule->id}})'></i></p>
+                                                {{ $schedule->to }} - {{$schedule->type}} <i x-show="open" class="fa-sharp mx-2 fa-solid fa-circle-minus text-white shadow" wire:click='delete({{$schedule->id}})'></i><i x-show="open" class="fa-sharp fa-solid fa-pencil text-white" wire:click='edit({{$schedule->id}})'></i></p>
                                         @endforeach
                                     </td>
                                                                     </tr>

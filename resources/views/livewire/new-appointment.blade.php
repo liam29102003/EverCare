@@ -11,7 +11,7 @@
             <div class="d-flex wrap">
                 <div class="col-6">
                     <div class="form-check">
-                        <input class="form-check-input bg-secondary" type="radio" name="treatment_type" value='in person' wire:model='treatment_type'>
+                        <input class="form-check-input bg-secondary" type="radio" name="treatment_type" value='in person' wire:model.live='treatment_type'>
                         <label class="form-check-label" >
                           In person treatment
                         </label>
@@ -20,7 +20,7 @@
                 </div>
                 <div class="col-6">
                     <div class="form-check">
-                        <input class="form-check-input bg-secondary " type="radio" name="treatment_type" value='online' wire:model='treatment_type'>
+                        <input class="form-check-input bg-secondary " type="radio" name="treatment_type" value='online' wire:model.live='treatment_type'>
                         <label class="form-check-label" >
                           Online treatment
                         </label>
