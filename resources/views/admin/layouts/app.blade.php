@@ -205,7 +205,7 @@
   
             <ul class="menu-inner py-1 text-center" style="margin: auto">
               <!-- Dashboard -->
-              @if(request()->segment(1) === 'admin')
+              @if(request()->segment(1) === 'admin') 
             
               <li class="menu-item  " >
                 <a href="{{ route('admin#dashboard') }}" wire:navigate class="menu-link  mb-0 {{ request()->segment(2) === 'dashboard' ? 'select' : '' }}" style="      color: white ;

@@ -294,17 +294,17 @@ a {
     <div >
         <div class="container top" id="container" style=''>
             <div class="container-left">
-                <h1>What Our Patients Say</h1>
+                <h1>{{__("")}}What Our Patients Say</h1>
                 <p style='line-height:30px;font-size:18px;'>
-                    Our clinic always try to provide preventive, diagnostic, and treatment services for various health condition. We also make an effort to assit individuals to maintain a good health by addressing a wide range of needs and necessaricity.
+                    {{__("")}}Our clinic always try to provide preventive, diagnostic, and treatment services for various health condition. We also make an effort to assit individuals to maintain a good health by addressing a wide range of needs and necessaricity.
                 </p>
                 <p>
-                   {{session('name')==null ? 'helo' : 'ioeo'}} Your feedback is a gift. We appreciate you taking the time to share your thoughts with us to enhance our services.
+                   {{session('name')==null ? 'helo' : 'ioeo'}} {{__("")}}Your feedback is a gift. We appreciate you taking the time to share your thoughts with us to enhance our services.
                 </p>
                 @if(session('name') == "")
-                <button class="main-button"><a href="{{route('login_page')}}"><i class="fa-regular fa-pen-to-square"></i> Write Review</a></button>
+                <button class="main-button"><a href="{{route('login_page')}}"><i class="fa-regular fa-pen-to-square"></i> {{__("")}}Write Review</a></button>
             @else
-                <button class="main-button"><a href="#form-body"><i class="fa-regular fa-pen-to-square"></i> Write Review</a></button>
+                <button class="main-button"><a href="#form-body"><i class="fa-regular fa-pen-to-square"></i> {{__("")}}Write Review</a></button>
             @endif
             </div>
 
@@ -334,19 +334,19 @@ a {
         @if(session('name'))
         <div class="form-body" id="form-body" style='color:black'>
             <div class="form-container">
-                <div class="title">Feedback<i class="fa-regular fa-comment"></i>
+                <div class="title">{{__("Feedback")}}<i class="fa-regular fa-comment"></i>
                 </div>
         <div class='form'>
             <div class="user-details d-flex align-items-center justify-content-center">
                 <div class="input-box mt-3">
-                    <span class="details"><i class="fa-regular fa-calendar-days"></i> Name : </span>
+                    <span class="details"><i class="fa-regular fa-calendar-days"></i> {{__("Name")}} : </span>
                     <input type = "text" wire:model='name' name="name" placeholder="john doe"  disabled>
                 @error('name')
 <span class="text-danger">{{$message}}</span>
                 @enderror
                 </div>
                 <div class="input-box mt-3">
-                    <span class="details"><i class="fa-solid fa-user"></i> Email :</span>
+                    <span class="details"><i class="fa-solid fa-user"></i> {{__("Email")}} :</span>
                     <input type = "text" wire:model='email' name="name" placeholder="johndoe@gmail.com"  disabled>
                 @error('email')
 <span class="text-danger">{{$message}}</span>
@@ -354,7 +354,7 @@ a {
                 </div>
                 
                 <div class="input-box mt-3">
-                    <span class="details"><i class="fa-regular fa-comments"></i> Complaint, comment or suggestion :</span>
+                    <span class="details"><i class="fa-regular fa-comments"></i> {{__("Complaint, comment or suggestion")}} :</span>
                      <textarea name="feedback" wire:model='message' rows="10" cols="50" placeholder="Enter your feedback" >
 
                      </textarea>
@@ -365,7 +365,7 @@ a {
 
             
                 <div>
-                <button wire:click='saveReview' class="input-box btn text-white main-button"><i class="fa-regular fa-paper-plane"></i> Submit</button>
+                <button wire:click='saveReview' class="input-box btn text-white main-button"><i class="fa-regular fa-paper-plane"></i> {{__("Submit")}}</button>
                 </div>
             </div>
             
