@@ -128,6 +128,11 @@
                                     <td>{{ $doctor->gender }}</td>
                                 </tr>
                                 <tr>
+                                    <th width="30%" class="text-white">Consulation Fee</th>
+                                    <td width="2%">:</td>
+                                    <td>{{ $doctor->price }} MMK</td>
+                                </tr>
+                                <tr>
                                     <th width="30%" class="text-white">Schedule</th>
                                     <td width="2%">:</td>
                                     <td >

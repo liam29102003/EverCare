@@ -1,6 +1,8 @@
 <?php
 //
 return [
+    "Home"=>'Home',
+
     "doctors" => "doctors",
     "staff"=>"staff",
     "medicine"=>"medicine",

@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\MedicalRecord;
 use Dompdf\Dompdf;
 use App\Models\Voucher;
 use Livewire\Component;
@@ -16,11 +17,13 @@ class VoucherPdf extends Component
     {
         $this->vouchers = $vouchers;
         $this->id = $ids;
+
         foreach($vouchers as $v)
         {
-            $this->total+= $v['amount'];
+            $this->total+= $v['price'] ;
 
         }
+        $this->total +=  1000 + 10000;
         // dd($this->total);
     }
     public function back()
@@ -48,6 +51,6 @@ if($segment == 'receptionist')
     }   
     public function render()
     {
-        return view('livewire.voucher-pdf');
+        return view('livewire.voucher-pdf')->with('medical',MedicalRecord::find($this->id));
     }
 }

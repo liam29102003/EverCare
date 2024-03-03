@@ -34,13 +34,23 @@
         <table>
             <thead>
                 <tr>
-                    <td>No</td><td>Description</td><td>Qty</td><td>Total Price</td><td>Price</td>
+                    <td>No</td><td>Description</td><td>Qty</td><td>Price</td><td>Total Price</td>
                 </tr>
             </thead>
             <tbody>
+                <tr>
+                    <td>
+                        1
+                    </td>
+                    <td>Consultion fee</td>
+                    <td></td>
+                    <td></td>
+
+                    <td>{{$medical->doctor->price}} MMK</td>
+                </tr>
                 @foreach ($vouchers as $voucher)
                 
-                <tr><td>1</td><td class="1-col">{{$voucher->name}}</td><td>{{$voucher->quantity}}</td><td>{{$voucher->price}}MMK</td><td class="r-col">{{$voucher->amount}}MMK</td></tr>
+                <tr><td>1</td><td class="1-col">{{$voucher->name}}</td><td>{{$voucher->quantity}}</td><td>{{$voucher->amount}}MMK</td><td class="r-col"> {{$voucher->price}}MMK</td></tr>
 
                 @endforeach
                 {{-- <tr><td>2</td><td class="1-col">treatment</td><td>1</td><td>$50</td><td class="r-col">$250.00</td></tr>
@@ -62,7 +72,7 @@
                 </div>
                 <div class="total ">
                     <p>Grand Total:</p>
-                    <p>{{$total}}MMK</p>
+                    <p>{{$total + 1000}}MMK</p>
                 </div>
             </div>
         </div>
@@ -71,9 +81,9 @@
         <div class="payment-terms">
             <div class="payment-detail">
                 <p class="mb-0">Payment Info</p>
-                <p class="mb-0"><span>Account#</span>     123456</p>
-                <p class="mb-0"><span>A/c Name:</span>     John Smith</p>
-                <p class="mb-0"><span>Bank:</span>         KBZ Bank</p>
+                <p class="mb-0"><span>Patient Id : </span>     {{$medical->patient->id}}</p>
+                <p class="mb-0"><span>Patient Name :</span>     {{$medical->patient->name}}</p>
+                {{-- <p class="mb-0"><span>Bank:</span>         KBZ Bank</p> --}}
             </div>
             
         </div>

@@ -4,7 +4,9 @@ namespace App\Livewire;
 
 use App\Models\Finance;
 use Livewire\Component;
+use App\Models\Appointment;
 use Livewire\WithPagination;
+use Illuminate\Support\Facades\DB;
 
 class ExpenseList extends Component
 {
@@ -48,11 +50,13 @@ class ExpenseList extends Component
     }
     public function render()
     {
+        $incomeForToday = Appointment::select('*', DB::raw('SUM(price) as total_income'))
+        ->where('status','approved')->where('treatment_type','online')
+        ->groupBy('appointment_date')
+        ->paginate(6);
         return view('livewire.expense-list')->with(
-            'expenses',
-            Finance::orderBy($this->orderName, $this->type)
-            ->where('name', 'like', '%'.$this->search.'%')
-            ->paginate(6)
+            'incomeForToday',
+           $incomeForToday
         );;
     }
 }

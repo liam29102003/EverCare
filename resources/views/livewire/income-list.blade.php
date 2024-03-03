@@ -24,7 +24,7 @@
   </div>
     <div class="d-flex justify-content-between mb-0  pb-0">
         <div class="mb-0">
-            <h2 class="card-header" style="color:#ffffff">Income list</h2>
+            <h2 class="card-header" style="color:#ffffff">Offline Income list</h2>
         </div>
     
     </div>
@@ -48,8 +48,8 @@
             <tbody class="table-border-bottom-0">
                 @foreach ($records as $record)
                 <tr wire:key="{{ $record->medical_record_id }}" style="border-top:2px solid #FFFEF2;  " class="shadow-sm mb-3">
-                    <td class="ms-5 text-white"><strong>Medical Record{{$record->medical_record_id}}</strong></td>
-                        <td class="text-white">{{ $record->amount }} MMK</td>
+                    <td class="ms-5 text-white"><strong>Medical Record {{$record->medical_record_id}}</strong></td>
+                        <td class="text-white">{{ $record->total_price }} MMK</td>
                         <td class="text-white"><span class="badge bg-label-primary me-1">{{ date_format($record->updated_at,"Y/m/d")  }}</span></td>
 
                         <td>
@@ -61,7 +61,7 @@
                         </td>
                     </tr>
                 @endforeach
-                @foreach ($incomeForToday as $i)
+                {{-- @foreach ($incomeForToday as $i)
                 <tr wire:key="{{ $i->id }}" style="border-top:2px solid #FFFEF2;  " class="shadow-sm mb-3">
                     <td class="ms-5 text-white"><strong>{{ $i->treatment_type }} treatment</strong></td>
                         <td class="text-white">{{ $i->total_income }} MMK</td>
@@ -74,13 +74,13 @@
                                     
                         </td>
                     </tr>
-                @endforeach
+                @endforeach --}}
                 
 
             </tbody>
         </table>
         <div class="text-white ms-3 mt-3" >
-        {{ $records->links() }}
+        {{-- {{ $records->links() }} --}}
 
         </div>
 

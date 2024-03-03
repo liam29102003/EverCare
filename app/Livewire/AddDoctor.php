@@ -44,6 +44,9 @@ class AddDoctor extends Component
     public $image;
     #[Validate('required')]
     public $exp;
+    #[Validate('required')]
+
+    public $fee;
     public $imagePath ="images/profile.PNG"; 
 
     public function save()
@@ -70,6 +73,7 @@ class AddDoctor extends Component
                 'password' => $hashedPassword,
                 'image' => $path,
                 'exp' => $this->exp,
+                'price'=>$this->fee,
                 'created_at' => now(),
                 'updated_at' => now(),
                 
