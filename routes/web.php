@@ -154,10 +154,10 @@ Route::get('/', function () {
         Route::get('/contact/detail/{id}',[FinanceController::class,'messageDetails'])->name('contact.detail');
         Route::get('/profilePage',[profileController::class,'adminProfile'])->name('admin.profile');
         Route::get('/update/password',[profileController::class,'adminProfile'])->name('admin.password');
-
-        Route::get('/dashboard', function () {
-            return view('admin.dashboard');
-        })->name('admin#dashboard');
+        Route::get('/dashboard',[profileController::class,'dashboard'])->name('admin#dashboard');
+        // Route::get('/dashboard', function () {
+        //     return view('admin.dashboard');
+        // })->name('admin#dashboard');
     });
     Route::middleware(['auth:sanctum,receptionist', 'verified'])->get('/receptionist/dashboard', function () {
         return view('rec.dashboard');

@@ -32,4 +32,8 @@ class Doctor extends Authenticatable
         $this->profile_photo_path = $photoPath;
         $this->save();
     }
+    public function specialization()
+    {
+        return $this->belongsTo((Specialization::class));
+    }
 }
