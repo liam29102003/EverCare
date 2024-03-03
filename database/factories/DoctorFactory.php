@@ -23,7 +23,7 @@ class DoctorFactory extends Factory
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'phone' => $this->faker->phoneNumber,
             'exp'=>$this->faker->numberBetween(1,10),
-            'speciality'=>$this->faker->randomElement(['cardiology','dermatology','neurology','orthopedics','gynaecology','oncology','pediatrics','psychiatry','radiology','urology']),
+            'specialization'=>$this->faker->randomElement(['cardiology','dermatology','neurology','orthopedics','gynaecology','oncology','pediatrics','psychiatry','radiology','urology']),
             'qualification'=>$this->faker->text(8),
             'gender'=>$this->faker->randomElement(['male','female']),
             'image'=>'images/profile.PNG',

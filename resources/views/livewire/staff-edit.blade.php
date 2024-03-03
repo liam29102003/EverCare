@@ -81,8 +81,7 @@
                         <div class="row mb-3">
                             <div class="col-md-10 offset-md-1">
 
-                            <label class=" col-form-label text-white" for="basic-default-name"><i
-                                    class="fa-solid fa-stethoscope me-2"></i>Address:</label>
+                            <label class=" col-form-label text-white" for="basic-default-name">Address:</label>
 
                             <div class="">
                                 <input type="text" class="form-control shadow-sm" id="basic-default-address"
@@ -99,8 +98,7 @@
                         <div class="row mb-3">
                             <div class="col-md-10 offset-md-1">
 
-                            <label class=" col-form-label text-white" for="basic-default-name"><i
-                                    class="fa-solid fa-graduation-cap "></i>Qualification</label>
+                            <label class=" col-form-label text-white" for="basic-default-name">Qualification</label>
 
                             <div class="">
                                 <input type="text" class="form-control shadow-sm" id="basic-default-qa" placeholder="qualification"
@@ -118,8 +116,7 @@
                         <div class="row mb-3">
                             <div class="col-md-10 offset-md-1">
 
-                            <label class=" col-form-label text-white" for="basic-default-name"><i
-                                    class="fa-solid fa-graduation-cap "></i>DOB</label>
+                            <label class=" col-form-label text-white" for="basic-default-name">DOB</label>
 
                             <div class="">
                                 <input type="date" class="form-control shadow-sm" id="basic-default-qa" placeholder="MBBS"
@@ -137,8 +134,7 @@
                         <div class="row mb-3">
                             <div class="col-md-10 offset-md-1">
 
-                            <label class=" col-form-label text-white" for="basic-default-name"><i
-                                    class="fa-solid fa-signature me-2"></i>Email :</label>
+                            <label class=" col-form-label text-white" for="basic-default-name">Email :</label>
 
                             <div class="">
                                 <input type="email" class="form-control shadow-sm" id="basic-default-name" name='email'
@@ -164,8 +160,7 @@
                                         <div class="container-fluid">
                                             <div class="row align-items-center">
                                                 <label class="  me-0 col-form-label text-white p-0 "
-                                                    for="basic-default-name"><i
-                                                    class="fa-solid fa-signature me-2"></i>Role :</label>
+                                                    for="basic-default-name"></i>Role :</label>
 
                                                 <div class="  p-0 ps-1">
                                                     <select name="Role" id="role" class="form-select shadow-sm" wire:model='role' style="border:0">
@@ -190,8 +185,7 @@
                                     <div class="col-6 p-0">
                                         <div class="container-fluid">
                                             <div class="row align-items-center">
-                                                <label class="  col-form-label text-white p-0" for="basic-default-name"><i
-                                                    class="fa-solid fa-signature me-2"></i>gender :</label>
+                                                <label class="  col-form-label text-white p-0" for="basic-default-name">gender :</label>
 
                                                 <div class=" p-0 ps-1">
                                                    <select name="gender" id="gender" class="form-select shadow-sm" wire:model='gender' style="border:0">
@@ -226,8 +220,7 @@
                                         <div class="container-fluid">
                                             <div class="row align-items-center">
                                                 <label class="  me-0 col-form-label text-white p-0 "
-                                                    for="basic-default-name"><i
-                                                    class="fa-solid fa-signature me-2"></i>Phone :</label>
+                                                    for="basic-default-name">Phone :</label>
 
                                                 <div class="  p-0 ps-1">
                                                     <input type="text" class="form-control shadow-sm" id="basic-default-name"
@@ -246,8 +239,7 @@
                                     <div class="col-6 p-0">
                                         <div class="container-fluid">
                                             <div class="row align-items-center">
-                                                <label class="  col-form-label text-white p-0" for="basic-default-name"><i
-                                                    class="fa-solid fa-signature me-2"></i>Salary :</label>
+                                                <label class="  col-form-label text-white p-0" for="basic-default-name">Salary :</label>
 
                                                 <div class="  p-0 ps-1">
                                                     <input type="number" class="form-control shadow-sm" id="basic-default-qa"
@@ -273,8 +265,7 @@
                         <div class="row mb-3">
                             <div class="col-md-10 offset-md-1">
 
-                            <label class=" col-form-label text-white" for="basic-default-message"><i
-                                    class="fa-regular fa-file-lines me-2"></i>Note :</label>
+                            <label class=" col-form-label text-white" for="basic-default-message">Note :</label>
                             <div class="">
                                 <textarea id="basic-default-message" name='note' class="form-control shadow-sm" placeholder="Brief Description Go Here"
                                     aria-label="Hi, Do you have a moment to talk Joe?" aria-describedby="basic-icon-default-message2"

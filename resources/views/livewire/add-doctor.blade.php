@@ -42,8 +42,7 @@
                             <div class="col-md-10 offset-md-1">
 
 
-                                <label class=" col-form-label text-white" for="basic-default-name"><i
-                                        class="fa-solid fa-signature me-2"></i>Image :</label>
+                                <label class=" col-form-label text-white" for="basic-default-name"></i>Image :</label>
 
                                 <div class="">
                                     <input type="file" class="form-control shadow-sm" id="basic-default-name" name='image'
@@ -61,8 +60,7 @@
                         <div class="row mb-3">
                             <div class="col-md-10 offset-md-1">
 
-                                <label class=" col-form-label text-white" for="basic-default-name"><i
-                                        class="fa-solid fa-signature me-2"></i>Name :</label>
+                                <label class=" col-form-label text-white" for="basic-default-name"></i>Name :</label>
 
                                 <div class="">
                                     <input type="text" class="form-control shadow-sm" id="basic-default-name" name='name'
@@ -79,8 +77,7 @@
                         <div class="row mb-3">
                             <div class="col-md-10 offset-md-1">
 
-                                <label class=" col-form-label text-white" for="basic-default-name"><i
-                                        class="fa-solid fa-signature me-2"></i>Email :</label>
+                                <label class=" col-form-label text-white" for="basic-default-name"></i>Email :</label>
 
                                 <div class="">
                                     <input type="email" class="form-control shadow-sm" id="basic-default-name" name='email'
@@ -98,8 +95,7 @@
                         <div class="row mb-3">
                             <div class="col-md-10 offset-md-1">
 
-                                <label class=" col-form-label text-white" for="basic-default-name"><i
-                                        class="fa-solid fa-signature me-2"></i>Phone :</label>
+                                <label class=" col-form-label text-white" for="basic-default-name"></i>Phone :</label>
 
                                 <div class="">
                                     <input type="text" class="form-control shadow-sm" id="basic-default-name" name='phone'
@@ -116,8 +112,7 @@
                         <div class="row mb-3">
                             <div class="col-md-10 offset-md-1 d-flex justify-content-between">
                                 <div class="w-75">
-                                    <label class=" col-form-label text-white" for="basic-default-name"><i
-                                        class="fa-solid fa-signature me-2"></i>Exp :</label>
+                                    <label class=" col-form-label text-white" for="basic-default-name"></i>Exp :</label>
 
                                 <div class="">
                                     <input type="number" class="form-control shadow-sm" id="basic-default-name" name='exp'
@@ -131,8 +126,7 @@
                                 </div>
                                 </div>
                               <div class="w-50 ms-2">
-                                <label class=" col-form-label text-white" for="basic-default-phone"><i
-                                    class="fa-solid fa-venus-mars me-2"></i>Gender :</label>
+                                <label class=" col-form-label text-white" for="basic-default-phone"></i>Gender :</label>
 
                             <div class="">
                                 <select name="gender" id="" class="form-select shadow-sm" wire:model='gender' style='border:0'>
@@ -155,8 +149,7 @@
 
                         <div class="row mb-3">
                             <div class="col-md-10 offset-md-1">
-                                <label class=" col-form-label text-white" for="basic-default-name"><i
-                                        class="fa-solid fa-stethoscope me-2"></i>Speciality :</label>
+                                <label class=" col-form-label text-white" for="basic-default-name">Speciality :</label>
 
                                 <div class="">
                                     
@@ -177,8 +170,7 @@
                         </div>
                         <div class="row mb-3">
                             <div class="col-md-10 offset-md-1">
-                                <label class=" col-form-label text-white" for="basic-default-name"><i
-                                        class="fa-solid fa-graduation-cap "></i>Qualification:</label>
+                                <label class=" col-form-label text-white" for="basic-default-name">Qualification:</label>
 
                                 <div class="">
                                     <input type="text" class="form-control shadow-sm" id="basic-default-qa"
@@ -205,8 +197,7 @@
 
                         <div class="row mb-3">
                             <div class="col-md-10 offset-md-1">
-                                <label class=" col-form-label text-white" for="basic-default-message"><i
-                                        class="fa-regular fa-file-lines me-2"></i>Bio :</label>
+                                <label class=" col-form-label text-white" for="basic-default-message">Bio :</label>
                                 <div class="">
                                     <textarea id="basic-default-message" name='bio' class="form-control shadow-sm" placeholder="Brief Description Go Here"
                                         aria-label="Hi, Do you have a moment to talk Joe?" aria-describedby="basic-icon-default-message2"

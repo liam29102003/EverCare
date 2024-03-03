@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('phone');
             $table->string('exp');
             $table->string('password');
-            $table->string('speciality');
+            $table->string('specialization_id');
             $table->string('qualification');
             $table->string('gender');
             $table->string('image');
