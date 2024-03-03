@@ -38,8 +38,7 @@
 
                         </div>
                         <div class="row mb-3">
-                            <label class="col-sm-3 col-form-label text-white" for="basic-default-name"><i
-                                    class="fa-solid fa-signature me-2"></i>Image :</label>
+                            <label class="col-sm-3 col-form-label text-white" for="basic-default-name">Image :</label>
 
                             <div class="col-sm-9">
                                 <input type="file" class="form-control" id="basic-default-name" name='image'
@@ -54,8 +53,7 @@
 
                         </div>
                         <div class="row mb-3">
-                            <label class="col-sm-3 col-form-label text-white" for="basic-default-name"><i
-                                    class="fa-solid fa-signature me-2"></i>Name :</label>
+                            <label class="col-sm-3 col-form-label text-white" for="basic-default-name">Name :</label>
 
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" id="basic-default-name" name='name'
@@ -70,8 +68,7 @@
 
                         </div>
                         <div class="row mb-3">
-                            <label class="col-sm-3 col-form-label text-white" for="basic-default-name"><i
-                                    class="fa-solid fa-signature me-2"></i>Price :</label>
+                            <label class="col-sm-3 col-form-label text-white" for="basic-default-name">Price :</label>
 
                             <div class="col-sm-9">
                                 <input type="number" class="form-control" id="basic-default-name" name='number'
@@ -85,8 +82,7 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label class="col-sm-3 col-form-label text-white" for="basic-default-name"><i
-                                    class="fa-solid fa-signature me-2"></i>Quantity :</label>
+                            <label class="col-sm-3 col-form-label text-white" for="basic-default-name">Quantity :</label>
 
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" id="basic-default-name" name='phone'
@@ -100,8 +96,7 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label class="col-sm-3 col-form-label text-white" for="basic-default-name" style="font-size:10px"><i
-                                    class="fa-solid fa-signature me-2" ></i>Manufacturer:</label>
+                            <label class="col-sm-3 col-form-label text-white" for="basic-default-name" style="font-size:10px">Manufacturer:</label>
 
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" id="basic-default-name" name='manufacturer'
@@ -115,8 +110,7 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label class="col-sm-3 col-form-label text-white" for="basic-default-name"><i
-                                    class="fa-solid fa-signature me-2"></i>SideEffect :</label>
+                            <label class="col-sm-3 col-form-label text-white" for="basic-default-name">SideEffect :</label>
 
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" id="basic-default-name" name='side'
@@ -130,8 +124,7 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label class="col-sm-3 col-form-label text-white" for="basic-default-message"><i
-                                    class="fa-regular fa-file-lines me-2"></i>Description :</label>
+                            <label class="col-sm-3 col-form-label text-white" for="basic-default-message">Description :</label>
                             <div class="col-sm-9">
                                 <textarea id="basic-default-message" name='bio' class="form-control" placeholder="Brief Description Go Here"
                                     aria-label="Hi, Do you have a moment to talk Joe?" aria-describedby="basic-icon-default-message2"

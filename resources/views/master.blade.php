@@ -85,98 +85,141 @@
             background-color: #f8f9fa;
         }
 
-        .profile-dropdown:hover .dropdown-content {
-            display: block;
-        }
+.profile-dropdown:hover .dropdown-content {
+    display: block;
+}
 
-        .navbar {
-            position: sticky;
-            top: 20px;
-            z-index: 15;
-        }
+
+
+nav{
+    padding: 10px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #bb95dccc;
+    position: sticky;
+    top:0;
+    height: 70px;
+    z-index:20;
+}
+
+.logo{
+    color: #fff;
+}
+
+nav ul{
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+nav ul li{
+    list-style-type: none;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.menu-icon{
+    display: none;
+}
+
+.menu-icon i{
+    color: #fff;
+    font-size: 30px;
+}
+
+@media (max-width:987px) {
+    nav ul{
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        text-align: center;
+        background: #bb95dc;
+        gap: 0;
+        overflow: hidden;
+    }
+    nav ul li{
+        padding: 20px;
+        padding-top: 0;
+    }
+    .menu-icon{
+        display: block;
+    }
+    #menuList{
+        transition: all 0.5s;
+    }
+}
     </style>
 </head>
 
 <body>
 
-    <!-- Nav section -->
-    <!--  -->
-    <div class="navContainer">
-        <div class="respMenu p-3 bg-dark" style="border-bottom: 1px solid;">
-            <div class=" mt-3"><a href="{{ route('home') }}" wire:navigate class="navItem text-decoration-none "
-                    style="color: inherit;">Home</a></div>
-            <div class=" mt-3"><a href="{{ route('doctor#list') }}" wire:navigate
-                    class="navItem text-decoration-none " style="color: inherit;">Doctors</a></div>
-            <div class=" mt-3"><a href="" class="text-decoration-none navItem"
-                    style="color: inherit;">Contact</a></div>
-            <div class=" mt-3"><a href="" class="text-decoration-none navItem"
-                    style="color: inherit;">Review</a></div>
-            <div class="mt-3">
-                <a href="" wire:navigate class=" navBtn btn">Make Appointment</a>
-            </div>
-
+<!-- Nav section -->
+<!--  -->
+<nav>
+        <div class="logo d-flex align-items-center">
+        <i class="fa-solid fa-staff-snake me-2 fs-1 " ></i><div class=' fw-bold'>EVER CARE</div>
         </div>
-        <div class=" navbar mt-3 shadow-sm mb-5 mb-lg-0 p-3 mx-3 rounded justify-content-between">
-            <div class="logo d-flex align-items-center"><i class="fa-solid fa-staff-snake me-2 fs-1 "></i>
-                <div class=' fw-bold'>EVER CARE</div>
-            </div>
-            <div class="origin1">
-                <a href="{{ route('home') }}" wire:navigate class="navItem px-3 rounded me-3 py-2 ">{{ __('form.Home')}}</a>
-                <a href="{{ route('doctor#list') }}" wire:navigate class="navItem px-3 rounded me-3 py-2 ">Doctors</a>
-                <a href="{{ route('contactPage') }}" wire:navigate class="navItem px-3 rounded me-3 py-2 ">Contact</a>
-                <a href="{{ route('patient.review') }}" wire:navigate
-                    class="navItem px-3 rounded me-3 py-2 ">Review</a>
-                <a href="{{ route('appointment.form') }}" wire:navigate class="navBtn btn ">Make Appointment</a>
-            </div>
+        <ul id="menuList" class='pt-3'>
+            <li><a href="{{route('appointment.form')}}" wire:navigate class=" navBtn btn">Make Appointment</a></li>
+            <li><a href="{{route('home')}}" wire:navigate class="navItem px-3 rounded me-3 py-2 ">Home</a></li>
+            <li><a href="{{route('doctor#list')}}" wire:navigate class="navItem px-3 rounded me-3 py-2 ">Doctors</a></li>
+            <li><a href="{{route('contactPage')}}" wire:navigate class="navItem px-3 rounded me-3 py-2 ">Contact</a></li>
+            <li><a href="{{route('patient.review')}}" wire:navigate class="navItem px-3 rounded me-3 py-2 ">Review</a></li>
+        <li>
+        <div class="profile-dropdown" style=''>
+        <button class="profile-button btn " >
+            @if(session('gender')=='male')
+            <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="Profile Image" class="profile-image">
+            @elseif(session('gender')=='female')
+            <img src="https://static.vecteezy.com/system/resources/thumbnails/004/899/680/small_2x/beautiful-blonde-woman-with-makeup-avatar-for-a-beauty-salon-illustration-in-the-cartoon-style-vector.jpg" alt="Profile Image" class="profile-image">
+            @else
+            <i class="fa-solid fa-user me-2"></i>
+            @endif
+        
+        
+         <span class="profile-name">
+            @if(session()->get("name"))
+                {{session()->get("name")}}
+            @else
+            
+              Guest  
+            @endif
+        </span>
+        <i class="fas fa-chevron-down ms-2"></i>
+    </button>
+    <div class="dropdown-content">
+        @if(session()->get('name'))
+        <a href="{{route('patient.appointment')}}" wire:navigate>Profile</a>
+        <hr class="mt-1 mb-1">
+        <a href="{{route('patient.myAppointmentPage')}}" wire:navigate>My Appointments</a> 
+        <hr class="mt-1 mb-1">
+        <a href="{{route('patient.medicalRecord')}}" wire:navigate>My medical records</a> 
+<hr class="mt-1 mb-1">
+        <a href="{{route('patient.logout')}}" wire:navigate>Logout</a>
+        @else
+        <a href="{{route('login_page')}}" wire:navigate >Login</a>
+        @endif
+    </div>
+</div>
+        
+</div>
+        </li>
+        </ul>
 
 
-    <livewire:toggle-language>
-
-
-
-            <div class="profile-dropdown d-flex justify-content-between align-items-center">
-
-                <button class="ms-2 btn btn-outline-light text-white ">
-                    @if (session('gender') == 'male')
-                        <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="Profile Image"
-                            class="profile-image">
-                    @elseif(session('gender') == 'female')
-                        <img src="https://static.vecteezy.com/system/resources/thumbnails/004/899/680/small_2x/beautiful-blonde-woman-with-makeup-avatar-for-a-beauty-salon-illustration-in-the-cartoon-style-vector.jpg"
-                            alt="Profile Image" class="profile-image">
-                    @else
-                        <i class="fa-solid fa-user me-2"></i>
-                    @endif
-
-
-                    <span class="profile-name">
-                        @if (session()->get('name'))
-                            {{ session()->get('name') }}
-                        @else
-                            Guest
-                        @endif
-                    </span>
-                    <i class="fas fa-chevron-down ms-2"></i>
-                </button>
-
-                <div class="dropdown-content">
-                    @if (session()->get('name'))
-                        <a href="{{ route('patient.appointment') }}" wire:navigate>Profile</a>
-                        <hr class="mt-1 mb-1">
-                        <a href="{{ route('patient.myAppointmentPage') }}" wire:navigate>My Appointments</a>
-                        <hr class="mt-1 mb-1">
-                        <a href="{{ route('patient.medicalRecord') }}" wire:navigate>My medical records</a>
-                        <hr class="mt-1 mb-1">
-                        <a href="{{ route('patient.logout') }}" wire:navigate>Logout</a>
-                    @else
-                        <a href="{{ route('login_page') }}" wire:navigate>Login</a>
-                    @endif
-                </div>
-            </div>
-
-            <div class="new p-1 rounded"><i class="fa-solid fa-bars"></i></div>
+        
+        <div class="menu-icon">
+            <i class="fa-solid fa-bars" onclick="toggleMenu()"></i>
         </div>
-        <!-- end of nav section -->
-        @yield('content')
+    </nav>
+<!-- end of nav section -->
+@yield('content')
 
         <!-- Footer  -->
         <div class="footerContainer d-flex w-100 justify-content-between p-5">
@@ -234,15 +277,28 @@
 
 
 
-        <script async defer src="https://buttons.github.io/buttons.js"></script>
-        <script src='{{ asset('user/assets/appointment.js') }}'></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-        </script>
-        <script src='{{ asset('master/navbar.js') }}'></script>
-        <script src="{{ asset('master/doctor.js') }}"></script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src='{{asset("user/assets/appointment.js")}}'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="{{asset('master/doctor.js')}}"></script>
+
+    <script>
+        let menuList = document.getElementById("menuList")
+        menuList.style.maxHeight = "0px";
+
+        function toggleMenu(){
+            if(menuList.style.maxHeight == "0px")
+            {
+                menuList.style.maxHeight = "350px";
+            }
+            else{
+                menuList.style.maxHeight = "0px";
+            }
+        }
+        
+    </script>
 </body>
 
 </html>

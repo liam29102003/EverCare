@@ -31,7 +31,7 @@ class DatabaseSeeder extends Seeder
         // MedicalRecord::factory(5)->create();
         // Schedule::factory(10)->create();
         // \App\Models\User::factory(10)->create();
-        Doctor::factory()->create();
+        // Doctor::factory()->create();
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
