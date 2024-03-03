@@ -91,7 +91,7 @@ input{
 					</div>
 					@if($showUpdatePassword)
 					<div class="card" style="background-color: #f7f7ff">
-						<livewire:update-password />
+						<livewire:doc-update-password />
 					</div>
 					@endif
 				</div>

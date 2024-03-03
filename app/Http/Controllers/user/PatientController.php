@@ -52,12 +52,12 @@ class PatientController extends Controller
 
     public function loginPatient(Request $request){
         Validator::make($request->all(),[
-            'email'=>'required',
+            'email'=>'required|email',
             'password'=>'required',
         ])->validate();
         $patient = Patient::where('email', $request->email)->first();
         if (!$patient || !Hash::check($request->password, $patient->password)) {
-            return back()->with(['email' => 'Invalid credentials']);
+            return back()->with(['email' => 'Invalid email or password']);
         }
 
         session()->put([

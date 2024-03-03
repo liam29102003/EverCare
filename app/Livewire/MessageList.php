@@ -13,7 +13,7 @@ class MessageList extends Component
         // $message = new Contact();
         $message->view =1;
         $message->save();
-        return $this->redirect(route('contact.detail',['id'=>$message->id]));
+        return $this->redirect(route('contact.detail',['id'=>$message->id]),navigate:true);
     }
     public function render()
     {

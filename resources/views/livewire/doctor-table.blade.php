@@ -51,7 +51,7 @@
                 <tr wire:key="{{ $doctor->id }}" style="border-top:2px solid #FFFEF2; " class="shadow-sm mb-3 text-white">
                     <td><img src="{{ asset('storage/' . $doctor->image) }}" alt="" width="30"
                                 class="rounded-circle me-2"> <strong>{{ $doctor->name }}</strong></td>
-                        <td>{{ $doctor->speciality }}</td>
+                        <td>{{ $doctor->specialization->name }}</td>
                         <td><span class="badge bg-label-primary me-1">{{ $doctor->qualification }}</span></td>
                         <td>
                             <a href="{{ route('doctor.details', $doctor->id) }}" wire:navigate class=" misc" style="color:#e2dcf8"><i
