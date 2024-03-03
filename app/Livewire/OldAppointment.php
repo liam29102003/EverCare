@@ -64,29 +64,38 @@ public $patient_id;
         }
         $nearestDate = $currentDate->addDays($dayDifference)->toDateString();
         // dd($nearestDate); // Output the nearest date of the selected day
+$appCount = count(Appointment::where('doctor_id',$this->doctor)->where('appointment_date',$nearestDate)->get());
+// dd($appCount);
+if($appCount < 3 ){
+    $status = Appointment::create([
+        'patient_type'=>'old',
+        'patient_id'=>$this->patient_id,
+        'treatment_type' => $this->treatment_type,
+        'doctor_id' => $this->doctor,
+        'appointment_day' => $this->appointment_day,
+        'appointment_date' => $nearestDate,
+        'status'=>$this->status,
+        'description'=>$this->description,
+    ]);
 
-        $status = Appointment::create([
-            'patient_type'=>'old',
-            'patient_id'=>$this->patient_id,
-            'treatment_type' => $this->treatment_type,
-            'doctor_id' => $this->doctor,
+    if ($status) {
+        session()->put([
+            'type' => $this->treatment_type,
+            'name' => $this->name,
+            'email' => $this->email,
             'appointment_day' => $this->appointment_day,
+            'doctor_id' => $this->doctor,
             'appointment_date' => $nearestDate,
-            'status'=>$this->status,
-            'description'=>$this->description,
         ]);
-
-        if ($status) {
-            session()->put([
-                'type' => $this->treatment_type,
-                'name' => $this->name,
-                'email' => $this->email,
-                'appointment_day' => $this->appointment_day,
-                'doctor_id' => $this->doctor,
-                'appointment_date' => $nearestDate,
-            ]);
-            return $this->redirect('/instructions', navigate: true);
-        };
+        return $this->redirect('/instructions', navigate: true);
+    };
+}else{
+    session()->flash(
+        'status','Your requested day is not available! Please choose another day!'
+     );
+     return $this->redirect('/appointment/form', navigate: true);
+}
+        
         
     }
 

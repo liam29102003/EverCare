@@ -75,46 +75,59 @@ class NewAppointment extends Component
             $dayDifference = ($selectedDayIndex - $currentDate->dayOfWeek + 7) % 7;
         }
         $nearestDate = $currentDate->addDays($dayDifference)->toDateString();
+
+        // 
+        
+        // dd($appCount);
         // dd($nearestDate); // Output the nearest date of the selected day
-        Patient::create([
-            'name'=>$this->name,
-            'email'=>$this->email,
-            'password'=>Hash::make($this->password),
-            'dob'=>$this->dob,
-            'gender'=>$this->gender,
-            'phone'=>$this->phone,
-            'address'=>$this->address
-        ]);
-
-        $patient = Patient::where('email',$this->email)->first();
-        $status = Appointment::create([
-            'patient_type'=>'new',
-            'patient_id'=>$patient->id,
-            'treatment_type' => $this->treatment_type,
-            'description' => $this->description,
-            'doctor_id' => $this->doctor,
-            'appointment_day' => $this->appointment_day,
-            'appointment_date' => $nearestDate,
-            'status'=>$this->status,
-        ]);
-
-        if ($status) {
-            session()->put([
-                'id'=>$patient->id,
-                'type' => $this->treatment_type,
-                'name' => $patient->name,
-                'email' => $patient->email,
-                'password' => Hash::make($this->password),
-                'dob' => $patient->dob,
-                'gender' => $patient->gender,
-                'phone' => $patient->phone,
-                'address' => $patient->address,
-                'appointment_day' => $this->appointment_day,
-                'doctor_id' => $this->doctor,
-                'appointment_date' => $nearestDate,
+        $appCount = count(Appointment::where('doctor_id',$this->doctor)->where('appointment_date',$nearestDate)->get());
+        
+        if($appCount < 10){
+            Patient::create([
+                'name'=>$this->name,
+                'email'=>$this->email,
+                'password'=>Hash::make($this->password),
+                'dob'=>$this->dob,
+                'gender'=>$this->gender,
+                'phone'=>$this->phone,
+                'address'=>$this->address
             ]);
-            return $this->redirect('/instructions', navigate: true);
-        };
+    
+            $patient = Patient::where('email',$this->email)->first();
+            $status = Appointment::create([
+                'patient_type'=>'new',
+                'patient_id'=>$patient->id,
+                'treatment_type' => $this->treatment_type,
+                'description' => $this->description,
+                'doctor_id' => $this->doctor,
+                'appointment_day' => $this->appointment_day,
+                'appointment_date' => $nearestDate,
+                'status'=>$this->status,
+            ]);
+            if ($status) {
+                session()->put([
+                    'id'=>$patient->id,
+                    'type' => $this->treatment_type,
+                    'name' => $patient->name,
+                    'email' => $patient->email,
+                    'password' => Hash::make($this->password),
+                    'dob' => $patient->dob,
+                    'gender' => $patient->gender,
+                    'phone' => $patient->phone,
+                    'address' => $patient->address,
+                    'appointment_day' => $this->appointment_day,
+                    'doctor_id' => $this->doctor,
+                    'appointment_date' => $nearestDate,
+                ]);
+                return $this->redirect('/instructions', navigate: true);
+            };
+        }else{
+            session()->flash(
+               'status','Your requested day is not available! Please choose another day!'
+            );
+            return $this->redirect('/appointment/form', navigate: true);
+        }
+        
     }
 
     public function render()
