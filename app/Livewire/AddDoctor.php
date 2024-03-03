@@ -61,7 +61,7 @@ class AddDoctor extends Component
         Doctor::create(
             [
                 'name' => $this->name,
-                'speciality' => $this->speciality,
+                'specialization_id' => $this->speciality,
                 'qualification' => $this->qualification,
                 'gender' => $this->gender,
                 'bio' => $this->bio,

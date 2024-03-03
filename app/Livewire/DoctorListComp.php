@@ -17,7 +17,7 @@ class DoctorListComp extends Component
         if($this->special == ""){
             $doctors = Doctor::get();
         }else{
-            $doctors = Doctor::where('speciality',$this->special)->get();
+            $doctors = Doctor::where('specialization_id',$this->special)->get();
         }
         
         return view('livewire.doctor-list-comp')->with(['specialities' => $specialities,'doctors'=>$doctors,'special'=>$this->special]);

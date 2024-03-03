@@ -35,7 +35,7 @@ class DoctorController extends Controller
     public function doctorDetailPage($id){
         return view('user.doctor_detail_page')->with([
             'doctor'=>Doctor::select('doctors.*','specializations.name as sname')
-            ->join('specializations','specializations.id','doctors.speciality')
+            ->join('specializations','specializations.id','doctors.specialization_id')
             ->where('doctors.id',$id)
             ->first(),
         ]);
