@@ -47,10 +47,7 @@
                                 <td>{{ $pharmacy->side }}</td>
                             </tr>
                             <tr class="py-3 text-white">
-                                <td colspan="3">Paracetamol is a medicine used for mild to moderate pain. It can be
-                                    bought over the counter in pharmacies, supermarkets and other shops. You can also take
-                                    paracetamol for: fever (high temperature) stronger pain — used with other pain relievers
-                                    such as codeine.</td>
+                                <td colspan="3">{{$pharmacy->description}}</td>
                             </tr>
                         </table>
                     </div>

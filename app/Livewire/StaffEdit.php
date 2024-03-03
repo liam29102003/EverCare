@@ -11,40 +11,40 @@ class StaffEdit extends Component
 {
     use WithFileUploads;
     public $staff;
-    #[Validate('required|min:3')]
+    #[Validate('required')]
 
     public $name;
-    #[Validate('required|min:3')]
+    #[Validate('required')]
 
     public $email;
-    #[Validate('required|min:3')]
+    #[Validate('required')]
 
     public $password  = "EverCareStaff";
-    #[Validate('required|min:3')]
+    #[Validate('required')]
 
     public $phone;
-    #[Validate('required|min:3')]
+    #[Validate('required')]
 
     public $address;
-    #[Validate('required|min:3')]
+    #[Validate('required')]
 
     public $gender;
-    #[Validate('required|min:3')]
+    #[Validate('required')]
 
     public $dob;
-    #[Validate('required|min:3')]
+    #[Validate('required')]
 
     public $image;
-    #[Validate('required|min:3')]
+    #[Validate('required')]
 
     public $role;
-    #[Validate('required|min:3')]
+    #[Validate('required')]
 
     public $qualification;
-    #[Validate('required|min:3')]
+    #[Validate('required')]
 
     public $note;
-    #[Validate('required|min:3')]
+    #[Validate('required')]
     public $oldImage ;
 
     public $salary;
@@ -85,7 +85,7 @@ class StaffEdit extends Component
         $staff->image = $path;
         if($staff->save()){
             session()->flash('status', 'Successfully updated.');
-            return $this->redirect(route('staff.index'), navigate:true);
+            return $this->redirect(route('staff.list'), navigate:true);
             }
             else{
                 session()->flash('status', 'Fail to update.');

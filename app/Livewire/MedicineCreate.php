@@ -11,26 +11,26 @@ use Illuminate\Support\Facades\Hash;
 class MedicineCreate extends Component
 {
     use WithFileUploads;
-    #[Validate('required|min:3')]
+    #[Validate('required')]
 
     public $name;
-    #[Validate('required|min:3')]
+    #[Validate('required')]
 
     public $price;
-    #[Validate('required|min:3')]
+    #[Validate('required')]
 
     public $quantity;
     #[Validate('required|image|mimes:jpeg,png,jpg,gif|max:2048')]
 
 
     public $image;
-    #[Validate('required|min:3')]
+    #[Validate('required')]
 
     public $description;
-    #[Validate('required|min:3')]
+    #[Validate('required')]
 
     public $manufacturer;
-    #[Validate('required|min:3')]
+    #[Validate('required')]
 
     public $side;
     public function  save()
@@ -58,7 +58,7 @@ class MedicineCreate extends Component
 
             ]
         );
-        session()->flash('status', 'Doctor successfully added.');
+        session()->flash('status', 'Pharmacy successfully added.');
 
         $this->reset();
         return $this->redirect('/admin/pharmacy/list',navigate:true);

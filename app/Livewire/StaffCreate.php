@@ -86,7 +86,7 @@ class StaffCreate extends Component
                 [
                     'name' => $this->name,
                     'email' => $this->email,
-                    'password' =>'EverCareAdmin',
+                    'password' =>Hash::make('EverCareAdmin'),
                     'created_at' => now(),
                     'updated_at' => now(),
                 ]
@@ -97,7 +97,7 @@ class StaffCreate extends Component
                 [
                     'name' => $this->name,
                     'email' => $this->email,
-                    'password' =>'EverCareStaff',
+                    'password' =>Hash::make('EverCareStaff'),
                     'created_at' => now(),
                     'updated_at' => now(),
                     'image'=>$path,

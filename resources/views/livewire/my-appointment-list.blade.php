@@ -52,7 +52,7 @@
     @foreach($appointments as $a)
     <div class="mt-3 p-5 d-flex align-items-center justify-content-evenly" style="border-radius:5px;background-color:#00000011;">
         <div class="img">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEBqYEUHs9SPync2bo8AmdYjzW5WYicOWF8lreCXnMcQ&s" style="width:100px;height:100px;border:2px solid black">
+            <img src="{{asset('storage/'.$a->image)}}" style="width:100px;height:100px;border:2px solid black">
         </div>
         <div style="font-size: 20px;background-color: #00000011;padding:15px 30px;border-radius:10px">
             <div class="mb-3" >

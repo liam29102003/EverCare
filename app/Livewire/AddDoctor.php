@@ -20,16 +20,16 @@ class AddDoctor extends Component
     #[Validate('required|min:3')]
 
     public $name = '';
-    #[Validate('required|min:3')]
+    #[Validate('required')]
 
     public $speciality = '';
-    #[Validate('required|min:3')]
+    #[Validate('required')]
 
     public $qualification = '';
-    #[Validate('required|min:3')]
+    #[Validate('required')]
 
     public $gender = '';
-    #[Validate('required|min:3')]
+    #[Validate('required')]
 
     public $bio = '';
     #[Validate('required|min:3')]
@@ -79,7 +79,7 @@ class AddDoctor extends Component
 
         $this->image='';
         // $this->reset('image', 'name','speciality', 'qualification', 'gender', 'bio', 'email', 'phone', 'password');
-        session()->flash('status', 'Expense added successfully');
+        session()->flash('status', 'Doctor added successfully');
 
         $this->reset();
         return $this->redirect('/admin/doctor/list',navigate:true);

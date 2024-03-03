@@ -27,8 +27,8 @@ class DoctorProfile extends Component
         $this->email = Auth::user()->email;
         $this->phone = Auth::user()->phone;
         $this->exp = Auth::user()->exp;
-        $this->speciality = Specialization::where('id',Auth::user()->specialization_id)->first()->id;
-        $this->speciality_name = Specialization::where('id',Auth::user()->specialization_id)->first()->name;
+        $this->speciality = Specialization::where('id',Auth::user()->speciality)->first()->id;
+        $this->speciality_name = Specialization::where('id',Auth::user()->speciality)->first()->name;
         $this->qualification = Auth::user()->qualification;
         $this->bio = Auth::user()->bio;
         $this->oldImage = Auth::user()->image;

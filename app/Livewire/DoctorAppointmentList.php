@@ -36,7 +36,7 @@ class DoctorAppointmentList extends Component
         if ($post) {
             $post->delete();
         }
-        session()->flash('status', 'Successfully deletedd.');
+        session()->flash('status', 'Successfully deleted.');
 
         // You can add a confirmation message or redirect to another page if needed.
     }

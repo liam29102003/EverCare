@@ -74,7 +74,7 @@ input{
 							</div>
 							{{-- <hr class="my-4"> --}}
 							<div class="text-center">
-								{{-- <button wire:click='updatePassword' class="btn" style="background-color: #bb95dc; color:#fff">Update Password</button> --}}
+								<!-- <button wire:click='updatePassword' class="btn" style="background-color: #bb95dc; color:#fff">Update Password</button> -->
 								<button wire:click='updatePassword' type="submit" class="btn btn-primary mx-auto  d-flex align-items-center"
                             style="background:#bb95dc; color:white; border:3px solid #ffffff !important ">
                             <div>Update Password</div>

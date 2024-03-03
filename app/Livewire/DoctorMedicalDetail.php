@@ -142,7 +142,7 @@ class DoctorMedicalDetail extends Component
         // dd("Hello");
         if($this->specialization !== '')
         {
-            $this->doctor_name = Doctor::where('specialization_id', $this->specialization)->get()->toArray();
+            $this->doctor_name = Doctor::where('speciality', $this->specialization)->get()->toArray();
         }
         
     }

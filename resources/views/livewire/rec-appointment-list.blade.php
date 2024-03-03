@@ -30,19 +30,18 @@
             </thead>
 
             @if (count($appointments) == 0)
-                @if ($type == 'online')
+                
                     <tbody>
                         <td colspan="4" class="text-center " style="color: white !important">
+                        @if ($type == 'online')
                             <h3>There is no new appointment to send email</h3>
+                        @elseif($type=='')
+                        <h3>Choose Appointment type first.</h3>
+                        @else
+                        <h3>There is no in-person appointment</h3>
+                        @endif
                         </td>
-                    </tbody>
-                @else
-                    <tbody>
-                        <td colspan="4" class="text-center " style="color: white !important">
-                            <h3>There is no appointment</h3>
-                        </td>
-                    </tbody>
-                @endif
+                    </tbody>  
             @else
                 <tbody class="table-border-bottom-0">
                     <?php $i = 1; ?>

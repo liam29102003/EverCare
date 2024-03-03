@@ -99,14 +99,14 @@
                                     </div>
                                 </div>
                                 <hr class="">
-								<button wire:click='updatePassword' type="submit" class="btn btn-primary mx-auto  d-flex align-items-center"
+								<!-- <button wire:click='updatePassword' type="submit" class="btn btn-primary mx-auto  d-flex align-items-center"
                             style="background:#bb95dc; color:white; border:3px solid #ffffff !important ">
                             <div>Update Password</div>
 
                             <div class="spinner-border ms-2" wire:loading wire:target='' role="status">
                                 <span class="visually-hidden">Loading...</span>
                             </div>
-                        </button>
+                        </button> -->
                                 
                             </div>
                         </div>

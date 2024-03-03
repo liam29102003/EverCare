@@ -33,6 +33,11 @@ class ContactForm extends Component
             'phone'=>$this->phone,
             'message'=>$this->message,
         ]);
+            $this->reason= "";
+            $this->name="";
+            $this->email= "";
+            $this->phone= "";
+            $this->message= "";
         session()->flash('status', 'Message sent successfully.');
         return back();
     }
