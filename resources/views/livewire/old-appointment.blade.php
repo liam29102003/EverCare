@@ -59,7 +59,7 @@
                     <select class="form-control shadow-sm form-select" name='doctor' wire:change="changeDoctor($event.target.value)" aria-label="Default select example"  style='border:0' wire:model='doctor'>
                         <option selected value="">Doctor (Speciality)</option>
                         @foreach($doctors as $doctor)
-                        <option value='{{$doctor->id}}' wire:click="logd">{{$doctor->name}} ({{$doctor->speciality}})</option>
+                        <option value='{{$doctor->id}}' wire:click="logd">{{$doctor->name}} ({{$doctor->specialization->name}})</option>
 
                         @endforeach
                     </select>

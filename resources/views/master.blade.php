@@ -171,6 +171,8 @@ nav ul li a{
             <li><a href="{{route('doctor#list')}}" wire:navigate class="navItem px-3 rounded me-3 py-2 ">Doctors</a></li>
             <li><a href="{{route('contactPage')}}" wire:navigate class="navItem px-3 rounded me-3 py-2 ">Contact</a></li>
             <li><a href="{{route('patient.review')}}" wire:navigate class="navItem px-3 rounded me-3 py-2 ">Review</a></li>
+            <li>        <livewire:toggle-language>
+            </li>
         <li>
         <div class="profile-dropdown" style=''>
         <button class="profile-button btn " >

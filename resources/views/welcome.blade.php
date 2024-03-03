@@ -14,7 +14,7 @@
             <h4 class="text-start">သင်ရဲ့ ယုံကြည်အားထားရာ</h4>
             <h1 class="text-start brand" style="text-shadow: black 1px 0 3px; font-size:60px"><i class="fa-solid fa-staff-snake me-2 "></i>EVER CARE</h1>
             <p class="text-center" style="color: #bb95dc">ကျန်းမာသော ခန္ဓာကိုယ်ဖြင့် ပျော်ရွှင်သော ဘဝကို တည်ဆောက်ပါ။</p>
-            <a href="{{route('appointment.form')}}" wire:navigate class="btn ownBtn mt-3">ရက်ချိန်းယူပါ&nbsp;<i class="fa-regular fa-calendar"></i></a>
+            <a href="{{route('appointment.form')}}" wire:navigate class="btn ownBtn mt-3">{{__('form.Makeanappointment')}}&nbsp;<i class="fa-regular fa-calendar"></i></a>
        </div>
        <div class="rightHero col-12 col-lg-7  text-center " >
     
@@ -168,11 +168,7 @@
         </div>
     </div>
 <div class=" about py-5  pe-md-5"  >
-    Ever Care Clinic သည် 2023 ခုနှစ် မတ်လ 18 ရက်နေ့တွင် ဖွင့်လှစ်ခဲ့သော 3 ထပ်တိုက် အဆောက်အဦး 
-    ဖြစ်ပါသည်။ ကျွန်ုပ်တို့သည် ခေတ်မီ ဆေးဘက်ဆိုင်ရာ စက်ကိရိယာများဖြင့် ဘက်စုံဆေးဘက်ဆိုင်ရာ ဝန်ဆောင်မှုကို 
-    ဆောင်ရွက်ပေးပါသည်။ သက်ဆိုင်ရာဌာနအသီးသီးရှိ ကျွမ်းကျင်ဝန်ထမ်းများမှ ကျွမ်းကျင်သော ကျွမ်းကျင်ဝန်ထမ်းများမှ 
-    ကောင်းစွာလေ့ကျင့်ထားသော နေထိုင်မှုဆိုင်ရာဆရာဝန်များ၊ သူနာပြုများနှင့် ကျွမ်းကျင်ဝန်ထမ်းများမှ 
-    ပံ့ပိုးပေးသော ကျွန်ုပ်တို့၏လူနာအား အမြန်ထိရောက်သော ကုသမှုကို ကျွန်ုပ်တို့ အလေးထားပါသည်။
+    {{ __ ( 'form.about')}}
 </div>
 </div>
 
