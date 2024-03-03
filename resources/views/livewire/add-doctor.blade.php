@@ -110,6 +110,23 @@
                             </div>
                         </div>
                         <div class="row mb-3">
+                            <div class="col-md-10 offset-md-1">
+
+                                <label class=" col-form-label text-white" for="basic-default-name"></i>Fee :</label>
+
+                                <div class="">
+                                    <input type="number" class="form-control shadow-sm" id="basic-default-name" name='name'
+                                        wire:model='fee' placeholder="John Doe" style='border:0' />
+                                    <small class="text-danger">
+                                        @error('fee')
+                                            {{ $message }}
+                                        @enderror
+                                    </small>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
                             <div class="col-md-10 offset-md-1 d-flex justify-content-between">
                                 <div class="w-75">
                                     <label class=" col-form-label text-white" for="basic-default-name"></i>Exp :</label>

@@ -38,7 +38,7 @@ class AddDoctor extends Component
     #[Validate('required|min:3')]
 
     public $phone = "";
-    #[Validate('required|min:3')]
+    #[Validate('required')]
 
     public $password = 'EverCareDoctor';
     public $image;
@@ -64,7 +64,7 @@ class AddDoctor extends Component
         Doctor::create(
             [
                 'name' => $this->name,
-                'speciality' => $this->speciality,
+                'specialization_id' => $this->speciality,
                 'qualification' => $this->qualification,
                 'gender' => $this->gender,
                 'bio' => $this->bio,
