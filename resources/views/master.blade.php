@@ -117,13 +117,14 @@
             <a href="{{route('doctor#list')}}" wire:navigate class="navItem px-3 rounded me-3 py-2 ">Doctors</a>
             <a href="{{route('contactPage')}}" wire:navigate class="navItem px-3 rounded me-3 py-2 ">Contact</a> 
             <a href="{{route('patient.review')}}" wire:navigate class="navItem px-3 rounded me-3 py-2 ">Review</a>
+            <a href="{{route('appointment.form')}}" wire:navigate class="navBtn btn ">Make Appointment</a>
         </div>
 
         <div class="origin">
-            <a href="{{route('appointment.form')}}" wire:navigate class="navBtn btn ">Make Appointment</a>
+            <livewire:toggle-language>
         </div>
         <div class="profile-dropdown">
-        <button class="profile-button btn">
+        <button class=" btn btn-outline-light text-white">
             @if(session('gender')=='male')
             <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="Profile Image" class="profile-image">
             @elseif(session('gender')=='female')
@@ -137,7 +138,6 @@
             @if(session()->get("name"))
                 {{session()->get("name")}}
             @else
-            
               Guest  
             @endif
         </span>
