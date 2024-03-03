@@ -58,6 +58,7 @@ class MailController extends Controller
         Mail::to($email)->send(new ApproveMail($appointment->appointment_date,$appointment->appointment_day,$doctor->name));
         $appointment->update([
             'status'=>'approved',
+            'price'=>10000
         ]);
         return back()->with(['success'=>"Appointment approved success!"]);
     }

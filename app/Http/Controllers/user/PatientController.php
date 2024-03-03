@@ -89,4 +89,8 @@ class PatientController extends Controller
     {
         return view('user.medicalRecord');;
     }
+
+    public function patientList(){
+        return view('admin.patient_list');
+    }
 }

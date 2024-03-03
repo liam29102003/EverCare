@@ -26,15 +26,7 @@
         <div class="mb-0">
             <h2 class="card-header" style="color:#ffffff">Income list</h2>
         </div>
-        <div class="mb-0">
-            <div class="mt-3 me-2 d-flex align-items-center ">
-              <i class="fa-solid fa-magnifying-glass"></i>
-              <input type="text" class="form-control border-0 shadow ms-2 " wire:model.live="search" placeholder="Search.....">
-
-            </div>
-              
-            
-        </div>
+    
     </div>
 {{-- 
      --}} 
@@ -43,7 +35,7 @@
         <table class="table" >
             <thead  >
                 <tr style=" background-color:#e2dcf8" class="shadow">
-                    <th style="color:#bb95dc" class="btn" wire:click='sorting("name")'>MedicalRecored_ID 
+                    <th style="color:#bb95dc" class="btn" wire:click='sorting("name")'>From 
                         </th>                    
                     <th style="color:#bb95dc" wire:click='sorting("amount")'>Amount
                     </th>
@@ -56,7 +48,7 @@
             <tbody class="table-border-bottom-0">
                 @foreach ($records as $record)
                 <tr wire:key="{{ $record->medical_record_id }}" style="border-top:2px solid #FFFEF2;  " class="shadow-sm mb-3">
-                    <td class="ms-5 text-white"><strong>{{ $record->medical_record_id }}</strong></td>
+                    <td class="ms-5 text-white"><strong>Medical Record{{$record->medical_record_id}}</strong></td>
                         <td class="text-white">{{ $record->amount }} MMK</td>
                         <td class="text-white"><span class="badge bg-label-primary me-1">{{ date_format($record->updated_at,"Y/m/d")  }}</span></td>
 
@@ -69,6 +61,21 @@
                         </td>
                     </tr>
                 @endforeach
+                @foreach ($incomeForToday as $i)
+                <tr wire:key="{{ $i->id }}" style="border-top:2px solid #FFFEF2;  " class="shadow-sm mb-3">
+                    <td class="ms-5 text-white"><strong>{{ $i->treatment_type }} treatment</strong></td>
+                        <td class="text-white">{{ $i->total_income }} MMK</td>
+                        <td class="text-white"><span class="badge bg-label-primary me-1">{{$i->appointment_date}}</span></td>
+
+                        <td>
+                            
+                            
+                                
+                                    
+                        </td>
+                    </tr>
+                @endforeach
+                
 
             </tbody>
         </table>

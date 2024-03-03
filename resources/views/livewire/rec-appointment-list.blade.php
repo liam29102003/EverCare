@@ -5,6 +5,7 @@
             <option value="online">Online</option>
             <option value="in person">Inperson</option>
         </select>
+        
         @if (count($appointments) !== 0 && $type == 'online')
             <a href="{{ route('receptionist.mail') }}" class='btn mt-md-2 '  style="background-color: #bb95dc; color: white; ">Send Confirmation Email to All
                 Patients&nbsp;<i class="fa-regular fa-paper-plane mb-0 "></i></a>
@@ -38,7 +39,7 @@
                         @elseif($type=='')
                         <h3>Choose Appointment type first.</h3>
                         @else
-                        <h3>There is no in-person appointment</h3>
+                        <h3>There is no in-person appointment.</h3>
                         @endif
                         </td>
                     </tbody>  
