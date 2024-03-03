@@ -2,6 +2,9 @@
 
     <div class="col-12 col-md-8 offset-md-2 p-5 border-0 form-container d-flex flex-column justify-content-center align-items-center" style="background-color:#bb95dc22; color:#9d926a !important">
         <h2 class="txt-shadow">Make Appointment Here!</h2>
+        @if(session('status'))
+        <livewire:failure-alert :status='$status'>
+        @endif
         <p class="text-center">Fill the form below and we will get back soon to you for more updates and plan your appointment.</p>
        
         <div class="bg-dark w-100" style="height:2px"></div>
