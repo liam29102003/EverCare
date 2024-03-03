@@ -10,7 +10,7 @@
                 Patients&nbsp;<i class="fa-regular fa-paper-plane mb-0 "></i></a>
         @endif
         <a href='{{ route("rec.approve.online") }}' class="btn mt-md-2  me-5 shadow-sm position-relative" wire:navigate
-            style="background-color: #bb95dc; color: white; ">
+            style="background-color: #bb95dc; color: white;">
             Approve Online Approvements
             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                 {{ $sc }}
