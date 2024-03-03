@@ -11,6 +11,7 @@ class UploadPaymentPhoto extends Component
     use WithFileUploads;
     public $id;
     public $image; 
+    public $symptom;
 
     public function mount($id){
         $this->id = $id;
@@ -35,9 +36,8 @@ class UploadPaymentPhoto extends Component
     public function uploadImg(){
         $imageName = time().'.'.$this->image->extension();
         $this->image->storeAs('public/payment', $imageName);
-
         // You can store the image path in the database if needed
-        Appointment::where('id',$this->id)->update(['image' => $imageName]);
+        Appointment::where('id',$this->id)->update(['image' => $imageName,'symptoms'=>$this->symptom]);
 
         session()->flash('message', 'Image uploaded successfully.');
         return back();
