@@ -197,15 +197,15 @@ nav ul li a{
     </button>
     <div class="dropdown-content">
         @if(session()->get('name'))
-        <a href="{{route('patient.appointment')}}" wire:navigate>Profile</a>
+        <a href="{{route('patient.appointment')}}" wire:navigate>{{__('Profile')}}</a>
         <hr class="mt-1 mb-1">
-        <a href="{{route('patient.myAppointmentPage')}}" wire:navigate>My Appointments</a> 
+        <a href="{{route('patient.myAppointmentPage')}}" wire:navigate>{{__('My Appointments')}}</a> 
         <hr class="mt-1 mb-1">
-        <a href="{{route('patient.medicalRecord')}}" wire:navigate>My medical records</a> 
+        <a href="{{route('patient.medicalRecord')}}" wire:navigate>{{__('My medical records')}}</a> 
 <hr class="mt-1 mb-1">
-        <a href="{{route('patient.logout')}}" wire:navigate>Logout</a>
+        <a href="{{route('patient.logout')}}" wire:navigate>{{__('Logout')}}</a>
         @else
-        <a href="{{route('login_page')}}" wire:navigate >Login</a>
+        <a href="{{route('login_page')}}" wire:navigate >{{__('Login')}}</a>
         @endif
     </div>
 </div>
@@ -226,15 +226,15 @@ nav ul li a{
         <!-- Footer  -->
         <div class="footerContainer d-flex w-100 justify-content-between p-5">
             <div class="footerSection ">
-                <h4 class="footerTitle">Quick Guide</h4>
+                <h4 class="footerTitle">{{__('Quick Guide')}}</h4>
                 <div class="ps-3">
-                    <div class='contactInfo'><a>Blog</a></div>
-                    <div class='contactInfo'><a>Doctors</a></div>
-                    <div class='contactInfo'><a>Home</a></div>
+                    <div class='contactInfo'><a>{{__('Blog')}}</a></div>
+                    <div class='contactInfo'><a>{{__('Doctors')}}</a></div>
+                    <div class='contactInfo'><a>{{__('Home')}}</a></div>
                 </div>
             </div>
             <div class="footerSection">
-                <h4 class="footerTitle">Contact Information</h4>
+                <h4 class="footerTitle">{{__('Contact Information')}}</h4>
                 <div class="footerInfo"><i class="fa-solid fa-phone"></i>&nbsp;&nbsp;Tel: (+951) 7538055, (+959)
                     778778885</div>
                 <div class="footerInfo"><i class="fa-solid fa-envelope"></i>&nbsp;&nbsp;evercare@gmail.com</div>

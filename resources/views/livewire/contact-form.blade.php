@@ -42,15 +42,15 @@ color:white;
                 <div class="col-6 offset-3">
                     <div class="first-section p-3">
                         <div class="text">
-                            <h3 style="color:#bb95dc">Just say as Hello !</h3>
-                            <small style="color:#bb95dc">Let's us know about you</small>
+                            <h3 style="color:#bb95dc">{{__('Just say as Hello')}} !</h3>
+                            <small style="color:#bb95dc">{{__("Let's us know about you")}}</small>
                         </div>
     
                             <select wire:model="reason" id="" class="form-select">
-                                <option value="">Choose Reason for contact</option>
-                                <option value="sponsorship">Sponsorship</option>
-                                <option value="advertisement">Advertisement</option>
-                                <option value="other">Other</option>
+                                <option value="">{{__('Choose Reason for contact')}}</option>
+                                <option value="sponsorship">{{__('Sponsorship')}}</option>
+                                <option value="advertisement">{{__('Advertisement')}}</option>
+                                <option value="other">{{__('Other')}}</option>
                             </select>
                             @error('reason')
                                 <span class='text-danger'>{{$message}}</span>
