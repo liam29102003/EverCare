@@ -123,7 +123,7 @@
                                 <div class="card-body">
                                     <div class="row mb-3">
                                         <div class="col-sm-3">
-                                            <h6 class="mb-0">Name</h6>
+                                            <h6 class="mb-0">{{__('form.Name')}}</h6>
                                         </div>
                                         <div class="col-sm-9 text-secondary">
                                             <input type="text" class="form-control border-0 shadow-sm" wire:model='name'
@@ -135,7 +135,7 @@
                                     </div>
                                     <div class="row mb-3">
                                         <div class="col-sm-3">
-                                            <h6 class="mb-0">Email</h6>
+                                            <h6 class="mb-0">{{__('form.Email')}}</h6>
                                         </div>
                                         <div class="col-sm-9 text-secondary">
                                             <input type="text" class="form-control border-0 shadow-sm" value="{{ session('email') }}"
@@ -144,7 +144,7 @@
                                     </div>
                                     <div class="row mb-3">
                                         <div class="col-sm-3">
-                                            <h6 class="mb-0">Phone</h6>
+                                            <h6 class="mb-0">{{__('form.Phone')}}</h6>
                                         </div>
                                         <div class="col-sm-9 text-secondary">
                                             <input type="text" class="form-control border-0 shadow-sm" wire:model='phone'
@@ -153,7 +153,7 @@
                                     </div>
                                     <div class="row mb-3">
                                         <div class="col-sm-3">
-                                            <h6 class="mb-0">Gender</h6>
+                                            <h6 class="mb-0">{{__('form.Gender')}}</h6>
                                         </div>
                                         <div class="col-sm-9 text-secondary">
                                             <input type="text" class="form-control border-0 shadow-sm" wire:model='gender'
@@ -162,7 +162,7 @@
                                     </div>
                                     <div class="row mb-3">
                                         <div class="col-sm-3">
-                                            <h6 class="mb-0">DOB</h6>
+                                            <h6 class="mb-0">{{__('form.DOB')}}</h6>
                                         </div>
                                         <div class="col-sm-9 text-secondary">
                                             <input type="date" class="form-control border-0 shadow-sm" wire:model='dob'
@@ -171,7 +171,7 @@
                                     </div>
                                     <div class="row mb-3">
                                         <div class="col-sm-3">
-                                            <h6 class="mb-0">Address</h6>
+                                            <h6 class="mb-0">{{__('form.Address')}}</h6>
                                         </div>
                                         <div class="col-sm-9 text-secondary">
                                             <input type="text" class="form-control border-0 shadow-sm" wire:model='address'
@@ -181,7 +181,7 @@
                                     <div class="row">
                                         <div class="col-sm-3"></div>
                                         <div class="col-sm-9 text-secondary">
-                                            <button type="submit" class="btn px-4 pfbtn">Save Changes</button>
+                                            <button type="submit" class="btn px-4 pfbtn">{{__('form.Save_Changes')}}</button>
                                         </div>
                                     </div>
                                 </div>
