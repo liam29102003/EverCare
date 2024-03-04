@@ -199,7 +199,7 @@
 
                                 <div class="">
                                     <input type="text" class="form-control shadow-sm" id="basic-default-qa"
-                                        placeholder="MBBS" name='qualification' wire:model='fee'  style='border:0' value="{{ $doctor->fee }}" />
+                                        placeholder="***MMK" name='qualification' wire:model='fee'  style='border:0' value="{{ $doctor->price }}" />
                                     <small class="text-danger">
                                         @error('qualification')
                                             {{ $message }}

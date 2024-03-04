@@ -382,7 +382,7 @@
                     <div>
                       <form action="{{route('logout')}}" method="post">
                       @csrf
-                      <button class="btn btn-sm btn-primary">Logout</button>
+                      <button class="btn btn-sm " style="border: 1px solid #bb95dc; color:#bb95dc"><i class="bx bx-log-out-circle"></i> Logout</button>
                     </form>
                     </div>
                   </li>

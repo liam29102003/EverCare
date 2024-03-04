@@ -70,7 +70,7 @@ public $image;
         $d->name = $this->name;
         $d->email = $this->email;
         $d->phone = $this->phone;
-        $d->speciality = $this->speciality;
+        $d->specialization_id = $this->speciality;
         $d->qualification = $this->qualification;
         $d->gender = $this->gender;
         $d->exp = $this->exp;

@@ -22,7 +22,7 @@
                 <div class="card text-center p-3" style="background-color: #bb95dc; color:white">
                     <i class="fa-solid fa-coins mb-3 " style="font-size: 100px"></i>
                     <h4 class="text-white">This month Profit</h4>
-                    <h3 class="text-white">100+</h3>
+                    <h3 class="text-white">{{$total}}</h3>
                 </div>
             </div>
            

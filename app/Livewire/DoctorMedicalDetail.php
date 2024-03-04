@@ -133,7 +133,7 @@ class DoctorMedicalDetail extends Component
             $prescription->medical_record_id = $medicalRecord->id;
             $prescription->save();
         }
-        $appointment->delete();
+        $appointment->status = "finished";
         session()->flash('status', 'Medical Record added successfully');
         $this->redirect('/doctor/appointment/list',navigate:true);
     }
