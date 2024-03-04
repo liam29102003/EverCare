@@ -17,7 +17,7 @@
                         <table class="table">
                             <tr style="border-bottom: 2px solid white">
                                 <td colspan="3" class="text-center"><img
-                                        src="{{ asset('admin/assets/img/121115012_axcel_pcm_500mg_tab_10sx10.webp') }}"
+                                        src="{{ asset('storage/'.$pharmacy->image) }}"
                                         alt="" class="w-25  mx-auto"
                                         style="border: 2px solid #ffffff; width:20% !important; border-radius:10%"></td>
                             </tr>
