@@ -41,7 +41,7 @@
     </style>
     
 
-<div>
+<div style=" min-height:90vh">
     <h2 class="text-center mt-3">My Appointments</h2>
     <div class="container">
     <!-- <div class="">

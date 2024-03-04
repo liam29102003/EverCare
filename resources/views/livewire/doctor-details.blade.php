@@ -72,6 +72,7 @@
                                 <td>:</td>
                                 <td>
                                     <select name="" id="" class="form-select" wire:model='type'>
+                                        <option value="online" >Choose type</option>
                                         <option value="online" >Online</option>
                                         <option value="in person" >Inperson</option>
 

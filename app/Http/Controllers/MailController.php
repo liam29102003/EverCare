@@ -60,6 +60,6 @@ class MailController extends Controller
             'status'=>'approved',
             'price'=>$doctor->price,
         ]);
-        return back()->with(['success'=>"Appointment approved success!"]);
+        return redirect('receptionist/approve/appointmentPage')->with(['success'=>"Appointment approved success!"]);
     }
 }

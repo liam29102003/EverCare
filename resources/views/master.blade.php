@@ -161,6 +161,7 @@ nav ul li a{
 
 <!-- Nav section -->
 <!--  -->
+@if(request()->segment(2) !== 'payment')
 <nav>
         <div class="logo d-flex align-items-center">
         <i class="fa-solid fa-staff-snake me-2 fs-1 " ></i><div class=' fw-bold'>EVER CARE</div>
@@ -220,10 +221,13 @@ nav ul li a{
             <i class="fa-solid fa-bars" onclick="toggleMenu()"></i>
         </div>
     </nav>
+    @endif
 <!-- end of nav section -->
 @yield('content')
 
         <!-- Footer  -->
+        @if(request()->segment(2) !== 'payment')
+
         <div class="footerContainer d-flex w-100 justify-content-between p-5">
             <div class="footerSection ">
                 <h4 class="footerTitle">{{__('form.Quick_Guide')}}</h4>
@@ -241,7 +245,7 @@ nav ul li a{
                 <div class="footerInfo"> <i class="fa-solid fa-city"></i>&nbsp;&nbsp;No. 14, Baho Road, Sanchanung
                     Tsp, Yangon, Myanmar.</div>
             </div>
-form.
+
             <div class="footerSection">
 
                 <h4 class="footerTitle">{{__('form.Work_with_Us')}}</h4>
@@ -263,6 +267,7 @@ form.
             </span>
             <small class="" style='color:white;'>© 2019-2023 Evercare. All rights reserved.</small>
         </div>
+        @endif
         <!-- end of footer -->
         @livewireScripts()
         {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" data-navigate-track integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> --}}

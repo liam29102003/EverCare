@@ -35,8 +35,8 @@
         <img src="{{ $image->temporaryUrl() }}" style='width:300px;height:300px'>
     @endif
     <input type="file" name="" wire:model='image' id="" class='form-control'>
-    <label for="">Symptoms</label>
-    <textarea name="" wire:model='symptom' id="" cols="30" rows="10">
+    <label for="" class="text-dark">Symptoms</label>
+    <textarea name="" wire:model='symptom' id="" cols="30" rows="10" class="form-control">
 
     </textarea>
     

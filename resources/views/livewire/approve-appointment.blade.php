@@ -1,4 +1,11 @@
 <div>
+    <style>
+        .ww:hover{
+
+        transform: scale(3);
+        z-index: 100;
+        }
+    </style>
     @if(session('success'))
     <div x-data='{open:true}' x-init="setTimeout(() => { open = false; }, 5000)">
     <div   x-show="open" x-bind:class='{"d-block":open}' class="bs-toast toast toast-placement-ex m-2  bg-success" style="postion:absolute; top:0; right:0"  role="alert" aria-live="assertive"
@@ -31,7 +38,7 @@
                     <th style="color: #e2dcf8" >{{$a->name}} </th>                    
                     <th style="color: #e2dcf8" >{{$a->phone}}</th>
                     <th style="color: #e2dcf8" >
-                    <img src="{{asset('storage/payment/'.$a->image)}}" style='width:300px;' alt="">
+                    <img src="{{asset('storage/payment/'.$a->image)}}" class="ww" style='width:100px;' alt="">
                 </th>
                     <th style="color: #e2dcf8">
                     <!-- <button wire:click="approve({{$a->id}})" class="btn btn-sm btn-success">Approve</button> -->
