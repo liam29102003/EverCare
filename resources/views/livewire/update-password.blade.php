@@ -4,7 +4,7 @@
             
             <table class="table">
                 <tr>
-                    <td><label for="" class="">Old password</label></td>
+                    <td><label for="" class="">{{__('form.Old')}} password</label></td>
                     <td>:</td>
                     <td>
                         <input type="password" wire:model='currentPassword' name="" id=""
@@ -16,7 +16,7 @@
                 </tr>
               
                 <tr>
-                    <td><label for="" class="">New Password</label></td>
+                    <td><label for="" class="">{{__('form.New')}} Password</label></td>
                     <td>:</td>
                     <td>
                         <input type="password" wire:model='newPassword' name="" id=""
@@ -27,7 +27,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><label for="" class="">Confirm Password</label></td>
+                    <td><label for="" class="">{{__('form.Confirm')}} Password</label></td>
                     <td>:</td>
                     <td>
                         <input type="password" wire:model='confirmPassword' name="" id=""
