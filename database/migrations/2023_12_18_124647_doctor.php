@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('specialization_id');
             $table->string('qualification');
             $table->string('gender');
+            $table->integer('price');
             $table->string('image');
             $table->longText('bio');
             $table->timestamps();
